@@ -26,6 +26,14 @@
   color: var(--kw-bg);
 }
 
+/* ---------- header: cart/account icons removed, logo-centered navbar ---------- */
+/* No native Horizon toggle exists for these icons (unlike show_search, which
+   is disabled via section settings) — hidden here instead. Scoped to
+   #header-component so it can't leak into any other rendered instance. */
+#header-component header-actions {
+  display: none !important;
+}
+
 .kw-scope,
 .kw-scope * {
   box-sizing: border-box;
