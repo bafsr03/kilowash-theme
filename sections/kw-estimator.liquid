@@ -1,7 +1,7 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
 <section class="kw-scope kw-section kw-section--raised" id="kw-est-{{ section.id }}">
-  <div class="kw-noise"></div>
+  <div class="kw-blueprint"></div>
   <div class="kw-wrap kw-est__inner">
     <div class="kw-est__intro kw-reveal">
       {% if section.settings.eyebrow != blank %}
@@ -64,7 +64,7 @@
         </div>
         <p class="kw-est__disclaimer">{{ section.settings.disclaimer }}</p>
         {% if section.settings.cta_label != blank %}
-          <a href="{{ section.settings.cta_link }}" class="kw-btn kw-magnetic">{{ section.settings.cta_label }}</a>
+          <a href="{{ section.settings.cta_link }}" class="kw-btn">{{ section.settings.cta_label }}</a>
         {% endif %}
       </div>
     </div>
@@ -199,10 +199,12 @@
 
   #kw-est-{{ section.id }} .kw-est__result-range {
     font-family: var(--kw-display);
+    font-variant-numeric: tabular-nums;
     font-size: clamp(1.8rem, 3.4vw, 2.6rem);
     color: var(--kw-gold);
-    text-shadow: 0 0 24px #f5b94255;
     margin-bottom: 0.8rem;
+    border-top: 1px solid var(--kw-line-bright);
+    padding-top: 0.6rem;
   }
 
   #kw-est-{{ section.id }} .kw-est__disclaimer {

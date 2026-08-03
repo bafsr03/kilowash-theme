@@ -1,40 +1,45 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
 <section class="kw-scope kw-cta" id="kw-cta-{{ section.id }}">
-  <div class="kw-orbfield">
-    <span class="kw-orb kw-orb--gold"></span>
-    <span class="kw-orb kw-orb--teal"></span>
-  </div>
-  <div class="kw-noise"></div>
-  <div class="kw-wrap kw-cta__inner">
-    {% if section.settings.eyebrow != blank %}
-      <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
-    {% endif %}
-    <h2 class="kw-cta__heading kw-reveal">{{ section.settings.heading }}</h2>
-    <p class="kw-cta__phone kw-reveal">
-      <a href="tel:{{ section.settings.phone_link }}">{{ section.settings.phone_display }}</a>
-    </p>
-    <div class="kw-cta__actions kw-reveal">
-      {% if section.settings.primary_label != blank %}
-        <a href="{{ section.settings.primary_link }}" class="kw-btn kw-magnetic">{{ section.settings.primary_label }}</a>
+  <div class="kw-blueprint"></div>
+  <div class="kw-wrap">
+    <div class="kw-cta__inner kw-bracket">
+      <div class="kw-scanline"></div>
+      {% if section.settings.eyebrow != blank %}
+        <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
       {% endif %}
-      {% if section.settings.secondary_label != blank %}
-        <a href="{{ section.settings.secondary_link }}" class="kw-btn kw-btn--ghost kw-magnetic">{{ section.settings.secondary_label }}</a>
-      {% endif %}
+      <h2 class="kw-cta__heading kw-reveal">{{ section.settings.heading }}</h2>
+      <p class="kw-cta__phone kw-reveal">
+        <a href="tel:{{ section.settings.phone_link }}">{{ section.settings.phone_display }}</a>
+      </p>
+      <div class="kw-cta__actions kw-reveal">
+        {% if section.settings.primary_label != blank %}
+          <a href="{{ section.settings.primary_link }}" class="kw-btn">{{ section.settings.primary_label }}</a>
+        {% endif %}
+        {% if section.settings.secondary_label != blank %}
+          <a href="{{ section.settings.secondary_link }}" class="kw-btn kw-btn--ghost">{{ section.settings.secondary_label }}</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   #kw-cta-{{ section.id }} {
+    position: relative;
+    overflow: clip;
     padding-block: clamp(64px, 10vw, 128px);
     text-align: center;
+    background: var(--kw-bg);
   }
 
   #kw-cta-{{ section.id }} .kw-cta__inner {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: clamp(28px, 5vw, 56px) clamp(20px, 4vw, 48px);
   }
 
   #kw-cta-{{ section.id }} .kw-eyebrow {
@@ -53,10 +58,17 @@
 
   #kw-cta-{{ section.id }} .kw-cta__phone a {
     font-family: var(--kw-display);
-    font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(1.5rem, 3.4vw, 2.2rem);
     color: var(--kw-gold);
     text-decoration: none;
-    text-shadow: 0 0 24px #f5b94266;
+    border-bottom: 1px solid var(--kw-line-bright);
+    padding-bottom: 0.15em;
+    transition: border-color 0.3s ease;
+  }
+
+  #kw-cta-{{ section.id }} .kw-cta__phone a:hover {
+    border-color: var(--kw-gold);
   }
 
   #kw-cta-{{ section.id }} .kw-cta__actions {

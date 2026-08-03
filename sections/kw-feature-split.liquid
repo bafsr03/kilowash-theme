@@ -37,7 +37,7 @@
         </ul>
       {% endif %}
       {% if section.settings.link_label != blank %}
-        <a href="{{ section.settings.link_url }}" class="kw-btn kw-btn--teal kw-magnetic">{{ section.settings.link_label }}</a>
+        <a href="{{ section.settings.link_url }}" class="kw-btn kw-btn--teal">{{ section.settings.link_label }}</a>
       {% endif %}
     </div>
   </div>
@@ -118,12 +118,10 @@
     content: '';
     position: absolute;
     left: 0;
-    top: 0.5em;
+    top: 0.55em;
     width: 8px;
-    height: 8px;
-    border-radius: 50%;
+    height: 2px;
     background: var(--kw-teal);
-    box-shadow: 0 0 10px 1px var(--kw-teal);
   }
 
   @media (max-width: 800px) {

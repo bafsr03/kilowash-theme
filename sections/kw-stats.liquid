@@ -1,12 +1,9 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
 <section class="kw-scope kw-section" id="kw-stats-{{ section.id }}">
-  <div class="kw-orbfield">
-    <span class="kw-orb kw-orb--violet"></span>
-  </div>
   <div class="kw-wrap kw-stats__inner">
     {% for block in section.blocks %}
-      <div class="kw-reveal" style="transition-delay: {{ forloop.index0 | times: 0.08 }}s" {{ block.shopify_attributes }}>
+      <div class="kw-stat kw-reveal" style="transition-delay: {{ forloop.index0 | times: 0.06 }}s" {{ block.shopify_attributes }}>
         <div class="kw-stat__number" data-count="{{ block.settings.number }}" data-suffix="{{ block.settings.suffix }}" data-decimals="{{ block.settings.decimals }}">0{{ block.settings.suffix }}</div>
         <div class="kw-stat__label">{{ block.settings.label }}</div>
       </div>

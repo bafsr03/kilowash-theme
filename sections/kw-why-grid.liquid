@@ -1,7 +1,7 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
 <section class="kw-scope kw-section{% if section.settings.raised %} kw-section--raised{% endif %}" id="kw-why-{{ section.id }}">
-  <div class="kw-noise"></div>
+  <div class="kw-blueprint"></div>
   <div class="kw-wrap kw-why__inner">
     {% if section.settings.eyebrow != blank %}
       <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
@@ -13,6 +13,7 @@
     <div class="kw-why__grid">
       {% for block in section.blocks %}
         <div class="kw-card kw-reveal" style="transition-delay: {{ forloop.index0 | times: 0.08 }}s" {{ block.shopify_attributes }}>
+          <span class="kw-card__index">N&deg;{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
           <div class="kw-why__icon">{{ block.settings.icon }}</div>
           <h4>{{ block.settings.title }}</h4>
           <p>{{ block.settings.body }}</p>
