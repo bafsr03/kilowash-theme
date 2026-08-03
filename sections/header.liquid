@@ -452,6 +452,32 @@
       >
         <div class="header__columns spacing-style">
           {{ content }}
+          {% if row == 'top' %}
+            <div class="kw-navsplit">
+              <nav class="kw-navsplit__side kw-navsplit__side--left" aria-label="{{ 'accessibility.header_navigation_label' | t }}">
+                <ul class="kw-navsplit__list" role="list">
+                  {% for link in linklists['main-menu'].links limit: 3 %}
+                    <li>
+                      <a href="{{ link.url }}" class="kw-navsplit__link{% if link.current %} kw-navsplit__link--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>
+                        {{- link.title -}}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </nav>
+              <nav class="kw-navsplit__side kw-navsplit__side--right" aria-label="{{ 'accessibility.header_navigation_label' | t }}">
+                <ul class="kw-navsplit__list" role="list">
+                  {% for link in linklists['main-menu'].links offset: 3 %}
+                    <li>
+                      <a href="{{ link.url }}" class="kw-navsplit__link{% if link.current %} kw-navsplit__link--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>
+                        {{- link.title -}}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </nav>
+            </div>
+          {% endif %}
         </div>
       </div>
     {% endif %}

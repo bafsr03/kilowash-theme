@@ -34,9 +34,59 @@
   display: none !important;
 }
 
+/* ---------- header: 3 nav links left / logo center / 3 nav links right ----------
+   Horizon's native header only supports one menu block in one grid column, so a
+   true split (not just centering the logo over one menu) isn't possible with
+   section settings alone. Desktop swaps the native overflow-list menu for a
+   custom two-sided nav (sections/header.liquid) built from the same main-menu
+   linklist and overlaid across the header's own grid columns; mobile keeps the
+   untouched native hamburger + drawer. */
 @media screen and (min-width: 750px) {
-  #header-component .menu-list__link-title {
-    padding-inline: 22px;
+  #header-component .header-menu {
+    display: none !important;
+  }
+
+  #header-component .kw-navsplit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  #header-component .kw-navsplit__side {
+    pointer-events: auto;
+  }
+
+  #header-component .kw-navsplit__list {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #header-component .kw-navsplit__link {
+    font-family: var(--font-heading--family);
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--color-foreground);
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+  }
+
+  #header-component .kw-navsplit__link:hover,
+  #header-component .kw-navsplit__link--active {
+    opacity: 0.7;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  #header-component .kw-navsplit {
+    display: none;
   }
 }
 
