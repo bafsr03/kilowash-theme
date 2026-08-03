@@ -45,6 +45,11 @@
   function initReveals(root) {
     (root || document).querySelectorAll('.kw-reveal, .kw-reveal-scale, .kw-bracket, .kw-scanline').forEach(function (el) {
       revealObserver.observe(el);
+      // Safety net: force-reveal if the observer never reports intersecting
+      // (e.g. an element whose own styling zeroes its visible area).
+      window.setTimeout(function () {
+        el.classList.add('is-visible');
+      }, 2500);
     });
   }
 

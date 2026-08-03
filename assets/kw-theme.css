@@ -238,17 +238,21 @@
   transform: translate(3px, -3px);
 }
 
-/* ---------- reveal-on-scroll: clip-reveal, no drift/blur ---------- */
+/* ---------- reveal-on-scroll: fade + rise ----------
+   Note: intentionally not clip-path — clip-path on the observed element
+   itself zeroes its own visible area, so IntersectionObserver never
+   reports it as intersecting and .is-visible never gets added (permanent
+   deadlock, verified live: 0/23 reveal elements ever fired). */
 
 .kw-reveal {
   opacity: 0;
-  clip-path: inset(0 0 100% 0);
-  transition: opacity 0.7s var(--kw-ease), clip-path 0.7s var(--kw-ease);
+  transform: translateY(14px);
+  transition: opacity 0.7s var(--kw-ease), transform 0.7s var(--kw-ease);
 }
 
 .kw-reveal.is-visible {
   opacity: 1;
-  clip-path: inset(0 0 0% 0);
+  transform: translateY(0);
 }
 
 .kw-reveal-scale {
