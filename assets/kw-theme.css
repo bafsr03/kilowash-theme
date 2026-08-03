@@ -361,6 +361,11 @@
   grid-column: span 3;
   grid-row: span 2;
   border: 1px solid var(--kw-line);
+  transition: border-color 0.35s ease;
+}
+
+.kw-gallery__item:hover {
+  border-color: var(--kw-gold);
 }
 
 .kw-gallery__item img {
@@ -368,13 +373,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.8s var(--kw-ease), filter 0.6s ease;
-  filter: grayscale(0.85) contrast(1.05) brightness(0.85);
+  transition: transform 0.6s var(--kw-ease);
 }
 
 .kw-gallery__item:hover img {
   transform: scale(1.05);
-  filter: grayscale(0) saturate(1.1) contrast(1.03) brightness(0.95);
 }
 
 .kw-gallery__caption {
@@ -388,10 +391,10 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--kw-bg);
-  background: var(--kw-fg);
+  background: var(--kw-gold);
   padding: 0.5em 0.8em;
   transform: translateY(100%);
-  transition: transform 0.4s var(--kw-ease-snap);
+  transition: transform 0.4s var(--kw-ease-snap), background 0.3s ease;
 }
 
 .kw-gallery__item:hover .kw-gallery__caption {
@@ -415,9 +418,6 @@
     background: linear-gradient(0deg, #0a0d12ee, transparent);
     color: var(--kw-fg);
     border: none;
-  }
-  .kw-gallery__item img {
-    filter: grayscale(0.3) contrast(1.03) brightness(0.85);
   }
 }
 
@@ -502,5 +502,144 @@
 @media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
   #kw-reticle {
     display: none;
+  }
+}
+
+/* ---------- smart light switch: live, functional color control ---------- */
+/* A real interactive demo of "full smart color control" — visitors pick a
+   color and the site's accent (buttons, labels, readouts) re-lights across
+   every page, the same way the app controls a customer's actual fixtures. */
+
+#kw-lightswitch {
+  position: fixed;
+  right: clamp(14px, 3vw, 28px);
+  bottom: clamp(14px, 3vw, 28px);
+  z-index: 500;
+  font-family: var(--kw-body);
+}
+
+#kw-lightswitch .kw-ls-toggle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--kw-line-bright);
+  background: var(--kw-bg-raised);
+  color: var(--kw-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 24px -8px #000000cc;
+  transition: border-color 0.3s ease, transform 0.3s var(--kw-ease-snap);
+}
+
+#kw-lightswitch .kw-ls-toggle:hover {
+  border-color: var(--kw-gold);
+  transform: scale(1.06);
+}
+
+#kw-lightswitch .kw-ls-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+#kw-lightswitch .kw-ls-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  min-width: 216px;
+  background: var(--kw-bg-raised);
+  border: 1px solid var(--kw-line-bright);
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: 0 12px 40px -12px #000000e0;
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s var(--kw-ease-snap);
+}
+
+#kw-lightswitch.is-open .kw-ls-panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+#kw-lightswitch .kw-ls-label {
+  font-family: var(--kw-display);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--kw-fg-dim);
+  margin-bottom: 10px;
+  display: block;
+}
+
+#kw-lightswitch .kw-ls-swatches {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#kw-lightswitch .kw-ls-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s var(--kw-ease-snap), border-color 0.2s ease;
+}
+
+#kw-lightswitch .kw-ls-swatch:hover {
+  transform: scale(1.15);
+}
+
+#kw-lightswitch .kw-ls-swatch[aria-pressed='true'] {
+  border-color: var(--kw-fg);
+}
+
+#kw-lightswitch .kw-ls-flash {
+  position: fixed;
+  top: var(--flash-y, 50%);
+  left: var(--flash-x, 50%);
+  width: 300px;
+  height: 300px;
+  z-index: 499;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--flash-color, #f5b942) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0.15);
+}
+
+#kw-lightswitch .kw-ls-flash.is-flashing {
+  animation: kw-ls-flash 0.6s var(--kw-ease-snap);
+}
+
+@keyframes kw-ls-flash {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.15);
+  }
+  25% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #kw-lightswitch .kw-ls-flash.is-flashing {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  #kw-lightswitch {
+    right: 14px;
+    bottom: 14px;
   }
 }

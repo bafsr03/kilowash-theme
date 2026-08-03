@@ -91,9 +91,71 @@
     });
   }
 
+  // Smart light switch: pick a color, the whole site's accent re-lights.
+  function initLightSwitch() {
+    var root = document.getElementById('kw-lightswitch');
+    if (!root) return;
+
+    var toggle = document.getElementById('kw-ls-toggle');
+    var flash = document.getElementById('kw-ls-flash');
+    var swatches = root.querySelectorAll('[data-kw-ls-color]');
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    try {
+      var savedAccent = window.localStorage.getItem('kw-accent');
+      if (savedAccent) {
+        swatches.forEach(function (s) {
+          s.setAttribute('aria-pressed', s.dataset.kwLsColor === savedAccent ? 'true' : 'false');
+        });
+      }
+    } catch (err) {
+      /* localStorage unavailable — swatches keep their default pressed state */
+    }
+
+    toggle.addEventListener('click', function () {
+      var open = root.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!root.contains(e.target)) {
+        root.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    swatches.forEach(function (swatch) {
+      swatch.addEventListener('click', function (e) {
+        var color = swatch.dataset.kwLsColor;
+
+        document.documentElement.style.setProperty('--kw-gold', color);
+        try {
+          window.localStorage.setItem('kw-accent', color);
+        } catch (err) {
+          /* localStorage unavailable (private mode) — color still applies for this session */
+        }
+
+        swatches.forEach(function (s) {
+          s.setAttribute('aria-pressed', s === swatch ? 'true' : 'false');
+        });
+
+        if (!reduceMotion && flash) {
+          var rect = swatch.getBoundingClientRect();
+          flash.style.setProperty('--flash-x', rect.left + rect.width / 2 + 'px');
+          flash.style.setProperty('--flash-y', rect.top + rect.height / 2 + 'px');
+          flash.style.setProperty('--flash-color', color);
+          flash.classList.remove('is-flashing');
+          void flash.offsetWidth;
+          flash.classList.add('is-flashing');
+        }
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initReveals();
     initReadouts();
+    initLightSwitch();
   });
 
   document.addEventListener('shopify:section:load', function (e) {

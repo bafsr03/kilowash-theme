@@ -42,7 +42,16 @@
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
     <link rel="stylesheet" href="{{ 'kw-theme.css' | asset_url }}">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+      (function () {
+        try {
+          var savedAccent = window.localStorage.getItem('kw-accent');
+          if (savedAccent) {
+            document.documentElement.style.setProperty('--kw-gold', savedAccent);
+          }
+        } catch (e) {}
+      })();
+    </script>
     <script src="{{ 'kw-theme.js' | asset_url }}" defer></script>
 
     {% if request.design_mode %}
@@ -145,6 +154,8 @@
         {% sections 'footer-group' %}
       </footer>
     </div>
+
+    {% render 'kw-light-switch' %}
 
     {% render 'cart-drawer', render_wrapper: true %}
     {% render 'theme-drawer' %}
