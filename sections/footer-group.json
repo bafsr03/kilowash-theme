@@ -11,6 +11,25 @@
   "type": "footer",
   "name": "t:names.footer",
   "sections": {
+    "kw_footer_main": {
+      "type": "kw-footer",
+      "blocks": {
+        "link_home": { "type": "footer_link", "settings": { "label": "Home", "url": "/" } },
+        "link_lighting": { "type": "footer_link", "settings": { "label": "Lighting", "url": "/pages/lighting" } },
+        "link_solar": { "type": "footer_link", "settings": { "label": "Solar", "url": "/pages/solar" } },
+        "link_estimate": { "type": "footer_link", "settings": { "label": "Estimate", "url": "/pages/estimate" } },
+        "link_about": { "type": "footer_link", "settings": { "label": "About", "url": "/pages/about" } },
+        "link_contact": { "type": "footer_link", "settings": { "label": "Contact", "url": "/pages/contact" } }
+      },
+      "block_order": ["link_home", "link_lighting", "link_solar", "link_estimate", "link_about", "link_contact"],
+      "name": "KW Footer",
+      "settings": {
+        "tagline": "Permanent architectural lighting and solar solutions — installed and owned by a local Utah crew.",
+        "phone": "385-406-2335",
+        "email": "KilowashUtah@gmail.com",
+        "area_text": "Serving the Wasatch Front, Utah"
+      }
+    },
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
@@ -193,6 +212,7 @@
     }
   },
   "order": [
+    "kw_footer_main",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
   ]

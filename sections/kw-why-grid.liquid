@@ -36,8 +36,20 @@
 
   #kw-why-{{ section.id }} .kw-why__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.1rem;
+  }
+
+  @media (max-width: 900px) {
+    #kw-why-{{ section.id }} .kw-why__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    #kw-why-{{ section.id }} .kw-why__grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   #kw-why-{{ section.id }} .kw-why__icon {

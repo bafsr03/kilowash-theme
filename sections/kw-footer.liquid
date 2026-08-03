@@ -1,0 +1,153 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<footer class="kw-scope kw-footer" id="kw-footer-{{ section.id }}">
+  <div class="kw-blueprint"></div>
+  <div class="kw-wrap kw-footer__inner">
+    <div class="kw-footer__brand">
+      <a href="{{ routes.root_url }}" class="kw-footer__logo">
+        {% if settings.logo != blank %}
+          <img
+            src="{{ settings.logo | image_url: width: 480 }}"
+            alt="{{ shop.name }}"
+            width="{{ settings.logo.width }}"
+            height="{{ settings.logo.height }}"
+            loading="lazy"
+          >
+        {% else %}
+          <img src="{{ 'kilowash-logo.png' | asset_url }}" alt="{{ shop.name }}" loading="lazy">
+        {% endif %}
+      </a>
+      <p class="kw-footer__tagline">{{ section.settings.tagline }}</p>
+    </div>
+
+    <div class="kw-footer__col">
+      <p class="kw-footer__col-label">Explore</p>
+      <ul class="kw-footer__links">
+        {% for block in section.blocks %}
+          {% if block.type == 'footer_link' %}
+            <li {{ block.shopify_attributes }}><a href="{{ block.settings.url }}">{{ block.settings.label }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="kw-footer__col">
+      <p class="kw-footer__col-label">Get in touch</p>
+      <ul class="kw-footer__links">
+        <li><a href="tel:{{ section.settings.phone | remove: '-' | remove: ' ' | prepend: '+1' }}">{{ section.settings.phone }}</a></li>
+        <li><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li>
+      </ul>
+      <p class="kw-footer__area">{{ section.settings.area_text }}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  #kw-footer-{{ section.id }} {
+    position: relative;
+    padding-block: clamp(48px, 7vw, 80px) clamp(32px, 5vw, 48px);
+    border-top: 1px solid var(--kw-line);
+  }
+
+  #kw-footer-{{ section.id }} .kw-footer__inner {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: clamp(28px, 5vw, 56px);
+  }
+
+  #kw-footer-{{ section.id }} .kw-footer__logo {
+    display: inline-block;
+    max-width: 220px;
+  }
+
+  #kw-footer-{{ section.id }} .kw-footer__logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  #kw-footer-{{ section.id }} .kw-footer__tagline {
+    margin: 1rem 0 0;
+    max-width: 32ch;
+    color: var(--kw-fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  #kw-footer-{{ section.id }} .kw-footer__col-label {
+    font-family: var(--kw-display);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--kw-fg-dim);
+    margin: 0 0 1.1rem;
+  }
+
+  #kw-footer-{{ section.id }} .kw-footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  #kw-footer-{{ section.id }} .kw-footer__links a {
+    color: var(--kw-fg);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: color 0.2s ease;
+  }
+
+  #kw-footer-{{ section.id }} .kw-footer__links a:hover {
+    color: var(--kw-gold);
+  }
+
+  #kw-footer-{{ section.id }} .kw-footer__area {
+    margin: 1.1rem 0 0;
+    color: var(--kw-fg-dim);
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 700px) {
+    #kw-footer-{{ section.id }} .kw-footer__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Footer",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "tagline", "label": "Tagline", "default": "Permanent architectural lighting and solar solutions — installed and owned by a local Utah crew." },
+    { "type": "text", "id": "phone", "label": "Phone", "default": "385-406-2335" },
+    { "type": "text", "id": "email", "label": "Email", "default": "KilowashUtah@gmail.com" },
+    { "type": "text", "id": "area_text", "label": "Service area line", "default": "Serving the Wasatch Front, Utah" }
+  ],
+  "blocks": [
+    {
+      "type": "footer_link",
+      "name": "Link",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Link" },
+        { "type": "url", "id": "url", "label": "URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KW Footer",
+      "blocks": [
+        { "type": "footer_link", "settings": { "label": "Home", "url": "/" } },
+        { "type": "footer_link", "settings": { "label": "Lighting", "url": "/pages/lighting" } },
+        { "type": "footer_link", "settings": { "label": "Solar", "url": "/pages/solar" } },
+        { "type": "footer_link", "settings": { "label": "Estimate", "url": "/pages/estimate" } },
+        { "type": "footer_link", "settings": { "label": "About", "url": "/pages/about" } },
+        { "type": "footer_link", "settings": { "label": "Contact", "url": "/pages/contact" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
