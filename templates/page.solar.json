@@ -1,0 +1,124 @@
+{
+  "sections": {
+    "kw_solar_hero": {
+      "type": "kw-hero",
+      "settings": {
+        "image_asset": "kw-solar-black-array.jpg",
+        "min_height": 70,
+        "eyebrow": "Solar & Attic Solutions",
+        "heading": "Cooler home. Lower bills. Cleaner air.",
+        "subheading": "Solar panels, solar-powered attic fans, radiant barriers and Critter Guard bird & pest protection — engineered for Utah roofs.",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Call / Text 385-406-2335",
+        "secondary_link": "tel:3854062335",
+        "show_marquee": false
+      }
+    },
+    "kw_solar_feature_fans": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-fan-roof-install.jpg",
+        "badge": "Powered by the Sun",
+        "image_position": "left",
+        "eyebrow": "Solar attic fans",
+        "heading": "Pull the heat out. Keep the cool in.",
+        "body": "Our solar attic fans run entirely off the sun — no electrician, no wiring into your panel, no added utility cost. They pull hot, moist air out of your attic, reducing mold risk in winter and cooling your living space in summer.",
+        "list_items": "100% solar powered — zero electricity cost\nTemps up to 70°F reduced to a cooler attic\nReduces moisture & mold risk year-round\nQuiet brushless DC motor, rated for years of use",
+        "link_label": "Estimate my attic fans",
+        "link_url": "/pages/estimate"
+      }
+    },
+    "kw_solar_feature_panels": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-solar-roof-array.jpg",
+        "badge": "Full Solar",
+        "image_position": "right",
+        "eyebrow": "Solar panel installation",
+        "heading": "Own your power, not just your home.",
+        "body": "Full rooftop solar installations sized to your household's usage, installed by our local crew and backed by a 10-year warranty on workmanship.",
+        "list_items": "Custom-designed system sizing\nLow-profile, one-way vented mounting\n10-year installation warranty\nWorks alongside Critter Guard protection"
+      }
+    },
+    "kw_solar_problem": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-critter-bird-nest.jpg",
+        "badge": "The Problem",
+        "image_position": "left",
+        "eyebrow": "What's living under your panels?",
+        "heading": "Birds, pigeons & pests love the shade under your panels.",
+        "body": "The gap beneath solar panels is a perfect, sheltered nesting spot — and what moves in causes real damage: droppings that stain and corrode, nesting debris that's a fire risk, and costly repairs to reach.",
+        "list_items": "Droppings damage panels & void warranties\nNesting material is a fire hazard\nPest removal and cleanup gets expensive fast"
+      }
+    },
+    "kw_solar_solution": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-critter-mesh-install.jpg",
+        "badge": "Critter Guard",
+        "image_position": "right",
+        "eyebrow": "The solution",
+        "heading": "Total exclusion. Zero maintenance.",
+        "body": "Critter Guard is a low-profile, rust-resistant 1/2-inch mesh that clips directly to your panel frame — keeping birds, pigeons and rodents out for good, without being visible from the ground.",
+        "list_items": "1/2\" mesh keeps everything out\nClips to frame, no roof penetration\nDiscreet, low-profile design\n10-year warranty included",
+        "link_label": "Protect my panels",
+        "link_url": "/pages/estimate"
+      }
+    },
+    "kw_solar_gallery": {
+      "type": "kw-gallery",
+      "blocks": {
+        "g1": { "type": "photo", "settings": { "image_asset": "kw-solar-low-profile.jpg", "caption": "Low-profile commercial array", "wide": true } },
+        "g2": { "type": "photo", "settings": { "image_asset": "kw-fan-gable-vent.jpg", "caption": "Gable-mounted solar fan" } },
+        "g3": { "type": "photo", "settings": { "image_asset": "kw-critter-mesh-closeup.jpg", "caption": "Critter Guard mesh, close up" } },
+        "g4": { "type": "photo", "settings": { "image_asset": "kw-fan-before-after.jpg", "caption": "Before & after venting" } },
+        "g5": { "type": "photo", "settings": { "image_asset": "kw-solar-street-view.jpg", "caption": "Street-view solar install", "wide": true } },
+        "g6": { "type": "photo", "settings": { "image_asset": "kw-fan-mountain-roof.jpg", "caption": "Solar fan, mountain view" } }
+      },
+      "block_order": ["g1", "g2", "g3", "g4", "g5", "g6"],
+      "settings": {
+        "eyebrow": "Recent installs",
+        "heading": "Solar, fans & Critter Guard in the field."
+      }
+    },
+    "kw_solar_why": {
+      "type": "kw-why-grid",
+      "blocks": {
+        "efficient": { "type": "feature", "settings": { "icon": "☀️", "title": "100% solar powered", "body": "Attic fans run entirely off the sun — no electrician, no added utility bill." } },
+        "protect": { "type": "feature", "settings": { "icon": "🛡️", "title": "Total pest exclusion", "body": "Critter Guard mesh keeps birds, pigeons and rodents out — permanently." } },
+        "warranty": { "type": "feature", "settings": { "icon": "🏆", "title": "10-year warranty", "body": "Every solar and attic install is backed for a decade." } }
+      },
+      "block_order": ["efficient", "protect", "warranty"],
+      "settings": {
+        "raised": true,
+        "eyebrow": "Why Kilowash solar",
+        "heading": "Built to protect your investment."
+      }
+    },
+    "kw_solar_cta": {
+      "type": "kw-cta-banner",
+      "settings": {
+        "eyebrow": "Protect your roof & your bills",
+        "heading": "Get your rough price in under a minute.",
+        "phone_display": "385-406-2335",
+        "phone_link": "3854062335",
+        "primary_label": "Estimate my solar project",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Ask a question",
+        "secondary_link": "/pages/contact"
+      }
+    }
+  },
+  "order": [
+    "kw_solar_hero",
+    "kw_solar_feature_fans",
+    "kw_solar_feature_panels",
+    "kw_solar_problem",
+    "kw_solar_solution",
+    "kw_solar_gallery",
+    "kw_solar_why",
+    "kw_solar_cta"
+  ]
+}

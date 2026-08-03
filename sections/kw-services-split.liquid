@@ -1,0 +1,179 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-scope kw-split" id="kw-split-{{ section.id }}">
+  <a class="kw-split__panel" href="{{ section.settings.link_a }}">
+    {% if section.settings.image_a != blank %}
+      <img
+        src="{{ section.settings.image_a | image_url: width: 1400 }}"
+        srcset="{{ section.settings.image_a | image_url: width: 700 }} 700w, {{ section.settings.image_a | image_url: width: 1400 }} 1400w"
+        sizes="50vw"
+        alt="{{ section.settings.title_a | escape }}"
+        loading="lazy"
+        width="{{ section.settings.image_a.width }}"
+        height="{{ section.settings.image_a.height }}"
+      >
+    {% elsif section.settings.image_a_asset != blank %}
+      <img src="{{ section.settings.image_a_asset | asset_url }}" alt="{{ section.settings.title_a | escape }}" loading="lazy">
+    {% endif %}
+    <div class="kw-split__scrim kw-split__scrim--gold"></div>
+    <div class="kw-split__content">
+      <span class="kw-split__index">01</span>
+      <h3>{{ section.settings.title_a }}</h3>
+      <p>{{ section.settings.copy_a }}</p>
+      <span class="kw-split__cta">{{ section.settings.cta_a | default: 'Explore lighting' }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </span>
+    </div>
+  </a>
+
+  <a class="kw-split__panel" href="{{ section.settings.link_b }}">
+    {% if section.settings.image_b != blank %}
+      <img
+        src="{{ section.settings.image_b | image_url: width: 1400 }}"
+        srcset="{{ section.settings.image_b | image_url: width: 700 }} 700w, {{ section.settings.image_b | image_url: width: 1400 }} 1400w"
+        sizes="50vw"
+        alt="{{ section.settings.title_b | escape }}"
+        loading="lazy"
+        width="{{ section.settings.image_b.width }}"
+        height="{{ section.settings.image_b.height }}"
+      >
+    {% elsif section.settings.image_b_asset != blank %}
+      <img src="{{ section.settings.image_b_asset | asset_url }}" alt="{{ section.settings.title_b | escape }}" loading="lazy">
+    {% endif %}
+    <div class="kw-split__scrim kw-split__scrim--teal"></div>
+    <div class="kw-split__content">
+      <span class="kw-split__index">02</span>
+      <h3>{{ section.settings.title_b }}</h3>
+      <p>{{ section.settings.copy_b }}</p>
+      <span class="kw-split__cta">{{ section.settings.cta_b | default: 'Explore solar' }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </span>
+    </div>
+  </a>
+</section>
+
+<style>
+  #kw-split-{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 78vh;
+  }
+
+  #kw-split-{{ section.id }} .kw-split__panel {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--kw-fg);
+    isolation: isolate;
+  }
+
+  #kw-split-{{ section.id }} .kw-split__panel img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.06);
+    transition: transform 1.2s var(--kw-ease), filter 0.6s ease;
+    filter: brightness(0.6) saturate(1.05);
+    z-index: -2;
+  }
+
+  #kw-split-{{ section.id }} .kw-split__panel:hover img {
+    transform: scale(1.15);
+    filter: brightness(0.72) saturate(1.2);
+  }
+
+  #kw-split-{{ section.id }} .kw-split__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, #0a0d1200 20%, #0a0d12ea 92%);
+  }
+
+  #kw-split-{{ section.id }} .kw-split__scrim--gold {
+    box-shadow: inset 0 -140px 160px -80px #f5b94255;
+  }
+
+  #kw-split-{{ section.id }} .kw-split__scrim--teal {
+    box-shadow: inset 0 -140px 160px -80px #29d9c255;
+  }
+
+  #kw-split-{{ section.id }} .kw-split__content {
+    position: relative;
+    padding: clamp(28px, 4vw, 56px);
+    width: 100%;
+  }
+
+  #kw-split-{{ section.id }} .kw-split__index {
+    font-family: var(--kw-display);
+    color: var(--kw-fg-dim);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+
+  #kw-split-{{ section.id }} h3 {
+    font-family: var(--kw-display);
+    font-size: clamp(1.9rem, 3.4vw, 3rem);
+    margin-block: 0.35em 0.3em;
+  }
+
+  #kw-split-{{ section.id }} p {
+    max-width: 40ch;
+    color: var(--kw-fg-dim);
+    margin: 0 0 1.4rem;
+  }
+
+  #kw-split-{{ section.id }} .kw-split__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-bottom: 1.5px solid currentColor;
+    padding-bottom: 0.2em;
+  }
+
+  #kw-split-{{ section.id }} .kw-split__cta svg {
+    width: 1.1em;
+    height: 1.1em;
+    transition: transform 0.4s var(--kw-ease);
+  }
+
+  #kw-split-{{ section.id }} .kw-split__panel:hover .kw-split__cta svg {
+    transform: translate(4px, -4px);
+  }
+
+  @media (max-width: 800px) {
+    #kw-split-{{ section.id }} {
+      grid-template-columns: 1fr;
+    }
+    #kw-split-{{ section.id }} .kw-split__panel {
+      min-height: 60vh;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Services split",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image_a", "label": "Panel A image (overrides asset below)" },
+    { "type": "text", "id": "image_a_asset", "label": "Panel A — theme asset filename" },
+    { "type": "text", "id": "title_a", "label": "Panel A title", "default": "Permanent Lighting" },
+    { "type": "textarea", "id": "copy_a", "label": "Panel A copy", "default": "Architectural, holiday & smart-color lighting built into your roofline for good." },
+    { "type": "text", "id": "cta_a", "label": "Panel A CTA label", "default": "Explore lighting" },
+    { "type": "url", "id": "link_a", "label": "Panel A link" },
+    { "type": "image_picker", "id": "image_b", "label": "Panel B image (overrides asset below)" },
+    { "type": "text", "id": "image_b_asset", "label": "Panel B — theme asset filename" },
+    { "type": "text", "id": "title_b", "label": "Panel B title", "default": "Solar & Attic Solutions" },
+    { "type": "textarea", "id": "copy_b", "label": "Panel B copy", "default": "Solar panels, attic fans and critter guard — engineered to lower bills and protect your roof." },
+    { "type": "text", "id": "cta_b", "label": "Panel B CTA label", "default": "Explore solar" },
+    { "type": "url", "id": "link_b", "label": "Panel B link" }
+  ],
+  "presets": [{ "name": "KW Services split" }]
+}
+{% endschema %}

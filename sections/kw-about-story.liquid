@@ -1,0 +1,149 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-scope kw-section" id="kw-story-{{ section.id }}">
+  <div class="kw-wrap kw-story__inner">
+    <div class="kw-story__copy kw-reveal">
+      {% if section.settings.eyebrow != blank %}
+        <p class="kw-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+      <div class="kw-story__body">{{ section.settings.body }}</div>
+    </div>
+
+    <div class="kw-story__strip">
+      {% for block in section.blocks %}
+        <div class="kw-story__polaroid kw-reveal-scale" style="--r: {{ block.settings.rotation }}deg; transition-delay: {{ forloop.index0 | times: 0.1 }}s" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 700 }}"
+              alt="{{ block.settings.caption | escape }}"
+              loading="lazy"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}"
+            >
+          {% elsif block.settings.image_asset != blank %}
+            <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.caption | escape }}" loading="lazy">
+          {% endif %}
+          <span>{{ block.settings.caption }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #kw-story-{{ section.id }} {
+    padding-block: clamp(56px, 8vw, 108px);
+  }
+
+  #kw-story-{{ section.id }} .kw-story__inner {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+  }
+
+  #kw-story-{{ section.id }} h2 {
+    font-family: var(--kw-display);
+    font-size: clamp(2rem, 3.6vw, 3.1rem);
+    margin-block: 0.4em 0.6em;
+    max-width: 14ch;
+  }
+
+  #kw-story-{{ section.id }} .kw-story__body {
+    color: var(--kw-fg-dim);
+    max-width: 46ch;
+    line-height: 1.7;
+  }
+
+  #kw-story-{{ section.id }} .kw-story__body p {
+    margin: 0 0 1.1em;
+  }
+
+  #kw-story-{{ section.id }} .kw-story__strip {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem 1rem;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  #kw-story-{{ section.id }} .kw-story__polaroid {
+    background: var(--kw-bg-raised);
+    border: 1px solid var(--kw-line);
+    border-radius: 10px;
+    padding: 10px 10px 34px;
+    width: 44%;
+    transform: rotate(var(--r));
+    transition: transform 0.5s var(--kw-ease), z-index 0s;
+    box-shadow: 0 18px 40px -20px #000000cc;
+    position: relative;
+  }
+
+  #kw-story-{{ section.id }} .kw-story__polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 5;
+  }
+
+  #kw-story-{{ section.id }} .kw-story__polaroid img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+  }
+
+  #kw-story-{{ section.id }} .kw-story__polaroid span {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    font-family: var(--kw-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+    color: var(--kw-bg);
+  }
+
+  @media (max-width: 800px) {
+    #kw-story-{{ section.id }} .kw-story__inner {
+      grid-template-columns: 1fr;
+    }
+    #kw-story-{{ section.id }} .kw-story__polaroid {
+      width: 60%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW About story",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "A local crew, obsessed with the details." },
+    { "type": "richtext", "id": "body", "label": "Body" }
+  ],
+  "blocks": [
+    {
+      "type": "polaroid",
+      "name": "Field photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (overrides asset below)" },
+        { "type": "text", "id": "image_asset", "label": "Image — theme asset filename" },
+        { "type": "text", "id": "caption", "label": "Caption" },
+        { "type": "range", "id": "rotation", "label": "Rotation", "min": -10, "max": 10, "step": 1, "default": -4 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KW About story",
+      "blocks": [
+        { "type": "polaroid", "settings": { "image_asset": "kw-solar-black-array.jpg", "caption": "On the roof", "rotation": -6 } },
+        { "type": "polaroid", "settings": { "image_asset": "kw-light-blue-house.jpg", "caption": "Every night, on time", "rotation": 4 } }
+      ]
+    }
+  ]
+}
+{% endschema %}

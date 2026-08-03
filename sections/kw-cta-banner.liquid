@@ -1,0 +1,86 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-scope kw-cta" id="kw-cta-{{ section.id }}">
+  <div class="kw-orbfield">
+    <span class="kw-orb kw-orb--gold"></span>
+    <span class="kw-orb kw-orb--teal"></span>
+  </div>
+  <div class="kw-noise"></div>
+  <div class="kw-wrap kw-cta__inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    <h2 class="kw-cta__heading kw-reveal">{{ section.settings.heading }}</h2>
+    <p class="kw-cta__phone kw-reveal">
+      <a href="tel:{{ section.settings.phone_link }}">{{ section.settings.phone_display }}</a>
+    </p>
+    <div class="kw-cta__actions kw-reveal">
+      {% if section.settings.primary_label != blank %}
+        <a href="{{ section.settings.primary_link }}" class="kw-btn kw-magnetic">{{ section.settings.primary_label }}</a>
+      {% endif %}
+      {% if section.settings.secondary_label != blank %}
+        <a href="{{ section.settings.secondary_link }}" class="kw-btn kw-btn--ghost kw-magnetic">{{ section.settings.secondary_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #kw-cta-{{ section.id }} {
+    padding-block: clamp(64px, 10vw, 128px);
+    text-align: center;
+  }
+
+  #kw-cta-{{ section.id }} .kw-cta__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #kw-cta-{{ section.id }} .kw-eyebrow {
+    justify-content: center;
+  }
+
+  #kw-cta-{{ section.id }} .kw-cta__heading {
+    font-size: clamp(2.2rem, 5.6vw, 4.2rem);
+    max-width: 18ch;
+    margin-block: 0.4em 0.5em;
+  }
+
+  #kw-cta-{{ section.id }} .kw-cta__phone {
+    margin: 0 0 2rem;
+  }
+
+  #kw-cta-{{ section.id }} .kw-cta__phone a {
+    font-family: var(--kw-display);
+    font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+    color: var(--kw-gold);
+    text-decoration: none;
+    text-shadow: 0 0 24px #f5b94266;
+  }
+
+  #kw-cta-{{ section.id }} .kw-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW CTA banner",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Ready when you are" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "If your home is dark, you're missing out on the wow factor." },
+    { "type": "text", "id": "phone_display", "label": "Phone (display)", "default": "385-406-2335" },
+    { "type": "text", "id": "phone_link", "label": "Phone (tel link)", "default": "3854062335" },
+    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "Get my free estimate" },
+    { "type": "url", "id": "primary_link", "label": "Primary button link" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Email us" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary button link", "default": "mailto:KilowashUtah@gmail.com" }
+  ],
+  "presets": [{ "name": "KW CTA banner" }]
+}
+{% endschema %}

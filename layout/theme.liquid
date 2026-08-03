@@ -41,6 +41,9 @@
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
+    <link rel="stylesheet" href="{{ 'kw-theme.css' | asset_url }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="{{ 'kw-theme.js' | asset_url }}" defer></script>
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}

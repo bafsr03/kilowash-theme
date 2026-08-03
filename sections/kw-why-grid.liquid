@@ -1,0 +1,97 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-scope kw-section{% if section.settings.raised %} kw-section--raised{% endif %}" id="kw-why-{{ section.id }}">
+  <div class="kw-noise"></div>
+  <div class="kw-wrap kw-why__inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="kw-why__heading kw-reveal">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="kw-why__grid">
+      {% for block in section.blocks %}
+        <div class="kw-card kw-reveal" style="transition-delay: {{ forloop.index0 | times: 0.08 }}s" {{ block.shopify_attributes }}>
+          <div class="kw-why__icon">{{ block.settings.icon }}</div>
+          <h4>{{ block.settings.title }}</h4>
+          <p>{{ block.settings.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #kw-why-{{ section.id }} {
+    padding-block: clamp(56px, 8vw, 108px);
+  }
+
+  #kw-why-{{ section.id }} .kw-why__heading {
+    font-size: clamp(1.9rem, 3.6vw, 3rem);
+    max-width: 20ch;
+    margin-block: 0.4em 2.6rem;
+  }
+
+  #kw-why-{{ section.id }} .kw-why__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.1rem;
+  }
+
+  #kw-why-{{ section.id }} .kw-why__icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  #kw-why-{{ section.id }} .kw-card h4 {
+    font-family: var(--kw-display);
+    font-size: 1.1rem;
+    margin: 0 0 0.5em;
+    color: var(--kw-fg);
+  }
+
+  #kw-why-{{ section.id }} .kw-card p {
+    margin: 0;
+    color: var(--kw-fg-dim);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Why grid",
+  "tag": "section",
+  "settings": [
+    { "type": "checkbox", "id": "raised", "label": "Raised background", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Kilowash" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Built for Utah roofs. Backed for a decade." }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "⚡" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Full smart control" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Control color, timing and scenes from your phone — no ladder required." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KW Why grid",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "🏠", "title": "Increase home value", "body": "Boost curb appeal instantly with lighting that makes your home the one everyone notices." } },
+        { "type": "feature", "settings": { "icon": "⚡", "title": "Full smart control", "body": "Control from your phone — millions of colors, scenes, and schedules, all built in." } },
+        { "type": "feature", "settings": { "icon": "🔆", "title": "Year-round lighting", "body": "Holiday, game day, events — all built in, ready with the tap of a button." } },
+        { "type": "feature", "settings": { "icon": "🛡️", "title": "Custom, discreet install", "body": "Hidden channel design keeps wiring and hardware invisible, day and night." } },
+        { "type": "feature", "settings": { "icon": "💰", "title": "Energy efficient LEDs", "body": "Bright, powerful, and low cost to run — engineered to last for years." } },
+        { "type": "feature", "settings": { "icon": "🏆", "title": "10-year warranty", "body": "Craftsmanship and lighting both backed for a decade. We stand behind our work." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

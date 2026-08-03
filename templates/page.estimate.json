@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "kw_est_hero": {
+      "type": "kw-hero",
+      "settings": {
+        "image_asset": "kw-light-green-white.jpg",
+        "min_height": 46,
+        "eyebrow": "Free rough estimate",
+        "heading": "What's your project worth, roughly?",
+        "subheading": "Slide to your roofline or panel size below. We'll confirm exact pricing with a free on-site visit.",
+        "primary_label": "",
+        "primary_link": "",
+        "secondary_label": "",
+        "secondary_link": "",
+        "show_marquee": false
+      }
+    },
+    "kw_est_calculator": {
+      "type": "kw-estimator",
+      "settings": {
+        "eyebrow": "Rough price estimator",
+        "heading": "Get your ballpark now.",
+        "subheading": "This gives a rough low-to-high range for budgeting. Every project is confirmed with a free, no-obligation on-site measurement.",
+        "disclaimer": "Rough estimate only, for budgeting purposes. Final pricing is confirmed after a free on-site measurement.",
+        "cta_label": "Send me this estimate",
+        "cta_link": "/pages/contact"
+      }
+    },
+    "kw_est_why": {
+      "type": "kw-why-grid",
+      "blocks": {
+        "step1": { "type": "feature", "settings": { "icon": "📋", "title": "1. Get your rough range", "body": "Use the calculator above for a ballpark, or call/text us directly." } },
+        "step2": { "type": "feature", "settings": { "icon": "📞", "title": "2. We call within 24 hours", "body": "A real person on our local crew follows up to schedule your free visit." } },
+        "step3": { "type": "feature", "settings": { "icon": "✅", "title": "3. Free on-site measurement", "body": "We confirm exact pricing on-site — no pressure, no obligation." } }
+      },
+      "block_order": ["step1", "step2", "step3"],
+      "settings": {
+        "raised": true,
+        "eyebrow": "How it works",
+        "heading": "From estimate to install."
+      }
+    },
+    "kw_est_cta": {
+      "type": "kw-cta-banner",
+      "settings": {
+        "eyebrow": "Prefer to talk it through?",
+        "heading": "Call or text and we'll walk you through pricing.",
+        "phone_display": "385-406-2335",
+        "phone_link": "3854062335",
+        "primary_label": "Send an inquiry",
+        "primary_link": "/pages/contact",
+        "secondary_label": "Email us",
+        "secondary_link": "mailto:KilowashUtah@gmail.com"
+      }
+    }
+  },
+  "order": ["kw_est_hero", "kw_est_calculator", "kw_est_why", "kw_est_cta"]
+}

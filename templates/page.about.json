@@ -1,0 +1,92 @@
+{
+  "sections": {
+    "kw_about_hero": {
+      "type": "kw-hero",
+      "settings": {
+        "image_asset": "kw-light-blue-house.jpg",
+        "min_height": 56,
+        "eyebrow": "About Kilowash",
+        "heading": "A local crew, obsessed with the details.",
+        "subheading": "Kilowash Lighting and Solar Solutions is a Utah-owned team installing permanent lighting, solar and attic protection — built and backed by the people who show up on your roof.",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "",
+        "secondary_link": "",
+        "show_marquee": false
+      }
+    },
+    "kw_about_story": {
+      "type": "kw-about-story",
+      "blocks": {
+        "p1": { "type": "polaroid", "settings": { "image_asset": "kw-solar-black-array.jpg", "caption": "On the roof, every job", "rotation": -6 } },
+        "p2": { "type": "polaroid", "settings": { "image_asset": "kw-light-purple-white.jpg", "caption": "Every night, on time", "rotation": 4 } }
+      },
+      "block_order": ["p1", "p2"],
+      "settings": {
+        "eyebrow": "Our story",
+        "heading": "Why we started Kilowash",
+        "body": "<p>We got tired of watching homeowners overpay outside vendors for lighting and solar work that never fit their home or their budget. Kilowash was built to put that control back in your hands — a single local team that installs, owns, and stands behind every roofline of lighting, every solar panel and every attic fan we put up.</p><p>No call centers, no subcontracted crews you've never met. When you call or text, you're talking to the people who show up at your house.</p>"
+      }
+    },
+    "kw_about_stats": {
+      "type": "kw-stats",
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "number": 50000, "suffix": "+", "label": "LED bulb hours before service" } },
+        "s2": { "type": "stat", "settings": { "number": 10, "suffix": "yr", "label": "Craftsmanship & lighting warranty" } },
+        "s3": { "type": "stat", "settings": { "number": 24, "suffix": "hr", "label": "Lead response time" } },
+        "s4": { "type": "stat", "settings": { "number": 100, "suffix": "%", "label": "Locally owned & operated" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": {}
+    },
+    "kw_about_why": {
+      "type": "kw-why-grid",
+      "blocks": {
+        "local": { "type": "feature", "settings": { "icon": "📍", "title": "Local, not a franchise", "body": "We're based right here in Utah — same crew from estimate to install to warranty call." } },
+        "own": { "type": "feature", "settings": { "icon": "🔑", "title": "You own everything", "body": "Your Shopify site, your data, your leads. No vendor lock-in, ever." } },
+        "response": { "type": "feature", "settings": { "icon": "⏱️", "title": "24-hour response", "body": "Every inquiry gets a callback within 24 hours — from a real person, not a script." } }
+      },
+      "block_order": ["local", "own", "response"],
+      "settings": {
+        "raised": true,
+        "eyebrow": "What sets us apart",
+        "heading": "Straightforward, start to finish."
+      }
+    },
+    "kw_about_gallery": {
+      "type": "kw-gallery",
+      "blocks": {
+        "g1": { "type": "photo", "settings": { "image_asset": "kw-light-rainbow-day.jpg", "caption": "Day install, night reveal", "wide": true } },
+        "g2": { "type": "photo", "settings": { "image_asset": "kw-fan-roof-single.jpg", "caption": "Attic fan install" } },
+        "g3": { "type": "photo", "settings": { "image_asset": "kw-critter-commercial.jpg", "caption": "Commercial Critter Guard" } },
+        "g4": { "type": "photo", "settings": { "image_asset": "kw-light-red-green.jpg", "caption": "Holiday lighting, every color" } }
+      },
+      "block_order": ["g1", "g2", "g3", "g4"],
+      "settings": {
+        "eyebrow": "In the field",
+        "heading": "This is what we do."
+      }
+    },
+    "kw_about_cta": {
+      "type": "kw-cta-banner",
+      "settings": {
+        "eyebrow": "Let's talk about your home",
+        "heading": "Get your rough price in under a minute.",
+        "phone_display": "385-406-2335",
+        "phone_link": "3854062335",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Contact us",
+        "secondary_link": "/pages/contact"
+      }
+    }
+  },
+  "order": [
+    "kw_about_hero",
+    "kw_about_story",
+    "kw_about_stats",
+    "kw_about_why",
+    "kw_about_gallery",
+    "kw_about_cta"
+  ]
+}
