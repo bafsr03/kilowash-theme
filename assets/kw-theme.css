@@ -1,6 +1,8 @@
 /* Kilowash — Midnight Electric design system */
-
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+/* Display font (Unbounded) and body font (Work Sans) are already loaded by
+   Shopify's own font pipeline via the theme's font_picker settings — see
+   snippets/fonts.liquid — so we reference the CSS vars it defines rather
+   than re-importing from Google Fonts. */
 
 :root {
   --kw-bg: #0a0d12;
@@ -13,8 +15,8 @@
   --kw-teal-soft: #29d9c233;
   --kw-violet: #c14bff;
   --kw-line: #232b36;
-  --kw-display: 'Unbounded', var(--font-heading--family), sans-serif;
-  --kw-body: 'Hanken Grotesk', var(--font-body--family), sans-serif;
+  --kw-display: var(--font-heading--family), sans-serif;
+  --kw-body: var(--font-body--family), sans-serif;
   --kw-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
