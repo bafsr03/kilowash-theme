@@ -9,10 +9,10 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/Kilowash_b8bcba5c-277b-4e27-b990-7bef8f505953.png",
+    "logo": "shopify://shop_images/Logo-Photoroom.png",
     "logo_height": 56,
     "logo_height_mobile": 40,
-    "favicon": "shopify://shop_images/Kilowash_b8bcba5c-277b-4e27-b990-7bef8f505953.png",
+    "favicon": "shopify://shop_images/Logo-Photoroom.png",
     "page_text_color": "{{ settings.color_palette.foreground }}",
     "type_body_font": "work_sans_n4",
     "type_subheading_font": "work_sans_n6",
