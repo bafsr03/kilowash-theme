@@ -21,7 +21,10 @@
   endif
 
   assign alt_text_fallback = 'accessibility.home_logo_alt' | t: store_name: shop.name
-  assign use_kw_logo_asset = settings.logo == blank
+  assign use_kw_logo_asset = false
+  if settings.logo == blank
+    assign use_kw_logo_asset = true
+  endif
 %}
 
 {% comment %}
