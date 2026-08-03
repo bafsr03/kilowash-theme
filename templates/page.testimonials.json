@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "kw_testi_hero": {
+      "type": "kw-hero",
+      "settings": {
+        "image_asset": "kw-project-featured-02.jpg",
+        "min_height": 56,
+        "eyebrow": "Real homes, real reviews",
+        "heading": "Homes that speak for themselves.",
+        "subheading": "See recent installs and hear directly from the homeowners we've worked with across the Wasatch Front.",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "",
+        "secondary_link": "",
+        "show_marquee": false
+      }
+    },
+    "kw_testi_featured": {
+      "type": "kw-featured-project",
+      "settings": {
+        "image_asset": "kw-project-featured-01.jpg",
+        "badge": "Recent install",
+        "image_position": "left",
+        "image_2_asset": "kw-project-featured-02.jpg",
+        "image_2_caption": "Full-color smart lighting, every angle",
+        "image_2_rotation": -4,
+        "eyebrow": "Featured project",
+        "heading": "A home that stands out",
+        "body": "<p>This roofline now runs full-color smart lighting, controlled entirely from the homeowner's phone — one scene for every night of the year. Homeowner quote coming soon.</p>",
+        "quote": "",
+        "quote_author": "",
+        "link_label": "Get my free estimate",
+        "link_url": "/pages/estimate"
+      }
+    },
+    "kw_testi_reviews": {
+      "type": "kw-testimonials",
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "quote": "Replace with a real customer quote — ask a recent customer for a short review of their install.", "rating": 5, "author_name": "Customer name", "author_location": "City, UT" } },
+        "t2": { "type": "testimonial", "settings": { "quote": "Replace with a real customer quote — ask a recent customer for a short review of their install.", "rating": 5, "author_name": "Customer name", "author_location": "City, UT" } },
+        "t3": { "type": "testimonial", "settings": { "quote": "Replace with a real customer quote — ask a recent customer for a short review of their install.", "rating": 5, "author_name": "Customer name", "author_location": "City, UT" } }
+      },
+      "block_order": ["t1", "t2", "t3"],
+      "settings": {
+        "eyebrow": "Customer reviews",
+        "heading": "Homes that speak for themselves."
+      }
+    },
+    "kw_testi_cta": {
+      "type": "kw-cta-banner",
+      "settings": {
+        "eyebrow": "Ready when you are",
+        "heading": "Want your home featured next?",
+        "phone_display": "385-406-2335",
+        "phone_link": "3854062335",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Email us",
+        "secondary_link": "mailto:KilowashUtah@gmail.com"
+      }
+    }
+  },
+  "order": [
+    "kw_testi_hero",
+    "kw_testi_featured",
+    "kw_testi_reviews",
+    "kw_testi_cta"
+  ]
+}

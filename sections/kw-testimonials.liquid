@@ -1,0 +1,155 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-scope kw-section" id="kw-testi-{{ section.id }}">
+  <div class="kw-wrap">
+    {% if section.settings.eyebrow != blank %}
+      <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="kw-testi__heading kw-reveal">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="kw-testi__grid">
+      {% for block in section.blocks %}
+        <div class="kw-testi__card kw-reveal-scale" style="transition-delay: {{ forloop.index0 | times: 0.08 }}s" {{ block.shopify_attributes }}>
+          {% if block.settings.rating > 0 %}
+            <div class="kw-testi__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+              {% for i in (1..5) %}
+                <span class="{% if i <= block.settings.rating %}is-filled{% endif %}">&#9733;</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% if block.settings.quote != blank %}
+            <p class="kw-testi__quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+          {% endif %}
+          <div class="kw-testi__author">
+            {% if block.settings.author_image != blank %}
+              <img
+                class="kw-testi__avatar"
+                src="{{ block.settings.author_image | image_url: width: 96 }}"
+                alt="{{ block.settings.author_name | escape }}"
+                loading="lazy"
+                width="48"
+                height="48"
+              >
+            {% endif %}
+            <div>
+              {% if block.settings.author_name != blank %}
+                <span class="kw-testi__author-name">{{ block.settings.author_name }}</span>
+              {% endif %}
+              {% if block.settings.author_location != blank %}
+                <span class="kw-testi__author-location">{{ block.settings.author_location }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #kw-testi-{{ section.id }} {
+    padding-block: clamp(56px, 8vw, 108px);
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__heading {
+    font-family: var(--kw-display);
+    font-size: clamp(1.9rem, 3.6vw, 3rem);
+    max-width: 20ch;
+    margin-block: 0.4em 2.4rem;
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.4rem;
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__card {
+    background: var(--kw-bg-raised);
+    border: 1px solid var(--kw-line);
+    border-radius: 16px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__stars {
+    color: var(--kw-line-bright);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.9rem;
+    font-size: 1rem;
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__stars .is-filled {
+    color: var(--kw-gold);
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__quote {
+    color: var(--kw-fg);
+    line-height: 1.6;
+    margin: 0 0 1.4rem;
+    flex-grow: 1;
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__author-name {
+    display: block;
+    font-family: var(--kw-display);
+    font-size: 0.9rem;
+    color: var(--kw-fg);
+  }
+
+  #kw-testi-{{ section.id }} .kw-testi__author-location {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--kw-fg-dim);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Testimonials",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Customer reviews" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Homes that speak for themselves." }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "range", "id": "rating", "label": "Star rating", "min": 0, "max": 5, "step": 1, "default": 5 },
+        { "type": "image_picker", "id": "author_image", "label": "Homeowner photo (optional)" },
+        { "type": "text", "id": "author_name", "label": "Homeowner name" },
+        { "type": "text", "id": "author_location", "label": "Homeowner location (e.g. Draper, UT)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KW Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "Replace with a real customer quote — ask a recent customer for a short review of their install.", "rating": 5, "author_name": "Customer name", "author_location": "City, UT" } },
+        { "type": "testimonial", "settings": { "quote": "Replace with a real customer quote — ask a recent customer for a short review of their install.", "rating": 5, "author_name": "Customer name", "author_location": "City, UT" } },
+        { "type": "testimonial", "settings": { "quote": "Replace with a real customer quote — ask a recent customer for a short review of their install.", "rating": 5, "author_name": "Customer name", "author_location": "City, UT" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
