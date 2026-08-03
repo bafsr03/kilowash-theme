@@ -34,6 +34,12 @@
   display: none !important;
 }
 
+@media screen and (min-width: 750px) {
+  #header-component .menu-list__link-title {
+    padding-inline: 22px;
+  }
+}
+
 .kw-scope,
 .kw-scope * {
   box-sizing: border-box;
