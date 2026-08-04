@@ -53,6 +53,20 @@
         "list_items": "Patio & pergola accent runs\nGarage and entryway highlights\nFully weatherproof, rated for Utah winters\nInstalled by our own local crew"
       }
     },
+    "kw_light_occasions": {
+      "type": "kw-why-grid",
+      "blocks": {
+        "gameday": { "type": "feature", "settings": { "icon": "🏈", "title": "Game day lights", "body": "Switch to your team's colors before kickoff — one tap from your phone, no ladder required." } },
+        "holiday": { "type": "feature", "settings": { "icon": "🎄", "title": "Holiday lights", "body": "Classic red & green, icy white, or your own custom scene — up in seconds, down whenever you're ready for the next occasion." } },
+        "accent": { "type": "feature", "settings": { "icon": "🔒", "title": "Accent / security lights", "body": "A steady, warm glow every night that highlights your home's architecture and keeps the property lit after dark." } }
+      },
+      "block_order": ["gameday", "holiday", "accent"],
+      "settings": {
+        "raised": false,
+        "eyebrow": "One system, every occasion",
+        "heading": "Lighting for game day, the holidays, and every night in between."
+      }
+    },
     "kw_light_gallery": {
       "type": "kw-gallery",
       "blocks": {
@@ -102,6 +116,7 @@
     "kw_light_feature_1",
     "kw_light_feature_2",
     "kw_light_feature_3",
+    "kw_light_occasions",
     "kw_light_gallery",
     "kw_light_why",
     "kw_light_cta"
