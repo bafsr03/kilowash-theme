@@ -1,6 +1,10 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
-{% assign roofline = "60,265|92.5,250.42|125,235.83|157.5,221.25|190,206.67|222.5,192.08|255,177.5|287.5,162.92|320,148.33|352.5,133.75|385,119.17|417.5,104.58|450,90|482.5,104.58|515,119.17|547.5,133.75|580,148.33|612.5,162.92|645,177.5|677.5,192.08|710,206.67|742.5,221.25|775,235.83|807.5,250.42|840,265" | split: "|" %}
+{% assign roofline_main = "320,220|335,208.33|350,196.67|365,185|380,173.33|395,161.67|410,150|425,138.33|440,126.67|455,115|470,103.33|485,91.67|500,80|515,91.67|530,103.33|545,115|560,126.67|575,138.33|590,150|605,161.67|620,173.33|635,185|650,196.67|665,208.33|680,220" | split: "|" %}
+{% assign roofline_garage = "75,265|105,265|135,265|165,265|195,265|225,265|255,265|285,265|315,265|345,265" | split: "|" %}
+{% assign roofline_balcony = "355,310|393.6,310|432.1,310|470.7,310|509.3,310|547.9,310|586.4,310|625,310" | split: "|" %}
+{% assign garage_offset = roofline_main.size %}
+{% assign balcony_offset = roofline_main.size | plus: roofline_garage.size %}
 
 <section class="kw-scope kw-section{% if section.settings.raised %} kw-section--raised{% endif %}" id="kw-app-{{ section.id }}">
   <div class="kw-blueprint"></div>
@@ -19,7 +23,6 @@
 
     <div class="kws__showcase">
       <div class="kws__phone kw-reveal-scale">
-        <div class="kws-phone__glow" data-kws-glow data-scene="gold"></div>
         <div class="kws-phone">
           <div class="kws-phone__bar">
             <span class="kws-phone__mark" aria-hidden="true">
@@ -81,112 +84,103 @@
       </div>
 
       <div class="kws__house">
-        <svg class="kws-house" data-kws-house data-scene="gold" viewBox="0 0 900 560" role="img" aria-label="Illustration of a luxury two-story house with animated color-changing roofline lights">
-          <ellipse cx="450" cy="520" rx="380" ry="16" fill="rgba(0,0,0,0.35)" />
+        <div class="kws-house-glow" aria-hidden="true"></div>
+        <svg class="kws-house" data-kws-house data-scene="gold" viewBox="0 0 800 520" role="img" aria-label="Flat vector illustration of a house with three animated color-changing light strips">
+          <ellipse cx="400" cy="495" rx="340" ry="14" fill="rgba(0,0,0,0.3)" />
+
+          <!-- garage volume -->
+          <rect x="70" y="263" width="280" height="17" fill="#1c222b" />
+          <rect x="70" y="280" width="280" height="4" fill="#12161c" />
+          <rect x="80" y="284" width="260" height="196" fill="#4b5563" />
+          <rect x="75" y="478" width="270" height="10" fill="#333b45" />
+          <rect x="100" y="340" width="220" height="140" fill="#232a33" />
+          <line x1="130" y1="345" x2="130" y2="475" stroke="#171c22" stroke-width="3" />
+          <line x1="160" y1="345" x2="160" y2="475" stroke="#171c22" stroke-width="3" />
+          <line x1="190" y1="345" x2="190" y2="475" stroke="#171c22" stroke-width="3" />
+          <line x1="220" y1="345" x2="220" y2="475" stroke="#171c22" stroke-width="3" />
+          <line x1="250" y1="345" x2="250" y2="475" stroke="#171c22" stroke-width="3" />
+          <line x1="280" y1="345" x2="280" y2="475" stroke="#171c22" stroke-width="3" />
 
           <!-- main roof -->
-          <polygon points="60,265 450,90 840,265" fill="#1c222b" />
-          <polyline points="60,265 450,90 840,265" fill="none" stroke="#3a4656" stroke-width="3" />
+          <polygon points="320,220 500,80 680,220" fill="#1c222b" />
+          <polygon points="500,80 680,220 620,220" fill="#2c3540" />
+          <polyline points="320,220 500,80 680,220" fill="none" stroke="#3a4656" stroke-width="3" />
 
-          <!-- chimney -->
-          <rect x="680" y="140" width="28" height="95" fill="#39424d" stroke="#171c22" stroke-width="2" />
-          <rect x="674" y="133" width="40" height="11" fill="#171c22" />
+          <!-- main wall -->
+          <rect x="340" y="220" width="300" height="260" fill="#e8e4da" />
+          <rect x="615" y="220" width="25" height="260" fill="#c9c3b4" />
+          <rect x="335" y="478" width="310" height="10" fill="#a39d8f" />
 
-          <!-- body -->
-          <rect x="140" y="265" width="660" height="230" fill="#4b5563" />
-          <rect x="130" y="495" width="680" height="14" fill="#333b45" />
+          <!-- gable accent -->
+          <polygon points="460,195 500,125 540,195" fill="#8a5a3f" />
 
-          <!-- gable vent window -->
-          <line x1="450" y1="115" x2="450" y2="150" stroke="#5b6472" stroke-width="3" />
-          <circle class="kws-window" cx="450" cy="195" r="32" fill="#ffe9b3" stroke="#e8e4da" stroke-width="5" />
-          <line x1="450" y1="163" x2="450" y2="227" stroke="#5b6472" stroke-width="3" />
-          <line x1="418" y1="195" x2="482" y2="195" stroke="#5b6472" stroke-width="3" />
+          <!-- upper windows -->
+          <rect x="372" y="238" width="68" height="68" fill="#232a33" />
+          <rect class="kws-window" x="380" y="246" width="52" height="52" fill="#ffe9b3" />
+          <line x1="406" y1="246" x2="406" y2="298" stroke="#5b6472" stroke-width="2" />
+          <line x1="380" y1="272" x2="432" y2="272" stroke="#5b6472" stroke-width="2" />
 
-          <!-- dormers (4, symmetric pairs) -->
-          {% assign dormers = "180,211|310,153|590,153|720,211" | split: "|" %}
-          {% for d in dormers %}
-            {% assign a = d | split: "," %}
-            {% assign ax = a[0] %}
-            {% assign ay = a[1] %}
-            <polygon points="{{ ax | minus: 32 }},{{ ay | minus: 12 }} {{ ax }},{{ ay | minus: 46 }} {{ ax | plus: 32 }},{{ ay | minus: 12 }}" fill="#1c222b" stroke="#3a4656" stroke-width="2" />
-            <rect x="{{ ax | minus: 26 }}" y="{{ ay | minus: 12 }}" width="52" height="50" fill="#e8e4da" />
-            <rect class="kws-window" x="{{ ax | minus: 17 }}" y="{{ ay | minus: 4 }}" width="34" height="32" fill="#ffe9b3" stroke="#333b45" stroke-width="3" />
-            <line x1="{{ ax }}" y1="{{ ay | minus: 4 }}" x2="{{ ax }}" y2="{{ ay | plus: 28 }}" stroke="#333b45" stroke-width="2" />
+          <rect x="560" y="238" width="68" height="68" fill="#232a33" />
+          <rect class="kws-window" x="568" y="246" width="52" height="52" fill="#ffe9b3" />
+          <line x1="594" y1="246" x2="594" y2="298" stroke="#5b6472" stroke-width="2" />
+          <line x1="568" y1="272" x2="620" y2="272" stroke="#5b6472" stroke-width="2" />
+
+          <!-- balcony band -->
+          <rect x="350" y="298" width="280" height="16" fill="rgba(180,210,225,0.18)" stroke="#c9c3b4" stroke-width="1.5" />
+          <rect x="350" y="316" width="280" height="10" fill="#c9c3b4" />
+          <line x1="365" y1="298" x2="365" y2="314" stroke="#c9c3b4" stroke-width="2" />
+          <line x1="400" y1="298" x2="400" y2="314" stroke="#c9c3b4" stroke-width="2" />
+          <line x1="435" y1="298" x2="435" y2="314" stroke="#c9c3b4" stroke-width="2" />
+          <line x1="470" y1="298" x2="470" y2="314" stroke="#c9c3b4" stroke-width="2" />
+          <line x1="505" y1="298" x2="505" y2="314" stroke="#c9c3b4" stroke-width="2" />
+          <line x1="540" y1="298" x2="540" y2="314" stroke="#c9c3b4" stroke-width="2" />
+          <line x1="575" y1="298" x2="575" y2="314" stroke="#c9c3b4" stroke-width="2" />
+          <line x1="610" y1="298" x2="610" y2="314" stroke="#c9c3b4" stroke-width="2" />
+
+          <!-- lower windows + door -->
+          <rect x="372" y="380" width="68" height="90" fill="#232a33" />
+          <rect class="kws-window" x="380" y="388" width="52" height="74" fill="#ffe9b3" />
+          <line x1="406" y1="388" x2="406" y2="462" stroke="#5b6472" stroke-width="2" />
+          <line x1="380" y1="425" x2="432" y2="425" stroke="#5b6472" stroke-width="2" />
+
+          <rect x="462" y="380" width="68" height="100" fill="#171c22" />
+          <line x1="496" y1="380" x2="496" y2="480" stroke="#333b45" stroke-width="2" />
+          <circle cx="486" cy="432" r="3" fill="#f5b942" />
+
+          <rect x="560" y="380" width="68" height="90" fill="#232a33" />
+          <rect class="kws-window" x="568" y="388" width="52" height="74" fill="#ffe9b3" />
+          <line x1="594" y1="388" x2="594" y2="462" stroke="#5b6472" stroke-width="2" />
+          <line x1="568" y1="425" x2="620" y2="425" stroke="#5b6472" stroke-width="2" />
+
+          <!-- minimal landscaping -->
+          <rect x="45" y="430" width="8" height="50" fill="#3a2b22" />
+          <circle cx="49" cy="408" r="30" fill="#3f6b4a" />
+          <rect x="735" y="430" width="8" height="50" fill="#3a2b22" />
+          <circle cx="739" cy="403" r="34" fill="#3f6b4a" />
+          <ellipse cx="440" cy="486" rx="22" ry="12" fill="#2f6e4a" />
+          <ellipse cx="660" cy="486" rx="20" ry="11" fill="#2f6e4a" />
+
+          <!-- light strip: main roofline -->
+          <polyline class="kws-wire" points="{{ roofline_main | join: ' ' }}" fill="none" stroke="#151a21" stroke-width="2" />
+          {% for point in roofline_main %}
+            {% assign coords = point | split: "," %}
+            <circle class="kws-bulb" cx="{{ coords[0] }}" cy="{{ coords[1] }}" r="6" style="--i: {{ forloop.index0 }};"></circle>
           {% endfor %}
 
-          <!-- upper-floor windows with shutters -->
-          <rect x="300" y="300" width="14" height="95" fill="#232a33" />
-          <rect x="406" y="300" width="14" height="95" fill="#232a33" />
-          <rect x="320" y="300" width="80" height="95" fill="#1c222b" stroke="#e8e4da" stroke-width="4" />
-          <rect class="kws-window" x="328" y="308" width="64" height="79" fill="#ffe9b3" />
-          <line x1="360" y1="308" x2="360" y2="387" stroke="#5b6472" stroke-width="3" />
-          <line x1="328" y1="347" x2="392" y2="347" stroke="#5b6472" stroke-width="3" />
-
-          <rect x="480" y="300" width="14" height="95" fill="#232a33" />
-          <rect x="586" y="300" width="14" height="95" fill="#232a33" />
-          <rect x="500" y="300" width="80" height="95" fill="#1c222b" stroke="#e8e4da" stroke-width="4" />
-          <rect class="kws-window" x="508" y="308" width="64" height="79" fill="#ffe9b3" />
-          <line x1="540" y1="308" x2="540" y2="387" stroke="#5b6472" stroke-width="3" />
-          <line x1="508" y1="347" x2="572" y2="347" stroke="#5b6472" stroke-width="3" />
-
-          <!-- large lower picture window -->
-          <rect x="370" y="410" width="160" height="86" fill="#1c222b" stroke="#e8e4da" stroke-width="4" />
-          <rect class="kws-window" x="378" y="418" width="144" height="70" fill="#ffe9b3" />
-          <line x1="424" y1="418" x2="424" y2="488" stroke="#5b6472" stroke-width="3" />
-          <line x1="476" y1="418" x2="476" y2="488" stroke="#5b6472" stroke-width="3" />
-          <line x1="378" y1="453" x2="522" y2="453" stroke="#5b6472" stroke-width="3" />
-
-          <!-- left wraparound porch -->
-          <rect x="55" y="300" width="180" height="18" fill="#1c222b" />
-          <rect x="55" y="318" width="180" height="6" fill="#171c22" />
-          <circle class="kws-window" cx="145" cy="284" r="16" fill="#ffe9b3" stroke="#e8e4da" stroke-width="3" />
-          <rect x="70" y="324" width="12" height="169" fill="#e8e4da" />
-          <rect x="139" y="324" width="12" height="169" fill="#e8e4da" />
-          <rect x="209" y="324" width="12" height="169" fill="#e8e4da" />
-          <circle cx="145" cy="345" r="5" fill="#ffe9b3" />
-          <rect x="135" y="380" width="70" height="113" fill="#232a33" stroke="#e8e4da" stroke-width="3" />
-          <rect class="kws-window" x="153" y="394" width="32" height="36" fill="#ffe9b3" opacity="0.9" />
-          <rect x="64" y="486" width="157" height="8" fill="#e8e4da" />
-          <line x1="90" y1="494" x2="90" y2="486" stroke="#1c222b" stroke-width="2" />
-          <line x1="105" y1="494" x2="105" y2="486" stroke="#1c222b" stroke-width="2" />
-          <line x1="120" y1="494" x2="120" y2="486" stroke="#1c222b" stroke-width="2" />
-          <line x1="165" y1="494" x2="165" y2="486" stroke="#1c222b" stroke-width="2" />
-          <line x1="180" y1="494" x2="180" y2="486" stroke="#1c222b" stroke-width="2" />
-          <line x1="195" y1="494" x2="195" y2="486" stroke="#1c222b" stroke-width="2" />
-          <rect x="60" y="493" width="170" height="9" fill="#333b45" />
-
-          <!-- garage -->
-          <rect x="660" y="380" width="130" height="115" fill="#232a33" stroke="#e8e4da" stroke-width="3" />
-          <line x1="660" y1="404" x2="790" y2="404" stroke="#171c22" stroke-width="2" />
-          <line x1="660" y1="427" x2="790" y2="427" stroke="#171c22" stroke-width="2" />
-          <line x1="660" y1="450" x2="790" y2="450" stroke="#171c22" stroke-width="2" />
-          <line x1="660" y1="473" x2="790" y2="473" stroke="#171c22" stroke-width="2" />
-          <rect class="kws-window" x="702" y="320" width="46" height="42" fill="#ffe9b3" stroke="#e8e4da" stroke-width="3" />
-
-          <!-- hedges -->
-          <ellipse cx="150" cy="504" rx="60" ry="14" fill="#2a5f40" />
-          <ellipse cx="270" cy="506" rx="46" ry="13" fill="#2f6e4a" />
-          <ellipse cx="630" cy="506" rx="46" ry="13" fill="#2f6e4a" />
-          <ellipse cx="750" cy="504" rx="60" ry="14" fill="#2a5f40" />
-
-          <!-- ground path lights -->
-          <circle class="kws-window" cx="200" cy="510" r="3.5" fill="#ffe9b3" />
-          <circle class="kws-window" cx="340" cy="512" r="3.5" fill="#ffe9b3" />
-          <circle class="kws-window" cx="560" cy="512" r="3.5" fill="#ffe9b3" />
-          <circle class="kws-window" cx="700" cy="510" r="3.5" fill="#ffe9b3" />
-
-          <!-- fountain -->
-          <ellipse cx="450" cy="536" rx="42" ry="10" fill="#8a8477" />
-          <rect x="440" y="516" width="20" height="20" fill="#c9c3b4" />
-          <ellipse cx="450" cy="516" rx="26" ry="7" fill="#c9c3b4" />
-          <ellipse class="kws-window" cx="450" cy="513" rx="16" ry="4.5" fill="#bfe9ec" />
-          <line x1="450" y1="513" x2="450" y2="500" stroke="#bfe9ec" stroke-width="2" opacity="0.7" />
-
-          <!-- roofline light strand -->
-          <polyline class="kws-wire" points="{{ roofline | join: ' ' }}" fill="none" stroke="#151a21" stroke-width="2" />
-          {% for point in roofline %}
+          <!-- light strip: garage roofline -->
+          <polyline class="kws-wire" points="{{ roofline_garage | join: ' ' }}" fill="none" stroke="#151a21" stroke-width="2" />
+          {% for point in roofline_garage %}
             {% assign coords = point | split: "," %}
-            <circle class="kws-bulb" cx="{{ coords[0] }}" cy="{{ coords[1] }}" r="6.5" style="--i: {{ forloop.index0 }};"></circle>
+            {% assign gi = forloop.index0 | plus: garage_offset %}
+            <circle class="kws-bulb" cx="{{ coords[0] }}" cy="{{ coords[1] }}" r="6" style="--i: {{ gi }};"></circle>
+          {% endfor %}
+
+          <!-- light strip: balcony accent -->
+          <polyline class="kws-wire" points="{{ roofline_balcony | join: ' ' }}" fill="none" stroke="#151a21" stroke-width="1.5" />
+          {% for point in roofline_balcony %}
+            {% assign coords = point | split: "," %}
+            {% assign bi = forloop.index0 | plus: balcony_offset %}
+            <circle class="kws-bulb" cx="{{ coords[0] }}" cy="{{ coords[1] }}" r="5" style="--i: {{ bi }};"></circle>
           {% endfor %}
         </svg>
       </div>
@@ -244,24 +238,7 @@
   }
 
   /* phone mockup */
-  #kw-app-{{ section.id }} .kws__phone {
-    position: relative;
-  }
-
-  #kw-app-{{ section.id }} .kws-phone__glow {
-    position: absolute;
-    inset: -6% -14%;
-    border-radius: 48px;
-    filter: blur(48px);
-    opacity: 0.4;
-    z-index: 0;
-    transition: background 0.6s ease;
-    pointer-events: none;
-  }
-
   #kw-app-{{ section.id }} .kws-phone {
-    position: relative;
-    z-index: 1;
     background: linear-gradient(165deg, var(--kw-bg-raised), var(--kw-bg));
     border: 1px solid var(--kw-line-bright);
     border-radius: 32px;
@@ -388,24 +365,24 @@
     100% { box-shadow: 0 0 0 0 rgba(245, 185, 66, 0); }
   }
 
-  /* ambient glow per scene */
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="gold"] { background: var(--kws-gold); }
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="ruby"] { background: var(--kws-ruby); }
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="ice"] { background: var(--kws-ice); }
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="emerald"] { background: var(--kws-emerald); }
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="sunset"] { background: var(--kws-sunset); }
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="teal"] { background: var(--kws-teal); }
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="violet"] { background: var(--kws-violet); }
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="holiday"] { background: var(--kws-red); }
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="gameday"] { background: var(--kws-blue); }
-  #kw-app-{{ section.id }} .kws-phone__glow[data-scene="rainbow"] { background: conic-gradient(from 0deg, #ff5f6d, #ffc371, #7bed9f, #70a1ff, #a55eea, #ff5f6d); }
-
   /* house */
   #kw-app-{{ section.id }} .kws__house {
     width: 100%;
+    position: relative;
+  }
+
+  #kw-app-{{ section.id }} .kws-house-glow {
+    position: absolute;
+    inset: -8% -4%;
+    background: radial-gradient(ellipse 60% 55% at 50% 62%, rgba(0, 0, 0, 0.55), transparent 70%);
+    filter: blur(30px);
+    z-index: 0;
+    pointer-events: none;
   }
 
   #kw-app-{{ section.id }} .kws-house {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: auto;
     display: block;
@@ -432,7 +409,7 @@
   #kw-app-{{ section.id }} .kws-house[data-scene="violet"] .kws-bulb { fill: var(--kws-violet); }
   #kw-app-{{ section.id }} .kws-house[data-scene="holiday"] .kws-bulb { fill: var(--kws-red); }
   #kw-app-{{ section.id }} .kws-house[data-scene="gameday"] .kws-bulb { fill: var(--kws-blue); }
-  #kw-app-{{ section.id }} .kws-house[data-scene="rainbow"] .kws-bulb { fill: hsl(calc(var(--i) * 14.4deg), 90%, 60%); }
+  #kw-app-{{ section.id }} .kws-house[data-scene="rainbow"] .kws-bulb { fill: hsl(calc(var(--i) * 8.37deg), 90%, 60%); }
 
   @media (prefers-reduced-motion: no-preference) {
     #kw-app-{{ section.id }} .kws-house[data-scene="gold"] .kws-bulb,
@@ -442,23 +419,23 @@
     #kw-app-{{ section.id }} .kws-house[data-scene="sunset"] .kws-bulb,
     #kw-app-{{ section.id }} .kws-house[data-scene="teal"] .kws-bulb {
       animation: kws-twinkle 2.4s ease-in-out infinite;
-      animation-delay: calc(var(--i) * 0.12s);
+      animation-delay: calc(var(--i) * 0.1s);
     }
     #kw-app-{{ section.id }} .kws-house[data-scene="violet"] .kws-bulb {
       animation: kws-twinkle 1.5s ease-in-out infinite;
-      animation-delay: calc(var(--i) * 0.09s);
+      animation-delay: calc(var(--i) * 0.08s);
     }
     #kw-app-{{ section.id }} .kws-house[data-scene="holiday"] .kws-bulb {
       animation: kws-holiday-chase 1.8s steps(1, end) infinite;
-      animation-delay: calc(var(--i) * -0.15s);
+      animation-delay: calc(var(--i) * -0.12s);
     }
     #kw-app-{{ section.id }} .kws-house[data-scene="gameday"] .kws-bulb {
       animation: kws-gameday-chase 1.1s steps(1, end) infinite;
-      animation-delay: calc(var(--i) * -0.1s);
+      animation-delay: calc(var(--i) * -0.08s);
     }
     #kw-app-{{ section.id }} .kws-house[data-scene="rainbow"] .kws-bulb {
       animation: kws-rainbow-cycle 4s linear infinite;
-      animation-delay: calc(var(--i) * -0.16s);
+      animation-delay: calc(var(--i) * -0.12s);
     }
   }
 
@@ -490,7 +467,6 @@
     if (!root) return;
 
     var house = root.querySelector('[data-kws-house]');
-    var glow = root.querySelector('[data-kws-glow]');
     var buttons = root.querySelectorAll('[data-kws-scene]');
     var applyBtn = root.querySelector('[data-kws-apply]');
     var order = ['gold', 'ruby', 'ice', 'emerald', 'sunset', 'teal', 'violet', 'holiday', 'gameday', 'rainbow'];
@@ -500,7 +476,6 @@
 
     function setScene(scene) {
       house.setAttribute('data-scene', scene);
-      if (glow) glow.setAttribute('data-scene', scene);
       buttons.forEach(function (btn) {
         var active = btn.dataset.kwsScene === scene;
         btn.classList.toggle('is-active', active);
