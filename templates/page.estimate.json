@@ -1,8 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "kw_est_hero": {
       "type": "kw-hero",
       "settings": {
+        "image": "shopify://shop_images/IMG_5199.jpg",
         "image_asset": "kw-light-green-white.jpg",
         "min_height": 46,
         "eyebrow": "Free rough estimate",
@@ -12,7 +22,8 @@
         "primary_link": "",
         "secondary_label": "",
         "secondary_link": "",
-        "show_marquee": false
+        "show_marquee": false,
+        "marquee_text": ""
       }
     },
     "kw_est_calculator": {
@@ -23,17 +34,51 @@
         "subheading": "This gives a rough low-to-high range for budgeting. Every project is confirmed with a free, no-obligation on-site measurement.",
         "disclaimer": "Rough estimate only, for budgeting purposes. All pricing is subject to adders based on site conditions (roof height, access, material). Final pricing is confirmed after a free on-site measurement.",
         "cta_label": "Send me this estimate",
-        "cta_link": "/pages/contact"
+        "cta_link": "/pages/contact",
+        "rate_ft": 32,
+        "rate_smart_addon": 500,
+        "rate_power_box": 200,
+        "rate_fan": 1200,
+        "rate_guard_ft": 14,
+        "rate_radiant_flat": 900,
+        "rate_clean_panel": 5,
+        "rate_removal_flat": 220,
+        "rate_solar_callout": 250
       }
     },
     "kw_est_why": {
       "type": "kw-why-grid",
       "blocks": {
-        "step1": { "type": "feature", "settings": { "icon": "📋", "title": "1. Get your rough range", "body": "Use the calculator above for a ballpark, or call/text us directly." } },
-        "step2": { "type": "feature", "settings": { "icon": "📞", "title": "2. We call within 24 hours", "body": "A real person on our local crew follows up to schedule your free visit." } },
-        "step3": { "type": "feature", "settings": { "icon": "✅", "title": "3. Free on-site measurement", "body": "We confirm exact pricing on-site — no pressure, no obligation." } }
+        "step1": {
+          "type": "feature",
+          "settings": {
+            "icon": "📋",
+            "title": "1. Get your rough range",
+            "body": "Use the calculator above for a ballpark, or call/text us directly."
+          }
+        },
+        "step2": {
+          "type": "feature",
+          "settings": {
+            "icon": "📞",
+            "title": "2. We call within 24 hours",
+            "body": "A real person on our local crew follows up to schedule your free visit."
+          }
+        },
+        "step3": {
+          "type": "feature",
+          "settings": {
+            "icon": "✅",
+            "title": "3. Free on-site measurement",
+            "body": "We confirm exact pricing on-site — no pressure, no obligation."
+          }
+        }
       },
-      "block_order": ["step1", "step2", "step3"],
+      "block_order": [
+        "step1",
+        "step2",
+        "step3"
+      ],
       "settings": {
         "raised": true,
         "eyebrow": "How it works",
@@ -54,5 +99,10 @@
       }
     }
   },
-  "order": ["kw_est_hero", "kw_est_calculator", "kw_est_why", "kw_est_cta"]
+  "order": [
+    "kw_est_hero",
+    "kw_est_calculator",
+    "kw_est_why",
+    "kw_est_cta"
+  ]
 }
