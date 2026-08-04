@@ -7,7 +7,7 @@
         "min_height": 70,
         "eyebrow": "Solar & Attic Solutions",
         "heading": "Cooler home. Lower bills. Cleaner air.",
-        "subheading": "Solar panels, solar-powered attic fans, radiant barriers and Critter Guard bird & pest protection — engineered for Utah roofs.",
+        "subheading": "Solar panel cleaning, repairs & removal-reinstall, solar-powered attic fans, multi-layer insulation and Critter Guard protection — engineered for Utah roofs.",
         "primary_label": "Get my free estimate",
         "primary_link": "/pages/estimate",
         "secondary_label": "Call / Text 385-406-2335",
@@ -21,10 +21,10 @@
         "image_asset": "kw-fan-roof-install.jpg",
         "badge": "Powered by the Sun",
         "image_position": "left",
-        "eyebrow": "Solar attic fans",
+        "eyebrow": "Solar attic fans & insulation",
         "heading": "Pull the heat out. Keep the cool in.",
-        "body": "Our solar attic fans run entirely off the sun — no electrician, no wiring into your panel, no added utility cost. They pull hot, moist air out of your attic, reducing mold risk in winter and cooling your living space in summer.",
-        "list_items": "100% solar powered — zero electricity cost\nTemps up to 70°F reduced to a cooler attic\nReduces moisture & mold risk year-round\nQuiet brushless DC motor, rated for years of use",
+        "body": "Our solar attic fans run entirely off the sun — no electrician, no wiring into your panel, no added utility cost. Paired with multi-layer attic insulation, they improve airflow, regulate temperature swings, and cut energy costs year-round.",
+        "list_items": "100% solar powered — zero electricity cost\nMulti-layer insulation regulates temperature & airflow\nReduces moisture & mold risk year-round\nQuiet brushless DC motor, rated for years of use",
         "link_label": "Estimate my attic fans",
         "link_url": "/pages/estimate"
       }
@@ -33,12 +33,14 @@
       "type": "kw-feature-split",
       "settings": {
         "image_asset": "kw-solar-roof-array.jpg",
-        "badge": "Full Solar",
+        "badge": "Existing Systems",
         "image_position": "right",
-        "eyebrow": "Solar panel installation",
-        "heading": "Own your power, not just your home.",
-        "body": "Full rooftop solar installations sized to your household's usage, installed by our local crew and backed by a 10-year warranty on workmanship.",
-        "list_items": "Custom-designed system sizing\nLow-profile, one-way vented mounting\n10-year installation warranty\nWorks alongside Critter Guard protection"
+        "eyebrow": "Solar system care",
+        "heading": "Keep the system you already have running strong.",
+        "body": "We don't install new solar arrays — we keep the ones already on your roof performing at their best. From routine panel cleaning to system repairs and full removal-and-reinstall for roof work or upgrades, our crew handles it all without disrupting your production.",
+        "list_items": "Panel cleaning to restore peak efficiency\nSystem repairs & troubleshooting\nFull removal & reinstall for roof replacement or upgrades\nCritter Guard installation to prevent nesting damage",
+        "link_label": "Estimate my repair or cleaning",
+        "link_url": "/pages/estimate"
       }
     },
     "kw_solar_problem": {
@@ -88,7 +90,7 @@
       "blocks": {
         "efficient": { "type": "feature", "settings": { "icon": "☀️", "title": "100% solar powered", "body": "Attic fans run entirely off the sun — no electrician, no added utility bill." } },
         "protect": { "type": "feature", "settings": { "icon": "🛡️", "title": "Total pest exclusion", "body": "Critter Guard mesh keeps birds, pigeons and rodents out — permanently." } },
-        "warranty": { "type": "feature", "settings": { "icon": "🏆", "title": "10-year warranty", "body": "Every solar and attic install is backed for a decade." } }
+        "warranty": { "type": "feature", "settings": { "icon": "🏆", "title": "10-year warranty", "body": "Every attic fan and Critter Guard install is backed for a decade." } }
       },
       "block_order": ["efficient", "protect", "warranty"],
       "settings": {
