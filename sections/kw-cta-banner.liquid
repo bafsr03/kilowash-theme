@@ -11,6 +11,7 @@
       <h2 class="kw-cta__heading kw-reveal">{{ section.settings.heading }}</h2>
       <p class="kw-cta__phone kw-reveal">
         <a href="tel:{{ section.settings.phone_link }}">{{ section.settings.phone_display }}</a>
+        <a href="sms:{{ section.settings.phone_link }}" class="kw-cta__text-link">or text us</a>
       </p>
       <div class="kw-cta__actions kw-reveal">
         {% if section.settings.primary_label != blank %}
@@ -69,6 +70,17 @@
 
   #kw-cta-{{ section.id }} .kw-cta__phone a:hover {
     border-color: var(--kw-gold);
+  }
+
+  #kw-cta-{{ section.id }} .kw-cta__text-link {
+    font-family: var(--kw-body);
+    font-size: 0.85rem;
+    color: var(--kw-teal);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-left: 0.8em;
   }
 
   #kw-cta-{{ section.id }} .kw-cta__actions {
