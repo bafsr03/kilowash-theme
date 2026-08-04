@@ -1,8 +1,8 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
 {% assign strip_a = "126.1,395.5|144.1,378.2|162.1,360.9|180.1,343.7|198.1,326.4|216.0,309.1|234.0,291.8|252.0,274.6|270.0,257.3|288.0,240.0|306.5,258.7|325.1,277.4|343.6,296.1|362.1,314.9|380.7,333.6|399.2,352.3|417.8,371.0|436.3,389.7" | split: "|" %}
-{% assign strip_b = "288.0,240.0|304.9,223.0|321.9,206.0|338.8,189.0|355.7,171.9|372.6,154.9|389.6,137.9|406.5,120.9|423.8,138.1|441.1,155.3|458.4,172.6|475.7,189.8|493,207" | split: "|" %}
-{% assign strip_c = "493.0,207.0|508.6,188.8|524.2,170.6|539.8,152.4|555.5,134.2|571.1,115.9|586.7,97.7|602.3,79.5|617.9,61.3|635.1,78.9|652.3,96.5|669.5,114.1|686.7,131.7|704.0,149.3|721.2,166.9|738.4,184.5|755.6,202.1|772.8,219.7" | split: "|" %}
+{% assign strip_b = "288.0,240.0|305.3,223.4|322.6,206.9|339.9,190.3|357.1,173.7|374.4,157.1|391.7,140.6|409.0,124.0|431.5,132.5|454.0,141.0|476.5,149.5|499,158" | split: "|" %}
+{% assign strip_c = "499.0,158.0|519.2,142.2|539.3,126.3|559.5,110.5|579.7,94.7|599.8,78.8|620.0,63.0|641.9,76.4|663.7,89.9|685.6,103.3|707.4,116.7|729.3,130.1|751.1,143.6|773,157" | split: "|" %}
 {% assign strip_d = "410.0,425.0|436.2,425.0|462.4,425.0|488.7,425.0|514.9,425.0|541.1,425.0|567.3,425.0|593.6,425.0|619.8,425.0|646.0,425.0|672.2,425.0|698.4,425.0|724.7,425.0|750.9,425.0|777.1,425.0|803.3,425.0|829.6,425.0|855.8,425.0|882,425" | split: "|" %}
 {% assign offset_b = strip_a.size %}
 {% assign offset_c = strip_a.size | plus: strip_b.size %}
@@ -36,63 +36,50 @@
           <div class="kws-phone__screen">
             <p class="kws-phone__label">Choose a scene</p>
             <div class="kws-scene-grid" data-kws-scenes>
-              <button type="button" class="kws-scene is-active" data-kws-scene="gold" aria-pressed="true" style="--sw: var(--kws-gold);">
+              <button type="button" class="kws-scene is-active" data-kws-scene="gold" aria-pressed="true" aria-label="Solid Gold" style="--sw: var(--kws-gold);">
                 <span class="kws-scene__icon"></span>
-                <span>Solid Gold</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="ruby" aria-pressed="false" style="--sw: var(--kws-ruby);">
+              <button type="button" class="kws-scene" data-kws-scene="ruby" aria-pressed="false" aria-label="Ruby Red" style="--sw: var(--kws-ruby);">
                 <span class="kws-scene__icon"></span>
-                <span>Ruby Red</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="ice" aria-pressed="false" style="--sw: var(--kws-ice);">
+              <button type="button" class="kws-scene" data-kws-scene="ice" aria-pressed="false" aria-label="Ice Blue" style="--sw: var(--kws-ice);">
                 <span class="kws-scene__icon"></span>
-                <span>Ice Blue</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="emerald" aria-pressed="false" style="--sw: var(--kws-emerald);">
+              <button type="button" class="kws-scene" data-kws-scene="emerald" aria-pressed="false" aria-label="Emerald Green" style="--sw: var(--kws-emerald);">
                 <span class="kws-scene__icon"></span>
-                <span>Emerald Green</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="sunset" aria-pressed="false" style="--sw: var(--kws-sunset);">
+              <button type="button" class="kws-scene" data-kws-scene="sunset" aria-pressed="false" aria-label="Sunset Orange" style="--sw: var(--kws-sunset);">
                 <span class="kws-scene__icon"></span>
-                <span>Sunset Orange</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="teal" aria-pressed="false" style="--sw: var(--kws-teal);">
+              <button type="button" class="kws-scene" data-kws-scene="teal" aria-pressed="false" aria-label="Teal Glow" style="--sw: var(--kws-teal);">
                 <span class="kws-scene__icon"></span>
-                <span>Teal Glow</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="violet" aria-pressed="false" style="--sw: var(--kws-violet);">
+              <button type="button" class="kws-scene" data-kws-scene="violet" aria-pressed="false" aria-label="Violet Party" style="--sw: var(--kws-violet);">
                 <span class="kws-scene__icon"></span>
-                <span>Violet Party</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="holiday" aria-pressed="false" style="--sw: var(--kws-red);">
+              <button type="button" class="kws-scene" data-kws-scene="holiday" aria-pressed="false" aria-label="Holiday Classic" style="--sw: var(--kws-red);">
                 <span class="kws-scene__icon kws-scene__icon--split"></span>
-                <span>Holiday Classic</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="gameday" aria-pressed="false" style="--sw: var(--kws-blue);">
+              <button type="button" class="kws-scene" data-kws-scene="gameday" aria-pressed="false" aria-label="Game Day" style="--sw: var(--kws-blue);">
                 <span class="kws-scene__icon kws-scene__icon--split2"></span>
-                <span>Game Day</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="rainbow" aria-pressed="false" style="--sw: conic-gradient(from 0deg, #ff5f6d, #ffc371, #7bed9f, #70a1ff, #a55eea, #ff5f6d);">
+              <button type="button" class="kws-scene" data-kws-scene="rainbow" aria-pressed="false" aria-label="16M Colors" style="--sw: conic-gradient(from 0deg, #ff5f6d, #ffc371, #7bed9f, #70a1ff, #a55eea, #ff5f6d);">
                 <span class="kws-scene__icon"></span>
-                <span>16M Colors</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="america" aria-pressed="false" style="--sw: var(--kws-red);">
+              <button type="button" class="kws-scene" data-kws-scene="america" aria-pressed="false" aria-label="America" style="--sw: var(--kws-red);">
                 <span class="kws-scene__icon kws-scene__icon--split3"></span>
-                <span>America</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="halloween" aria-pressed="false" style="--sw: var(--kws-sunset);">
+              <button type="button" class="kws-scene" data-kws-scene="halloween" aria-pressed="false" aria-label="Halloween" style="--sw: var(--kws-sunset);">
                 <span class="kws-scene__icon kws-scene__icon--split4"></span>
-                <span>Halloween</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="easter" aria-pressed="false" style="--sw: var(--kws-pastel-pink);">
+              <button type="button" class="kws-scene" data-kws-scene="easter" aria-pressed="false" aria-label="Easter" style="--sw: var(--kws-pastel-pink);">
                 <span class="kws-scene__icon kws-scene__icon--split5"></span>
-                <span>Easter</span>
               </button>
-              <button type="button" class="kws-scene" data-kws-scene="birthday" aria-pressed="false" style="--sw: var(--kws-party-pink);">
+              <button type="button" class="kws-scene" data-kws-scene="birthday" aria-pressed="false" aria-label="Birthday" style="--sw: var(--kws-party-pink);">
                 <span class="kws-scene__icon kws-scene__icon--split6"></span>
-                <span>Birthday</span>
               </button>
             </div>
+            <p class="kws-scene-active" data-kws-scene-name>Solid Gold</p>
             <button type="button" class="kws-apply kw-btn" data-kws-apply>
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
               Apply to home
@@ -371,46 +358,8 @@
     #kw-app-{{ section.id }} .kws__house {
       order: -1;
     }
-    #kw-app-{{ section.id }} .kws-phone {
-      max-width: 460px;
-    }
-    #kw-app-{{ section.id }} .kws-scene-grid {
-      display: flex;
-      grid-template-columns: unset;
-      overflow-x: auto;
-      overscroll-behavior-x: contain;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      gap: 0.65rem;
-      margin-inline: -1.1rem;
-      padding-inline: 1.1rem;
-      padding-bottom: 0.5rem;
-    }
-    #kw-app-{{ section.id }} .kws-scene-grid::-webkit-scrollbar {
-      display: none;
-    }
-    #kw-app-{{ section.id }} .kws-scene {
-      flex: 0 0 auto;
-      width: 94px;
-      scroll-snap-align: start;
-      padding-block: 0.9rem 0.7rem;
-    }
     #kw-app-{{ section.id }} .kws-scene__icon {
-      width: 26px;
-      height: 26px;
-    }
-    #kw-app-{{ section.id }} .kws-scene__icon,
-    #kw-app-{{ section.id }} .kws-scene__icon--split,
-    #kw-app-{{ section.id }} .kws-scene__icon--split2,
-    #kw-app-{{ section.id }} .kws-scene__icon--split3,
-    #kw-app-{{ section.id }} .kws-scene__icon--split4,
-    #kw-app-{{ section.id }} .kws-scene__icon--split5,
-    #kw-app-{{ section.id }} .kws-scene__icon--split6 {
-      box-shadow: 0 0 18px 2px var(--sw, var(--kw-gold));
-    }
-    #kw-app-{{ section.id }} .kws-scene.is-active {
-      box-shadow: 0 0 0 1px var(--kw-gold), 0 0 24px rgba(245, 185, 66, 0.55);
+      box-shadow: 0 0 16px 2px var(--sw, var(--kw-gold)), inset 0 1px 2px rgba(255, 255, 255, 0.5);
     }
   }
 
@@ -471,31 +420,29 @@
   }
 
   #kw-app-{{ section.id }} .kws-scene-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.55rem;
-    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
   }
 
   #kw-app-{{ section.id }} .kws-scene {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), transparent), var(--kw-bg-raised);
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    background: var(--kw-bg-raised);
     border: 1px solid var(--kw-line);
-    border-radius: 14px;
-    padding: 0.75rem 0.4rem 0.6rem;
-    color: var(--kw-fg-dim);
-    font-size: 0.7rem;
-    font-family: var(--kw-body);
+    border-radius: 50%;
     cursor: pointer;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
   }
 
   #kw-app-{{ section.id }} .kws-scene:hover {
     transform: translateY(-2px);
-    color: var(--kw-fg);
   }
 
   #kw-app-{{ section.id }} .kws-scene__icon {
@@ -538,8 +485,16 @@
 
   #kw-app-{{ section.id }} .kws-scene.is-active {
     border-color: var(--kw-gold);
+    box-shadow: 0 0 0 2px var(--kw-gold), 0 0 16px rgba(245, 185, 66, 0.4);
+    transform: scale(1.08);
+  }
+
+  #kw-app-{{ section.id }} .kws-scene-active {
+    text-align: center;
+    font-family: var(--kw-display);
+    font-size: 0.85rem;
     color: var(--kw-fg);
-    box-shadow: 0 0 0 1px var(--kw-gold), 0 0 18px rgba(245, 185, 66, 0.35);
+    margin: 0 0 1rem;
   }
 
   #kw-app-{{ section.id }} .kws-apply {
@@ -710,6 +665,7 @@
     var house = root.querySelector('[data-kws-house]');
     var buttons = root.querySelectorAll('[data-kws-scene]');
     var applyBtn = root.querySelector('[data-kws-apply]');
+    var nameEl = root.querySelector('[data-kws-scene-name]');
     var order = ['gold', 'ruby', 'ice', 'emerald', 'sunset', 'teal', 'violet', 'holiday', 'gameday', 'rainbow', 'america', 'halloween', 'easter', 'birthday'];
     var index = 0;
     var timer = null;
@@ -721,6 +677,7 @@
         var active = btn.dataset.kwsScene === scene;
         btn.classList.toggle('is-active', active);
         btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        if (active && nameEl) nameEl.textContent = btn.getAttribute('aria-label') || '';
       });
       index = order.indexOf(scene);
       if (index === -1) index = 0;
