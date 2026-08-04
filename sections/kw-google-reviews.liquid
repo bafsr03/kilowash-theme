@@ -1,0 +1,74 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-scope kw-section" id="kw-google-reviews-{{ section.id }}">
+  <div class="kw-wrap">
+    {% if section.settings.eyebrow != blank %}
+      <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="kw-google-reviews__heading kw-reveal">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="kw-google-reviews__embed kw-reveal-scale">
+      {% if section.settings.embed_code != blank %}
+        {{ section.settings.embed_code }}
+      {% else %}
+        <div class="kw-google-reviews__placeholder">
+          <p>No widget connected yet.</p>
+          <p>Paste your Google Reviews widget embed code into this section's settings in the theme editor to go live.</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #kw-google-reviews-{{ section.id }} {
+    padding-block: clamp(56px, 8vw, 108px);
+  }
+
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__heading {
+    font-family: var(--kw-display);
+    font-size: clamp(1.9rem, 3.6vw, 3rem);
+    max-width: 24ch;
+    margin-block: 0.4em 2.4rem;
+  }
+
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__placeholder {
+    border: 1px dashed var(--kw-line);
+    border-radius: 16px;
+    padding: 2.4rem;
+    text-align: center;
+    color: var(--kw-fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__placeholder p {
+    margin: 0 0 0.4em;
+  }
+
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__placeholder p:last-child {
+    margin-bottom: 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Google Reviews",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Verified on Google" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "5-star rated, straight from Google." },
+    {
+      "type": "liquid",
+      "id": "embed_code",
+      "label": "Google reviews widget embed code",
+      "info": "Paste the embed script/HTML from your review widget provider (e.g. Elfsight, SociableKIT). It renders live and auto-updates as new Google reviews come in — no theme edits needed after this."
+    }
+  ],
+  "presets": [
+    { "name": "KW Google Reviews" }
+  ]
+}
+{% endschema %}

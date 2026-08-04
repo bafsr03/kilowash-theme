@@ -33,6 +33,14 @@
         "link_url": "/pages/estimate"
       }
     },
+    "kw_testi_google": {
+      "type": "kw-google-reviews",
+      "settings": {
+        "eyebrow": "Verified on Google",
+        "heading": "5-star rated, straight from Google.",
+        "embed_code": ""
+      }
+    },
     "kw_testi_reviews": {
       "type": "kw-testimonials",
       "blocks": {
@@ -63,6 +71,7 @@
   "order": [
     "kw_testi_hero",
     "kw_testi_featured",
+    "kw_testi_google",
     "kw_testi_reviews",
     "kw_testi_cta"
   ]
