@@ -1,8 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "kw_light_hero": {
       "type": "kw-hero",
       "settings": {
+        "image": "shopify://shop_images/IMG_5198.heic",
         "image_asset": "kw-light-rainbow-day.jpg",
         "min_height": 70,
         "eyebrow": "Permanent Lighting",
@@ -12,7 +22,8 @@
         "primary_link": "/pages/estimate",
         "secondary_label": "Call / Text 385-406-2335",
         "secondary_link": "tel:3854062335",
-        "show_marquee": false
+        "show_marquee": false,
+        "marquee_text": ""
       }
     },
     "kw_light_feature_1": {
@@ -47,7 +58,9 @@
         "eyebrow": "Warm white architectural",
         "heading": "Understated, until you want it loud.",
         "body": "Prefer a clean, warm-white glow every night? Our fixtures are just as capable of subtle, elegant lighting as they are full color takeover — set once, or change on demand.",
-        "list_items": "Discreet, low-profile fixtures\nHidden wiring and channel install\nDimmable warm white presets\nDesigned to match your home's architecture"
+        "list_items": "Discreet, low-profile fixtures\nHidden wiring and channel install\nDimmable warm white presets\nDesigned to match your home's architecture",
+        "link_label": "",
+        "link_url": ""
       }
     },
     "kw_light_feature_3": {
@@ -59,17 +72,44 @@
         "eyebrow": "Patios, pergolas & entryways",
         "heading": "We don't stop at the gutter line.",
         "body": "Covered patios, pergolas, garages and entryways all get the same permanent, weatherproof lighting treatment — extending your outdoor living space after dark.",
-        "list_items": "Patio & pergola accent runs\nGarage and entryway highlights\nFully weatherproof, rated for Utah winters\nInstalled by our own local crew"
+        "list_items": "Patio & pergola accent runs\nGarage and entryway highlights\nFully weatherproof, rated for Utah winters\nInstalled by our own local crew",
+        "link_label": "",
+        "link_url": ""
       }
     },
     "kw_light_occasions": {
       "type": "kw-why-grid",
       "blocks": {
-        "gameday": { "type": "feature", "settings": { "icon": "🏈", "title": "Game day lights", "body": "Switch to your team's colors before kickoff — one tap from your phone, no ladder required." } },
-        "holiday": { "type": "feature", "settings": { "icon": "🎄", "title": "Holiday lights", "body": "Classic red & green, icy white, or your own custom scene — up in seconds, down whenever you're ready for the next occasion." } },
-        "accent": { "type": "feature", "settings": { "icon": "🔒", "title": "Accent / security lights", "body": "A steady, warm glow every night that highlights your home's architecture and keeps the property lit after dark." } }
+        "gameday": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏈",
+            "title": "Game day lights",
+            "body": "Switch to your team's colors before kickoff — one tap from your phone, no ladder required."
+          }
+        },
+        "holiday": {
+          "type": "feature",
+          "settings": {
+            "icon": "🎄",
+            "title": "Holiday lights",
+            "body": "Classic red & green, icy white, or your own custom scene — up in seconds, down whenever you're ready for the next occasion."
+          }
+        },
+        "accent": {
+          "type": "feature",
+          "settings": {
+            "icon": "🔒",
+            "title": "Accent / security lights",
+            "body": "A steady, warm glow every night that highlights your home's architecture and keeps the property lit after dark."
+          }
+        }
       },
-      "block_order": ["gameday", "holiday", "accent"],
+      "block_order": [
+        "gameday",
+        "holiday",
+        "accent"
+      ],
       "settings": {
         "raised": false,
         "eyebrow": "One system, every occasion",
@@ -79,14 +119,63 @@
     "kw_light_gallery": {
       "type": "kw-gallery",
       "blocks": {
-        "g1": { "type": "photo", "settings": { "image_asset": "kw-light-blue-house.jpg", "caption": "Two-story architectural install", "wide": true } },
-        "g2": { "type": "photo", "settings": { "image_asset": "kw-light-red-white.jpg", "caption": "Holiday red & white" } },
-        "g3": { "type": "photo", "settings": { "image_asset": "kw-light-green-white.jpg", "caption": "Seasonal green scenes" } },
-        "g4": { "type": "photo", "settings": { "image_asset": "kw-light-brick-accent.jpg", "caption": "Brick & stone accents" } },
-        "g5": { "type": "photo", "settings": { "image_asset": "kw-light-purple-white.jpg", "caption": "Custom color design", "wide": true } },
-        "g6": { "type": "photo", "settings": { "image_asset": "kw-light-shop-blue.jpg", "caption": "Commercial & shop lighting" } }
+        "g1": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-blue-house.jpg",
+            "caption": "Two-story architectural install",
+            "wide": true
+          }
+        },
+        "g2": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-red-white.jpg",
+            "caption": "Holiday red & white",
+            "wide": false
+          }
+        },
+        "g3": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-green-white.jpg",
+            "caption": "Seasonal green scenes",
+            "wide": false
+          }
+        },
+        "g4": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-brick-accent.jpg",
+            "caption": "Brick & stone accents",
+            "wide": false
+          }
+        },
+        "g5": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-purple-white.jpg",
+            "caption": "Custom color design",
+            "wide": true
+          }
+        },
+        "g6": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-shop-blue.jpg",
+            "caption": "Commercial & shop lighting",
+            "wide": false
+          }
+        }
       },
-      "block_order": ["g1", "g2", "g3", "g4", "g5", "g6"],
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6"
+      ],
       "settings": {
         "eyebrow": "Recent installs",
         "heading": "See what permanent lighting looks like."
@@ -95,11 +184,36 @@
     "kw_light_why": {
       "type": "kw-why-grid",
       "blocks": {
-        "value": { "type": "feature", "settings": { "icon": "🏠", "title": "Increase home value", "body": "Boost curb appeal instantly with lighting that makes your home the one everyone notices." } },
-        "smart": { "type": "feature", "settings": { "icon": "⚡", "title": "Full smart control", "body": "Millions of colors, scenes and schedules — controlled from your phone, no ladder required." } },
-        "warranty": { "type": "feature", "settings": { "icon": "🏆", "title": "10-year warranty", "body": "Craftsmanship and lighting both backed for a decade." } }
+        "value": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏠",
+            "title": "Increase home value",
+            "body": "Boost curb appeal instantly with lighting that makes your home the one everyone notices."
+          }
+        },
+        "smart": {
+          "type": "feature",
+          "settings": {
+            "icon": "⚡",
+            "title": "Full smart control",
+            "body": "Millions of colors, scenes and schedules — controlled from your phone, no ladder required."
+          }
+        },
+        "warranty": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏆",
+            "title": "10-year warranty",
+            "body": "Craftsmanship and lighting both backed for a decade."
+          }
+        }
       },
-      "block_order": ["value", "smart", "warranty"],
+      "block_order": [
+        "value",
+        "smart",
+        "warranty"
+      ],
       "settings": {
         "raised": true,
         "eyebrow": "Why permanent lighting",
