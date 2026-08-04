@@ -27,11 +27,14 @@
         <div class="kw-est__togglegrid">
           <label class="kw-est__toggle">
             <input type="checkbox" data-kw-addon="smart" checked>
-            <span>Full-color smart control</span>
+            <span>Smart App Control box</span>
           </label>
           <label class="kw-est__toggle">
             <input type="checkbox" data-kw-addon="soffit">
-            <span>Soffit / patio accent run</span>
+            <span>
+              Power box
+              <small class="kw-est__toggle-note">Required for installs over 160 ft</small>
+            </span>
           </label>
         </div>
       </div>
@@ -197,6 +200,13 @@
     height: 18px;
   }
 
+  #kw-est-{{ section.id }} .kw-est__toggle-note {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--kw-fg-dim);
+    margin-top: 0.2rem;
+  }
+
   #kw-est-{{ section.id }} .kw-est__result {
     margin-top: 1.6rem;
     padding-top: 1.6rem;
@@ -242,8 +252,8 @@
     if (!root) return;
 
     var RATE_FT = {{ section.settings.rate_ft | default: 32 }};
-    var SMART_ADDON = {{ section.settings.rate_smart_addon | default: 350 }};
-    var SOFFIT_PER_FT = {{ section.settings.rate_soffit_ft | default: 8 }};
+    var SMART_ADDON = {{ section.settings.rate_smart_addon | default: 500 }};
+    var SOFFIT_FLAT = {{ section.settings.rate_power_box | default: 200 }};
     var FAN_RATE = {{ section.settings.rate_fan | default: 1200 }};
     var GUARD_FT_RATE = {{ section.settings.rate_guard_ft | default: 14 }};
     var RADIANT_FLAT = {{ section.settings.rate_radiant_flat | default: 900 }};
@@ -294,7 +304,7 @@
           total += SMART_ADDON;
         }
         if (addonSoffit.checked) {
-          total += ft * 0.4 * SOFFIT_PER_FT;
+          total += SOFFIT_FLAT;
         }
       } else {
         var panels = parseInt(panelsInput.value, 10);
@@ -347,8 +357,8 @@
     { "type": "url", "id": "cta_link", "label": "CTA link" },
     { "type": "header", "content": "Lighting rates" },
     { "type": "number", "id": "rate_ft", "label": "Per linear foot ($)", "default": 32 },
-    { "type": "number", "id": "rate_smart_addon", "label": "Smart color control add-on ($)", "default": 350 },
-    { "type": "number", "id": "rate_soffit_ft", "label": "Soffit/patio accent per foot ($)", "default": 8 },
+    { "type": "number", "id": "rate_smart_addon", "label": "Smart App Control box ($)", "default": 500 },
+    { "type": "number", "id": "rate_power_box", "label": "Power box, flat ($)", "default": 200 },
     { "type": "header", "content": "Solar & attic rates" },
     { "type": "number", "id": "rate_fan", "label": "Solar attic fan, each ($)", "default": 1200 },
     { "type": "number", "id": "rate_guard_ft", "label": "Critter Guard per foot ($)", "default": 14 },
