@@ -1,8 +1,8 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
-{% assign strip_a = "126.1,395.5|146.1,376.6|166.1,357.7|186.1,338.8|206.1,319.9|226.1,300.9|246.1,282.0|266.1,263.1|286.1,244.2|304.9,262.4|323.7,280.6|342.4,298.8|361.2,316.9|380.0,335.1|398.8,353.3|417.5,371.5|436.3,389.7" | split: "|" %}
-{% assign strip_b = "287.9,239.5|307.7,219.7|327.4,200.0|347.2,180.2|367.0,160.4|386.7,140.7|406.5,120.9|426.8,141.5|447.0,162.1|467.2,182.7|487.5,203.3|507.8,223.9|528.0,244.5|548.2,265.1|568.5,285.7|588.8,306.3|609.0,326.9|629.2,347.5|649.5,368.1" | split: "|" %}
-{% assign strip_c = "485.3,192.8|504.2,174.0|523.2,155.2|542.1,136.4|561.1,117.7|580.0,98.9|599.0,80.1|617.9,61.3|637.3,81.1|656.6,100.9|676.0,120.7|695.3,140.5|714.7,160.3|734.1,180.1|753.4,199.9|772.8,219.7" | split: "|" %}
+{% assign strip_a = "126.1,395.5|144.1,378.2|162.1,360.9|180.1,343.7|198.1,326.4|216.0,309.1|234.0,291.8|252.0,274.6|270.0,257.3|288.0,240.0|306.5,258.7|325.1,277.4|343.6,296.1|362.1,314.9|380.7,333.6|399.2,352.3|417.8,371.0|436.3,389.7" | split: "|" %}
+{% assign strip_b = "288.0,240.0|304.9,223.0|321.9,206.0|338.8,189.0|355.7,171.9|372.6,154.9|389.6,137.9|406.5,120.9|423.8,138.1|441.1,155.3|458.4,172.6|475.7,189.8|493,207" | split: "|" %}
+{% assign strip_c = "493.0,207.0|508.6,188.8|524.2,170.6|539.8,152.4|555.5,134.2|571.1,115.9|586.7,97.7|602.3,79.5|617.9,61.3|635.1,78.9|652.3,96.5|669.5,114.1|686.7,131.7|704.0,149.3|721.2,166.9|738.4,184.5|755.6,202.1|772.8,219.7" | split: "|" %}
 {% assign strip_d = "410.0,425.0|436.2,425.0|462.4,425.0|488.7,425.0|514.9,425.0|541.1,425.0|567.3,425.0|593.6,425.0|619.8,425.0|646.0,425.0|672.2,425.0|698.4,425.0|724.7,425.0|750.9,425.0|777.1,425.0|803.3,425.0|829.6,425.0|855.8,425.0|882,425" | split: "|" %}
 {% assign offset_b = strip_a.size %}
 {% assign offset_c = strip_a.size | plus: strip_b.size %}
@@ -75,6 +75,22 @@
               <button type="button" class="kws-scene" data-kws-scene="rainbow" aria-pressed="false" style="--sw: conic-gradient(from 0deg, #ff5f6d, #ffc371, #7bed9f, #70a1ff, #a55eea, #ff5f6d);">
                 <span class="kws-scene__icon"></span>
                 <span>16M Colors</span>
+              </button>
+              <button type="button" class="kws-scene" data-kws-scene="america" aria-pressed="false" style="--sw: var(--kws-red);">
+                <span class="kws-scene__icon kws-scene__icon--split3"></span>
+                <span>America</span>
+              </button>
+              <button type="button" class="kws-scene" data-kws-scene="halloween" aria-pressed="false" style="--sw: var(--kws-sunset);">
+                <span class="kws-scene__icon kws-scene__icon--split4"></span>
+                <span>Halloween</span>
+              </button>
+              <button type="button" class="kws-scene" data-kws-scene="easter" aria-pressed="false" style="--sw: var(--kws-pastel-pink);">
+                <span class="kws-scene__icon kws-scene__icon--split5"></span>
+                <span>Easter</span>
+              </button>
+              <button type="button" class="kws-scene" data-kws-scene="birthday" aria-pressed="false" style="--sw: var(--kws-party-pink);">
+                <span class="kws-scene__icon kws-scene__icon--split6"></span>
+                <span>Birthday</span>
               </button>
             </div>
             <button type="button" class="kws-apply kw-btn" data-kws-apply>
@@ -315,6 +331,12 @@
     --kws-ice: #7dd3fc;
     --kws-emerald: #10b981;
     --kws-sunset: #fb923c;
+    --kws-pastel-pink: #f9a8d4;
+    --kws-pastel-mint: #86efac;
+    --kws-pastel-lavender: #c4b5fd;
+    --kws-pastel-yellow: #fde68a;
+    --kws-party-pink: #ec4899;
+    --kws-party-cyan: #22d3ee;
     padding-block: clamp(56px, 8vw, 108px);
   }
 
@@ -348,6 +370,47 @@
     }
     #kw-app-{{ section.id }} .kws__house {
       order: -1;
+    }
+    #kw-app-{{ section.id }} .kws-phone {
+      max-width: 460px;
+    }
+    #kw-app-{{ section.id }} .kws-scene-grid {
+      display: flex;
+      grid-template-columns: unset;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 0.65rem;
+      margin-inline: -1.1rem;
+      padding-inline: 1.1rem;
+      padding-bottom: 0.5rem;
+    }
+    #kw-app-{{ section.id }} .kws-scene-grid::-webkit-scrollbar {
+      display: none;
+    }
+    #kw-app-{{ section.id }} .kws-scene {
+      flex: 0 0 auto;
+      width: 94px;
+      scroll-snap-align: start;
+      padding-block: 0.9rem 0.7rem;
+    }
+    #kw-app-{{ section.id }} .kws-scene__icon {
+      width: 26px;
+      height: 26px;
+    }
+    #kw-app-{{ section.id }} .kws-scene__icon,
+    #kw-app-{{ section.id }} .kws-scene__icon--split,
+    #kw-app-{{ section.id }} .kws-scene__icon--split2,
+    #kw-app-{{ section.id }} .kws-scene__icon--split3,
+    #kw-app-{{ section.id }} .kws-scene__icon--split4,
+    #kw-app-{{ section.id }} .kws-scene__icon--split5,
+    #kw-app-{{ section.id }} .kws-scene__icon--split6 {
+      box-shadow: 0 0 18px 2px var(--sw, var(--kw-gold));
+    }
+    #kw-app-{{ section.id }} .kws-scene.is-active {
+      box-shadow: 0 0 0 1px var(--kw-gold), 0 0 24px rgba(245, 185, 66, 0.55);
     }
   }
 
@@ -453,6 +516,26 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
 
+  #kw-app-{{ section.id }} .kws-scene__icon--split3 {
+    background: conic-gradient(var(--kws-red) 0deg 120deg, var(--kws-white) 120deg 240deg, var(--kws-blue) 240deg 360deg);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+  }
+
+  #kw-app-{{ section.id }} .kws-scene__icon--split4 {
+    background: conic-gradient(var(--kws-sunset) 0deg 180deg, var(--kws-violet) 180deg 360deg);
+    box-shadow: 0 0 10px rgba(251, 146, 60, 0.4);
+  }
+
+  #kw-app-{{ section.id }} .kws-scene__icon--split5 {
+    background: conic-gradient(var(--kws-pastel-pink) 0deg 90deg, var(--kws-pastel-lavender) 90deg 180deg, var(--kws-pastel-mint) 180deg 270deg, var(--kws-pastel-yellow) 270deg 360deg);
+    box-shadow: 0 0 10px rgba(249, 168, 212, 0.4);
+  }
+
+  #kw-app-{{ section.id }} .kws-scene__icon--split6 {
+    background: conic-gradient(var(--kws-party-pink) 0deg 90deg, var(--kws-party-cyan) 90deg 180deg, var(--kws-gold) 180deg 270deg, var(--kws-violet) 270deg 360deg);
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+  }
+
   #kw-app-{{ section.id }} .kws-scene.is-active {
     border-color: var(--kw-gold);
     color: var(--kw-fg);
@@ -523,6 +606,10 @@
   #kw-app-{{ section.id }} .kws-house[data-scene="holiday"] .kws-bulb { fill: var(--kws-red); }
   #kw-app-{{ section.id }} .kws-house[data-scene="gameday"] .kws-bulb { fill: var(--kws-blue); }
   #kw-app-{{ section.id }} .kws-house[data-scene="rainbow"] .kws-bulb { fill: hsl(calc(var(--i) * 7.83deg), 90%, 60%); }
+  #kw-app-{{ section.id }} .kws-house[data-scene="america"] .kws-bulb { fill: var(--kws-red); }
+  #kw-app-{{ section.id }} .kws-house[data-scene="halloween"] .kws-bulb { fill: var(--kws-sunset); }
+  #kw-app-{{ section.id }} .kws-house[data-scene="easter"] .kws-bulb { fill: var(--kws-pastel-pink); }
+  #kw-app-{{ section.id }} .kws-house[data-scene="birthday"] .kws-bulb { fill: var(--kws-party-pink); }
 
   @media (prefers-reduced-motion: no-preference) {
     #kw-app-{{ section.id }} .kws-house[data-scene="gold"] .kws-bulb,
@@ -550,6 +637,22 @@
       animation: kws-rainbow-cycle 4s linear infinite;
       animation-delay: calc(var(--i) * -0.12s);
     }
+    #kw-app-{{ section.id }} .kws-house[data-scene="america"] .kws-bulb {
+      animation: kws-america-chase 1.8s steps(1, end) infinite;
+      animation-delay: calc(var(--i) * -0.12s);
+    }
+    #kw-app-{{ section.id }} .kws-house[data-scene="halloween"] .kws-bulb {
+      animation: kws-halloween-chase 1.3s steps(1, end) infinite;
+      animation-delay: calc(var(--i) * -0.09s);
+    }
+    #kw-app-{{ section.id }} .kws-house[data-scene="easter"] .kws-bulb {
+      animation: kws-easter-chase 2.4s steps(1, end) infinite;
+      animation-delay: calc(var(--i) * -0.14s);
+    }
+    #kw-app-{{ section.id }} .kws-house[data-scene="birthday"] .kws-bulb {
+      animation: kws-birthday-chase 1.6s steps(1, end) infinite;
+      animation-delay: calc(var(--i) * -0.1s);
+    }
   }
 
   @keyframes kws-twinkle {
@@ -572,6 +675,31 @@
     from { filter: hue-rotate(0deg) drop-shadow(0 0 9px rgba(255, 255, 255, 0.55)); }
     to { filter: hue-rotate(360deg) drop-shadow(0 0 9px rgba(255, 255, 255, 0.55)); }
   }
+
+  @keyframes kws-america-chase {
+    0%, 32% { fill: var(--kws-red); }
+    33%, 65% { fill: var(--kws-white); }
+    66%, 100% { fill: var(--kws-blue); }
+  }
+
+  @keyframes kws-halloween-chase {
+    0%, 49% { fill: var(--kws-sunset); }
+    50%, 100% { fill: var(--kws-violet); }
+  }
+
+  @keyframes kws-easter-chase {
+    0%, 24% { fill: var(--kws-pastel-pink); }
+    25%, 49% { fill: var(--kws-pastel-lavender); }
+    50%, 74% { fill: var(--kws-pastel-mint); }
+    75%, 100% { fill: var(--kws-pastel-yellow); }
+  }
+
+  @keyframes kws-birthday-chase {
+    0%, 24% { fill: var(--kws-party-pink); }
+    25%, 49% { fill: var(--kws-party-cyan); }
+    50%, 74% { fill: var(--kws-gold); }
+    75%, 100% { fill: var(--kws-violet); }
+  }
 </style>
 
 <script>
@@ -582,7 +710,7 @@
     var house = root.querySelector('[data-kws-house]');
     var buttons = root.querySelectorAll('[data-kws-scene]');
     var applyBtn = root.querySelector('[data-kws-apply]');
-    var order = ['gold', 'ruby', 'ice', 'emerald', 'sunset', 'teal', 'violet', 'holiday', 'gameday', 'rainbow'];
+    var order = ['gold', 'ruby', 'ice', 'emerald', 'sunset', 'teal', 'violet', 'holiday', 'gameday', 'rainbow', 'america', 'halloween', 'easter', 'birthday'];
     var index = 0;
     var timer = null;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
