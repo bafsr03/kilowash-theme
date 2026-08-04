@@ -29,6 +29,15 @@
         "link_url": "/pages/estimate"
       }
     },
+    "kw_light_app_showcase": {
+      "type": "kw-app-showcase",
+      "settings": {
+        "raised": true,
+        "eyebrow": "One app. Every color.",
+        "heading": "16 million colors, controlled from your pocket.",
+        "subheading": "Pick a preset scene below or build your own — tap Apply and your roofline updates in real time."
+      }
+    },
     "kw_light_feature_2": {
       "type": "kw-feature-split",
       "settings": {
@@ -114,6 +123,7 @@
   "order": [
     "kw_light_hero",
     "kw_light_feature_1",
+    "kw_light_app_showcase",
     "kw_light_feature_2",
     "kw_light_feature_3",
     "kw_light_occasions",
