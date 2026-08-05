@@ -14,14 +14,57 @@
     "kw_footer_main": {
       "type": "kw-footer",
       "blocks": {
-        "link_home": { "type": "footer_link", "settings": { "label": "Home", "url": "/" } },
-        "link_lighting": { "type": "footer_link", "settings": { "label": "Lighting", "url": "/pages/lighting" } },
-        "link_solar": { "type": "footer_link", "settings": { "label": "Solar", "url": "/pages/solar" } },
-        "link_estimate": { "type": "footer_link", "settings": { "label": "Estimate", "url": "/pages/estimate" } },
-        "link_about": { "type": "footer_link", "settings": { "label": "About", "url": "/pages/about" } },
-        "link_contact": { "type": "footer_link", "settings": { "label": "Contact", "url": "/pages/contact" } }
+        "link_home": {
+          "type": "footer_link",
+          "settings": {
+            "label": "Home",
+            "url": "/"
+          }
+        },
+        "link_lighting": {
+          "type": "footer_link",
+          "settings": {
+            "label": "Permanent lights",
+            "url": "/pages/lighting"
+          }
+        },
+        "link_solar": {
+          "type": "footer_link",
+          "settings": {
+            "label": "Solar Solutions",
+            "url": "/pages/solar"
+          }
+        },
+        "link_estimate": {
+          "type": "footer_link",
+          "settings": {
+            "label": "Estimate",
+            "url": "/pages/estimate"
+          }
+        },
+        "link_about": {
+          "type": "footer_link",
+          "settings": {
+            "label": "About",
+            "url": "/pages/about"
+          }
+        },
+        "link_contact": {
+          "type": "footer_link",
+          "settings": {
+            "label": "Contact",
+            "url": "/pages/contact"
+          }
+        }
       },
-      "block_order": ["link_home", "link_lighting", "link_solar", "link_estimate", "link_about", "link_contact"],
+      "block_order": [
+        "link_home",
+        "link_lighting",
+        "link_solar",
+        "link_estimate",
+        "link_about",
+        "link_contact"
+      ],
       "name": "KW Footer",
       "settings": {
         "tagline": "Permanent architectural lighting and solar solutions — installed and owned by a local Utah crew.",
@@ -51,17 +94,21 @@
             "height": "fit",
             "custom_height": 100,
             "background_media": "none",
+            "background_color": "",
             "video_position": "cover",
             "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
             "toggle_overlay": false,
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
             "open_in_new_tab": false,
+            "placeholder": "",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -82,6 +129,7 @@
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
+                "text_color": "",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -106,6 +154,7 @@
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
+                "text_color": "",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -127,6 +176,8 @@
           "settings": {
             "width": "fill",
             "custom_width": 100,
+            "heading": "",
+            "heading_text_color": "",
             "heading_preset": "h3",
             "border_style": "all",
             "input_style": "custom",
@@ -137,6 +188,10 @@
             "input_border_color": "{{ settings.color_palette.color2 }}",
             "input_type_preset": "paragraph",
             "style_class": "button-unstyled",
+            "custom_button_background": "{{ settings.color_palette.foreground }}",
+            "custom_button_text": "{{ settings.color_palette.background }}",
+            "custom_button_border": "{{ settings.color_palette.background }}",
+            "link_text_color": "",
             "display_type": "arrow",
             "label": "Sign up",
             "integrated_button": true,
@@ -169,6 +224,7 @@
           "type": "footer-copyright",
           "settings": {
             "show_powered_by": true,
+            "text_color": "",
             "font_size": "0.75rem",
             "case": "none"
           },
@@ -177,6 +233,7 @@
         "footer_policy_list_VCdnpa": {
           "type": "footer-policy-list",
           "settings": {
+            "text_color": "",
             "font_size": "0.75rem",
             "case": "none"
           },
@@ -185,11 +242,20 @@
         "social_links_Ew63Kq": {
           "type": "social-links",
           "settings": {
+            "icon_color": "",
             "facebook_url": "",
             "instagram_url": "",
             "youtube_url": "",
             "tiktok_url": "",
-            "twitter_url": ""
+            "twitter_url": "",
+            "threads_url": "",
+            "linkedin_url": "",
+            "bluesky_url": "",
+            "snapchat_url": "",
+            "pinterest_url": "",
+            "tumblr_url": "",
+            "vimeo_url": "",
+            "custom_url": ""
           },
           "blocks": {}
         }
@@ -203,9 +269,9 @@
       "settings": {
         "section_width": "page-width",
         "gap": 24,
+        "background_color": "{{ settings.color_palette.background }}",
         "divider_thickness": 1,
         "divider_color": "{{ settings.color_palette.color2 }}",
-        "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 20,
         "padding-block-end": 48
       }
