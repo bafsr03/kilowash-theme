@@ -3,13 +3,13 @@
     "kw_contact_hero": {
       "type": "kw-hero",
       "settings": {
-        "image_asset": "kw-field-control-box.jpg",
+        "image_asset": "kw-project-featured-01.jpg",
         "min_height": 42,
-        "eyebrow": "Get in touch",
-        "heading": "Tell us about your project.",
-        "subheading": "Lighting, solar, attic fans or Critter Guard — send the details and we'll follow up within 24 hours with next steps.",
-        "primary_label": "",
-        "primary_link": "",
+        "eyebrow": "Request a quote",
+        "heading": "Let's talk about your project.",
+        "subheading": "Permanent Lights, Solar Solutions, attic fans or Critter Guard — send the details below and we'll follow up within 24 hours with next steps.",
+        "primary_label": "Request a quote",
+        "primary_link": "#quote-form",
         "secondary_label": "Call / Text 385-406-2335",
         "secondary_link": "tel:3854062335",
         "show_marquee": false
@@ -20,8 +20,8 @@
       "settings": {
         "anchor_id": "quote-form",
         "eyebrow": "Request a quote",
-        "heading": "Tell us about your project.",
-        "subheading": "Lighting, solar, attic fans or Critter Guard — send the details and we'll follow up within 24 hours with next steps.",
+        "heading": "Send us the details.",
+        "subheading": "Permanent Lights, Solar Solutions, attic fans or Critter Guard — tell us what you need and we'll follow up within 24 hours with next steps.",
         "submit_label": "Send my inquiry",
         "secondary_label": "Prefer to book directly? Open our scheduling portal",
         "secondary_link": "https://clienthub.getjobber.com/hubs/3a67011b-064b-4097-8d0e-1459dcafa742/public/requests/1878911/new"
