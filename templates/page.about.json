@@ -25,7 +25,7 @@
       "settings": {
         "eyebrow": "Our story",
         "heading": "Why we started Kilowash",
-        "body": "<p>We got tired of watching homeowners overpay outside vendors for lighting and solar work that never fit their home or their budget. Kilowash was built to put that control back in your hands — a single local team that installs, owns, and stands behind every roofline of lighting, every solar panel and every attic fan we put up.</p><p>No call centers, no subcontracted crews you've never met. When you call or text, you're talking to the people who show up at your house.</p>"
+        "body": "<p>We got tired of watching homeowners overpay outside vendors for lighting and solar work that never fit their home or their budget. Kilowash was built to put that control back in your hands — a single local team that installs and stands behind every roofline of lighting and every attic fan we put up, and services the solar system already on your roof.</p><p>No call centers, no subcontracted crews you've never met. When you call or text, you're talking to the people who show up at your house.</p>"
       }
     },
     "kw_about_stats": {
@@ -77,7 +77,7 @@
         "primary_label": "Get my free estimate",
         "primary_link": "/pages/estimate",
         "secondary_label": "Contact us",
-        "secondary_link": "/pages/contact"
+        "secondary_link": "/pages/contact#quote-form"
       }
     }
   },

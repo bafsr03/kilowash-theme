@@ -109,7 +109,7 @@
         "primary_label": "Estimate my solar project",
         "primary_link": "/pages/estimate",
         "secondary_label": "Ask a question",
-        "secondary_link": "/pages/contact"
+        "secondary_link": "/pages/contact#quote-form"
       }
     }
   },

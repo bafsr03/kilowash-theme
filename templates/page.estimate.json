@@ -34,7 +34,7 @@
         "subheading": "This gives a rough low-to-high range for budgeting. Every project is confirmed with a free, no-obligation on-site measurement.",
         "disclaimer": "Rough estimate only, for budgeting purposes. All pricing is subject to adders based on site conditions (roof height, access, material). Final pricing is confirmed after a free on-site measurement.",
         "cta_label": "Send me this estimate",
-        "cta_link": "/pages/contact",
+        "cta_link": "/pages/contact#quote-form",
         "rate_ft": 32,
         "rate_smart_addon": 500,
         "rate_power_box": 200,
@@ -93,7 +93,7 @@
         "phone_display": "385-406-2335",
         "phone_link": "3854062335",
         "primary_label": "Send an inquiry",
-        "primary_link": "/pages/contact",
+        "primary_link": "/pages/contact#quote-form",
         "secondary_label": "Email us",
         "secondary_link": "mailto:KilowashUtah@gmail.com"
       }

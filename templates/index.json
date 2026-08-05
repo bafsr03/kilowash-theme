@@ -7,7 +7,7 @@
         "min_height": 92,
         "eyebrow": "Permanent Lighting & Solar — Wasatch Front, Utah",
         "heading": "Your home should stand out — day & night.",
-        "subheading": "Architectural lighting, holiday lighting, solar panels, attic fans and Critter Guard — installed once, controlled forever from your phone.",
+        "subheading": "Architectural lighting, holiday lighting, solar system care, attic fans and Critter Guard — installed once, controlled forever from your phone.",
         "primary_label": "Get my free estimate",
         "primary_link": "/pages/estimate",
         "secondary_label": "Call / Text 385-406-2335",
@@ -26,7 +26,7 @@
         "link_a": "/pages/lighting",
         "image_b_asset": "kw-solar-black-array.jpg",
         "title_b": "Solar & Attic Solutions",
-        "copy_b": "Solar panels, solar attic fans, radiant barriers and Critter Guard bird/pest protection — engineered for Utah roofs.",
+        "copy_b": "Solar system care, solar attic fans, radiant barriers and Critter Guard bird/pest protection — engineered for Utah roofs.",
         "cta_b": "Explore solar",
         "link_b": "/pages/solar"
       }
@@ -73,7 +73,7 @@
         "g2": { "type": "photo", "settings": { "image_asset": "kw-light-red-green.jpg", "caption": "Holiday red & green" } },
         "g3": { "type": "photo", "settings": { "image_asset": "kw-light-purple-white.jpg", "caption": "Custom color scenes" } },
         "g4": { "type": "photo", "settings": { "image_asset": "kw-light-patio-white.jpg", "caption": "Patio & entryway accents" } },
-        "g5": { "type": "photo", "settings": { "image_asset": "kw-solar-roof-array.jpg", "caption": "Rooftop solar installs", "wide": true } },
+        "g5": { "type": "photo", "settings": { "image_asset": "kw-solar-roof-array.jpg", "caption": "Rooftop solar care", "wide": true } },
         "g6": { "type": "photo", "settings": { "image_asset": "kw-fan-gable-mounted.jpg", "caption": "Solar attic fans" } }
       },
       "block_order": ["g1", "g2", "g3", "g4", "g5", "g6"],
@@ -101,7 +101,19 @@
         "subheading": "Slide to your roofline or panel size for a rough range. Every quote is confirmed with a free on-site visit.",
         "disclaimer": "Rough estimate only, for budgeting purposes. All pricing is subject to adders based on site conditions (roof height, access, material). Final pricing is confirmed after a free on-site measurement.",
         "cta_label": "Request this quote",
-        "cta_link": "/pages/contact"
+        "cta_link": "#quote-form"
+      }
+    },
+    "kw_home_quote": {
+      "type": "kw-quote-form",
+      "settings": {
+        "anchor_id": "quote-form",
+        "eyebrow": "Request a quote",
+        "heading": "Tell us about your home.",
+        "subheading": "Send the details and we'll follow up within 24 hours to schedule your free on-site estimate.",
+        "submit_label": "Request a quote",
+        "secondary_label": "Prefer to book directly? Open our scheduling portal",
+        "secondary_link": "https://clienthub.getjobber.com/hubs/3a67011b-064b-4097-8d0e-1459dcafa742/public/requests/1878911/new"
       }
     },
     "kw_home_cta": {
@@ -125,6 +137,7 @@
     "kw_home_gallery",
     "kw_home_stats",
     "kw_home_estimator",
+    "kw_home_quote",
     "kw_home_cta"
   ]
 }

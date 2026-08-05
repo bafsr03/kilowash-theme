@@ -34,7 +34,7 @@
         "image_position": "left",
         "eyebrow": "Full-color architectural lighting",
         "heading": "Millions of colors. One tap.",
-        "body": "Individually addressable smart lights hide behind your fascia and trim, invisible by day. At night, switch between preset scenes or design your own — game day, holidays, birthdays, or just because.",
+        "body": "Individually addressable smart Permanent Lights hide behind your fascia and trim, invisible by day. At night, switch between preset scenes or design your own — game day, holidays, birthdays, or just because.",
         "list_items": "App-controlled scenes and schedules\nMultiple preset colors, patterns & effects\nSync with music or events\nWorks year-round, not just for the holidays",
         "link_label": "Get my free estimate",
         "link_url": "/pages/estimate"
@@ -84,7 +84,7 @@
           "type": "feature",
           "settings": {
             "icon": "🏈",
-            "title": "Game day lights",
+            "title": "Game day Permanent Lights",
             "body": "Switch to your team's colors before kickoff — one tap from your phone, no ladder required."
           }
         },
@@ -92,7 +92,7 @@
           "type": "feature",
           "settings": {
             "icon": "🎄",
-            "title": "Holiday lights",
+            "title": "Holiday Permanent Lights",
             "body": "Classic red & green, icy white, or your own custom scene — up in seconds, down whenever you're ready for the next occasion."
           }
         },
@@ -100,7 +100,7 @@
           "type": "feature",
           "settings": {
             "icon": "🔒",
-            "title": "Accent / security lights",
+            "title": "Accent / security Permanent Lights",
             "body": "A steady, warm glow every night that highlights your home's architecture and keeps the property lit after dark."
           }
         }
@@ -230,7 +230,7 @@
         "primary_label": "Estimate my lighting",
         "primary_link": "/pages/estimate",
         "secondary_label": "Ask a question",
-        "secondary_link": "/pages/contact"
+        "secondary_link": "/pages/contact#quote-form"
       }
     }
   },
