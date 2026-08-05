@@ -1,8 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "kw_contact_hero": {
       "type": "kw-hero",
       "settings": {
+        "image": "shopify://shop_images/DSC9906_300dpi.jpg",
         "image_asset": "kw-project-featured-01.jpg",
         "min_height": 42,
         "eyebrow": "Request a quote",
@@ -12,7 +22,8 @@
         "primary_link": "#quote-form",
         "secondary_label": "Call / Text 385-406-2335",
         "secondary_link": "tel:3854062335",
-        "show_marquee": false
+        "show_marquee": false,
+        "marquee_text": ""
       }
     },
     "form": {
@@ -30,11 +41,36 @@
     "kw_contact_why": {
       "type": "kw-why-grid",
       "blocks": {
-        "step1": { "type": "feature", "settings": { "icon": "📋", "title": "1. Send your details", "body": "Tell us what you're after — lighting, solar, attic fans or Critter Guard." } },
-        "step2": { "type": "feature", "settings": { "icon": "📞", "title": "2. We call within 24 hours", "body": "A real person on our local crew follows up to schedule your free visit." } },
-        "step3": { "type": "feature", "settings": { "icon": "✅", "title": "3. Free on-site estimate", "body": "We confirm exact pricing on-site — no pressure, no obligation." } }
+        "step1": {
+          "type": "feature",
+          "settings": {
+            "icon": "📋",
+            "title": "1. Send your details",
+            "body": "Tell us what you're after — lighting, solar, attic fans or Critter Guard."
+          }
+        },
+        "step2": {
+          "type": "feature",
+          "settings": {
+            "icon": "📞",
+            "title": "2. We call within 24 hours",
+            "body": "A real person on our local crew follows up to schedule your free visit."
+          }
+        },
+        "step3": {
+          "type": "feature",
+          "settings": {
+            "icon": "✅",
+            "title": "3. Free on-site estimate",
+            "body": "We confirm exact pricing on-site — no pressure, no obligation."
+          }
+        }
       },
-      "block_order": ["step1", "step2", "step3"],
+      "block_order": [
+        "step1",
+        "step2",
+        "step3"
+      ],
       "settings": {
         "raised": true,
         "eyebrow": "What happens next",
@@ -55,5 +91,10 @@
       }
     }
   },
-  "order": ["kw_contact_hero", "form", "kw_contact_why", "kw_contact_cta"]
+  "order": [
+    "kw_contact_hero",
+    "form",
+    "kw_contact_why",
+    "kw_contact_cta"
+  ]
 }
