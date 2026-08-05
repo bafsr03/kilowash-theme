@@ -40,10 +40,9 @@
         "rate_power_box": 200,
         "rate_fan": 1200,
         "rate_guard_ft": 14,
-        "rate_radiant_flat": 900,
         "rate_clean_panel": 5,
-        "rate_removal_flat": 220,
-        "rate_solar_callout": 250
+        "rate_removal_per_panel": 200,
+        "rate_service_call": 250
       }
     },
     "kw_est_why": {

@@ -60,16 +60,19 @@
 
         <div class="kw-est__togglegrid">
           <label class="kw-est__toggle">
-            <input type="checkbox" data-kw-addon="radiant">
-            <span>Attic radiant barrier</span>
-          </label>
-          <label class="kw-est__toggle">
-            <input type="checkbox" data-kw-addon="clean" checked>
+            <input type="checkbox" data-kw-addon="clean">
             <span>Solar panel cleaning</span>
           </label>
           <label class="kw-est__toggle">
             <input type="checkbox" data-kw-addon="removal">
             <span>Solar panel removal &amp; re-install</span>
+          </label>
+          <label class="kw-est__toggle">
+            <input type="checkbox" data-kw-addon="service">
+            <span>
+              Service call
+              <small class="kw-est__toggle-note">Flat ${{ section.settings.rate_service_call | default: 250 }}</small>
+            </span>
           </label>
         </div>
       </div>
@@ -256,10 +259,9 @@
     var SOFFIT_FLAT = {{ section.settings.rate_power_box | default: 200 }};
     var FAN_RATE = {{ section.settings.rate_fan | default: 1200 }};
     var GUARD_FT_RATE = {{ section.settings.rate_guard_ft | default: 14 }};
-    var RADIANT_FLAT = {{ section.settings.rate_radiant_flat | default: 900 }};
     var PANEL_CLEAN_RATE = {{ section.settings.rate_clean_panel | default: 5 }};
-    var REMOVAL_FLAT = {{ section.settings.rate_removal_flat | default: 220 }};
-    var SOLAR_CALLOUT = {{ section.settings.rate_solar_callout | default: 250 }};
+    var REMOVAL_PER_PANEL_RATE = {{ section.settings.rate_removal_per_panel | default: 200 }};
+    var SERVICE_CALL_RATE = {{ section.settings.rate_service_call | default: 250 }};
 
     var tabs = root.querySelectorAll('[data-kw-tab]');
     var panes = root.querySelectorAll('[data-kw-pane]');
@@ -284,9 +286,9 @@
     var guardOut = root.querySelector('[data-kw-guard-out]');
     var addonSmart = root.querySelector('[data-kw-addon="smart"]');
     var addonSoffit = root.querySelector('[data-kw-addon="soffit"]');
-    var addonRadiant = root.querySelector('[data-kw-addon="radiant"]');
     var addonClean = root.querySelector('[data-kw-addon="clean"]');
     var addonRemoval = root.querySelector('[data-kw-addon="removal"]');
+    var addonService = root.querySelector('[data-kw-addon="service"]');
     var totalOut = root.querySelector('[data-kw-total]');
 
     function money(n) {
@@ -318,23 +320,21 @@
         guardOut.textContent = guardFt;
         total += guardFt * GUARD_FT_RATE;
 
-        if (addonRadiant.checked) {
-          total += RADIANT_FLAT;
-        }
         if (addonClean.checked) {
           total += panels * PANEL_CLEAN_RATE;
         }
         if (addonRemoval.checked) {
-          total += REMOVAL_FLAT;
+          total += panels * REMOVAL_PER_PANEL_RATE;
         }
-
-        total += SOLAR_CALLOUT;
+        if (addonService.checked) {
+          total += SERVICE_CALL_RATE;
+        }
       }
 
       totalOut.textContent = money(total);
     }
 
-    [ftInput, panelsInput, fansInput, guardInput, addonSmart, addonSoffit, addonRadiant, addonClean, addonRemoval].forEach(function (el) {
+    [ftInput, panelsInput, fansInput, guardInput, addonSmart, addonSoffit, addonClean, addonRemoval, addonService].forEach(function (el) {
       if (!el) return;
       el.addEventListener('input', compute);
       el.addEventListener('change', compute);
@@ -362,10 +362,9 @@
     { "type": "header", "content": "Solar & attic rates" },
     { "type": "number", "id": "rate_fan", "label": "Solar attic fan, each ($)", "default": 1200 },
     { "type": "number", "id": "rate_guard_ft", "label": "Critter Guard per foot ($)", "default": 14 },
-    { "type": "number", "id": "rate_radiant_flat", "label": "Radiant barrier flat rate ($)", "default": 900 },
     { "type": "number", "id": "rate_clean_panel", "label": "Panel cleaning per panel ($)", "default": 5 },
-    { "type": "number", "id": "rate_removal_flat", "label": "Panel removal & re-install, flat rough price ($)", "default": 220 },
-    { "type": "number", "id": "rate_solar_callout", "label": "Solar call-out fee, flat ($)", "default": 250 }
+    { "type": "number", "id": "rate_removal_per_panel", "label": "Panel removal & re-install, per panel ($)", "default": 200 },
+    { "type": "number", "id": "rate_service_call", "label": "Service call, flat ($)", "default": 250 }
   ],
   "presets": [{ "name": "KW Estimator" }]
 }
