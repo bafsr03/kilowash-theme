@@ -86,9 +86,11 @@
         "g3": { "type": "photo", "settings": { "image_asset": "kw-critter-mesh-closeup.jpg", "caption": "Critter Guard mesh, close up" } },
         "g4": { "type": "photo", "settings": { "image_asset": "kw-fan-before-after.jpg", "caption": "Before & after venting" } },
         "g5": { "type": "photo", "settings": { "image_asset": "kw-solar-street-view.jpg", "caption": "Street-view solar install", "wide": true } },
-        "g6": { "type": "photo", "settings": { "image_asset": "kw-fan-mountain-roof.jpg", "caption": "Solar fan, mountain view" } }
+        "g6": { "type": "photo", "settings": { "image_asset": "kw-fan-mountain-roof.jpg", "caption": "Solar fan, mountain view" } },
+        "g7": { "type": "photo", "settings": { "image_asset": "kw-fan-mountain-view-install.jpg", "caption": "Fresh fan install, valley view" } },
+        "g8": { "type": "photo", "settings": { "image_asset": "kw-fan-mountain-view-closeup.jpg", "caption": "Solar fan, close up" } }
       },
-      "block_order": ["g1", "g2", "g3", "g4", "g5", "g6"],
+      "block_order": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"],
       "settings": {
         "eyebrow": "Recent installs",
         "heading": "Solar, fans & Critter Guard in the field."
