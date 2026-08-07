@@ -1,4 +1,5 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'kw-spamguard.js' | asset_url }}" defer></script>
 
 <section class="kw-scope kw-hero" id="kw-hero-{{ section.id }}">
   <div class="kw-hero__media">
@@ -41,9 +42,15 @@
           </a>
         {% endif %}
         {% if section.settings.secondary_label != blank %}
-          <a href="{{ section.settings.secondary_link }}" class="kw-btn kw-btn--ghost">
-            {{ section.settings.secondary_label }}
-          </a>
+          {% if section.settings.secondary_link contains 'tel:' %}
+            {% render 'kw-phone-link', digits: section.settings.secondary_link | remove: 'tel:', class: 'kw-btn kw-btn--ghost', prefix: 'Call / Text ' %}
+          {% elsif section.settings.secondary_link contains 'mailto:' %}
+            {% render 'kw-email-link', email: section.settings.secondary_link | remove: 'mailto:', class: 'kw-btn kw-btn--ghost', show_email: false, static_text: section.settings.secondary_label %}
+          {% else %}
+            <a href="{{ section.settings.secondary_link }}" class="kw-btn kw-btn--ghost">
+              {{ section.settings.secondary_label }}
+            </a>
+          {% endif %}
         {% endif %}
       </div>
     </div>

@@ -1,0 +1,33 @@
+{%- comment -%}
+  Renders a tel:/sms: link without putting the raw phone number in server-rendered
+  HTML, so plain-text/regex scrapers can't harvest it. A tiny script (kw-spamguard.js)
+  decodes it into a real link + visible number once the page loads in a real browser.
+
+  Params:
+    digits       - required. Phone number, any formatting (e.g. "385-406-2335").
+    mode         - optional. "tel" (default) or "sms".
+    class        - optional. Extra class(es) for the <a>.
+    show_number  - optional. Defaults to true. When true, the visible text becomes
+                   the formatted number (with optional `prefix`). When false, the
+                   `static_text` is kept as-is and only the href is set.
+    prefix       - optional. Non-numeric text shown before the number, e.g. "Call / Text ".
+    static_text  - optional. Visible text when show_number is false, e.g. "or text us".
+{%- endcomment -%}
+{%- liquid
+  assign clean_digits = digits | remove: '-' | remove: ' ' | remove: '(' | remove: ')' | remove: '+1'
+  assign reversed_digits = clean_digits | split: '' | reverse | join: ''
+  assign link_mode = mode | default: 'tel'
+-%}
+<a
+  class="kw-phone-link{% if class %} {{ class }}{% endif %}"
+  data-kw-phone
+  data-p="{{ reversed_digits }}"
+  data-mode="{{ link_mode }}"
+  {%- if show_number != false %}
+    data-show-number
+  {%- endif %}
+  {%- if prefix %}
+    data-prefix="{{ prefix | escape }}"
+  {%- endif %}
+  href="#"
+>{% if icon %}{{ icon }}{% endif %}<span class="kw-phone-link__text">{% if static_text %}{{ static_text }}{% else %}Call us{% endif %}</span></a>

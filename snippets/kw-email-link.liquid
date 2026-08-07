@@ -1,0 +1,24 @@
+{%- comment -%}
+  Renders a mailto: link without putting the raw email address in server-rendered
+  HTML, so scrapers can't harvest it from a plain-text/HTML fetch. Decoded into a
+  real mailto: link (and visible address, if requested) by kw-spamguard.js.
+
+  Params:
+    email        - required. The email address.
+    class        - optional. Extra class(es) for the <a>.
+    show_email   - optional. Defaults to true. When true, visible text becomes the
+                   address. When false, `static_text` is kept as-is (href only).
+    static_text  - optional. Visible text when show_email is false, e.g. "Email us".
+{%- endcomment -%}
+{%- liquid
+  assign reversed_email = email | split: '' | reverse | join: ''
+-%}
+<a
+  class="kw-email-link{% if class %} {{ class }}{% endif %}"
+  data-kw-email
+  data-e="{{ reversed_email }}"
+  {%- if show_email != false %}
+    data-show-email
+  {%- endif %}
+  href="#"
+>{% if static_text %}{{ static_text }}{% else %}Email us{% endif %}</a>

@@ -1,4 +1,5 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'kw-spamguard.js' | asset_url }}" defer></script>
 
 <footer class="kw-scope kw-footer" id="kw-footer-{{ section.id }}">
   <div class="kw-blueprint"></div>
@@ -34,8 +35,8 @@
     <div class="kw-footer__col">
       <p class="kw-footer__col-label">Get in touch</p>
       <ul class="kw-footer__links">
-        <li><a href="tel:{{ section.settings.phone | remove: '-' | remove: ' ' | prepend: '+1' }}">{{ section.settings.phone }}</a></li>
-        <li><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li>
+        <li>{% render 'kw-phone-link', digits: section.settings.phone %}</li>
+        <li>{% render 'kw-email-link', email: section.settings.email %}</li>
       </ul>
       <p class="kw-footer__area">{{ section.settings.area_text }}</p>
     </div>
