@@ -1,4 +1,5 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'kw-spamguard.js' | asset_url }}" defer></script>
 
 <section class="kw-scope kw-section kw-section--raised kw-qform" id="{{ section.settings.anchor_id | default: 'quote-form' }}">
   <div class="kw-blueprint"></div>
@@ -22,9 +23,15 @@
       <div class="kw-scanline"></div>
 
       {% assign form_id = 'QuoteForm-' | append: section.id %}
-      {%- form 'contact', id: form_id, class: 'kw-qform__form' -%}
+      {%- form 'contact', id: form_id, class: 'kw-qform__form', data-kw-spamguard: '' -%}
         <input type="hidden" name="contact[id]" value="{{ form_id }}">
         <input type="hidden" name="contact[Lead source]" value="Website quote form">
+
+        <div class="kw-qform__trap" aria-hidden="true">
+          <label for="{{ form_id }}-website">Website</label>
+          <input type="text" id="{{ form_id }}-website" name="contact[website]" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="contact[form_rendered_at]" class="kw-qform__rendered-at" value="">
 
         {% liquid
           assign form_matches = false
@@ -205,6 +212,14 @@
   #{{ section.settings.anchor_id | default: 'quote-form' }} .kw-qform__submit {
     align-self: flex-start;
     margin-top: 0.4rem;
+  }
+
+  #{{ section.settings.anchor_id | default: 'quote-form' }} .kw-qform__trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 
   #{{ section.settings.anchor_id | default: 'quote-form' }} .kw-qform__error,

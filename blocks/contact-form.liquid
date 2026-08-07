@@ -1,4 +1,5 @@
 
+<script src="{{ 'kw-spamguard.js' | asset_url }}" defer></script>
 
 {% capture submit_button %}
   {% content_for 'block', type: 'contact-form-submit-button', id: 'submit-button' %}
@@ -19,12 +20,18 @@
   {{ block.shopify_attributes }}
 >
   {% assign form_id = block.id | default: section.id | prepend: 'ContactForm-' %}
-  {%- form 'contact', id: form_id, class: 'contact-form__form' -%}
+  {%- form 'contact', id: form_id, class: 'contact-form__form', data-kw-spamguard: '' -%}
     <input
       name="contact[id]"
       type="hidden"
       value="{{ form_id }}"
     >
+
+    <div class="contact-form__trap" aria-hidden="true">
+      <label for="{{ form_id }}-website">Website</label>
+      <input type="text" id="{{ form_id }}-website" name="contact[website]" tabindex="-1" autocomplete="off">
+    </div>
+    <input type="hidden" name="contact[form_rendered_at]" class="kw-qform__rendered-at" value="">
 
     {% liquid
       assign form_matches = false
@@ -169,6 +176,14 @@
   .contact-form__input--textarea {
     resize: vertical;
     min-height: var(--input-textarea-min-height);
+  }
+
+  .contact-form__trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 
   .contact-form__error,
