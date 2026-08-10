@@ -29,6 +29,7 @@
     "kw_solar_feature_fans": {
       "type": "kw-feature-split",
       "settings": {
+        "image": "shopify://shop_images/IMG_6577.jpg",
         "image_asset": "kw-fan-roof-install.jpg",
         "badge": "Powered by the Sun",
         "image_position": "left",
