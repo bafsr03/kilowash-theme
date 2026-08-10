@@ -94,6 +94,19 @@
       ],
       "settings": {}
     },
+    "kw_solar_fan_before_after": {
+      "type": "kw-before-after",
+      "settings": {
+        "eyebrow": "See the difference",
+        "heading": "Same roof, new solar attic fans.",
+        "subheading": "Drag the slider to see this Utah home before and after we installed a pair of solar-powered attic fans.",
+        "before_image_asset": "kw-solar-fan-before.jpg",
+        "before_label": "Before",
+        "after_image_asset": "kw-solar-fan-after.jpg",
+        "after_label": "After",
+        "start_position": 50
+      }
+    },
     "kw_solar_feature_panels": {
       "type": "kw-feature-split",
       "settings": {
@@ -277,6 +290,7 @@
     "kw_solar_feature_fans",
     "kw_solar_overview",
     "kw_solar_heat_stats",
+    "kw_solar_fan_before_after",
     "kw_solar_feature_panels",
     "kw_solar_problem",
     "kw_solar_solution",

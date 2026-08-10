@@ -1,0 +1,281 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-scope kw-section" id="kw-ba-{{ section.id }}">
+  <div class="kw-wrap">
+    {% if section.settings.eyebrow != blank %}
+      <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="kw-ba__heading kw-reveal">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.subheading != blank %}
+      <p class="kw-ba__sub kw-reveal">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <div class="kw-ba kw-reveal-scale" data-kw-ba>
+      <div class="kw-ba__frame">
+        <div class="kw-ba__img kw-ba__img--after">
+          {% if section.settings.after_image != blank %}
+            <img
+              src="{{ section.settings.after_image | image_url: width: 1600 }}"
+              srcset="{{ section.settings.after_image | image_url: width: 800 }} 800w, {{ section.settings.after_image | image_url: width: 1600 }} 1600w"
+              sizes="(max-width: 900px) 100vw, 900px"
+              alt="{{ section.settings.after_label | escape }}"
+              loading="lazy"
+              width="{{ section.settings.after_image.width }}"
+              height="{{ section.settings.after_image.height }}"
+            >
+          {% elsif section.settings.after_image_asset != blank %}
+            <img src="{{ section.settings.after_image_asset | asset_url }}" alt="{{ section.settings.after_label | escape }}" loading="lazy">
+          {% endif %}
+          <span class="kw-ba__tag kw-ba__tag--after">{{ section.settings.after_label }}</span>
+        </div>
+
+        <div class="kw-ba__img kw-ba__img--before" data-kw-ba-before>
+          {% if section.settings.before_image != blank %}
+            <img
+              src="{{ section.settings.before_image | image_url: width: 1600 }}"
+              srcset="{{ section.settings.before_image | image_url: width: 800 }} 800w, {{ section.settings.before_image | image_url: width: 1600 }} 1600w"
+              sizes="(max-width: 900px) 100vw, 900px"
+              alt="{{ section.settings.before_label | escape }}"
+              loading="lazy"
+              width="{{ section.settings.before_image.width }}"
+              height="{{ section.settings.before_image.height }}"
+            >
+          {% elsif section.settings.before_image_asset != blank %}
+            <img src="{{ section.settings.before_image_asset | asset_url }}" alt="{{ section.settings.before_label | escape }}" loading="lazy">
+          {% endif %}
+          <span class="kw-ba__tag kw-ba__tag--before">{{ section.settings.before_label }}</span>
+        </div>
+
+        <div class="kw-ba__handle" data-kw-ba-handle>
+          <span class="kw-ba__grip">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M6 3 L2 9 L6 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 3 L16 9 L12 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <input
+        type="range"
+        class="kw-ba__range"
+        data-kw-ba-range
+        min="0"
+        max="100"
+        value="{{ section.settings.start_position }}"
+        aria-label="{{ section.settings.before_label }} / {{ section.settings.after_label }} slider"
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  #kw-ba-{{ section.id }} {
+    padding-block: clamp(56px, 8vw, 108px);
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__heading {
+    font-size: clamp(1.9rem, 3.6vw, 3rem);
+    max-width: 20ch;
+    margin-block: 0.4em 0.6rem;
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__sub {
+    color: var(--kw-fg-dim);
+    max-width: 60ch;
+    margin-block: 0 2.4rem;
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba {
+    position: relative;
+    max-width: 900px;
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--kw-line-bright);
+    background: var(--kw-bg-raised);
+    touch-action: pan-y;
+    user-select: none;
+    cursor: ew-resize;
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__img {
+    position: absolute;
+    inset: 0;
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__img--before {
+    clip-path: inset(0 calc(100% - var(--kw-ba-pos, 50%)) 0 0);
+    will-change: clip-path;
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__tag {
+    position: absolute;
+    top: 12px;
+    font-family: var(--kw-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    border-radius: 3px;
+    background: rgba(10, 13, 18, 0.72);
+    color: var(--kw-fg);
+    border: 1px solid var(--kw-line-bright);
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__tag--before { left: 12px; }
+  #kw-ba-{{ section.id }} .kw-ba__tag--after {
+    right: 12px;
+    border-color: var(--kw-gold);
+    color: var(--kw-gold);
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--kw-ba-pos, 50%);
+    width: 0;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__handle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: var(--kw-fg);
+    box-shadow: 0 0 0 1px rgba(10, 13, 18, 0.4);
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__grip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--kw-fg);
+    color: var(--kw-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__range {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  #kw-ba-{{ section.id }} .kw-ba__range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 40px;
+    height: 40px;
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('kw-ba-{{ section.id }}');
+    if (!root) return;
+
+    var ba = root.querySelector('[data-kw-ba]');
+    var frame = root.querySelector('.kw-ba__frame');
+    var range = root.querySelector('[data-kw-ba-range]');
+    if (!ba || !frame || !range) return;
+
+    function setPos(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      ba.style.setProperty('--kw-ba-pos', pct + '%');
+      range.value = pct;
+    }
+
+    range.addEventListener('input', function () {
+      setPos(parseFloat(range.value));
+    });
+
+    function pctFromClientX(clientX) {
+      var rect = frame.getBoundingClientRect();
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    var dragging = false;
+
+    frame.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      setPos(pctFromClientX(e.clientX));
+    });
+
+    window.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      setPos(pctFromClientX(e.clientX));
+    });
+
+    window.addEventListener('pointerup', function () {
+      dragging = false;
+    });
+
+    setPos(parseFloat(range.value));
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "KW Before & After",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "See the difference" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Before & after." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "header", "content": "Before image" },
+    { "type": "image_picker", "id": "before_image", "label": "Before image (overrides asset below)" },
+    { "type": "text", "id": "before_image_asset", "label": "Before image — theme asset filename" },
+    { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
+    { "type": "header", "content": "After image" },
+    { "type": "image_picker", "id": "after_image", "label": "After image (overrides asset below)" },
+    { "type": "text", "id": "after_image_asset", "label": "After image — theme asset filename" },
+    { "type": "text", "id": "after_label", "label": "After label", "default": "After" },
+    { "type": "range", "id": "start_position", "label": "Start position", "min": 0, "max": 100, "step": 5, "default": 50 }
+  ],
+  "presets": [
+    {
+      "name": "KW Before & After",
+      "settings": {
+        "eyebrow": "See the difference",
+        "heading": "Before & after.",
+        "before_image_asset": "kw-solar-fan-before.jpg",
+        "before_label": "Before",
+        "after_image_asset": "kw-solar-fan-after.jpg",
+        "after_label": "After"
+      }
+    }
+  ]
+}
+{% endschema %}
