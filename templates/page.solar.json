@@ -12,6 +12,7 @@
     "kw_solar_hero": {
       "type": "kw-hero",
       "settings": {
+        "image": "shopify://shop_images/IMG_5944.jpg",
         "image_asset": "kw-solar-black-array.jpg",
         "min_height": 70,
         "eyebrow": "Solar & Attic Solutions",
