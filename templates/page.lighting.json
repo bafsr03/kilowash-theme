@@ -166,6 +166,30 @@
             "caption": "Commercial & shop lighting",
             "wide": false
           }
+        },
+        "g7": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-welcome-roofline.jpg",
+            "caption": "Warm welcome, red & green roofline",
+            "wide": false
+          }
+        },
+        "g8": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-patio-brick-red-green.jpg",
+            "caption": "Brick home, red & green accents",
+            "wide": false
+          }
+        },
+        "g9": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-garage-purple-white.jpg",
+            "caption": "Garage & gable, color-changing scene",
+            "wide": true
+          }
         }
       },
       "block_order": [
@@ -174,7 +198,10 @@
         "g3",
         "g4",
         "g5",
-        "g6"
+        "g6",
+        "g7",
+        "g8",
+        "g9"
       ],
       "settings": {
         "eyebrow": "Recent installs",

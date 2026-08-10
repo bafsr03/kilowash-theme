@@ -215,6 +215,22 @@
             "caption": "Solar fan, close up",
             "wide": false
           }
+        },
+        "g9": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-cow-field-array.jpg",
+            "caption": "Rooftop array overlooking the pasture",
+            "wide": true
+          }
+        },
+        "g10": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-install-close.jpg",
+            "caption": "Fresh panel install, close up",
+            "wide": false
+          }
         }
       },
       "block_order": [
@@ -225,7 +241,9 @@
         "g5",
         "g6",
         "g7",
-        "g8"
+        "g8",
+        "g9",
+        "g10"
       ],
       "settings": {
         "eyebrow": "Recent installs",
