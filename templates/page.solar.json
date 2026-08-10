@@ -21,7 +21,8 @@
         "primary_link": "/pages/estimate",
         "secondary_label": "Call / Text 385-406-2335",
         "secondary_link": "tel:3854062335",
-        "show_marquee": false
+        "show_marquee": false,
+        "marquee_text": ""
       }
     },
     "kw_solar_feature_fans": {
@@ -38,19 +39,10 @@
         "link_url": "/pages/estimate"
       }
     },
-    "kw_solar_heat_stats": {
-      "type": "kw-stats",
-      "blocks": {
-        "s1": { "type": "stat", "settings": { "number": 158, "suffix": "°F", "label": "Peak attic heat with no ventilation" } },
-        "s2": { "type": "stat", "settings": { "number": 54, "suffix": "°F", "label": "Cooler attic air with a solar fan running" } },
-        "s3": { "type": "stat", "settings": { "number": 100, "suffix": "%", "label": "Solar powered — no electrician, no wiring" } }
-      },
-      "block_order": ["s1", "s2", "s3"],
-      "settings": {}
-    },
     "kw_solar_overview": {
       "type": "kw-feature-split",
       "settings": {
+        "image": "shopify://shop_images/IMG_1409.jpg",
         "image_asset": "kw-diagram-fan-overview.jpg",
         "badge": "Overview",
         "image_position": "right",
@@ -61,6 +53,44 @@
         "link_label": "Estimate my attic fans",
         "link_url": "/pages/estimate"
       }
+    },
+    "kw_solar_heat_stats": {
+      "type": "kw-stats",
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "number": 158,
+            "suffix": "°F",
+            "decimals": 0,
+            "label": "Peak attic heat with no ventilation"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "number": 54,
+            "suffix": "°F",
+            "decimals": 0,
+            "label": "Cooler attic air with a solar fan running"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "number": 100,
+            "suffix": "%",
+            "decimals": 0,
+            "label": "Solar powered — no electrician, no wiring"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {}
     },
     "kw_solar_feature_panels": {
       "type": "kw-feature-split",
@@ -85,7 +115,9 @@
         "eyebrow": "What's living under your panels?",
         "heading": "Birds, pigeons & pests love the shade under your panels.",
         "body": "The gap beneath solar panels is a perfect, sheltered nesting spot — and what moves in causes real damage: droppings that stain and corrode, nesting debris that's a fire risk, and costly repairs to reach.",
-        "list_items": "Droppings damage panels & void warranties\nNesting material is a fire hazard\nPest removal and cleanup gets expensive fast"
+        "list_items": "Droppings damage panels & void warranties\nNesting material is a fire hazard\nPest removal and cleanup gets expensive fast",
+        "link_label": "",
+        "link_url": ""
       }
     },
     "kw_solar_solution": {
@@ -105,16 +137,81 @@
     "kw_solar_gallery": {
       "type": "kw-gallery",
       "blocks": {
-        "g1": { "type": "photo", "settings": { "image_asset": "kw-solar-low-profile.jpg", "caption": "Low-profile commercial array", "wide": true } },
-        "g2": { "type": "photo", "settings": { "image_asset": "kw-fan-gable-vent.jpg", "caption": "Gable-mounted solar fan" } },
-        "g3": { "type": "photo", "settings": { "image_asset": "kw-critter-mesh-closeup.jpg", "caption": "Critter Guard mesh, close up" } },
-        "g4": { "type": "photo", "settings": { "image_asset": "kw-fan-before-after.jpg", "caption": "Before & after venting" } },
-        "g5": { "type": "photo", "settings": { "image_asset": "kw-solar-street-view.jpg", "caption": "Street-view solar install", "wide": true } },
-        "g6": { "type": "photo", "settings": { "image_asset": "kw-fan-mountain-roof.jpg", "caption": "Solar fan, mountain view" } },
-        "g7": { "type": "photo", "settings": { "image_asset": "kw-fan-mountain-view-install.jpg", "caption": "Fresh fan install, valley view" } },
-        "g8": { "type": "photo", "settings": { "image_asset": "kw-fan-mountain-view-closeup.jpg", "caption": "Solar fan, close up" } }
+        "g1": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-low-profile.jpg",
+            "caption": "Low-profile commercial array",
+            "wide": true
+          }
+        },
+        "g2": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-fan-gable-vent.jpg",
+            "caption": "Gable-mounted solar fan",
+            "wide": false
+          }
+        },
+        "g3": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-critter-mesh-closeup.jpg",
+            "caption": "Critter Guard mesh, close up",
+            "wide": false
+          }
+        },
+        "g4": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-fan-before-after.jpg",
+            "caption": "Before & after venting",
+            "wide": false
+          }
+        },
+        "g5": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-street-view.jpg",
+            "caption": "Street-view solar install",
+            "wide": true
+          }
+        },
+        "g6": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-fan-mountain-roof.jpg",
+            "caption": "Solar fan, mountain view",
+            "wide": false
+          }
+        },
+        "g7": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-fan-mountain-view-install.jpg",
+            "caption": "Fresh fan install, valley view",
+            "wide": false
+          }
+        },
+        "g8": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-fan-mountain-view-closeup.jpg",
+            "caption": "Solar fan, close up",
+            "wide": false
+          }
+        }
       },
-      "block_order": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"],
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6",
+        "g7",
+        "g8"
+      ],
       "settings": {
         "eyebrow": "Recent installs",
         "heading": "Solar, fans & Critter Guard in the field."
@@ -123,11 +220,36 @@
     "kw_solar_why": {
       "type": "kw-why-grid",
       "blocks": {
-        "efficient": { "type": "feature", "settings": { "icon": "☀️", "title": "100% solar powered", "body": "Attic fans run entirely off the sun — no electrician, no added utility bill." } },
-        "protect": { "type": "feature", "settings": { "icon": "🛡️", "title": "Total pest exclusion", "body": "Critter Guard mesh keeps birds, pigeons and rodents out — permanently." } },
-        "warranty": { "type": "feature", "settings": { "icon": "🏆", "title": "10-year warranty", "body": "Every attic fan and Critter Guard install is backed for a decade." } }
+        "efficient": {
+          "type": "feature",
+          "settings": {
+            "icon": "☀️",
+            "title": "100% solar powered",
+            "body": "Attic fans run entirely off the sun — no electrician, no added utility bill."
+          }
+        },
+        "protect": {
+          "type": "feature",
+          "settings": {
+            "icon": "🛡️",
+            "title": "Total pest exclusion",
+            "body": "Critter Guard mesh keeps birds, pigeons and rodents out — permanently."
+          }
+        },
+        "warranty": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏆",
+            "title": "10-year warranty",
+            "body": "Every attic fan and Critter Guard install is backed for a decade."
+          }
+        }
       },
-      "block_order": ["efficient", "protect", "warranty"],
+      "block_order": [
+        "efficient",
+        "protect",
+        "warranty"
+      ],
       "settings": {
         "raised": true,
         "eyebrow": "Why Kilowash solar",
@@ -151,8 +273,8 @@
   "order": [
     "kw_solar_hero",
     "kw_solar_feature_fans",
-    "kw_solar_heat_stats",
     "kw_solar_overview",
+    "kw_solar_heat_stats",
     "kw_solar_feature_panels",
     "kw_solar_problem",
     "kw_solar_solution",
