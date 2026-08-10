@@ -48,6 +48,20 @@
       "block_order": ["s1", "s2", "s3"],
       "settings": {}
     },
+    "kw_solar_overview": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-diagram-fan-overview.jpg",
+        "badge": "Overview",
+        "image_position": "right",
+        "eyebrow": "How it works",
+        "heading": "One fan, a cooler house from the roof down.",
+        "body": "A solar attic fan uses its own built-in solar panel to convert sunlight into power, driving a motor that pulls hot, stale air out of your attic — no wiring into your electrical panel required.",
+        "list_items": "Runs entirely on sunlight — no electrician, no added utility cost\nKeeps fresh air circulating instead of trapped, stagnant heat\nYear-round ventilation reduces winter mold risk and summer attic temps\n100% solar energy means real savings on your cooling bill",
+        "link_label": "Estimate my attic fans",
+        "link_url": "/pages/estimate"
+      }
+    },
     "kw_solar_feature_panels": {
       "type": "kw-feature-split",
       "settings": {
@@ -138,6 +152,7 @@
     "kw_solar_hero",
     "kw_solar_feature_fans",
     "kw_solar_heat_stats",
+    "kw_solar_overview",
     "kw_solar_feature_panels",
     "kw_solar_problem",
     "kw_solar_solution",
