@@ -52,7 +52,7 @@
     "kw_light_video": {
       "type": "kw-video",
       "settings": {
-        "video_url": "",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/60299572fd73453783cddc684c2b8cce.mov",
         "poster_asset": "kw-light-video-poster.jpg",
         "badge": "Real install",
         "video_position": "left",

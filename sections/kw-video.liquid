@@ -49,7 +49,19 @@
               {% endif %}
               aria-label="{{ section.settings.heading | escape }}"
             >
-              <source src="{{ section.settings.video_url }}" type="video/mp4">
+              {%- liquid
+                # Only declare a type we know browsers accept. Declaring an exotic one
+                # (e.g. video/quicktime for a .mov) makes Chrome skip the source outright,
+                # where omitting it lets the browser sniff the Content-Type and try anyway.
+                assign vpath = section.settings.video_url | split: '?' | first | downcase
+                assign vtype = ''
+                if vpath contains '.mp4'
+                  assign vtype = 'video/mp4'
+                elsif vpath contains '.webm'
+                  assign vtype = 'video/webm'
+                endif
+              -%}
+              <source src="{{ section.settings.video_url }}"{% if vtype != blank %} type="{{ vtype }}"{% endif %}>
             </video>
           {% endif %}
 
