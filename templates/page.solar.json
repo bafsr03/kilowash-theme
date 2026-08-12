@@ -112,7 +112,7 @@
         "after_image_asset": "kw-solar-fan-after.jpg",
         "after_label": "After",
         "after_zoom": 135,
-        "after_offset_x": 0,
+        "after_offset_x": -10,
         "after_offset_y": -15,
         "start_position": 50
       }
