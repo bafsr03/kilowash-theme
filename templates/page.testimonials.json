@@ -26,7 +26,7 @@
         "image_2_rotation": -4,
         "eyebrow": "Featured project",
         "heading": "A home that stands out",
-        "body": "<p>This roofline now runs full-color smart lighting, controlled entirely from the homeowner's phone — one scene for every night of the year. Homeowner quote coming soon.</p>",
+        "body": "<p>This roofline now runs full-color smart lighting, controlled entirely from the homeowner's phone — one scene for every night of the year. Hidden in the channel by day, unmistakable after dark.</p>",
         "quote": "",
         "quote_author": "",
         "link_label": "Get my free estimate",
@@ -38,17 +38,77 @@
       "settings": {
         "eyebrow": "Verified on Google",
         "heading": "5-star rated, straight from Google.",
+        "rating": "5.0",
+        "count": "28 Google reviews",
+        "profile_url": "",
         "embed_code": ""
       }
     },
     "kw_testi_reviews": {
       "type": "kw-testimonials",
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "quote": "Replace with a real customer quote — ask a recent customer for a short review of their install.", "rating": 5, "author_name": "Customer name", "author_location": "City, UT" } },
-        "t2": { "type": "testimonial", "settings": { "quote": "Replace with a real customer quote — ask a recent customer for a short review of their install.", "rating": 5, "author_name": "Customer name", "author_location": "City, UT" } },
-        "t3": { "type": "testimonial", "settings": { "quote": "Replace with a real customer quote — ask a recent customer for a short review of their install.", "rating": 5, "author_name": "Customer name", "author_location": "City, UT" } }
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I have been looking for permanent lighting for a little while and I am happy I chose Kilowash. The installation was so quick and the crew was very professional. I have really enjoyed using my lights not only for holiday fun but also for security. Highly recommend.",
+            "rating": 5,
+            "photo_asset": "kw-review-lisa-color.jpg",
+            "photo_alt": "Brick home lit in red, white and blue permanent lighting",
+            "author_name": "Lisa Robertson",
+            "author_location": "Permanent Lighting install",
+            "source": "Google review"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The lighting is great, lights up the back yard nicely. Very bright front yard lighting. Could only put still photos on here or I would show you the best part, the motion — all holiday chasing or still. I love my lights. Thank you so much for the great service. 10 out of 10 for me.",
+            "rating": 5,
+            "photo_asset": "kw-review-jody-trees.jpg",
+            "photo_alt": "Roofline lighting glowing along the eaves at dusk",
+            "author_name": "Jody Grace",
+            "author_location": "Permanent Lighting install",
+            "source": "Google review"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I haven't personally had permanent lighting installed on my own home, but a close friend recently used this company and I had the opportunity to see the finished project in person. The lighting looked fantastic.",
+            "rating": 5,
+            "photo_asset": "kw-review-karen.jpg",
+            "photo_alt": "Single-story home lit in pink permanent lighting at dusk",
+            "author_name": "Karen McHerron",
+            "author_location": "Permanent Lighting install",
+            "source": "Google review"
+          }
+        },
+        "t4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Recently had a solar ventilation fan installed on my home by these guys. He was very knowledgeable and made sure I understood how it worked. He even followed up to ensure it was working correctly! Super impressed with the process and results!",
+            "rating": 5,
+            "photo_asset": "kw-review-alyssa.jpg",
+            "photo_alt": "Solar attic ventilation fan installed on a shingle roof",
+            "author_name": "Alyssa Gile",
+            "author_location": "Solar attic fan install",
+            "source": "Google review"
+          }
+        },
+        "t5": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "This company is very professional. My AC runs half as hard in the summer months — very impressed. Thank you for all the hard and honest work you do!",
+            "rating": 5,
+            "photo_asset": "kw-review-cody.jpg",
+            "photo_alt": "Solar-powered attic fan mounted near the ridge of a roof",
+            "author_name": "Cody Mickelson",
+            "author_location": "Solar attic fan install",
+            "source": "Google review"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3"],
+      "block_order": ["t1", "t2", "t3", "t4", "t5"],
       "settings": {
         "eyebrow": "Customer reviews",
         "heading": "Homes that speak for themselves."

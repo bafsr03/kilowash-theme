@@ -9,16 +9,27 @@
       <h2 class="kw-google-reviews__heading kw-reveal">{{ section.settings.heading }}</h2>
     {% endif %}
 
-    <div class="kw-google-reviews__embed kw-reveal-scale">
-      {% if section.settings.embed_code != blank %}
+    {% if section.settings.rating != blank %}
+      <div class="kw-google-reviews__summary kw-reveal-scale">
+        <span class="kw-google-reviews__score">{{ section.settings.rating }}</span>
+        <span class="kw-google-reviews__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        {% if section.settings.count != blank %}
+          <span class="kw-google-reviews__count">
+            {%- if section.settings.profile_url != blank -%}
+              <a href="{{ section.settings.profile_url }}" target="_blank" rel="noopener">{{ section.settings.count }}</a>
+            {%- else -%}
+              {{ section.settings.count }}
+            {%- endif -%}
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.embed_code != blank %}
+      <div class="kw-google-reviews__embed kw-reveal-scale">
         {{ section.settings.embed_code }}
-      {% else %}
-        <div class="kw-google-reviews__placeholder">
-          <p>No widget connected yet.</p>
-          <p>Paste your Google Reviews widget embed code into this section's settings in the theme editor to go live.</p>
-        </div>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
   </div>
 </section>
 
@@ -34,22 +45,47 @@
     margin-block: 0.4em 2.4rem;
   }
 
-  #kw-google-reviews-{{ section.id }} .kw-google-reviews__placeholder {
-    border: 1px dashed var(--kw-line);
-    border-radius: 16px;
-    padding: 2.4rem;
-    text-align: center;
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    background: var(--kw-bg-raised);
+    border: 1px solid var(--kw-line);
+    border-radius: 100px;
+    padding: 0.9rem 1.6rem;
+  }
+
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__score {
+    font-family: var(--kw-display);
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--kw-fg);
+  }
+
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__stars {
+    color: var(--kw-gold);
+    letter-spacing: 0.12em;
+    font-size: 1.05rem;
+  }
+
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__count {
+    font-size: 0.85rem;
     color: var(--kw-fg-dim);
-    font-size: 0.9rem;
-    line-height: 1.6;
   }
 
-  #kw-google-reviews-{{ section.id }} .kw-google-reviews__placeholder p {
-    margin: 0 0 0.4em;
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__count a {
+    color: var(--kw-fg-dim);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
-  #kw-google-reviews-{{ section.id }} .kw-google-reviews__placeholder p:last-child {
-    margin-bottom: 0;
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__count a:hover {
+    color: var(--kw-gold);
+  }
+
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__embed {
+    margin-top: 1.8rem;
   }
 </style>
 
@@ -60,6 +96,9 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Verified on Google" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "5-star rated, straight from Google." },
+    { "type": "text", "id": "rating", "label": "Average rating (e.g. 5.0)", "info": "Leave blank to hide the rating bar. Update this by hand when the Google score changes." },
+    { "type": "text", "id": "count", "label": "Review count text (e.g. 28 Google reviews)" },
+    { "type": "url", "id": "profile_url", "label": "Link to your Google reviews" },
     {
       "type": "liquid",
       "id": "embed_code",
