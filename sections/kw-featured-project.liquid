@@ -3,6 +3,7 @@
 <section class="kw-scope kw-section kw-featproj{% if section.settings.image_position == 'right' %} kw-featproj--reverse{% endif %}" id="kw-featproj-{{ section.id }}">
   <div class="kw-wrap kw-featproj__inner">
     <div class="kw-featproj__media kw-reveal-scale">
+      <div class="kw-featproj__frame">
       {% if section.settings.image != blank %}
         <img
           src="{{ section.settings.image | image_url: width: 1200 }}"
@@ -19,6 +20,7 @@
       {% if section.settings.badge != blank %}
         <span class="kw-featproj__badge">{{ section.settings.badge }}</span>
       {% endif %}
+      </div>
 
       {% if section.settings.image_2 != blank or section.settings.image_2_asset != blank %}
         <div class="kw-featproj__polaroid" style="--r: {{ section.settings.image_2_rotation }}deg">
@@ -78,12 +80,18 @@
 
   #kw-featproj-{{ section.id }} .kw-featproj__media {
     position: relative;
+  }
+
+  /* The clip lives on the frame, not the media wrapper — otherwise it slices
+     the polaroid, which is meant to overhang the photo's bottom-right corner. */
+  #kw-featproj-{{ section.id }} .kw-featproj__frame {
+    position: relative;
     border-radius: 22px;
     overflow: hidden;
     aspect-ratio: 4 / 3;
   }
 
-  #kw-featproj-{{ section.id }} .kw-featproj__media img {
+  #kw-featproj-{{ section.id }} .kw-featproj__frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -105,8 +113,9 @@
 
   #kw-featproj-{{ section.id }} .kw-featproj__polaroid {
     position: absolute;
-    bottom: -18px;
-    right: -18px;
+    z-index: 2;
+    bottom: -26px;
+    right: -28px;
     width: 38%;
     background: var(--kw-bg-raised);
     border: 1px solid var(--kw-line);
@@ -133,7 +142,11 @@
     font-family: var(--kw-display);
     font-size: 0.65rem;
     letter-spacing: 0.03em;
-    color: var(--kw-bg);
+    /* Was var(--kw-bg) — near-black text on a near-black card, i.e. invisible. */
+    color: var(--kw-fg-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   #kw-featproj-{{ section.id }} h3 {
@@ -175,6 +188,10 @@
     }
     #kw-featproj-{{ section.id }} .kw-featproj__polaroid {
       width: 46%;
+      /* Keep the overhang inside .kw-wrap's 20px min padding so the page
+         never picks up a horizontal scrollbar on small screens. */
+      bottom: -16px;
+      right: -10px;
     }
   }
 </style>
