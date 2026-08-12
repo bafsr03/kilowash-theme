@@ -100,8 +100,10 @@
         "eyebrow": "See the difference",
         "heading": "new roof same solar panels",
         "subheading": "Drag the slider to see this Utah home before and after we installed a pair of solar-powered attic fans.",
+        "before_image": "shopify://shop_images/IMG_4962.jpg",
         "before_image_asset": "kw-solar-fan-before.jpg",
         "before_label": "Before",
+        "after_image": "shopify://shop_images/IMG_4860.jpg",
         "after_image_asset": "kw-solar-fan-after.jpg",
         "after_label": "After",
         "start_position": 50
