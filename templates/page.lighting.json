@@ -49,6 +49,22 @@
         "subheading": "Pick a preset scene below or build your own — tap Apply and your roofline updates in real time."
       }
     },
+    "kw_light_video": {
+      "type": "kw-video",
+      "settings": {
+        "video_url": "",
+        "poster_asset": "kw-light-video-poster.jpg",
+        "badge": "Real install",
+        "video_position": "left",
+        "raised": false,
+        "eyebrow": "Real install, real time",
+        "heading": "This is what one tap actually looks like.",
+        "body": "Filmed at dusk on a finished Kilowash roofline. Same fixtures, same house — the whole color scene changes from the app. No ladder, no swapping bulbs, nothing to take down in January.",
+        "list_items": "Filmed on an actual Kilowash install\nScene changes instantly from the app\nInvisible by day, unmistakable at night\nOne system for game day, the holidays and every night between",
+        "link_label": "Get my free estimate",
+        "link_url": "/pages/estimate"
+      }
+    },
     "kw_light_feature_2": {
       "type": "kw-feature-split",
       "settings": {
@@ -265,6 +281,7 @@
     "kw_light_hero",
     "kw_light_feature_1",
     "kw_light_app_showcase",
+    "kw_light_video",
     "kw_light_feature_2",
     "kw_light_feature_3",
     "kw_light_occasions",

@@ -1,0 +1,322 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign has_shopify_video = false
+  if section.settings.video != blank
+    assign has_shopify_video = true
+  endif
+
+  assign poster_src = ''
+  if section.settings.poster != blank
+    assign poster_src = section.settings.poster | image_url: width: 720
+  elsif section.settings.poster_asset != blank
+    assign poster_src = section.settings.poster_asset | asset_url
+  endif
+%}
+
+{% if has_shopify_video or section.settings.video_url != blank %}
+  <section
+    class="kw-scope kw-section kw-vid{% if section.settings.raised %} kw-section--raised{% endif %}{% if section.settings.video_position == 'right' %} kw-vid--reverse{% endif %}"
+    id="kw-vid-{{ section.id }}"
+    data-kw-video
+  >
+    <div class="kw-wrap kw-vid__inner">
+      <div class="kw-vid__media kw-reveal-scale">
+        <div class="kw-vid__frame">
+          {% if has_shopify_video %}
+            {{
+              section.settings.video
+              | video_tag:
+                image_size: '1080x',
+                autoplay: true,
+                loop: true,
+                muted: true,
+                controls: false,
+                preload: 'metadata',
+                playsinline: true,
+                class: 'kw-vid__el'
+            }}
+          {% else %}
+            <video
+              class="kw-vid__el"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              {% if poster_src != blank %}
+                poster="{{ poster_src }}"
+              {% endif %}
+              aria-label="{{ section.settings.heading | escape }}"
+            >
+              <source src="{{ section.settings.video_url }}" type="video/mp4">
+            </video>
+          {% endif %}
+
+          {% if section.settings.badge != blank %}
+            <span class="kw-vid__badge">{{ section.settings.badge }}</span>
+          {% endif %}
+
+          <button type="button" class="kw-vid__toggle" data-kw-video-toggle aria-label="Pause video">
+            <svg class="kw-vid__icon kw-vid__icon--pause" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg class="kw-vid__icon kw-vid__icon--play" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="kw-vid__content kw-reveal">
+        {% if section.settings.eyebrow != blank %}
+          <p class="kw-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.body != blank %}
+          <div class="kw-vid__body">{{ section.settings.body }}</div>
+        {% endif %}
+        {% if section.settings.list_items != blank %}
+          <ul class="kw-vid__list">
+            {% assign items = section.settings.list_items | newline_to_br | split: '<br />' %}
+            {% for item in items %}
+              {% if item != blank %}
+                <li>{{ item | strip }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if section.settings.link_label != blank %}
+          <a href="{{ section.settings.link_url }}" class="kw-btn kw-btn--teal">{{ section.settings.link_label }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    #kw-vid-{{ section.id }} {
+      padding-block: clamp(40px, 6vw, 84px);
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(28px, 5vw, 72px);
+      align-items: center;
+    }
+
+    #kw-vid-{{ section.id }}.kw-vid--reverse .kw-vid__media {
+      order: 2;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__media {
+      display: flex;
+      justify-content: center;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__frame {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      max-height: min(78vh, 640px);
+      aspect-ratio: 9 / 16;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--kw-line);
+      background: #000;
+      box-shadow: 0 30px 60px -28px #000000e6, 0 0 0 1px var(--kw-gold-ring, #f5b94222);
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__el {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--kw-gold);
+      color: var(--kw-bg);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.5em 0.9em;
+      border-radius: 100px;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__toggle {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border: 0;
+      border-radius: 100px;
+      cursor: pointer;
+      color: var(--kw-bg);
+      background: var(--kw-gold);
+      opacity: 0.85;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__toggle:hover,
+    #kw-vid-{{ section.id }} .kw-vid__toggle:focus-visible {
+      opacity: 1;
+      transform: scale(1.06);
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__icon {
+      grid-area: 1 / 1;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__icon--play {
+      display: none;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__toggle.is-paused .kw-vid__icon--pause {
+      display: none;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__toggle.is-paused .kw-vid__icon--play {
+      display: block;
+    }
+
+    #kw-vid-{{ section.id }} h2 {
+      font-family: var(--kw-display);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      margin-block: 0.4em 0.6em;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__body {
+      color: var(--kw-fg-dim);
+      max-width: 44ch;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__list {
+      list-style: none;
+      margin: 0 0 1.8rem;
+      padding: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__list li {
+      position: relative;
+      padding-left: 1.6rem;
+      color: var(--kw-fg);
+      font-size: 0.95rem;
+    }
+
+    #kw-vid-{{ section.id }} .kw-vid__list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 2px;
+      background: var(--kw-teal);
+    }
+
+    @media (max-width: 800px) {
+      #kw-vid-{{ section.id }} .kw-vid__inner {
+        grid-template-columns: 1fr;
+      }
+      #kw-vid-{{ section.id }}.kw-vid--reverse .kw-vid__media {
+        order: 0;
+      }
+      #kw-vid-{{ section.id }} .kw-vid__frame {
+        max-width: 340px;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      var root = document.getElementById('kw-vid-{{ section.id }}');
+      if (!root) return;
+
+      var video = root.querySelector('.kw-vid__el');
+      var toggle = root.querySelector('[data-kw-video-toggle]');
+      if (!video || !toggle) return;
+
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // Manual pause always wins over the visibility observer below.
+      var userPaused = reduced;
+
+      function paint() {
+        var isPaused = video.paused;
+        toggle.classList.toggle('is-paused', isPaused);
+        toggle.setAttribute('aria-label', isPaused ? 'Play video' : 'Pause video');
+      }
+
+      function play() {
+        var attempt = video.play();
+        if (attempt && attempt.catch) attempt.catch(function () {});
+      }
+
+      if (reduced) {
+        video.removeAttribute('autoplay');
+        video.pause();
+      }
+      paint();
+
+      toggle.addEventListener('click', function () {
+        if (video.paused) {
+          userPaused = false;
+          play();
+        } else {
+          userPaused = true;
+          video.pause();
+        }
+      });
+
+      video.addEventListener('play', paint);
+      video.addEventListener('pause', paint);
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                if (!userPaused) play();
+              } else if (!video.paused) {
+                video.pause();
+              }
+            });
+          },
+          { threshold: 0.25 }
+        ).observe(root);
+      }
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "KW Video",
+  "tag": "section",
+  "settings": [
+    { "type": "video", "id": "video", "label": "Video (upload to Content → Files, then pick it here)" },
+    { "type": "text", "id": "video_url", "label": "Video URL — direct .mp4 link (used only if no video picked above)" },
+    { "type": "image_picker", "id": "poster", "label": "Poster image (overrides asset below)" },
+    { "type": "text", "id": "poster_asset", "label": "Poster image — theme asset filename" },
+    { "type": "text", "id": "badge", "label": "Video badge text" },
+    { "type": "select", "id": "video_position", "label": "Video position", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ], "default": "left" },
+    { "type": "checkbox", "id": "raised", "label": "Raised background", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "See it in motion" },
+    { "type": "textarea", "id": "body", "label": "Body copy" },
+    { "type": "textarea", "id": "list_items", "label": "Bullet list (one per line)" },
+    { "type": "text", "id": "link_label", "label": "Link label" },
+    { "type": "url", "id": "link_url", "label": "Link URL" }
+  ],
+  "presets": [{ "name": "KW Video" }]
+}
+{% endschema %}
