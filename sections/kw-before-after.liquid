@@ -97,7 +97,9 @@
 
   #kw-ba-{{ section.id }} .kw-ba {
     position: relative;
-    max-width: 900px;
+    /* Width drives height via the frame's aspect-ratio, so a portrait shape at
+       full width gets very tall — cap it rather than letting it run the page. */
+    max-width: {{ section.settings.max_width | default: 900 }}px;
   }
 
   #kw-ba-{{ section.id }} .kw-ba__frame {
@@ -281,6 +283,7 @@
       ],
       "default": "1 / 1"
     },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 400, "max": 1000, "step": 20, "unit": "px", "default": 900 },
     { "type": "header", "content": "Before image" },
     { "type": "image_picker", "id": "before_image", "label": "Before image (overrides asset below)" },
     { "type": "text", "id": "before_image_asset", "label": "Before image — theme asset filename" },
