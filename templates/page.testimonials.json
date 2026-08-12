@@ -106,12 +106,24 @@
             "author_location": "Solar attic fan install",
             "source": "Google review"
           }
+        },
+        "t6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Had a really bad bird issue under my solar panels. These guys came and fixed it with Critter Guard and cleaned up some dead birds for a great price. 10/10 would recommend!",
+            "rating": 5,
+            "photo_asset": "kw-review-reese.jpg",
+            "photo_alt": "Solar panel array on a shingle roof against a clear blue sky",
+            "author_name": "Reese Francom",
+            "author_location": "Critter Guard install",
+            "source": "Google review"
+          }
         }
       },
-      "block_order": ["t1", "t2", "t3", "t4", "t5"],
+      "block_order": ["t1", "t4", "t2", "t5", "t3", "t6"],
       "settings": {
         "eyebrow": "Customer reviews",
-        "heading": "Homes that speak for themselves."
+        "heading": "In their words, not ours."
       }
     },
     "kw_testi_cta": {
