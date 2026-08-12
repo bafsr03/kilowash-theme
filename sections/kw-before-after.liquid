@@ -14,7 +14,10 @@
 
     <div class="kw-ba kw-reveal-scale" data-kw-ba>
       <div class="kw-ba__frame">
-        <div class="kw-ba__img kw-ba__img--after">
+        <div
+          class="kw-ba__img kw-ba__img--after"
+          style="--z: {{ section.settings.after_zoom | default: 100 | divided_by: 100.0 }}; --ox: {{ section.settings.after_offset_x | default: 0 }}%; --oy: {{ section.settings.after_offset_y | default: 0 }}%;"
+        >
           {% if section.settings.after_image != blank %}
             <img
               src="{{ section.settings.after_image | image_url: width: 1600 }}"
@@ -31,7 +34,11 @@
           <span class="kw-ba__tag kw-ba__tag--after">{{ section.settings.after_label }}</span>
         </div>
 
-        <div class="kw-ba__img kw-ba__img--before" data-kw-ba-before>
+        <div
+          class="kw-ba__img kw-ba__img--before"
+          data-kw-ba-before
+          style="--z: {{ section.settings.before_zoom | default: 100 | divided_by: 100.0 }}; --ox: {{ section.settings.before_offset_x | default: 0 }}%; --oy: {{ section.settings.before_offset_y | default: 0 }}%;"
+        >
           {% if section.settings.before_image != blank %}
             <img
               src="{{ section.settings.before_image | image_url: width: 1600 }}"
@@ -95,7 +102,7 @@
 
   #kw-ba-{{ section.id }} .kw-ba__frame {
     position: relative;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: {{ section.settings.frame_ratio | default: '1 / 1' }};
     overflow: hidden;
     border-radius: 4px;
     border: 1px solid var(--kw-line-bright);
@@ -116,6 +123,12 @@
     height: 100%;
     object-fit: cover;
     pointer-events: none;
+    /* Per-image framing. Two photos shot from different spots won't line up on
+       their own; zoom in to create slack, then nudge each one until the subject
+       sits at the same height in both. Offsets are % of the frame, so an offset
+       larger than (zoom - 100) / 2 will expose the frame's background. */
+    transform: translate(var(--ox, 0), var(--oy, 0)) scale(var(--z, 1));
+    transform-origin: center;
   }
 
   #kw-ba-{{ section.id }} .kw-ba__img--before {
@@ -254,14 +267,34 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "See the difference" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Before & after." },
     { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    {
+      "type": "select",
+      "id": "frame_ratio",
+      "label": "Frame shape",
+      "info": "Portrait shapes show more of a phone photo, so the two shots need less cropping to line up.",
+      "options": [
+        { "value": "1 / 1", "label": "Square" },
+        { "value": "4 / 5", "label": "Portrait (4:5)" },
+        { "value": "3 / 4", "label": "Tall portrait (3:4)" },
+        { "value": "4 / 3", "label": "Landscape (4:3)" },
+        { "value": "16 / 9", "label": "Wide (16:9)" }
+      ],
+      "default": "1 / 1"
+    },
     { "type": "header", "content": "Before image" },
     { "type": "image_picker", "id": "before_image", "label": "Before image (overrides asset below)" },
     { "type": "text", "id": "before_image_asset", "label": "Before image — theme asset filename" },
     { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
+    { "type": "range", "id": "before_zoom", "label": "Before — zoom", "min": 100, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "before_offset_x", "label": "Before — nudge left/right", "min": -40, "max": 40, "step": 1, "unit": "%", "default": 0 },
+    { "type": "range", "id": "before_offset_y", "label": "Before — nudge up/down", "min": -40, "max": 40, "step": 1, "unit": "%", "default": 0 },
     { "type": "header", "content": "After image" },
     { "type": "image_picker", "id": "after_image", "label": "After image (overrides asset below)" },
     { "type": "text", "id": "after_image_asset", "label": "After image — theme asset filename" },
     { "type": "text", "id": "after_label", "label": "After label", "default": "After" },
+    { "type": "range", "id": "after_zoom", "label": "After — zoom", "min": 100, "max": 200, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "after_offset_x", "label": "After — nudge left/right", "min": -40, "max": 40, "step": 1, "unit": "%", "default": 0 },
+    { "type": "range", "id": "after_offset_y", "label": "After — nudge up/down", "min": -40, "max": 40, "step": 1, "unit": "%", "default": 0 },
     { "type": "range", "id": "start_position", "label": "Start position", "min": 0, "max": 100, "step": 5, "default": 50 }
   ],
   "presets": [
