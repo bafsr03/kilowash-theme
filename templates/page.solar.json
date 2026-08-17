@@ -98,22 +98,22 @@
       "type": "kw-before-after",
       "settings": {
         "eyebrow": "See the difference",
-        "heading": "New roof same solar panels",
+        "heading": "New roof, same solar panels.",
         "subheading": "Drag the slider to see this Utah rooftop before and after — the array came off, the shingles were replaced, and the same panels went right back on.",
         "frame_ratio": "3 / 4",
         "max_width": 520,
         "before_image": "",
         "before_image_asset": "kw-solar-fan-before-v2.jpg",
         "before_label": "Before",
-        "before_zoom": 130,
-        "before_offset_x": -3,
-        "before_offset_y": 11,
+        "before_zoom": 100,
+        "before_offset_x": 0,
+        "before_offset_y": 0,
         "after_image": "",
         "after_image_asset": "kw-solar-fan-after-v2.jpg",
         "after_label": "After",
-        "after_zoom": 130,
-        "after_offset_x": 3,
-        "after_offset_y": -11,
+        "after_zoom": 100,
+        "after_offset_x": 0,
+        "after_offset_y": 0,
         "start_position": 50
       }
     },
@@ -233,14 +233,6 @@
             "caption": "Rooftop array overlooking the pasture",
             "wide": true
           }
-        },
-        "g10": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-solar-install-close.jpg",
-            "caption": "Fresh panel install, close up",
-            "wide": false
-          }
         }
       },
       "block_order": [
@@ -252,8 +244,7 @@
         "g6",
         "g7",
         "g8",
-        "g9",
-        "g10"
+        "g9"
       ],
       "settings": {
         "eyebrow": "Recent installs",
