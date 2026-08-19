@@ -35,7 +35,7 @@
         "disclaimer": "Rough estimate only, for budgeting purposes. All pricing is subject to adders based on site conditions (roof height, access, material). Final pricing is confirmed after a free on-site measurement.",
         "cta_label": "Send me this estimate",
         "cta_link": "/pages/contact#quote-form",
-        "rate_ft": 32,
+        "rate_ft": 27,
         "rate_smart_addon": 500,
         "rate_power_box": 200,
         "rate_fan": 1200,

@@ -254,7 +254,7 @@
     var root = document.getElementById('kw-est-{{ section.id }}');
     if (!root) return;
 
-    var RATE_FT = {{ section.settings.rate_ft | default: 32 }};
+    var RATE_FT = {{ section.settings.rate_ft | default: 27 }};
     var SMART_ADDON = {{ section.settings.rate_smart_addon | default: 500 }};
     var SOFFIT_FLAT = {{ section.settings.rate_power_box | default: 200 }};
     var FAN_RATE = {{ section.settings.rate_fan | default: 1200 }};
@@ -356,7 +356,7 @@
     { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Request this quote" },
     { "type": "url", "id": "cta_link", "label": "CTA link" },
     { "type": "header", "content": "Lighting rates" },
-    { "type": "number", "id": "rate_ft", "label": "Per linear foot ($)", "default": 32 },
+    { "type": "number", "id": "rate_ft", "label": "Per linear foot ($)", "default": 27 },
     { "type": "number", "id": "rate_smart_addon", "label": "Smart App Control box ($)", "default": 500 },
     { "type": "number", "id": "rate_power_box", "label": "Power box, flat ($)", "default": 200 },
     { "type": "header", "content": "Solar & attic rates" },
