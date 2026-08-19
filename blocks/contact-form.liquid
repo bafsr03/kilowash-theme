@@ -1,5 +1,4 @@
 
-<script src="{{ 'kw-spamguard.js' | asset_url }}" defer></script>
 
 {% capture submit_button %}
   {% content_for 'block', type: 'contact-form-submit-button', id: 'submit-button' %}
@@ -97,6 +96,7 @@
         spellcheck="false"
         autocapitalize="off"
         value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        required
         aria-required="true"
         {% if form.errors contains 'email' and form_matches %}
           aria-invalid="true"

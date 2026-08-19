@@ -24,7 +24,11 @@
       {{ block_settings.heading | escape }}
     </div>
   {% endif %}
-  {%- form 'customer', class: 'email-signup__form spacing-style' %}
+  {%- form 'customer', class: 'email-signup__form spacing-style', data-kw-spamguard: '' %}
+    <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+      <label for="EmailSignup-{{ block.id }}-website">Website</label>
+      <input type="text" id="EmailSignup-{{ block.id }}-website" data-kw-honeypot tabindex="-1" autocomplete="off">
+    </div>
     {% comment %} --- Input group classes --- {% endcomment %}
     {%- liquid
       assign input_group_classes = 'email-signup__input-group'

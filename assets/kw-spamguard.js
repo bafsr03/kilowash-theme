@@ -2,13 +2,18 @@
   var MIN_SECONDS = 3;
 
   function guard(form) {
+    if (form.hasAttribute('data-kw-spamguard-bound')) return;
+    form.setAttribute('data-kw-spamguard-bound', '');
+
     var startedAt = Date.now();
-    var renderedAtField = form.querySelector('.kw-qform__rendered-at');
+    var renderedAtField = form.querySelector('.kw-qform__rendered-at, [data-kw-rendered-at]');
     if (renderedAtField) renderedAtField.value = String(startedAt);
 
     form.addEventListener('submit', function (event) {
-      var honeypot = form.querySelector('input[name="contact[website]"]');
-      var tooFast = Date.now() - startedAt < MIN_SECONDS * 1000;
+      var honeypot = form.querySelector('[data-kw-honeypot], input[name="contact[website]"]');
+      // Time trap is opt-in: only forms that render a rendered-at field are held to
+      // MIN_SECONDS, so a one-field autofilled signup is never silently swallowed.
+      var tooFast = renderedAtField && Date.now() - startedAt < MIN_SECONDS * 1000;
 
       if ((honeypot && honeypot.value.trim() !== '') || tooFast) {
         event.preventDefault();
