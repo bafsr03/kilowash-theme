@@ -20,7 +20,7 @@
       <div class="kw-est__pane is-active" data-kw-pane="lighting">
         <label class="kw-est__field">
           <span class="kw-est__field-label">Linear feet of roofline / trim</span>
-          <input type="range" min="20" max="400" step="10" value="120" data-kw-ft>
+          <input type="range" min="20" max="650" step="10" value="120" data-kw-ft>
           <span class="kw-est__field-value"><span data-kw-ft-out>120</span> ft</span>
         </label>
 
@@ -33,7 +33,7 @@
             <input type="checkbox" data-kw-addon="soffit">
             <span>
               Power box
-              <small class="kw-est__toggle-note">Required for installs over 160 ft</small>
+              <small class="kw-est__toggle-note">Required for installs over {{ section.settings.power_box_threshold_ft | default: 160 }} ft</small>
             </span>
           </label>
         </div>
@@ -197,6 +197,11 @@
     color: var(--kw-fg);
   }
 
+  #kw-est-{{ section.id }} .kw-est__toggle.is-locked {
+    opacity: 0.65;
+    cursor: default;
+  }
+
   #kw-est-{{ section.id }} .kw-est__toggle input {
     accent-color: var(--kw-teal);
     width: 18px;
@@ -257,6 +262,7 @@
     var RATE_FT = {{ section.settings.rate_ft | default: 27 }};
     var SMART_ADDON = {{ section.settings.rate_smart_addon | default: 500 }};
     var SOFFIT_FLAT = {{ section.settings.rate_power_box | default: 200 }};
+    var POWER_BOX_MIN_FT = {{ section.settings.power_box_threshold_ft | default: 160 }};
     var FAN_RATE = {{ section.settings.rate_fan | default: 1200 }};
     var GUARD_FT_RATE = {{ section.settings.rate_guard_ft | default: 14 }};
     var PANEL_CLEAN_RATE = {{ section.settings.rate_clean_panel | default: 5 }};
@@ -305,6 +311,15 @@
         if (addonSmart.checked) {
           total += SMART_ADDON;
         }
+
+        // The toggle note already says the power box is required past the
+        // threshold, so tick and lock it rather than quoting without it.
+        var powerBoxRequired = ft > POWER_BOX_MIN_FT;
+        if (powerBoxRequired) addonSoffit.checked = true;
+        addonSoffit.disabled = powerBoxRequired;
+        var soffitLabel = addonSoffit.closest('.kw-est__toggle');
+        if (soffitLabel) soffitLabel.classList.toggle('is-locked', powerBoxRequired);
+
         if (addonSoffit.checked) {
           total += SOFFIT_FLAT;
         }
@@ -359,6 +374,7 @@
     { "type": "number", "id": "rate_ft", "label": "Per linear foot ($)", "default": 27 },
     { "type": "number", "id": "rate_smart_addon", "label": "Smart App Control box ($)", "default": 500 },
     { "type": "number", "id": "rate_power_box", "label": "Power box, flat ($)", "default": 200 },
+    { "type": "number", "id": "power_box_threshold_ft", "label": "Power box required above (ft)", "default": 160 },
     { "type": "header", "content": "Solar & attic rates" },
     { "type": "number", "id": "rate_fan", "label": "Solar attic fan, each ($)", "default": 1200 },
     { "type": "number", "id": "rate_guard_ft", "label": "Critter Guard per foot ($)", "default": 14 },
