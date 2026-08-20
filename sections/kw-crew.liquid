@@ -51,9 +51,11 @@
               height="{{ block.settings.image.height }}"
             >
           {% elsif block.settings.image_asset != blank %}
-            {%- comment -%}No width/height here: the asset's real ratio is unknown, and the
-              card's CSS aspect-ratio already reserves the box, so CLS is covered.{%- endcomment -%}
-            <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ alt | escape }}" loading="lazy">
+            {%- comment -%}A theme asset has no dimensions in Liquid, so these are a
+              ratio hint, not the file's real size: the card's CSS pins every image to
+              aspect-ratio 3/4, so 1200x1600 reserves the correct box before CSS lands
+              no matter what shape the merchant swaps in.{%- endcomment -%}
+            <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ alt | escape }}" loading="lazy" width="1200" height="1600">
           {% endif %}
 
           <figcaption class="kw-crew__plate">
