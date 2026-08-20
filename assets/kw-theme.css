@@ -413,6 +413,155 @@
   margin-bottom: 0.9rem;
 }
 
+/* ---------- crew: spec-plate portraits ----------
+   Faces of the install crew. Portrait 3/4 cards so phone-shot job photos
+   drop in without cropping heads off; the plate is the same panel-readout
+   label used on the spec strips elsewhere. Corner brackets on hover echo
+   the target-lock motif from the hero. */
+
+.kw-crew__inner {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+
+.kw-crew__body {
+  color: var(--kw-fg-dim);
+  max-width: 44ch;
+  line-height: 1.7;
+}
+
+.kw-crew__body p {
+  margin: 0 0 1.1em;
+}
+
+.kw-crew__copy .kw-btn {
+  margin-top: 0.6rem;
+}
+
+.kw-crew__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.kw-crew__card {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid var(--kw-line);
+  background: var(--kw-bg-raised);
+  transition: border-color 0.35s ease;
+}
+
+.kw-crew__card:hover {
+  border-color: var(--kw-gold);
+}
+
+.kw-crew__card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  transition: transform 0.6s var(--kw-ease);
+}
+
+.kw-crew__card:hover img {
+  transform: scale(1.04);
+}
+
+/* Target-lock brackets — two corners is enough to read as a bracket without
+   fighting the plate for attention. */
+.kw-crew__card::before,
+.kw-crew__card::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.kw-crew__card::before {
+  top: 10px;
+  left: 10px;
+  border-top: 2px solid var(--kw-gold);
+  border-left: 2px solid var(--kw-gold);
+}
+
+.kw-crew__card::after {
+  top: 10px;
+  right: 10px;
+  border-top: 2px solid var(--kw-gold);
+  border-right: 2px solid var(--kw-gold);
+}
+
+.kw-crew__card:hover::before,
+.kw-crew__card:hover::after {
+  opacity: 1;
+}
+
+.kw-crew__plate {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  padding: 2.4rem 0.9rem 0.85rem;
+  background: linear-gradient(0deg, #0a0d12f2 12%, #0a0d1299 55%, transparent);
+}
+
+.kw-crew__name {
+  font-family: var(--kw-display);
+  font-size: 0.95rem;
+  color: var(--kw-fg);
+  letter-spacing: 0.02em;
+}
+
+.kw-crew__role {
+  font-family: var(--kw-display);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--kw-gold);
+}
+
+.kw-crew__meta {
+  font-size: 0.72rem;
+  color: var(--kw-fg-dim);
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .kw-crew__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .kw-crew__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .kw-crew__plate {
+    padding: 2rem 0.7rem 0.7rem;
+  }
+  .kw-crew__name {
+    font-size: 0.85rem;
+  }
+  /* Touch has no hover — show the brackets so the card still reads as a
+     bracketed plate on phones. */
+  .kw-crew__card::before,
+  .kw-crew__card::after {
+    opacity: 1;
+  }
+}
+
 /* ---------- gallery: duotone-to-color reveal ---------- */
 
 .kw-gallery {

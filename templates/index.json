@@ -263,6 +263,42 @@
         "secondary_label": "Email us",
         "secondary_link": "mailto:KilowashUtah@gmail.com"
       }
+    },
+    "kw_home_crew": {
+      "type": "kw-crew",
+      "blocks": {
+        "c1": {
+          "type": "member",
+          "settings": {
+            "image_asset": "kw-crew-fan-thumbsup.jpg",
+            "name": "",
+            "role": "Install crew",
+            "meta": "Solar attic fan — Utah County",
+            "alt": "Kilowash installer in a branded cap giving a thumbs up next to a newly installed solar attic fan on a shingle roof, Wasatch mountains behind."
+          }
+        },
+        "c2": {
+          "type": "member",
+          "settings": {
+            "image_asset": "kw-crew-fan-ridge-view.jpg",
+            "name": "",
+            "role": "On the ridge",
+            "meta": "Fan set, flashing sealed",
+            "alt": "View from the roof ridge over a finished solar attic fan install, with the Wasatch range in the distance."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2"
+      ],
+      "settings": {
+        "eyebrow": "The crew",
+        "heading": "Meet the crew on your roof.",
+        "body": "<p>Every Kilowash install is done by our own people — local, trained and insured. No subcontractors, no rotating faces, no mess left behind.</p>",
+        "button_label": "Get my free estimate",
+        "button_link": "/pages/estimate"
+      }
     }
   },
   "order": [
@@ -271,6 +307,7 @@
     "kw_home_why",
     "kw_home_gallery",
     "kw_home_stats",
+    "kw_home_crew",
     "kw_home_estimator",
     "kw_home_quote",
     "kw_home_cta"

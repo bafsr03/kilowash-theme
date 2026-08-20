@@ -1,0 +1,145 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-scope kw-section" id="kw-crew-{{ section.id }}">
+  <div class="kw-wrap kw-crew__inner">
+    <div class="kw-crew__copy kw-reveal">
+      {% if section.settings.eyebrow != blank %}
+        <p class="kw-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.body != blank %}
+        <div class="kw-crew__body">{{ section.settings.body }}</div>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a class="kw-btn kw-btn--ghost" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+      {% endif %}
+    </div>
+
+    <div class="kw-crew__grid">
+      {% for block in section.blocks %}
+        {%- liquid
+          # Alt text falls back to role + caption so a photo added later without
+          # an explicit alt is still announced meaningfully rather than as "".
+          assign alt = block.settings.alt
+          if alt == blank
+            assign alt = block.settings.name
+            if block.settings.role != blank
+              if alt != blank
+                assign alt = alt | append: ', '
+              endif
+              assign alt = alt | append: block.settings.role
+            endif
+            if block.settings.meta != blank
+              if alt != blank
+                assign alt = alt | append: ' — '
+              endif
+              assign alt = alt | append: block.settings.meta
+            endif
+          endif
+        -%}
+        <figure class="kw-crew__card kw-reveal-scale" style="transition-delay: {{ forloop.index0 | times: 0.08 }}s" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 800 }}"
+              srcset="{{ block.settings.image | image_url: width: 480 }} 480w, {{ block.settings.image | image_url: width: 800 }} 800w"
+              sizes="(max-width: 900px) 90vw, 30vw"
+              alt="{{ alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}"
+            >
+          {% elsif block.settings.image_asset != blank %}
+            {%- comment -%}No width/height here: the asset's real ratio is unknown, and the
+              card's CSS aspect-ratio already reserves the box, so CLS is covered.{%- endcomment -%}
+            <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ alt | escape }}" loading="lazy">
+          {% endif %}
+
+          <figcaption class="kw-crew__plate">
+            {% if block.settings.name != blank %}
+              <span class="kw-crew__name">{{ block.settings.name }}</span>
+            {% endif %}
+            {% if block.settings.role != blank %}
+              <span class="kw-crew__role">{{ block.settings.role }}</span>
+            {% endif %}
+            {% if block.settings.meta != blank %}
+              <span class="kw-crew__meta">{{ block.settings.meta }}</span>
+            {% endif %}
+          </figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #kw-crew-{{ section.id }} {
+    padding-block: clamp(56px, 8vw, 108px);
+  }
+
+  #kw-crew-{{ section.id }} h2 {
+    font-family: var(--kw-display);
+    font-size: clamp(2rem, 3.6vw, 3.1rem);
+    margin-block: 0.4em 0.6em;
+    max-width: 15ch;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Crew",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The crew" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The people on your roof." },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>No subcontractors, no rotating faces. The same Kilowash crew that quotes your job is the crew that shows up, climbs the ladder, and cleans up after itself.</p>"
+    },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Get a free estimate" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (overrides asset below)" },
+        { "type": "text", "id": "image_asset", "label": "Image — theme asset filename" },
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "text", "id": "role", "label": "Role" },
+        { "type": "text", "id": "meta", "label": "Caption / job detail" },
+        { "type": "text", "id": "alt", "label": "Alt text (optional — auto-built if blank)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KW Crew",
+      "blocks": [
+        {
+          "type": "member",
+          "settings": {
+            "image_asset": "kw-crew-fan-thumbsup.jpg",
+            "role": "Install crew",
+            "meta": "Solar attic fan — Utah County",
+            "alt": "Kilowash installer in a branded cap giving a thumbs up next to a newly installed solar attic fan on a shingle roof, Wasatch mountains behind."
+          }
+        },
+        {
+          "type": "member",
+          "settings": {
+            "image_asset": "kw-crew-fan-ridge-view.jpg",
+            "role": "On the ridge",
+            "meta": "Fan set, flashing sealed",
+            "alt": "View from the roof ridge over a finished solar attic fan install, with the Wasatch range in the distance."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
