@@ -17,7 +17,7 @@
         "min_height": 70,
         "eyebrow": "Solar & Attic Solutions",
         "heading": "Cooler home. Lower bills. Cleaner air.",
-        "subheading": "Solar panel cleaning, repairs & removal-reinstall, solar-powered attic fans, multi-layer insulation and Critter Guard protection — engineered for Utah roofs.",
+        "subheading": "Solar panel cleaning, repairs & removal-reinstall, solar-powered attic fans and Critter Guard protection — engineered for Utah roofs.",
         "primary_label": "Get my free estimate",
         "primary_link": "/pages/estimate",
         "secondary_label": "Call / Text 385-406-2335",
@@ -29,14 +29,15 @@
     "kw_solar_feature_fans": {
       "type": "kw-feature-split",
       "settings": {
-        "image": "shopify://shop_images/IMG_6577.jpg",
-        "image_asset": "kw-fan-roof-install.jpg",
+        "image": "",
+        "image_asset": "kw-crew-fan-thumbsup-wide.jpg",
+        "image_alt": "Kilowash installer in a branded cap giving a thumbs up beside a solar attic fan he has just installed on a shingle roof.",
         "badge": "Powered by the Sun",
         "image_position": "left",
-        "eyebrow": "Solar attic fans & insulation",
+        "eyebrow": "Solar attic fans",
         "heading": "Pull the heat out. Keep the cool in.",
-        "body": "Our solar attic fans run entirely off the sun — no electrician, no wiring into your panel, no added utility cost. Paired with multi-layer attic insulation, they improve airflow, regulate temperature swings, and cut energy costs year-round.",
-        "list_items": "100% solar powered — zero electricity cost\nMulti-layer insulation regulates temperature & airflow\nReduces moisture & mold risk year-round\nQuiet brushless DC motor, rated for years of use",
+        "body": "Our solar attic fans run entirely off the sun — no electrician, no wiring into your panel, no added utility cost. They pull trapped heat straight out of your attic, improve airflow, regulate temperature swings, and cut energy costs year-round.",
+        "list_items": "100% solar powered — zero electricity cost\nPulls trapped heat out and keeps attic air moving\nReduces moisture & mold risk year-round\nQuiet brushless DC motor, rated for years of use",
         "link_label": "Estimate my attic fans",
         "link_url": "/pages/estimate"
       }

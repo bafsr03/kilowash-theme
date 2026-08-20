@@ -1,6 +1,9 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
 <section class="kw-scope kw-section kw-featuresplit{% if section.settings.image_position == 'right' %} kw-featuresplit--reverse{% endif %}" id="kw-fs-{{ section.id }}">
+  {%- comment -%}The heading is a decent alt for a product/roof shot but not for a
+    photo of a person, so image_alt can override it. Blank keeps the old behaviour.{%- endcomment -%}
+  {%- assign fs_alt = section.settings.image_alt | default: section.settings.heading -%}
   <div class="kw-wrap kw-featuresplit__inner">
     <div class="kw-featuresplit__media kw-reveal-scale">
       {% if section.settings.image != blank %}
@@ -8,13 +11,16 @@
           src="{{ section.settings.image | image_url: width: 1200 }}"
           srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
           sizes="(max-width: 800px) 100vw, 50vw"
-          alt="{{ section.settings.heading | escape }}"
+          alt="{{ fs_alt | escape }}"
           loading="lazy"
           width="{{ section.settings.image.width }}"
           height="{{ section.settings.image.height }}"
         >
       {% elsif section.settings.image_asset != blank %}
-        <img src="{{ section.settings.image_asset | asset_url }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+        {%- comment -%}A theme asset has no dimensions in Liquid, so these are a ratio
+          hint rather than the file's real size: the media box is pinned to
+          aspect-ratio 4/3, so 1600x1200 reserves the right space before CSS lands.{%- endcomment -%}
+        <img src="{{ section.settings.image_asset | asset_url }}" alt="{{ fs_alt | escape }}" loading="lazy" width="1600" height="1200">
       {% endif %}
       {% if section.settings.badge != blank %}
         <span class="kw-featuresplit__badge">{{ section.settings.badge }}</span>
@@ -141,6 +147,7 @@
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Image (overrides asset below)" },
     { "type": "text", "id": "image_asset", "label": "Image — theme asset filename" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text (optional — falls back to the heading)" },
     { "type": "text", "id": "badge", "label": "Image badge text" },
     { "type": "select", "id": "image_position", "label": "Image position", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ], "default": "left" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
