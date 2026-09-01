@@ -79,6 +79,22 @@
         "link_url": ""
       }
     },
+    "kw_light_video_2": {
+      "type": "kw-video",
+      "settings": {
+        "video_asset": "kw-light-warm-craftsman-video.mov",
+        "poster_asset": "kw-light-warm-craftsman-front.jpeg",
+        "badge": "Real install",
+        "video_position": "right",
+        "raised": false,
+        "eyebrow": "Warm white, every night",
+        "heading": "Elegant after dark. Invisible by day.",
+        "body": "A craftsman home on the Wasatch Front with permanent warm white lighting tracing every roofline and gable — highlighting the stonework, soffit and peaks without a single visible fixture during the day.",
+        "list_items": "Warm white glow across every roofline\nStone and trim details highlighted naturally\nDiscreet fixtures, hidden wiring\nFilmed on a finished Kilowash install",
+        "link_label": "Get my free estimate",
+        "link_url": "/pages/estimate"
+      }
+    },
     "kw_light_feature_3": {
       "type": "kw-feature-split",
       "settings": {
@@ -159,11 +175,27 @@
             "wide": false
           }
         },
+        "g_warm_wide": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-warm-craftsman-wide.jpeg",
+            "caption": "Craftsman home, warm white at dusk",
+            "wide": true
+          }
+        },
         "g4": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-brick-accent.jpg",
             "caption": "Brick & stone accents",
+            "wide": false
+          }
+        },
+        "g_warm_front": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-warm-craftsman-front.jpeg",
+            "caption": "Warm white roofline & stone accents",
             "wide": false
           }
         },
@@ -212,7 +244,9 @@
         "g1",
         "g2",
         "g3",
+        "g_warm_wide",
         "g4",
+        "g_warm_front",
         "g5",
         "g6",
         "g7",
@@ -283,6 +317,7 @@
     "kw_light_app_showcase",
     "kw_light_video",
     "kw_light_feature_2",
+    "kw_light_video_2",
     "kw_light_feature_3",
     "kw_light_occasions",
     "kw_light_gallery",

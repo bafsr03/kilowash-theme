@@ -6,6 +6,11 @@
     assign has_shopify_video = true
   endif
 
+  assign video_src = section.settings.video_url
+  if video_src == blank and section.settings.video_asset != blank
+    assign video_src = section.settings.video_asset | asset_url
+  endif
+
   assign poster_src = ''
   if section.settings.poster != blank
     assign poster_src = section.settings.poster | image_url: width: 720
@@ -14,7 +19,7 @@
   endif
 %}
 
-{% if has_shopify_video or section.settings.video_url != blank %}
+{% if has_shopify_video or video_src != blank %}
   <section
     class="kw-scope kw-section kw-vid{% if section.settings.raised %} kw-section--raised{% endif %}{% if section.settings.video_position == 'right' %} kw-vid--reverse{% endif %}"
     id="kw-vid-{{ section.id }}"
@@ -53,7 +58,7 @@
                 # Only declare a type we know browsers accept. Declaring an exotic one
                 # (e.g. video/quicktime for a .mov) makes Chrome skip the source outright,
                 # where omitting it lets the browser sniff the Content-Type and try anyway.
-                assign vpath = section.settings.video_url | split: '?' | first | downcase
+                assign vpath = video_src | split: '?' | first | downcase
                 assign vtype = ''
                 if vpath contains '.mp4'
                   assign vtype = 'video/mp4'
@@ -61,7 +66,7 @@
                   assign vtype = 'video/webm'
                 endif
               -%}
-              <source src="{{ section.settings.video_url }}"{% if vtype != blank %} type="{{ vtype }}"{% endif %}>
+              <source src="{{ video_src }}"{% if vtype != blank %} type="{{ vtype }}"{% endif %}>
             </video>
           {% endif %}
 
@@ -317,6 +322,7 @@
   "settings": [
     { "type": "video", "id": "video", "label": "Video (upload to Content → Files, then pick it here)" },
     { "type": "text", "id": "video_url", "label": "Video URL — direct .mp4 link (used only if no video picked above)" },
+    { "type": "text", "id": "video_asset", "label": "Video — theme asset filename (used only if no URL above)" },
     { "type": "image_picker", "id": "poster", "label": "Poster image (overrides asset below)" },
     { "type": "text", "id": "poster_asset", "label": "Poster image — theme asset filename" },
     { "type": "text", "id": "badge", "label": "Video badge text" },
