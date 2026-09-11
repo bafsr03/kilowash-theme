@@ -299,6 +299,53 @@
         "button_label": "Get my free estimate",
         "button_link": "/pages/estimate"
       }
+    },
+    "kw_home_area": {
+      "type": "kw-service-area",
+      "settings": {
+        "raised": true,
+        "eyebrow": "Where we work",
+        "heading": "Serving the Wasatch Front",
+        "body": "<p>Kilowash is a Utah-owned, licensed and insured crew installing permanent architectural lighting and solar attic protection across northern Utah. If your town is not on the list, call or text — we will tell you straight whether we can get to you.</p>",
+        "cities": "",
+        "links_label": "More from Kilowash"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Permanent architectural lighting",
+            "url": "/pages/lighting"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Solar attic fans &amp; panel care",
+            "url": "/pages/solar"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews &amp; finished projects",
+            "url": "/pages/testimonials"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "Get a free estimate",
+            "url": "/pages/estimate"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
     }
   },
   "order": [
@@ -310,6 +357,7 @@
     "kw_home_crew",
     "kw_home_estimator",
     "kw_home_quote",
+    "kw_home_area",
     "kw_home_cta"
   ]
 }

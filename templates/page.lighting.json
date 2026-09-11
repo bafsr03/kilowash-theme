@@ -309,6 +309,113 @@
         "secondary_label": "Ask a question",
         "secondary_link": "/pages/contact#quote-form"
       }
+    },
+    "kw_light_faq": {
+      "type": "kw-faq",
+      "settings": {
+        "raised": true,
+        "eyebrow": "Common questions",
+        "heading": "Permanent lighting, answered straight"
+      },
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "How much does permanent lighting cost in Utah?",
+            "answer": "<p>Permanent architectural lighting runs $27 per linear foot of roofline. A typical Wasatch Front home with 150 to 250 feet of roofline lands between $4,000 and $6,750. Add-ons are flat rate: Smart App Control is $500 and a Power box is $200. You can price your own home on our <a href=\"/pages/estimate\">estimate page</a> — real rates, no sales call.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Will the lights survive a Utah winter?",
+            "answer": "<p>Yes. The track and diodes are rated for Utah winters — freeze-thaw cycles, snow load on the eave and full summer sun on a south-facing roofline. Craftsmanship and lighting are both backed by a 10-year warranty.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does the install take?",
+            "answer": "<p>Most single-family homes are finished in one day. Larger or multi-gable rooflines can run into a second day. We confirm the timeline before we start and the crew cleans the site before leaving.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I change the colors myself?",
+            "answer": "<p>Yes. With Smart App Control you run color, brightness, scenes and schedules from your phone — no ladder, no swapping bulbs. Holiday, game day and accent scenes are built in and ready with one tap.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "Is the hardware visible during the day?",
+            "answer": "<p>The channel is mounted flush to the roofline and color-matched, so from the street it reads as trim. That is the point of a custom install rather than a clip-on strip.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "question": "Are you licensed and insured?",
+            "answer": "<p>Yes — Kilowash is a licensed and insured, Utah-owned crew. See <a href=\"/pages/testimonials\">reviews and finished projects</a> for recent work.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ]
+    },
+    "kw_light_area": {
+      "type": "kw-service-area",
+      "settings": {
+        "raised": false,
+        "eyebrow": "Where we work",
+        "heading": "Permanent lighting across the Wasatch Front",
+        "body": "<p>We install permanent architectural lighting throughout northern Utah. If your town is not listed, call or text us anyway — we will tell you straight whether we can get to you.</p>",
+        "cities": "",
+        "links_label": "More from Kilowash"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Solar attic fans &amp; panel care",
+            "url": "/pages/solar"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews &amp; finished projects",
+            "url": "/pages/testimonials"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "Price your roofline",
+            "url": "/pages/estimate"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "About the Kilowash crew",
+            "url": "/pages/about"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
     }
   },
   "order": [
@@ -322,6 +429,8 @@
     "kw_light_occasions",
     "kw_light_gallery",
     "kw_light_why",
+    "kw_light_faq",
+    "kw_light_area",
     "kw_light_cta"
   ]
 }

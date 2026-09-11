@@ -303,6 +303,113 @@
         "secondary_label": "Ask a question",
         "secondary_link": "/pages/contact#quote-form"
       }
+    },
+    "kw_solar_faq": {
+      "type": "kw-faq",
+      "settings": {
+        "raised": true,
+        "eyebrow": "Common questions",
+        "heading": "Solar questions Utah homeowners ask"
+      },
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "Do solar attic fans actually work in Utah?",
+            "answer": "<p>They work especially well here. Utah attics trap radiant heat all summer, which drives cooling costs up and shortens shingle life. A solar attic fan runs off its own panel — no added power bill — and continuously pulls that hot air out.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you install new solar panels?",
+            "answer": "<p>No. Kilowash installs solar attic fans and cleans and maintains panel systems already on your roof. We do not sell or install new rooftop arrays.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "My panels are producing less than they used to. Is cleaning worth it?",
+            "answer": "<p>Usually yes, and it is the cheapest thing to try first. Utah dust, pollen and winter grime cut output measurably. A professional clean is far less expensive than a service call on hardware that turns out to be fine.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "Will a fan install damage my roof?",
+            "answer": "<p>No. Fans are flashed and sealed the same way a roof penetration should be. The crew is licensed and insured, and the workmanship is warrantied.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does a solar attic fan install take?",
+            "answer": "<p>Most installs are a few hours. We confirm placement with you first — fan position matters more than fan count for actually moving air.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "question": "What areas do you cover?",
+            "answer": "<p>The whole Wasatch Front, from Ogden down through Utah County. See the service area below, or check our <a href=\"/pages/testimonials\">recent projects</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ]
+    },
+    "kw_solar_area": {
+      "type": "kw-service-area",
+      "settings": {
+        "raised": false,
+        "eyebrow": "Where we work",
+        "heading": "Solar service across the Wasatch Front",
+        "body": "<p>We install solar attic fans and service existing panel systems throughout northern Utah. Not sure if you are in range? Call or text and we will tell you straight.</p>",
+        "cities": "",
+        "links_label": "More from Kilowash"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Permanent architectural lighting",
+            "url": "/pages/lighting"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews &amp; finished projects",
+            "url": "/pages/testimonials"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "Get a free estimate",
+            "url": "/pages/estimate"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "About the Kilowash crew",
+            "url": "/pages/about"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
     }
   },
   "order": [
@@ -316,6 +423,8 @@
     "kw_solar_solution",
     "kw_solar_gallery",
     "kw_solar_why",
+    "kw_solar_faq",
+    "kw_solar_area",
     "kw_solar_cta"
   ]
 }

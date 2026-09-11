@@ -1,0 +1,176 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  KW Service area — "where we work" + related pages.
+
+  Closes two gaps at once:
+
+  1. Local relevance. Before this, the deepest geography anywhere in the site copy
+     was "Utah" / "Wasatch Front". Google matches a service-area business to a city
+     query partly on whether that city appears in crawlable copy that agrees with
+     the Google Business Profile service area. This block names the cities once, in
+     a place a real customer would look for them.
+
+  2. Internal linking. Every link on the site pointed at /pages/estimate; the
+     lighting, solar and testimonials pages never linked to each other, so link
+     equity dead-ended. The related-links row connects them.
+
+  This is deliberately a genuine, useful page element and not a keyword list — a
+  homeowner scanning for "do they come to Lehi" is the actual audience. Do not
+  expand the city list past where the crew will really drive.
+{%- endcomment -%}
+
+{%- liquid
+  assign cities = section.settings.cities | default: settings.kw_seo_areas_served | split: ','
+-%}
+
+<section class="kw-scope kw-section{% if section.settings.raised %} kw-section--raised{% endif %}" id="kw-area-{{ section.id }}">
+  <div class="kw-blueprint"></div>
+  <div class="kw-wrap kw-area__inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="kw-area__heading kw-reveal">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.body != blank %}
+      <div class="kw-area__body kw-reveal">{{ section.settings.body }}</div>
+    {% endif %}
+
+    {% if cities.size > 0 %}
+      <ul class="kw-area__cities kw-reveal">
+        {% for city in cities %}
+          {% assign city_name = city | strip %}
+          {% if city_name != blank %}
+            <li>{{ city_name }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <nav class="kw-area__links kw-reveal" aria-label="{{ section.settings.links_label | escape }}">
+        <p class="kw-area__links-label">{{ section.settings.links_label }}</p>
+        <ul>
+          {% for block in section.blocks %}
+            {% if block.settings.label != blank and block.settings.url != blank %}
+              <li {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.url }}">{{ block.settings.label }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  #kw-area-{{ section.id }} {
+    padding-block: clamp(48px, 6.5vw, 92px);
+  }
+
+  #kw-area-{{ section.id }} .kw-area__heading {
+    font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+    max-width: 22ch;
+    margin-block: 0.4em 0.8rem;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__body {
+    color: var(--kw-fg-dim);
+    max-width: 62ch;
+    font-size: 0.96rem;
+    line-height: 1.62;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__cities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.8rem 0 0;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__cities li {
+    border: 1px solid var(--kw-line);
+    border-radius: 999px;
+    padding: 0.38rem 0.85rem;
+    font-size: 0.84rem;
+    color: var(--kw-fg-dim);
+    letter-spacing: 0.01em;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__links {
+    margin-top: 2.2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--kw-line);
+  }
+
+  #kw-area-{{ section.id }} .kw-area__links-label {
+    font-family: var(--kw-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--kw-fg-dim);
+    margin: 0 0 0.9rem;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__links a {
+    color: var(--kw-fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--kw-gold);
+    padding-bottom: 2px;
+    font-size: 0.94rem;
+    transition: color 0.25s ease;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__links a:hover {
+    color: var(--kw-gold);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Service area",
+  "tag": "section",
+  "settings": [
+    { "type": "checkbox", "id": "raised", "label": "Raised background", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Where we work" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Serving the Wasatch Front" },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>We are a Utah-owned crew and we drive the whole Wasatch Front. If your town is not on this list, call or text us anyway — we will tell you straight whether we can get to you.</p>" },
+    { "type": "textarea", "id": "cities", "label": "Cities", "info": "Comma separated. Leave blank to use the service area cities set in Theme settings > Kilowash SEO. Only list places the crew will actually drive." },
+    { "type": "text", "id": "links_label", "label": "Related links label", "default": "More from Kilowash" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Related link",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Permanent lighting" },
+        { "type": "url", "id": "url", "label": "URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KW Service area",
+      "blocks": [
+        { "type": "link", "settings": { "label": "Permanent architectural lighting", "url": "/pages/lighting" } },
+        { "type": "link", "settings": { "label": "Solar attic fans & panel care", "url": "/pages/solar" } },
+        { "type": "link", "settings": { "label": "Reviews & finished projects", "url": "/pages/testimonials" } },
+        { "type": "link", "settings": { "label": "Get a free estimate", "url": "/pages/estimate" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
