@@ -1,0 +1,42 @@
+{%- comment -%}
+  Theme-level robots.txt.
+
+  Shopify serves a sensible default robots.txt (it already disallows /search, /cart,
+  /checkout, /account and the ?sort_by / ?filter parameter URLs), and this template
+  preserves every one of those rules verbatim via robots.default_groups. It exists so
+  crawl rules are an explicit, version-controlled part of the theme instead of an
+  invisible platform default — if we ever need to open or close a path to crawlers,
+  it is a reviewable diff here rather than a setting nobody can see.
+
+  The only additions on top of the defaults are a handful of low-value commercial
+  crawlers that spend crawl bandwidth without ever sending a customer. Search engines
+  that actually drive leads (Googlebot, Bingbot, DuckDuckBot, Applebot) and the
+  Google Business Profile crawler are untouched.
+
+  Do not add "Disallow: /" here under any circumstances — it would deindex the site.
+{%- endcomment -%}
+{% for group in robots.default_groups -%}
+  {{- group.user_agent }}
+
+  {% for rule in group.rules -%}
+    {{ rule }}
+  {% endfor -%}
+
+  {%- if group.sitemap -%}
+    {{ group.sitemap }}
+  {%- endif -%}
+{% endfor %}
+
+# --- Kilowash additions (BouldHQ) ---
+# Commercial crawlers that consume bandwidth without sending traffic.
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# Explicit sitemap declaration so it is discoverable even if a future default changes.
+Sitemap: {{ request.origin }}/sitemap.xml
