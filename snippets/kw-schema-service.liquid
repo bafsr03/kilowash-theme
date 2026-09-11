@@ -1,0 +1,52 @@
+{%- comment -%}
+  Service JSON-LD for the two service pages. Template-gated so it only emits on
+  /pages/lighting and /pages/solar; every other template renders nothing.
+
+  `provider` points at the @id of the HomeAndConstructionBusiness node emitted by
+  kw-schema-localbusiness.liquid, so Google resolves one business entity across the
+  whole site instead of several unlinked ones.
+{%- endcomment -%}
+
+{%- liquid
+  assign svc_name = ''
+  assign svc_type = ''
+  assign svc_desc = ''
+
+  case template.suffix
+    when 'lighting'
+      assign svc_name = 'Permanent Architectural Lighting Installation'
+      assign svc_type = 'Permanent holiday and architectural lighting installation'
+      assign svc_desc = 'Professionally installed, app-controlled permanent architectural lighting for Utah homes. Track is mounted flush to the roofline and rated for Utah winters, with a 10-year warranty.'
+    when 'solar'
+      assign svc_name = 'Solar Attic Fan Installation and Solar Panel Care'
+      assign svc_type = 'Solar attic fan installation, solar panel cleaning and maintenance'
+      assign svc_desc = 'Solar attic fan installation to pull heat out of Utah attics, plus solar panel cleaning and maintenance for existing rooftop systems.'
+  endcase
+
+  assign areas_raw = settings.kw_seo_areas_served
+  assign area_list = areas_raw | split: ','
+-%}
+
+{%- if svc_name != blank -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": {{ svc_name | json }},
+      "serviceType": {{ svc_type | json }},
+      "description": {{ svc_desc | json }},
+      "url": {{ canonical_url | json }},
+      "provider": { "@id": {{ request.origin | append: '/#business' | json }} }
+      {%- if area_list.size > 0 -%}
+        ,"areaServed": [
+          {%- for area in area_list -%}
+            {
+              "@type": "City",
+              "name": {{ area | strip | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      {%- endif -%}
+    }
+  </script>
+{%- endif -%}

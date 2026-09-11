@@ -1,0 +1,73 @@
+{%- comment -%}
+  SEO metadata backfill.
+
+  Horizon's stock snippets/meta-tags.liquid only emits a meta description when the
+  page's SEO description is filled in in the Shopify admin, and only emits an
+  og:image when Liquid can resolve a `page_image` — which never happens on custom
+  /pages/* templates. The practical result was that every marketing page on this
+  site shipped with no meta description and no social share image.
+
+  This snippet fills both gaps WITHOUT duplicating tags: each block is guarded so it
+  only fires when the stock snippet did not already emit that tag. Anything set in
+  the Shopify admin always wins.
+
+  Rendered from layout/theme.liquid immediately after 'meta-tags'.
+{%- endcomment -%}
+
+{%- liquid
+  assign fallback_desc = ''
+
+  if request.page_type == 'index'
+    assign fallback_desc = settings.kw_seo_description
+  elsif request.page_type == 'page'
+    case template.suffix
+      when 'lighting'
+        assign fallback_desc = 'Permanent architectural lighting installed on Utah homes — app-controlled, rated for Utah winters and backed by a 10-year warranty. Free estimate along the Wasatch Front.'
+      when 'solar'
+        assign fallback_desc = 'Solar attic fan installation and solar panel cleaning across the Wasatch Front. Pull trapped heat out of your attic and keep an existing system producing.'
+      when 'estimate'
+        assign fallback_desc = 'Price your permanent lighting or solar attic fan install in about a minute. Real Kilowash rates, no sales call required.'
+      when 'testimonials'
+        assign fallback_desc = 'Real Kilowash installs and real reviews from Utah homeowners — permanent lighting and solar attic fan projects along the Wasatch Front.'
+      when 'about'
+        assign fallback_desc = 'Kilowash is a Utah-owned, licensed and insured crew installing permanent architectural lighting and solar attic protection along the Wasatch Front.'
+      when 'contact'
+        assign fallback_desc = 'Call or text the Kilowash crew for a free estimate on permanent lighting or solar attic fans anywhere along the Wasatch Front.'
+      else
+        assign fallback_desc = settings.kw_seo_description
+    endcase
+  endif
+
+  if fallback_desc == blank
+    assign fallback_desc = settings.kw_seo_description
+  endif
+-%}
+
+{%- comment -%}Only fires when the admin SEO description is empty — no duplicates.{%- endcomment -%}
+{%- if page_description == blank and fallback_desc != blank -%}
+  <meta name="description" content="{{ fallback_desc | escape }}">
+{%- endif -%}
+
+{%- liquid
+  assign share_image = null
+  if page_image
+    assign share_image = page_image
+  elsif settings.kw_seo_share_image != blank
+    assign share_image = settings.kw_seo_share_image
+  elsif settings.logo != blank
+    assign share_image = settings.logo
+  endif
+-%}
+
+{%- if share_image -%}
+  {%- comment -%}
+    og:image is only backfilled when the stock snippet skipped it (no page_image).
+    twitter:image is always emitted — meta-tags.liquid never emits one at all, so
+    link previews on X/Slack/iMessage currently fall back to nothing.
+  {%- endcomment -%}
+  {%- unless page_image -%}
+    <meta property="og:image" content="{{ share_image | image_url: width: 1200 | prepend: 'https:' }}">
+    <meta property="og:image:secure_url" content="{{ share_image | image_url: width: 1200 | prepend: 'https:' }}">
+  {%- endunless -%}
+  <meta name="twitter:image" content="{{ share_image | image_url: width: 1200 | prepend: 'https:' }}">
+{%- endif -%}

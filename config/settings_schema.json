@@ -2116,5 +2116,105 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Kilowash SEO",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Feeds the LocalBusiness structured data Google reads to connect this site to the Google Business Profile. Keep these identical to the GBP listing — a mismatch in name, phone or region weakens local ranking."
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_business_name",
+        "label": "Business name (must match Google Business Profile exactly)",
+        "default": "Kilowash Lighting and Solar Solutions"
+      },
+      {
+        "type": "textarea",
+        "id": "kw_seo_description",
+        "label": "Default site description",
+        "info": "Used as the meta description fallback on any page with no SEO description set in the admin, and as the business description in structured data. Aim for 140-160 characters.",
+        "default": "Kilowash installs permanent architectural lighting and solar attic fans across the Wasatch Front. Licensed and insured Utah crew, 10-year warranty, free estimates."
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_phone",
+        "label": "Phone number",
+        "info": "Goes into structured data only. The number stays cloaked in the visible page copy, so scrapers still cannot harvest it.",
+        "default": "+1-385-406-2335"
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_email",
+        "label": "Email",
+        "default": "KilowashUtah@gmail.com"
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_locality",
+        "label": "Primary city",
+        "default": "Salt Lake City"
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_region",
+        "label": "State / region code",
+        "default": "UT"
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_price_range",
+        "label": "Price range",
+        "info": "Coarse signal only, e.g. $$ or $$$.",
+        "default": "$$"
+      },
+      {
+        "type": "textarea",
+        "id": "kw_seo_areas_served",
+        "label": "Service area cities",
+        "info": "Comma separated. Should match the service area drawn on the Google Business Profile.",
+        "default": "Salt Lake City, Sandy, Draper, South Jordan, West Jordan, Lehi, American Fork, Pleasant Grove, Orem, Provo, Ogden, Layton, Bountiful, Park City"
+      },
+      {
+        "type": "textarea",
+        "id": "kw_seo_hours",
+        "label": "Opening hours",
+        "info": "Comma separated, one entry per line as: Day HH:MM HH:MM (24-hour). Example: Monday 08:00 16:00. Leave blank until the real hours are confirmed — wrong hours are worse than none.",
+        "default": ""
+      },
+      {
+        "type": "image_picker",
+        "id": "kw_seo_share_image",
+        "label": "Social share image",
+        "info": "Shown when the site is shared to Facebook, iMessage, X or Slack. 1200x630 works best. Falls back to the logo if empty."
+      },
+      {
+        "type": "header",
+        "content": "Social profiles"
+      },
+      {
+        "type": "paragraph",
+        "content": "Used for the sameAs property in structured data, which tells Google these profiles and this website are the same business."
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_instagram",
+        "label": "Instagram URL",
+        "default": "https://www.instagram.com/kilowashutah"
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_facebook",
+        "label": "Facebook URL",
+        "default": ""
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_gbp_url",
+        "label": "Google Business Profile URL",
+        "default": ""
+      }
+    ]
   }
 ]

@@ -1,0 +1,49 @@
+{%- comment -%}
+  BreadcrumbList JSON-LD. Gives Google a Home > Page trail so the SERP shows a
+  readable path instead of a bare URL. Emitted on every page except the homepage,
+  where a one-item breadcrumb is meaningless.
+
+  Schema-only (no visible UI) — the site's nav already makes hierarchy obvious to
+  a human, and injecting a visible breadcrumb bar into the Midnight Electric layout
+  would be a design change, not an SEO one.
+{%- endcomment -%}
+
+{%- liquid
+  assign crumb_name = ''
+
+  case request.page_type
+    when 'page'
+      assign crumb_name = page.title
+    when 'article'
+      assign crumb_name = article.title
+    when 'blog'
+      assign crumb_name = blog.title
+    when 'product'
+      assign crumb_name = product.title
+    when 'collection'
+      assign crumb_name = collection.title
+  endcase
+-%}
+
+{%- if crumb_name != blank -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": {{ request.origin | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ crumb_name | json }},
+          "item": {{ canonical_url | json }}
+        }
+      ]
+    }
+  </script>
+{%- endif -%}

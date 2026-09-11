@@ -36,6 +36,7 @@
     {% endif %}
 
     {%- render 'meta-tags' -%}
+    {%- render 'kw-seo-meta' -%}
     {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
@@ -58,6 +59,15 @@
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}
+
+    {%- comment -%}
+      Structured data. kw-schema-localbusiness emits the single
+      HomeAndConstructionBusiness + WebSite entity sitewide; the other two attach
+      page-scoped nodes that reference it by @id so Google resolves one business.
+    {%- endcomment -%}
+    {%- render 'kw-schema-localbusiness' -%}
+    {%- render 'kw-schema-service' -%}
+    {%- render 'kw-schema-breadcrumbs' -%}
 
     {{ content_for_header }}
   </head>
