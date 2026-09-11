@@ -30,7 +30,8 @@
       {% if section.settings.eyebrow != blank %}
         <p class="kw-eyebrow">{{ section.settings.eyebrow }}</p>
       {% endif %}
-      <h3>{{ section.settings.heading }}</h3>
+      {%- assign hl = section.settings.heading_level | default: 'h2' -%}
+      <{{ hl }} class="kw-featuresplit__title">{{ section.settings.heading }}</{{ hl }}>
       <div class="kw-featuresplit__body">{{ section.settings.body }}</div>
       {% if section.settings.list_items != blank %}
         <ul class="kw-featuresplit__list">
@@ -92,7 +93,7 @@
     border-radius: 100px;
   }
 
-  #kw-fs-{{ section.id }} h3 {
+  #kw-fs-{{ section.id }} .kw-featuresplit__title {
     font-family: var(--kw-display);
     font-size: clamp(1.7rem, 3vw, 2.5rem);
     margin-block: 0.4em 0.6em;
@@ -145,6 +146,7 @@
   "name": "KW Feature split",
   "tag": "section",
   "settings": [
+    { "type": "select", "id": "heading_level", "label": "Heading level", "info": "Use H2 when this section is a top-level part of the page. Drop to H3 only when it sits underneath another H2. Screen readers and Google both read the page outline from these.", "options": [{ "value": "h2", "label": "H2" }, { "value": "h3", "label": "H3" }], "default": "h2" },
     { "type": "image_picker", "id": "image", "label": "Image (overrides asset below)" },
     { "type": "text", "id": "image_asset", "label": "Image — theme asset filename" },
     { "type": "text", "id": "image_alt", "label": "Image alt text (optional — falls back to the heading)" },

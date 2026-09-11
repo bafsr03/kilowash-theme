@@ -20,6 +20,11 @@
         alt="{{ section.settings.heading | escape }}"
         loading="eager"
         fetchpriority="high"
+        {%- comment -%}Ratio hint only — a theme asset has no dimensions in Liquid and the
+          hero media box is already absolutely positioned, so this does not affect layout.
+          It keeps the intrinsic ratio sane pre-CSS and satisfies Theme Check.{%- endcomment -%}
+        width="2400"
+        height="1350"
       >
     {% endif %}
     <div class="kw-hero__scrim"></div>

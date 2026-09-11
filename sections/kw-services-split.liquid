@@ -1,5 +1,7 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
+{%- assign hl = section.settings.heading_level | default: 'h2' -%}
+
 <section class="kw-scope kw-split" id="kw-split-{{ section.id }}">
   <a class="kw-split__panel" href="{{ section.settings.link_a }}">
     {% if section.settings.image_a != blank %}
@@ -13,12 +15,12 @@
         height="{{ section.settings.image_a.height }}"
       >
     {% elsif section.settings.image_a_asset != blank %}
-      <img src="{{ section.settings.image_a_asset | asset_url }}" alt="{{ section.settings.title_a | escape }}" loading="lazy">
+      <img src="{{ section.settings.image_a_asset | asset_url }}" alt="{{ section.settings.title_a | escape }}" loading="lazy" width="1600" height="1200">
     {% endif %}
     <div class="kw-split__scrim"></div>
     <div class="kw-split__content">
       <span class="kw-split__index">01</span>
-      <h3>{{ section.settings.title_a }}</h3>
+      <{{ hl }} class="kw-split__title">{{ section.settings.title_a }}</{{ hl }}>
       <p>{{ section.settings.copy_a }}</p>
       <span class="kw-split__cta">{{ section.settings.cta_a | default: 'Explore lighting' }}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -38,12 +40,12 @@
         height="{{ section.settings.image_b.height }}"
       >
     {% elsif section.settings.image_b_asset != blank %}
-      <img src="{{ section.settings.image_b_asset | asset_url }}" alt="{{ section.settings.title_b | escape }}" loading="lazy">
+      <img src="{{ section.settings.image_b_asset | asset_url }}" alt="{{ section.settings.title_b | escape }}" loading="lazy" width="1600" height="1200">
     {% endif %}
     <div class="kw-split__scrim"></div>
     <div class="kw-split__content">
       <span class="kw-split__index">02</span>
-      <h3>{{ section.settings.title_b }}</h3>
+      <{{ hl }} class="kw-split__title">{{ section.settings.title_b }}</{{ hl }}>
       <p>{{ section.settings.copy_b }}</p>
       <span class="kw-split__cta">{{ section.settings.cta_b | default: 'Explore solar' }}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -110,7 +112,7 @@
     letter-spacing: 0.1em;
   }
 
-  #kw-split-{{ section.id }} h3 {
+  #kw-split-{{ section.id }} .kw-split__title {
     font-family: var(--kw-display);
     font-size: clamp(1.9rem, 3.4vw, 3rem);
     margin-block: 0.35em 0.3em;
@@ -157,6 +159,7 @@
   "name": "KW Services split",
   "tag": "section",
   "settings": [
+    { "type": "select", "id": "heading_level", "label": "Heading level", "info": "Use H2 when this section is a top-level part of the page. Drop to H3 only when it sits underneath another H2. Screen readers and Google both read the page outline from these.", "options": [{ "value": "h2", "label": "H2" }, { "value": "h3", "label": "H3" }], "default": "h2" },
     { "type": "image_picker", "id": "image_a", "label": "Panel A image (overrides asset below)" },
     { "type": "text", "id": "image_a_asset", "label": "Panel A — theme asset filename" },
     { "type": "text", "id": "title_a", "label": "Panel A title", "default": "Permanent Lighting" },

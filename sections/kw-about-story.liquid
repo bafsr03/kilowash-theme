@@ -22,7 +22,11 @@
               height="{{ block.settings.image.height }}"
             >
           {% elsif block.settings.image_asset != blank %}
-            <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.caption | escape }}" loading="lazy">
+            {%- comment -%}A theme asset has no dimensions in Liquid, so these are a ratio hint
+            rather than the file's real size. The CSS box already reserves the space, so this
+            is not a layout-shift fix — it keeps the intrinsic ratio correct in the pre-CSS
+            window and satisfies Theme Check's ImgWidthAndHeight rule (see commit 1c665e8).{%- endcomment -%}
+            <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.caption | escape }}" loading="lazy" width="1200" height="1500">
           {% endif %}
           <span>{{ block.settings.caption }}</span>
         </div>

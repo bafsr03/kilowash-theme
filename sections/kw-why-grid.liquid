@@ -15,7 +15,7 @@
         <div class="kw-card kw-reveal" style="transition-delay: {{ forloop.index0 | times: 0.08 }}s" {{ block.shopify_attributes }}>
           <span class="kw-card__index">N&deg;{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
           <div class="kw-why__icon">{{ block.settings.icon }}</div>
-          <h4>{{ block.settings.title }}</h4>
+          <h3 class="kw-card__title">{{ block.settings.title }}</h3>
           <p>{{ block.settings.body }}</p>
         </div>
       {% endfor %}
@@ -58,7 +58,7 @@
     margin-bottom: 1rem;
   }
 
-  #kw-why-{{ section.id }} .kw-card h4 {
+  #kw-why-{{ section.id }} .kw-card__title {
     font-family: var(--kw-display);
     font-size: 1.1rem;
     margin: 0 0 0.5em;

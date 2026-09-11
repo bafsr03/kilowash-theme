@@ -15,7 +15,7 @@
           height="{{ section.settings.image.height }}"
         >
       {% elsif section.settings.image_asset != blank %}
-        <img src="{{ section.settings.image_asset | asset_url }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+        <img src="{{ section.settings.image_asset | asset_url }}" alt="{{ section.settings.heading | escape }}" loading="lazy" width="1600" height="1200">
       {% endif %}
       {% if section.settings.badge != blank %}
         <span class="kw-featproj__badge">{{ section.settings.badge }}</span>
@@ -33,7 +33,7 @@
               height="{{ section.settings.image_2.height }}"
             >
           {% elsif section.settings.image_2_asset != blank %}
-            <img src="{{ section.settings.image_2_asset | asset_url }}" alt="{{ section.settings.image_2_caption | escape }}" loading="lazy">
+            <img src="{{ section.settings.image_2_asset | asset_url }}" alt="{{ section.settings.image_2_caption | escape }}" loading="lazy" width="1200" height="1500">
           {% endif %}
           {% if section.settings.image_2_caption != blank %}
             <span>{{ section.settings.image_2_caption }}</span>
@@ -45,7 +45,8 @@
       {% if section.settings.eyebrow != blank %}
         <p class="kw-eyebrow">{{ section.settings.eyebrow }}</p>
       {% endif %}
-      <h3>{{ section.settings.heading }}</h3>
+      {%- assign hl = section.settings.heading_level | default: 'h2' -%}
+      <{{ hl }} class="kw-featproj__title">{{ section.settings.heading }}</{{ hl }}>
       <div class="kw-featproj__body">{{ section.settings.body }}</div>
       {% if section.settings.quote != blank %}
         <blockquote class="kw-featproj__quote">
@@ -149,7 +150,7 @@
     text-overflow: ellipsis;
   }
 
-  #kw-featproj-{{ section.id }} h3 {
+  #kw-featproj-{{ section.id }} .kw-featproj__title {
     font-family: var(--kw-display);
     font-size: clamp(1.7rem, 3vw, 2.5rem);
     margin-block: 0.4em 0.6em;
@@ -201,6 +202,7 @@
   "name": "KW Featured project",
   "tag": "section",
   "settings": [
+    { "type": "select", "id": "heading_level", "label": "Heading level", "info": "Use H2 when this section is a top-level part of the page. Drop to H3 only when it sits underneath another H2. Screen readers and Google both read the page outline from these.", "options": [{ "value": "h2", "label": "H2" }, { "value": "h3", "label": "H3" }], "default": "h2" },
     { "type": "image_picker", "id": "image", "label": "Main image (overrides asset below)" },
     { "type": "text", "id": "image_asset", "label": "Main image — theme asset filename" },
     { "type": "text", "id": "badge", "label": "Image badge text" },
