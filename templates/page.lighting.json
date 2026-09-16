@@ -59,7 +59,7 @@
         "raised": false,
         "eyebrow": "See it after dark",
         "heading": "Same house. Any color. In seconds.",
-        "body": "Filmed on a finished Kilowash roofline here on the Wasatch Front. Nothing on that roof changes but the scene — no ladder, no swapping bulbs, nothing to pull down in January.",
+        "body": "Filmed on a finished Kilowash roofline. Nothing on that roof changes but the scene — no ladder, no swapping bulbs, nothing to pull down in January.",
         "list_items": "Filmed on a real Kilowash install\nScene changes from the app in seconds\nInvisible by day, unmistakable at night\nSame fixtures for game day, the holidays and every night between",
         "link_label": "Get my free estimate",
         "link_url": "/pages/estimate"
@@ -89,7 +89,7 @@
         "raised": false,
         "eyebrow": "Warm white, every night",
         "heading": "Elegant after dark. Invisible by day.",
-        "body": "A craftsman home on the Wasatch Front with permanent warm white lighting tracing every roofline and gable — highlighting the stonework, soffit and peaks without a single visible fixture during the day.",
+        "body": "A craftsman home with permanent warm white lighting tracing every roofline and gable — highlighting the stonework, soffit and peaks without a single visible fixture during the day.",
         "list_items": "Warm white glow across every roofline\nStone and trim details highlighted naturally\nDiscreet fixtures, hidden wiring\nFilmed on a finished Kilowash install",
         "link_label": "Get my free estimate",
         "link_url": "/pages/estimate"
@@ -104,7 +104,7 @@
         "eyebrow": "Patios, pergolas & entryways",
         "heading": "We don't stop at the gutter line.",
         "body": "Covered patios, pergolas, garages and entryways all get the same permanent, weatherproof lighting treatment — extending your outdoor living space after dark.",
-        "list_items": "Patio & pergola accent runs\nGarage and entryway highlights\nFully weatherproof, rated for Utah winters\nInstalled by our own local crew",
+        "list_items": "Patio & pergola accent runs\nGarage and entryway highlights\nFully weatherproof, rated for freeze-thaw winters\nInstalled by our own crew",
         "link_label": "",
         "link_url": ""
       }
@@ -321,15 +321,15 @@
         "faq_1": {
           "type": "faq",
           "settings": {
-            "question": "How much does permanent lighting cost in Utah?",
-            "answer": "<p>Permanent architectural lighting runs $27 per linear foot of roofline. A typical Wasatch Front home with 150 to 250 feet of roofline lands between $4,000 and $6,750. Add-ons are flat rate: Smart App Control is $500 and a Power box is $200. You can price your own home on our <a href=\"/pages/estimate\">estimate page</a> — real rates, no sales call.</p>"
+            "question": "How much does permanent lighting cost?",
+            "answer": "<p>Permanent architectural lighting runs $27 per linear foot of roofline. A typical home with 150 to 250 feet of roofline lands between $4,000 and $6,750. Add-ons are flat rate: Smart App Control is $500 and a Power box is $200. You can price your own home on our <a href=\"/pages/estimate\">estimate page</a> — real rates, no sales call.</p>"
           }
         },
         "faq_2": {
           "type": "faq",
           "settings": {
-            "question": "Will the lights survive a Utah winter?",
-            "answer": "<p>Yes. The track and diodes are rated for Utah winters — freeze-thaw cycles, snow load on the eave and full summer sun on a south-facing roofline. Craftsmanship and lighting are both backed by a 10-year warranty.</p>"
+            "question": "Will the lights survive a hard winter?",
+            "answer": "<p>Yes. The track and diodes are rated for real winters — freeze-thaw cycles, snow load on the eave and full summer sun on a south-facing roofline. Craftsmanship and lighting are both backed by a 10-year warranty.</p>"
           }
         },
         "faq_3": {
@@ -357,7 +357,7 @@
           "type": "faq",
           "settings": {
             "question": "Are you licensed and insured?",
-            "answer": "<p>Yes — Kilowash is a licensed and insured, Utah-owned crew. See <a href=\"/pages/testimonials\">reviews and finished projects</a> for recent work.</p>"
+            "answer": "<p>Yes — Kilowash is licensed and insured, and every install is done by our own crew. See <a href=\"/pages/testimonials\">reviews and finished projects</a> for recent work.</p>"
           }
         }
       },
@@ -375,8 +375,8 @@
       "settings": {
         "raised": false,
         "eyebrow": "Where we work",
-        "heading": "Permanent lighting across the Wasatch Front",
-        "body": "<p>We install permanent architectural lighting throughout northern Utah. If your town is not listed, call or text us anyway — we will tell you straight whether we can get to you.</p>",
+        "heading": "Permanent lighting across Utah & Ohio",
+        "body": "<p>We install permanent architectural lighting across Utah and Ohio. If your town is not listed, call or text us anyway — we will tell you straight whether we can get to you.</p>",
         "cities": "",
         "links_label": "More from Kilowash"
       },

@@ -16,7 +16,7 @@
         "min_height": 56,
         "eyebrow": "About Kilowash",
         "heading": "A local crew, obsessed with the details.",
-        "subheading": "Kilowash Lighting and Solar Solutions is a Utah-owned team installing permanent lighting, solar and attic protection — built and backed by the people who show up on your roof.",
+        "subheading": "Kilowash Lighting and Solar Solutions installs permanent lighting, solar and attic protection across Utah and Ohio — built and backed by the people who show up on your roof.",
         "primary_label": "Get my free estimate",
         "primary_link": "/pages/estimate",
         "secondary_label": "",
@@ -51,7 +51,7 @@
     "kw_about_why": {
       "type": "kw-why-grid",
       "blocks": {
-        "local": { "type": "feature", "settings": { "icon": "📍", "title": "Local, not a franchise", "body": "We're based right here in Utah — same crew from estimate to install to warranty call." } },
+        "local": { "type": "feature", "settings": { "icon": "👷", "title": "Our crews, not subcontractors", "body": "Every install is done by a Kilowash crew — the same people from estimate to install to warranty call." } },
         "own": { "type": "feature", "settings": { "icon": "🔑", "title": "You own everything", "body": "Your Shopify site, your data, your leads. No vendor lock-in, ever." } },
         "response": { "type": "feature", "settings": { "icon": "⏱️", "title": "24-hour response", "body": "Every inquiry gets a callback within 24 hours — from a real person, not a script." } }
       },
@@ -98,8 +98,8 @@
             "image_asset": "kw-crew-fan-thumbsup.jpg",
             "name": "",
             "role": "Install crew",
-            "meta": "Solar attic fan — Utah County",
-            "alt": "Kilowash installer in a branded cap giving a thumbs up next to a newly installed solar attic fan on a shingle roof, Wasatch mountains behind."
+            "meta": "Solar attic fan install",
+            "alt": "Kilowash installer in a branded cap giving a thumbs up next to a newly installed solar attic fan on a shingle roof, mountains behind."
           }
         },
         "c2": {
@@ -109,7 +109,7 @@
             "name": "",
             "role": "On the ridge",
             "meta": "Fan set, flashing sealed",
-            "alt": "View from the roof ridge over a finished solar attic fan install, with the Wasatch range in the distance."
+            "alt": "View from the roof ridge over a finished solar attic fan install, with mountains in the distance."
           }
         }
       },

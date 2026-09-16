@@ -17,7 +17,7 @@
         "min_height": 70,
         "eyebrow": "Solar & Attic Solutions",
         "heading": "Cooler home. Lower bills. Cleaner air.",
-        "subheading": "Solar panel cleaning, repairs & removal-reinstall, solar-powered attic fans and Critter Guard protection — engineered for Utah roofs.",
+        "subheading": "Solar panel cleaning, repairs & removal-reinstall, solar-powered attic fans and Critter Guard protection — engineered for hard-weather roofs.",
         "primary_label": "Get my free estimate",
         "primary_link": "/pages/estimate",
         "secondary_label": "Call / Text 385-406-2335",
@@ -100,7 +100,7 @@
       "settings": {
         "eyebrow": "See the difference",
         "heading": "New roof, same solar panels.",
-        "subheading": "Drag the slider to see this Utah rooftop before and after — the array came off, the shingles were replaced, and the same panels went right back on.",
+        "subheading": "Drag the slider to see this rooftop before and after — the array came off, the shingles were replaced, and the same panels went right back on.",
         "frame_ratio": "3 / 4",
         "max_width": 520,
         "before_image": "",
@@ -309,14 +309,14 @@
       "settings": {
         "raised": true,
         "eyebrow": "Common questions",
-        "heading": "Solar questions Utah homeowners ask"
+        "heading": "Solar questions homeowners ask"
       },
       "blocks": {
         "faq_1": {
           "type": "faq",
           "settings": {
-            "question": "Do solar attic fans actually work in Utah?",
-            "answer": "<p>They work especially well here. Utah attics trap radiant heat all summer, which drives cooling costs up and shortens shingle life. A solar attic fan runs off its own panel — no added power bill — and continuously pulls that hot air out.</p>"
+            "question": "Do solar attic fans actually work?",
+            "answer": "<p>They do. Attics trap radiant heat all summer, which drives cooling costs up and shortens shingle life. A solar attic fan runs off its own panel — no added power bill — and continuously pulls that hot air out.</p>"
           }
         },
         "faq_2": {
@@ -330,7 +330,7 @@
           "type": "faq",
           "settings": {
             "question": "My panels are producing less than they used to. Is cleaning worth it?",
-            "answer": "<p>Usually yes, and it is the cheapest thing to try first. Utah dust, pollen and winter grime cut output measurably. A professional clean is far less expensive than a service call on hardware that turns out to be fine.</p>"
+            "answer": "<p>Usually yes, and it is the cheapest thing to try first. Dust, pollen and winter grime cut output measurably. A professional clean is far less expensive than a service call on hardware that turns out to be fine.</p>"
           }
         },
         "faq_4": {
@@ -351,7 +351,7 @@
           "type": "faq",
           "settings": {
             "question": "What areas do you cover?",
-            "answer": "<p>The whole Wasatch Front, from Ogden down through Utah County. See the service area below, or check our <a href=\"/pages/testimonials\">recent projects</a>.</p>"
+            "answer": "<p>Utah and Ohio. See the service area below, or check our <a href=\"/pages/testimonials\">recent projects</a>.</p>"
           }
         }
       },
@@ -369,8 +369,8 @@
       "settings": {
         "raised": false,
         "eyebrow": "Where we work",
-        "heading": "Solar service across the Wasatch Front",
-        "body": "<p>We install solar attic fans and service existing panel systems throughout northern Utah. Not sure if you are in range? Call or text and we will tell you straight.</p>",
+        "heading": "Solar service across Utah & Ohio",
+        "body": "<p>We install solar attic fans and service existing panel systems across Utah and Ohio. Not sure if you are in range? Call or text and we will tell you straight.</p>",
         "cities": "",
         "links_label": "More from Kilowash"
       },

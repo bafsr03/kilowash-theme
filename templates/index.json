@@ -15,7 +15,7 @@
         "image": "shopify://shop_images/IMG_4454.jpg",
         "image_asset": "kw-light-blue-house.jpg",
         "min_height": 92,
-        "eyebrow": "Permanent Lighting & Solar — Wasatch Front, Utah",
+        "eyebrow": "Permanent Lighting & Solar — Utah & Ohio",
         "heading": "Your home should stand out — day & night.",
         "subheading": "Architectural lighting, holiday lighting, solar system care, attic fans and Critter Guard — installed once, controlled forever from your phone.",
         "primary_label": "Get my free estimate",
@@ -23,7 +23,7 @@
         "secondary_label": "Call / Text 385-406-2335",
         "secondary_link": "tel:3854062335",
         "show_marquee": true,
-        "marquee_text": "Licensed & Insured Utah Crew"
+        "marquee_text": "Licensed & Insured Crews"
       }
     },
     "kw_home_split": {
@@ -36,7 +36,7 @@
         "link_a": "/pages/lighting",
         "image_b_asset": "kw-solar-black-array.jpg",
         "title_b": "Solar & Attic Solutions",
-        "copy_b": "Solar system care, solar attic fans, radiant barriers and Critter Guard bird/pest protection — engineered for Utah roofs.",
+        "copy_b": "Solar system care, solar attic fans, radiant barriers and Critter Guard bird/pest protection — engineered for hard-weather roofs.",
         "cta_b": "Explore solar",
         "link_b": "/pages/solar"
       }
@@ -104,7 +104,7 @@
       "settings": {
         "raised": false,
         "eyebrow": "Why Kilowash",
-        "heading": "Built for Utah roofs. Backed for a decade."
+        "heading": "Built for hard winters. Backed for a decade."
       }
     },
     "kw_home_gallery": {
@@ -169,7 +169,7 @@
       ],
       "settings": {
         "eyebrow": "Field work",
-        "heading": "Real installs, real Utah homes."
+        "heading": "Real installs, real homes."
       }
     },
     "kw_home_stats": {
@@ -273,8 +273,8 @@
             "image_asset": "kw-crew-fan-thumbsup.jpg",
             "name": "",
             "role": "Install crew",
-            "meta": "Solar attic fan — Utah County",
-            "alt": "Kilowash installer in a branded cap giving a thumbs up next to a newly installed solar attic fan on a shingle roof, Wasatch mountains behind."
+            "meta": "Solar attic fan install",
+            "alt": "Kilowash installer in a branded cap giving a thumbs up next to a newly installed solar attic fan on a shingle roof, mountains behind."
           }
         },
         "c2": {
@@ -284,7 +284,7 @@
             "name": "",
             "role": "On the ridge",
             "meta": "Fan set, flashing sealed",
-            "alt": "View from the roof ridge over a finished solar attic fan install, with the Wasatch range in the distance."
+            "alt": "View from the roof ridge over a finished solar attic fan install, with mountains in the distance."
           }
         }
       },
@@ -305,8 +305,8 @@
       "settings": {
         "raised": true,
         "eyebrow": "Where we work",
-        "heading": "Serving the Wasatch Front",
-        "body": "<p>Kilowash is a Utah-owned, licensed and insured crew installing permanent architectural lighting and solar attic protection across northern Utah. If your town is not on the list, call or text — we will tell you straight whether we can get to you.</p>",
+        "heading": "Serving Utah & Ohio",
+        "body": "<p>Kilowash is a licensed and insured team installing permanent architectural lighting and solar attic protection across Utah and Ohio, with our own crews in every market. If your town is not on the list, call or text — we will tell you straight whether we can get to you.</p>",
         "cities": "",
         "links_label": "More from Kilowash"
       },
