@@ -66,6 +66,11 @@
   </div>
 
   {% if section.settings.show_marquee %}
+    {%- comment -%}
+      The track is rendered twice so the marquee can scroll seamlessly; both copies
+      must stay identical. Every item is a setting rather than literal text, so the
+      strip can be re-pointed at a new market without a code change.
+    {%- endcomment -%}
     <div class="kw-ticker">
       <div class="kw-ticker__track">
         {% for i in (1..2) %}
