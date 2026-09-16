@@ -2135,7 +2135,7 @@
         "id": "kw_seo_description",
         "label": "Default site description",
         "info": "Used as the meta description fallback on any page with no SEO description set in the admin, and as the business description in structured data. Aim for 140-160 characters.",
-        "default": "Kilowash installs permanent architectural lighting and solar attic fans across the Wasatch Front. Licensed and insured Utah crew, 10-year warranty, free estimates."
+        "default": "Kilowash installs permanent architectural lighting and solar attic fans across Utah and Ohio. Licensed and insured crews, 10-year warranty, free estimates."
       },
       {
         "type": "text",
@@ -2170,11 +2170,33 @@
         "default": "$$"
       },
       {
+        "type": "header",
+        "content": "Where we work"
+      },
+      {
+        "type": "paragraph",
+        "content": "States drive the headline service area in structured data and in the visible copy. City lists are optional detail underneath them — leave a city list blank and no cities are published for that state, which is the right setting until a crew territory is actually confirmed."
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_states_served",
+        "label": "States served",
+        "info": "Comma separated, full state names. This is the single source of truth: adding a state here updates the structured data and the service-area copy together.",
+        "default": "Utah, Ohio"
+      },
+      {
         "type": "textarea",
         "id": "kw_seo_areas_served",
-        "label": "Service area cities",
-        "info": "Comma separated. Should match the service area drawn on the Google Business Profile.",
+        "label": "Cities \u2014 primary market",
+        "info": "Comma separated. Should match the service area drawn on the Google Business Profile. These are published as cities inside the FIRST state listed above.",
         "default": "Salt Lake City, Sandy, Draper, South Jordan, West Jordan, Lehi, American Fork, Pleasant Grove, Orem, Provo, Ogden, Layton, Bountiful, Park City"
+      },
+      {
+        "type": "textarea",
+        "id": "kw_seo_areas_served_2",
+        "label": "Cities \u2014 second market",
+        "info": "Comma separated. Published as cities inside the SECOND state listed above. Leave blank until the territory is confirmed \u2014 an empty list publishes nothing, which is better than naming towns the crew does not reach.",
+        "default": ""
       },
       {
         "type": "textarea",
