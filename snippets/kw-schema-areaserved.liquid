@@ -1,0 +1,54 @@
+{%- comment -%}
+  Emits the JSON array literal for schema.org `areaServed`, shared by
+  kw-schema-localbusiness and kw-schema-service so the two can never disagree.
+
+  Kilowash works in more than one state, so a flat list of city names is wrong:
+  Google would read "Provo" and an Ohio town in the same unqualified array as one
+  implausible service area. Instead each state is published as its own State node,
+  and every city is nested under the state it actually sits in via
+  `containedInPlace`. That way a city name that exists in both states (there are
+  several) is never ambiguous.
+
+  City lists are optional. A blank list publishes no cities for that state, which
+  is the correct output for a market whose territory is not settled yet — the
+  state-level claim stands on its own and nothing false is asserted.
+
+  Usage: "areaServed": {% render 'kw-schema-areaserved' %}
+{%- endcomment -%}
+{%- liquid
+  assign state_list = settings.kw_seo_states_served | split: ','
+  assign cities_1 = settings.kw_seo_areas_served | split: ','
+  assign cities_2 = settings.kw_seo_areas_served_2 | split: ','
+  assign sep = ''
+-%}
+[
+{%- for state in state_list -%}
+  {%- assign state_name = state | strip -%}
+  {%- if state_name != blank -%}
+    {{ sep }}{ "@type": "State", "name": {{ state_name | json }} }
+    {%- assign sep = ',' -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign state_1 = state_list[0] | strip -%}
+{%- if state_1 != blank -%}
+  {%- for city in cities_1 -%}
+    {%- assign city_name = city | strip -%}
+    {%- if city_name != blank -%}
+      {{ sep }}{ "@type": "City", "name": {{ city_name | json }}, "containedInPlace": { "@type": "State", "name": {{ state_1 | json }} } }
+      {%- assign sep = ',' -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- assign state_2 = state_list[1] | strip -%}
+{%- if state_2 != blank -%}
+  {%- for city in cities_2 -%}
+    {%- assign city_name = city | strip -%}
+    {%- if city_name != blank -%}
+      {{ sep }}{ "@type": "City", "name": {{ city_name | json }}, "containedInPlace": { "@type": "State", "name": {{ state_2 | json }} } }
+      {%- assign sep = ',' -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+]

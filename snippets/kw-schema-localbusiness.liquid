@@ -3,7 +3,9 @@
 
   Modeled as a SERVICE-AREA business: Kilowash travels to the customer and does not
   serve anyone at a shop address, so `areaServed` is supplied and `address` is
-  deliberately reduced to region only. Google treats a missing streetAddress as
+  deliberately reduced to region only. `address` stays the single home region the
+  Google Business Profile is registered under; the multi-state footprint lives in
+  `areaServed` (see kw-schema-areaserved) and must not be smeared into the address. Google treats a missing streetAddress as
   correct for this business type — inventing one would create a NAP mismatch with
   the Google Business Profile.
 
@@ -27,9 +29,6 @@
   assign biz_region = settings.kw_seo_region | default: 'UT'
   assign biz_locality = settings.kw_seo_locality
   assign price_range = settings.kw_seo_price_range
-
-  assign areas_raw = settings.kw_seo_areas_served
-  assign area_list = areas_raw | split: ','
 
   assign same_as_list = ''
   if settings.kw_seo_instagram != blank
@@ -82,16 +81,7 @@
       "addressRegion": {{ biz_region | json }},
       "addressCountry": "US"
     },
-    {% if area_list.size > 0 -%}
-      "areaServed": [
-        {%- for area in area_list -%}
-          {
-            "@type": "City",
-            "name": {{ area | strip | json }}
-          }{% unless forloop.last %},{% endunless %}
-        {%- endfor -%}
-      ],
-    {%- endif %}
+    "areaServed": {% render 'kw-schema-areaserved' %},
     {% if hours_list.size > 0 -%}
       "openingHoursSpecification": [
         {%- for spec in hours_list -%}
