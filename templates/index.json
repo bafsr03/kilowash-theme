@@ -23,7 +23,8 @@
         "secondary_label": "Call / Text 385-406-2335",
         "secondary_link": "tel:3854062335",
         "show_marquee": true,
-        "marquee_text": "Licensed & Insured Crews"
+        "marquee_text": "Licensed & Insured Crews",
+        "marquee_area_text": "Serving Utah & Ohio"
       }
     },
     "kw_home_split": {
