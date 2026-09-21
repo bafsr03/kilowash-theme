@@ -2135,7 +2135,7 @@
         "id": "kw_seo_description",
         "label": "Default site description",
         "info": "Used as the meta description fallback on any page with no SEO description set in the admin, and as the business description in structured data. Aim for 140-160 characters.",
-        "default": "Kilowash installs permanent architectural lighting and solar attic fans across Utah and Ohio. Licensed and insured crews, 10-year warranty, free estimates."
+        "default": "Kilowash installs permanent architectural lighting and solar attic fans across Utah, Ohio, West Virginia. Licensed, insured, 10-year warranty, free estimates."
       },
       {
         "type": "text",
@@ -2181,21 +2181,28 @@
         "type": "text",
         "id": "kw_seo_states_served",
         "label": "States served",
-        "info": "Comma separated, full state names. This is the single source of truth: adding a state here updates the structured data and the service-area copy together.",
-        "default": "Utah, Ohio"
+        "info": "Comma separated, full state names. This is the single source of truth: adding a state here updates the structured data and the service-area copy together. The place lists below are POSITIONAL — list 1 belongs to state 1, list 2 to state 2, list 3 to state 3. Reordering this field reassigns every list, so reorder it and the lists together or not at all.",
+        "default": "Utah, Ohio, West Virginia"
       },
       {
         "type": "textarea",
         "id": "kw_seo_areas_served",
-        "label": "Cities \u2014 primary market",
-        "info": "Comma separated. Should match the service area drawn on the Google Business Profile. These are published as cities inside the FIRST state listed above.",
+        "label": "Places — market 1",
+        "info": "Comma separated. Should match the service area drawn on the Google Business Profile. Published inside the FIRST state listed above. Cities or counties both work — a name ending in \"County\" is published as an administrative area rather than a city. Do NOT add a state suffix; the state comes from the list position and is shown to readers as a group label.",
         "default": "Salt Lake City, Sandy, Draper, South Jordan, West Jordan, Lehi, American Fork, Pleasant Grove, Orem, Provo, Ogden, Layton, Bountiful, Park City"
       },
       {
         "type": "textarea",
         "id": "kw_seo_areas_served_2",
-        "label": "Cities \u2014 second market",
-        "info": "Comma separated. Published as cities inside the SECOND state listed above. Leave blank until the territory is confirmed \u2014 an empty list publishes nothing, which is better than naming towns the crew does not reach.",
+        "label": "Places — market 2",
+        "info": "Comma separated. Published inside the SECOND state listed above. Leave blank until the territory is confirmed — an empty list publishes nothing, which is better than naming places the crew does not reach.",
+        "default": ""
+      },
+      {
+        "type": "textarea",
+        "id": "kw_seo_areas_served_3",
+        "label": "Places — market 3",
+        "info": "Comma separated. Published inside the THIRD state listed above. Same rules as the lists above: no state suffix, and leave blank rather than guess.",
         "default": ""
       },
       {

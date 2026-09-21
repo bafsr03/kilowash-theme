@@ -22,17 +22,17 @@
   elsif request.page_type == 'page'
     case template.suffix
       when 'lighting'
-        assign fallback_desc = 'Permanent architectural lighting, app-controlled, rated for freeze-thaw winters and backed by a 10-year warranty. Free estimates across Utah and Ohio.'
+        assign fallback_desc = 'Permanent architectural lighting, app-controlled, rated for freeze-thaw winters and backed by a 10-year warranty. Free estimates in Utah, Ohio, West Virginia.'
       when 'solar'
-        assign fallback_desc = 'Solar attic fan installation and solar panel cleaning across Utah and Ohio. Pull trapped heat out of your attic and keep an existing system producing.'
+        assign fallback_desc = 'Solar attic fan installation and solar panel cleaning across Utah, Ohio and West Virginia. Pull trapped heat out of your attic and keep a system producing.'
       when 'estimate'
         assign fallback_desc = 'Price your permanent lighting or solar attic fan install in about a minute. Real Kilowash rates, no sales call required.'
       when 'testimonials'
-        assign fallback_desc = 'Real Kilowash installs and real reviews from homeowners — permanent lighting and solar attic fan projects across Utah and Ohio.'
+        assign fallback_desc = 'Real Kilowash installs and real reviews from homeowners — permanent lighting and solar attic fan projects across Utah, Ohio and West Virginia.'
       when 'about'
-        assign fallback_desc = 'Kilowash is a licensed and insured team installing permanent architectural lighting and solar attic protection across Utah and Ohio, with our own crews in every market.'
+        assign fallback_desc = 'A licensed and insured team installing permanent architectural lighting and solar attic protection across Utah, Ohio and West Virginia, with our own crews.'
       when 'contact'
-        assign fallback_desc = 'Call or text the Kilowash crew for a free estimate on permanent lighting or solar attic fans anywhere we work in Utah and Ohio.'
+        assign fallback_desc = 'Call or text the Kilowash crew for a free estimate on permanent lighting or solar attic fans anywhere we work in Utah, Ohio and West Virginia.'
       else
         assign fallback_desc = settings.kw_seo_description
     endcase

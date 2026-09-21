@@ -17,11 +17,48 @@
 
   This is deliberately a genuine, useful page element and not a keyword list — a
   homeowner scanning for "do they come to Lehi" is the actual audience. Do not
-  expand the city list past where the crew will really drive.
+  expand the place list past where the crew will really drive.
+
+  Places are rendered GROUPED BY STATE, drawn from the positional lists in
+  Theme settings > Kilowash SEO (list N belongs to state N in "States served").
+  Grouping is not decoration: Kilowash now works either side of the Ohio/West
+  Virginia line, and "Wood County" is a real county in both Ohio and West
+  Virginia. An ungrouped pill reading "Wood County" would point a Parkersburg
+  homeowner at a county four hours away. The state label is what disambiguates
+  it, and it mirrors the containedInPlace nesting in kw-schema-areaserved so the
+  visible copy and the structured data say the same thing.
+
+  A single state with places, and no others, renders with no group label — the
+  heading already says where we are, and a lone "Utah" label is noise.
+
+  The section-level "Places" box still overrides everything with a flat,
+  ungrouped list, for a page that needs a one-off territory.
 {%- endcomment -%}
 
 {%- liquid
-  assign cities = section.settings.cities | default: settings.kw_seo_areas_served | split: ','
+  assign override = section.settings.cities | strip
+  assign state_list = settings.kw_seo_states_served | split: ','
+
+  assign labelled_groups = 0
+  for state in state_list
+    assign state_name = state | strip
+    if state_name == blank
+      continue
+    endif
+    case forloop.index
+      when 1
+        assign probe = settings.kw_seo_areas_served | strip
+      when 2
+        assign probe = settings.kw_seo_areas_served_2 | strip
+      when 3
+        assign probe = settings.kw_seo_areas_served_3 | strip
+      else
+        assign probe = ''
+    endcase
+    if probe != blank
+      assign labelled_groups = labelled_groups | plus: 1
+    endif
+  endfor
 -%}
 
 <section class="kw-scope kw-section{% if section.settings.raised %} kw-section--raised{% endif %}" id="kw-area-{{ section.id }}">
@@ -37,15 +74,50 @@
       <div class="kw-area__body kw-reveal">{{ section.settings.body }}</div>
     {% endif %}
 
-    {% if cities.size > 0 %}
+    {% if override != blank %}
+      {% assign places = override | split: ',' %}
       <ul class="kw-area__cities kw-reveal">
-        {% for city in cities %}
-          {% assign city_name = city | strip %}
-          {% if city_name != blank %}
-            <li>{{ city_name }}</li>
+        {% for place in places %}
+          {% assign place_name = place | strip %}
+          {% if place_name != blank %}
+            <li>{{ place_name }}</li>
           {% endif %}
         {% endfor %}
       </ul>
+    {% else %}
+      {% for state in state_list %}
+        {% assign state_name = state | strip %}
+        {% if state_name != blank %}
+          {% case forloop.index %}
+            {% when 1 %}
+              {% assign places_raw = settings.kw_seo_areas_served %}
+            {% when 2 %}
+              {% assign places_raw = settings.kw_seo_areas_served_2 %}
+            {% when 3 %}
+              {% assign places_raw = settings.kw_seo_areas_served_3 %}
+            {% else %}
+              {% assign places_raw = '' %}
+          {% endcase %}
+          {% assign places_trimmed = places_raw | strip %}
+          {% if places_trimmed != blank %}
+            {% assign places = places_raw | split: ',' %}
+            {% assign group_id = 'kw-area-' | append: section.id | append: '-' | append: forloop.index %}
+            <div class="kw-area__group kw-reveal">
+              {% if labelled_groups > 1 %}
+                <p class="kw-area__group-label" id="{{ group_id }}">{{ state_name }}</p>
+              {% endif %}
+              <ul class="kw-area__cities"{% if labelled_groups > 1 %} aria-labelledby="{{ group_id }}"{% endif %}>
+                {% for place in places %}
+                  {% assign place_name = place | strip %}
+                  {% if place_name != blank %}
+                    <li>{{ place_name }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
 
     {% if section.blocks.size > 0 %}
@@ -83,6 +155,19 @@
     line-height: 1.62;
   }
 
+  #kw-area-{{ section.id }} .kw-area__group {
+    margin-top: 1.8rem;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__group-label {
+    font-family: var(--kw-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--kw-fg-dim);
+    margin: 0 0 0.7rem;
+  }
+
   #kw-area-{{ section.id }} .kw-area__cities {
     display: flex;
     flex-wrap: wrap;
@@ -90,6 +175,10 @@
     list-style: none;
     padding: 0;
     margin: 1.8rem 0 0;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__group .kw-area__cities {
+    margin-top: 0;
   }
 
   #kw-area-{{ section.id }} .kw-area__cities li {
@@ -148,7 +237,7 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Where we work" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Where we work" },
     { "type": "richtext", "id": "body", "label": "Body", "default": "<p>We run our own crews in every market we serve. If your town is not on this list, call or text us anyway — we will tell you straight whether we can get to you.</p>" },
-    { "type": "textarea", "id": "cities", "label": "Cities", "info": "Comma separated. Leave blank to use the service area cities set in Theme settings > Kilowash SEO. Only list places the crew will actually drive." },
+    { "type": "textarea", "id": "cities", "label": "Places (override)", "info": "Comma separated. Leave blank to show the full service area from Theme settings > Kilowash SEO, grouped by state. Fill this in only to override this one section with a flat, ungrouped list. Only list places the crew will actually drive." },
     { "type": "text", "id": "links_label", "label": "Related links label", "default": "More from Kilowash" }
   ],
   "blocks": [

@@ -15,7 +15,7 @@
         "image": "shopify://shop_images/IMG_4454.jpg",
         "image_asset": "kw-light-blue-house.jpg",
         "min_height": 92,
-        "eyebrow": "Permanent Lighting & Solar — Utah & Ohio",
+        "eyebrow": "Permanent Lighting & Solar — Utah, Ohio & West Virginia",
         "heading": "Your home should stand out — day & night.",
         "subheading": "Architectural lighting, holiday lighting, solar system care, attic fans and Critter Guard — installed once, controlled forever from your phone.",
         "primary_label": "Get my free estimate",
@@ -24,7 +24,7 @@
         "secondary_link": "tel:3854062335",
         "show_marquee": true,
         "marquee_text": "Licensed & Insured Crews",
-        "marquee_area_text": "Serving Utah & Ohio"
+        "marquee_area_text": "Serving Utah, Ohio & West Virginia"
       }
     },
     "kw_home_split": {
@@ -306,8 +306,8 @@
       "settings": {
         "raised": true,
         "eyebrow": "Where we work",
-        "heading": "Serving Utah & Ohio",
-        "body": "<p>Kilowash is a licensed and insured team installing permanent architectural lighting and solar attic protection across Utah and Ohio, with our own crews in every market. If your town is not on the list, call or text — we will tell you straight whether we can get to you.</p>",
+        "heading": "Serving Utah, Ohio & West Virginia",
+        "body": "<p>Kilowash is a licensed and insured team installing permanent architectural lighting and solar attic protection across Utah, Ohio and West Virginia, with our own crews in every market. Our eastern territory runs through the Mid-Ohio Valley, on both sides of the river. If your town is not on the list, call or text — we will tell you straight whether we can get to you.</p>",
         "cities": "",
         "links_label": "More from Kilowash"
       },
