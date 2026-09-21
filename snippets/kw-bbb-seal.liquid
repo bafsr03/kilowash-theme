@@ -1,0 +1,126 @@
+{%- comment -%}
+  BBB Trust Seal.
+
+  Rendered from two places, once each, and each call declares which slot it is:
+
+    {% render 'kw-bbb-seal', placement: 'standing' %}   -> sections/kw-footer.liquid
+    {% render 'kw-bbb-seal', placement: 'floating' %}   -> layout/theme.liquid
+
+  Only the slot matching Theme settings > Kilowash trust badges > "Seal placement"
+  prints anything, so the seal can never appear twice and switching placement is a
+  dropdown change, not a code change. "Off" matches neither slot.
+
+  IT RENDERS NOTHING UNTIL A REAL SEAL IS SUPPLIED. There is deliberately no
+  placeholder and no fallback graphic: a trust seal that is not the business's own
+  issued seal is a fabricated credential, and an empty footer is the correct output
+  until someone with BBB account access pastes the real one in.
+
+  Two ways to supply it, in priority order:
+
+  1. PREFERRED — "Seal image" + "BBB profile URL". BBB's static seal. Serves from
+     Shopify's CDN, costs no third-party JavaScript, cannot shift layout, and keeps
+     the seal working if BBB's script host is slow or blocked. This is the one to use.
+  2. FALLBACK — "Seal embed code", for BBB's dynamic JS seal if they insist on it.
+     Printed raw and unescaped, which is what an embed needs and why the field is
+     admin-only. It loads a third-party script on every page; expect a Lighthouse
+     hit and a real CLS risk unless the seal is boxed by CSS.
+
+  The floating variant is pinned bottom-LEFT on purpose. kw-light-switch is fixed
+  bottom-right at z-index 500 (assets/kw-theme.css); bottom-right would bury the
+  smart-light demo behind the seal on every page. The seal sits at z-index 400 so
+  it can never cover the light switch or a cart drawer either.
+{%- endcomment -%}
+
+{%- liquid
+  assign slot = placement | default: 'standing'
+  assign chosen = settings.kw_bbb_placement | default: 'standing'
+  assign seal = settings.kw_bbb_seal_image
+  assign profile_url = settings.kw_bbb_profile_url | strip
+  assign embed = settings.kw_bbb_seal_embed | strip
+
+  assign alt_text = settings.kw_bbb_alt | strip
+  if alt_text == blank
+    assign biz = settings.kw_seo_business_name | default: shop.name
+    assign alt_text = biz | append: ' — BBB Trust Seal'
+  endif
+-%}
+
+{%- if chosen == slot -%}
+  {%- if seal != blank -%}
+    <div class="kw-bbb kw-bbb--{{ slot }}">
+      {%- if profile_url != blank -%}
+        <a
+          class="kw-bbb__link"
+          href="{{ profile_url }}"
+          target="_blank"
+          rel="noopener"
+        >
+      {%- endif -%}
+      <img
+        src="{{ seal | image_url: width: 320 }}"
+        alt="{{ alt_text | escape }}"
+        width="{{ seal.width }}"
+        height="{{ seal.height }}"
+        loading="lazy"
+        decoding="async"
+      >
+      {%- if profile_url != blank -%}
+        </a>
+      {%- endif -%}
+    </div>
+  {%- elsif embed != blank -%}
+    <div class="kw-bbb kw-bbb--{{ slot }} kw-bbb--embed">
+      {{ settings.kw_bbb_seal_embed }}
+    </div>
+  {%- endif -%}
+
+  {%- if seal != blank or embed != blank -%}
+    <style>
+      .kw-bbb__link {
+        display: inline-block;
+        line-height: 0;
+      }
+
+      .kw-bbb img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+      }
+
+      .kw-bbb--standing {
+        margin-top: 1.4rem;
+      }
+
+      .kw-bbb--standing img {
+        width: 148px;
+      }
+
+      .kw-bbb--floating {
+        position: fixed;
+        left: clamp(14px, 3vw, 28px);
+        bottom: clamp(14px, 3vw, 28px);
+        z-index: 400;
+      }
+
+      .kw-bbb--floating img {
+        width: 116px;
+      }
+
+      @media (max-width: 700px) {
+        .kw-bbb--floating img {
+          width: 88px;
+        }
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .kw-bbb__link {
+          transition: opacity 0.2s ease;
+        }
+
+        .kw-bbb__link:hover {
+          opacity: 0.82;
+        }
+      }
+    </style>
+  {%- endif -%}
+{%- endif -%}

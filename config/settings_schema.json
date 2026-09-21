@@ -2245,5 +2245,62 @@
         "default": ""
       }
     ]
+  },
+  {
+    "name": "Kilowash trust badges",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "The BBB seal is only rendered once a real seal is supplied below. Until then this section prints nothing on the storefront — there is no placeholder by design, because a stand-in trust seal is a fabricated credential. Get the real one from bbb.org > your business account > Get Your Seal."
+      },
+      {
+        "type": "select",
+        "id": "kw_bbb_placement",
+        "label": "Seal placement",
+        "info": "Standing sits inline in the footer next to the tagline. Floating pins it to the bottom-left corner of every page (bottom-left, not bottom-right, so it does not bury the smart-light control).",
+        "options": [
+          {
+            "value": "standing",
+            "label": "Standing — in the footer"
+          },
+          {
+            "value": "floating",
+            "label": "Floating — fixed bottom-left"
+          },
+          {
+            "value": "off",
+            "label": "Off — do not show the seal"
+          }
+        ],
+        "default": "standing"
+      },
+      {
+        "type": "image_picker",
+        "id": "kw_bbb_seal_image",
+        "label": "Seal image",
+        "info": "PREFERRED. Download the static seal from BBB and upload it here. No third-party JavaScript, no layout shift. Takes priority over the embed code below."
+      },
+      {
+        "type": "text",
+        "id": "kw_bbb_profile_url",
+        "label": "BBB profile URL",
+        "info": "Where the seal links to — the Kilowash BBB business profile page. Leave blank to render the seal unlinked.",
+        "default": ""
+      },
+      {
+        "type": "text",
+        "id": "kw_bbb_alt",
+        "label": "Seal alt text",
+        "info": "Leave blank to use \"<business name> — BBB Trust Seal\". Only change this if BBB's terms require exact wording.",
+        "default": ""
+      },
+      {
+        "type": "textarea",
+        "id": "kw_bbb_seal_embed",
+        "label": "Seal embed code (fallback)",
+        "info": "Only use this if the dynamic BBB seal is required. Pasted into the page raw and unescaped, so paste ONLY code that came from BBB. Ignored whenever a seal image is set above.",
+        "default": ""
+      }
+    ]
   }
 ]
