@@ -129,7 +129,8 @@
     "kw_bbb_placement": "standing",
     "kw_bbb_profile_url": "https://www.bbb.org/us/ut/pleasant-grove/profile/home-services/kilowash-1126-1000182701",
     "kw_bbb_alt": "",
-    "kw_bbb_seal_embed": ""
+    "kw_bbb_seal_embed": "<a href=\"https://www.bbb.org/us/ut/pleasant-grove/profile/home-services/kilowash-1126-1000182701/#sealclick\" target=\"_blank\" rel=\"nofollow\"><img src=\"https://seal-utah.bbb.org/seals/blue-seal-250-52-bbb-1000182701.png\" style=\"border: 0;\" alt=\"Kilowash BBB Business Review\" /></a>",
+    "kw_bbb_seal_plate": true
   },
   "presets": {
     "Horizon": {

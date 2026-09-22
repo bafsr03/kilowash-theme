@@ -73,7 +73,7 @@
       {%- endif -%}
     </div>
   {%- elsif embed != blank -%}
-    <div class="kw-bbb kw-bbb--{{ slot }} kw-bbb--embed">
+    <div class="kw-bbb kw-bbb--{{ slot }} kw-bbb--embed{% if settings.kw_bbb_seal_plate %} kw-bbb--plate{% endif %}">
       {{ settings.kw_bbb_seal_embed }}
     </div>
   {%- endif -%}
@@ -105,6 +105,24 @@
       .kw-bbb--embed img {
         width: auto;
         max-width: 100%;
+      }
+
+      /* The seal is transparent-backed with its rating text in dark teal
+         (rgb(2,90,120)) — drawn for a light background. Straight onto the footer
+         (--kw-bg #0a0d12) that measures 2.5:1, under the 4.5:1 floor, and the
+         rating line is the part that goes unreadable. The plate restores it to
+         6.8:1 by giving the seal the light ground it was designed for, in the
+         theme's own off-white rather than a pasted-on white box.
+
+         Turn the plate off in Theme settings if a seal built for dark grounds is
+         ever substituted. Do not "fix" this by recolouring the seal: altering it
+         is a trademark-usage breach. */
+      .kw-bbb--plate {
+        display: inline-block;
+        background: var(--kw-fg, #f4f1e8);
+        border-radius: 10px;
+        padding: 9px 13px;
+        line-height: 0;
       }
 
       .kw-bbb--floating {

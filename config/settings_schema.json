@@ -2300,6 +2300,13 @@
         "label": "Seal embed code",
         "info": "Paste the code from BBB's Trust Seal generator here. For BBB this is the correct path, not a fallback — their hosted seal tracks live accreditation status. Pasted into the page raw and unescaped, so paste ONLY code that came from BBB.",
         "default": ""
+      },
+      {
+        "type": "checkbox",
+        "id": "kw_bbb_seal_plate",
+        "label": "Light plate behind the seal",
+        "info": "On by default. BBB's seal is transparent with dark text, drawn for a light background; the footer is near-black, so without the plate the rating line falls to 2.5:1 contrast and cannot be read. Turn this off only if you swap in a seal built for dark backgrounds.",
+        "default": true
       }
     ]
   }
