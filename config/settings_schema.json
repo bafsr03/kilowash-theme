@@ -2278,7 +2278,7 @@
         "type": "image_picker",
         "id": "kw_bbb_seal_image",
         "label": "Seal image",
-        "info": "PREFERRED. Download the static seal from BBB and upload it here. No third-party JavaScript, no layout shift. Takes priority over the embed code below."
+        "info": "A locally hosted static seal, for badges whose issuer permits self-hosting. Do not re-host BBB's seal bitmap here — use the embed field below so the seal keeps tracking accreditation. Takes priority over the embed code when both are set."
       },
       {
         "type": "text",
@@ -2297,8 +2297,8 @@
       {
         "type": "textarea",
         "id": "kw_bbb_seal_embed",
-        "label": "Seal embed code (fallback)",
-        "info": "Only use this if the dynamic BBB seal is required. Pasted into the page raw and unescaped, so paste ONLY code that came from BBB. Ignored whenever a seal image is set above.",
+        "label": "Seal embed code",
+        "info": "Paste the code from BBB's Trust Seal generator here. For BBB this is the correct path, not a fallback — their hosted seal tracks live accreditation status. Pasted into the page raw and unescaped, so paste ONLY code that came from BBB.",
         "default": ""
       }
     ]

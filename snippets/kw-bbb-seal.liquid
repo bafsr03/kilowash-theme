@@ -17,13 +17,17 @@
 
   Two ways to supply it, in priority order:
 
-  1. PREFERRED — "Seal image" + "BBB profile URL". BBB's static seal. Serves from
-     Shopify's CDN, costs no third-party JavaScript, cannot shift layout, and keeps
-     the seal working if BBB's script host is slow or blocked. This is the one to use.
-  2. FALLBACK — "Seal embed code", for BBB's dynamic JS seal if they insist on it.
-     Printed raw and unescaped, which is what an embed needs and why the field is
-     admin-only. It loads a third-party script on every page; expect a Lighthouse
-     hit and a real CLS risk unless the seal is boxed by CSS.
+  1. "Seal embed code" — the code BBB's Trust Seal generator hands you. For BBB
+     this is normally the CORRECT path, not a fallback: their Trademark Usage
+     Guidelines expect their hosted seal, so it reflects live accreditation status
+     and stops attesting the moment accreditation lapses. Printed raw and
+     unescaped, which is what an embed needs and why the field is admin-only.
+     It costs a third-party request; that is the price of the seal being real.
+  2. "Seal image" + "BBB profile URL" — a locally hosted static seal. Faster, and
+     the right choice for any badge whose issuer permits self-hosting. Do NOT
+     re-host BBB's seal bitmap here just to save the request: it would look
+     identical while no longer tracking accreditation, which is the whole point
+     of the seal. Takes priority over the embed when both are set.
 
   The floating variant is pinned bottom-LEFT on purpose. kw-light-switch is fixed
   bottom-right at z-index 500 (assets/kw-theme.css); bottom-right would bury the
@@ -93,6 +97,14 @@
 
       .kw-bbb--standing img {
         width: 148px;
+      }
+
+      /* BBB serves the embed seal at fixed pixel dimensions and its rating text
+         is baked into the bitmap. Scaling it to the widths above makes that text
+         fuzzy, so the embed variant always renders at native size. */
+      .kw-bbb--embed img {
+        width: auto;
+        max-width: 100%;
       }
 
       .kw-bbb--floating {
