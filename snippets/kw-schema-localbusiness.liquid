@@ -40,6 +40,9 @@
   if settings.kw_seo_gbp_url != blank
     assign same_as_list = same_as_list | append: settings.kw_seo_gbp_url | append: ','
   endif
+  if settings.kw_bbb_profile_url != blank
+    assign same_as_list = same_as_list | append: settings.kw_bbb_profile_url | append: ','
+  endif
   assign same_as = same_as_list | split: ','
 
   assign hours_raw = settings.kw_seo_hours
