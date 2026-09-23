@@ -55,6 +55,9 @@
     if markets_mode == 'first' and forloop.index > 1
       continue
     endif
+    if markets_mode == 'rest' and forloop.index == 1
+      continue
+    endif
     case forloop.index
       when 1
         assign probe = settings.kw_seo_areas_served | strip
@@ -99,6 +102,9 @@
         {% assign state_name = state | strip %}
         {% assign skip_market = false %}
         {% if markets_mode == 'first' and forloop.index > 1 %}
+          {% assign skip_market = true %}
+        {% endif %}
+        {% if markets_mode == 'rest' and forloop.index == 1 %}
           {% assign skip_market = true %}
         {% endif %}
         {% if state_name != blank and skip_market == false %}
@@ -251,7 +257,7 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Where we work" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Where we work" },
     { "type": "richtext", "id": "body", "label": "Body", "default": "<p>We run our own crews in every market we serve. If your town is not on this list, call or text us anyway — we will tell you straight whether we can get to you.</p>" },
-    { "type": "select", "id": "markets", "label": "Markets to show", "default": "all", "options": [ { "value": "all", "label": "All markets" }, { "value": "first", "label": "Home market only (market 1)" } ], "info": "The homepage uses 'Home market only' so its local signal points at one place. Other pages show every market." },
+    { "type": "select", "id": "markets", "label": "Markets to show", "default": "all", "options": [ { "value": "all", "label": "All markets" }, { "value": "first", "label": "Home market only (market 1)" }, { "value": "rest", "label": "Expansion markets only (2 and 3)" } ], "info": "The homepage uses 'Home market only' so its local signal points at one place. A market-specific page such as the Mid-Ohio Valley uses 'Expansion markets only' so it does not list towns from the other side of the country." },
     { "type": "textarea", "id": "cities", "label": "Places (override)", "info": "Comma separated. Leave blank to show the full service area from Theme settings > Kilowash SEO, grouped by state. Fill this in only to override this one section with a flat, ungrouped list. Only list places the crew will actually drive." },
     { "type": "text", "id": "links_label", "label": "Related links label", "default": "More from Kilowash" }
   ],
