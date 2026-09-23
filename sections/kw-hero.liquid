@@ -1,0 +1,203 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'kw-spamguard.js' | asset_url }}" defer></script>
+
+<section class="kw-scope kw-hero" id="kw-hero-{{ section.id }}">
+  <div class="kw-hero__media">
+    {% if section.settings.image != blank %}
+      <img
+        src="{{ section.settings.image | image_url: width: 2400 }}"
+        srcset="{{ section.settings.image | image_url: width: 900 }} 900w, {{ section.settings.image | image_url: width: 1600 }} 1600w, {{ section.settings.image | image_url: width: 2400 }} 2400w"
+        sizes="100vw"
+        alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+        loading="eager"
+        fetchpriority="high"
+        width="{{ section.settings.image.width }}"
+        height="{{ section.settings.image.height }}"
+      >
+    {% elsif section.settings.image_asset != blank %}
+      <img
+        src="{{ section.settings.image_asset | asset_url }}"
+        alt="{{ section.settings.heading | escape }}"
+        loading="eager"
+        fetchpriority="high"
+        {%- comment -%}Ratio hint only — a theme asset has no dimensions in Liquid and the
+          hero media box is already absolutely positioned, so this does not affect layout.
+          It keeps the intrinsic ratio sane pre-CSS and satisfies Theme Check.{%- endcomment -%}
+        width="2400"
+        height="1350"
+      >
+    {% endif %}
+    <div class="kw-hero__scrim"></div>
+  </div>
+
+  <div class="kw-wrap kw-hero__inner">
+    <div class="kw-hero__plate kw-bracket">
+      <div class="kw-scanline"></div>
+      <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow | default: 'Permanent Lighting &amp; Solar' }}</p>
+
+      <h1 class="kw-hero__title kw-reveal">{{ section.settings.heading }}</h1>
+
+      <p class="kw-hero__subcopy kw-reveal">{{ section.settings.subheading }}</p>
+
+      <div class="kw-hero__actions kw-reveal">
+        {% if section.settings.primary_label != blank %}
+          <a href="{{ section.settings.primary_link }}" class="kw-btn">
+            {{ section.settings.primary_label }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        {% endif %}
+        {% if section.settings.secondary_label != blank %}
+          {% if section.settings.secondary_link contains 'tel:' %}
+            {% render 'kw-phone-link', digits: section.settings.secondary_link | remove: 'tel:', class: 'kw-btn kw-btn--ghost', prefix: 'Call / Text ' %}
+          {% elsif section.settings.secondary_link contains 'mailto:' %}
+            {% render 'kw-email-link', email: section.settings.secondary_link | remove: 'mailto:', class: 'kw-btn kw-btn--ghost', show_email: false, static_text: section.settings.secondary_label %}
+          {% else %}
+            <a href="{{ section.settings.secondary_link }}" class="kw-btn kw-btn--ghost">
+              {{ section.settings.secondary_label }}
+            </a>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+
+    <a href="#kw-scroll-cue" class="kw-hero__scrollcue" aria-hidden="true">
+      <span></span>
+    </a>
+  </div>
+
+  {% if section.settings.show_marquee %}
+    {%- comment -%}
+      The track is rendered twice so the marquee can scroll seamlessly; both copies
+      must stay identical. Every item is a setting rather than literal text, so the
+      strip can be re-pointed at a new market without a code change.
+    {%- endcomment -%}
+    <div class="kw-ticker">
+      <div class="kw-ticker__track">
+        {% for i in (1..2) %}
+          <span class="kw-ticker__item">{{ section.settings.marquee_text | default: 'Licensed & Insured' }}</span>
+          <span class="kw-ticker__item">10-Year Warranty</span>
+          <span class="kw-ticker__item">Free On-Site Estimate</span>
+          <span class="kw-ticker__item">{{ section.settings.marquee_area_text | default: 'Serving Utah, Ohio &amp; West Virginia' }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+<style>
+  #kw-hero-{{ section.id }} {
+    min-height: {{ section.settings.min_height }}svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.02) contrast(1.05) brightness(0.75) grayscale(0.15);
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, #0a0d1299 0%, #0a0d1240 35%, #0a0d12 100%),
+      linear-gradient(90deg, #0a0d12cc 0%, transparent 55%);
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__inner {
+    position: relative;
+    z-index: 2;
+    padding-block: clamp(140px, 22vh, 220px) 64px;
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__plate {
+    padding: clamp(20px, 3vw, 36px) clamp(20px, 3.4vw, 40px) clamp(28px, 4vw, 44px);
+    border: 1px solid transparent;
+    max-width: 44rem;
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__title {
+    font-size: clamp(2.3rem, 6.4vw, 5.2rem);
+    margin-block: 0.4em 0.4em;
+    max-width: 15ch;
+    color: var(--kw-fg);
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__subcopy {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: var(--kw-fg-dim);
+    max-width: 46ch;
+    margin-bottom: 2.2rem;
+    font-family: var(--kw-body);
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__scrollcue {
+    display: block;
+    width: 22px;
+    height: 36px;
+    border: 1px solid var(--kw-line-bright);
+    border-radius: 2px;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  #kw-hero-{{ section.id }} .kw-hero__scrollcue span {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    width: 3px;
+    height: 7px;
+    background: var(--kw-gold);
+    transform: translateX(-50%);
+    animation: kw-scrollcue 1.8s ease infinite;
+  }
+
+  @keyframes kw-scrollcue {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    70% { transform: translate(-50%, 13px); opacity: 0; }
+    100% { transform: translate(-50%, 13px); opacity: 0; }
+  }
+
+  @media (max-width: 700px) {
+    #kw-hero-{{ section.id }} .kw-hero__scrollcue { display: none; }
+    #kw-hero-{{ section.id }} .kw-hero__plate { padding-inline: 16px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background photo (overrides asset below)" },
+    { "type": "text", "id": "image_asset", "label": "Background photo — theme asset filename", "info": "Used when no photo is picked above, e.g. kw-light-blue-house.jpg" },
+    { "type": "range", "id": "min_height", "label": "Minimum height (svh)", "min": 30, "max": 100, "step": 2, "default": 92 },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your home should stand out — day & night." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Permanent architectural lighting and solar solutions, installed by our own crews, never subcontractors." },
+    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "Get a free estimate" },
+    { "type": "url", "id": "primary_link", "label": "Primary button link" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Call / Text 385-439-3362" },
+    { "type": "text", "id": "secondary_link", "label": "Secondary button link", "default": "tel:3854393362" },
+    { "type": "checkbox", "id": "show_marquee", "label": "Show ticker strip", "default": true },
+    { "type": "text", "id": "marquee_text", "label": "Ticker highlight" },
+    { "type": "text", "id": "marquee_area_text", "label": "Ticker service-area item", "info": "The last item in the scrolling ticker. Keep it in step with the service area in Theme settings > Kilowash SEO.", "default": "Serving Utah, Ohio & West Virginia" }
+  ],
+  "presets": [{ "name": "KW Hero" }]
+}
+{% endschema %}
