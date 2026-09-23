@@ -10,7 +10,7 @@
 {
   "sections": {
     "kw_about_hero": {
-      "type": "kw-hero",
+      "type": "kw-hero-seasonal",
       "settings": {
         "image_asset": "kw-light-blue-house.jpg",
         "min_height": 56,

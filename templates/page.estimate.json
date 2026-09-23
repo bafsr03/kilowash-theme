@@ -10,7 +10,7 @@
 {
   "sections": {
     "kw_est_hero": {
-      "type": "kw-hero",
+      "type": "kw-hero-seasonal",
       "settings": {
         "image": "shopify://shop_images/IMG_5199.jpg",
         "image_asset": "kw-light-green-white.jpg",

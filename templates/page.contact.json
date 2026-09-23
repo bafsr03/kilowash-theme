@@ -10,7 +10,7 @@
 {
   "sections": {
     "kw_contact_hero": {
-      "type": "kw-hero",
+      "type": "kw-hero-seasonal",
       "settings": {
         "image": "shopify://shop_images/DSC9906_300dpi.jpg",
         "image_asset": "kw-project-featured-01.jpg",

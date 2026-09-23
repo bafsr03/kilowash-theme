@@ -1,7 +1,7 @@
 {
   "sections": {
     "kw_testi_hero": {
-      "type": "kw-hero",
+      "type": "kw-hero-seasonal",
       "settings": {
         "image_asset": "kw-project-featured-02.jpg",
         "min_height": 56,
