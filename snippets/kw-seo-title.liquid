@@ -1,0 +1,77 @@
+{%- comment -%}
+  Keyword <title> backfill.
+
+  Horizon's stock snippets/meta-tags.liquid emits `page_title`, which on a custom
+  /pages/* template is just the page's name. The practical result was that the most
+  important on-page ranking signal on the site read "Kilowash", "Lighting – Kilowash",
+  "Testimonials – Kilowash" — brand-only titles that match none of the things a
+  customer actually searches ("permanent christmas lights", "permanent lighting salt
+  lake", "solar attic fan utah").
+
+  This snippet resolves a keyword+geography title per page. It is the title twin of
+  kw-seo-meta and follows the same two rules:
+
+    1. Anything set in the Shopify admin ALWAYS wins. A page with an SEO title filled
+       in is left completely alone — this snippet returns blank and the stock tag
+       renders untouched. `page_title` cannot be used to detect that, because it
+       silently falls back to the page name; the admin value lives in
+       page.metafields.global.title_tag, so that is what gets checked.
+    2. Titles are keyed on request.page_type + template.suffix, the same switch
+       kw-seo-meta already uses, so the two files stay in step.
+
+  Returns a bare string, or blank to mean "leave the stock title alone".
+  Usage: {%- capture t -%}{%- render 'kw-seo-title' -%}{%- endcapture -%}
+
+  Geography note: titles are Utah-first by design. The Mid-Ohio Valley market has its
+  own page and its own title; the homepage does not split its signal across three
+  states, because the Google Business Profile ranks near Pleasant Grove.
+
+  Titles are stored here rather than as theme settings deliberately: the per-template
+  descriptions in kw-seo-meta are stored the same way, and a dozen more settings-panel
+  text boxes would be a worse trade than one file a developer edits.
+{%- endcomment -%}
+
+{%- liquid
+  assign kw_title = ''
+
+  if request.page_type == 'index'
+    comment
+      On the homepage there is no metafield to check. Shopify falls page_title back to
+      shop.name when no homepage SEO title is set, so an equal value means "untouched".
+    endcomment
+    if page_title == blank or page_title == shop.name
+      assign kw_title = 'Permanent Christmas & Holiday Lights Utah | Kilowash'
+    endif
+
+  elsif request.page_type == 'page'
+    unless page.metafields.global.title_tag != blank
+      case template.suffix
+        when 'lighting'
+          assign kw_title = 'Permanent Lighting Installation | Salt Lake & Utah County'
+        when 'solar'
+          assign kw_title = 'Solar Attic Fans & Panel Care Utah | Kilowash'
+        when 'estimate'
+          assign kw_title = 'Free Permanent Lighting Estimate Utah | Kilowash'
+        when 'testimonials'
+          assign kw_title = 'Kilowash Reviews — Utah Lighting & Solar Installs'
+        when 'about'
+          assign kw_title = 'Utah Permanent Lighting & Solar Contractor | Kilowash'
+        when 'contact'
+          assign kw_title = 'Contact Kilowash — Permanent Lighting Utah'
+        when 'mid-ohio-valley'
+          assign kw_title = 'Permanent Lighting — Marietta OH & Parkersburg WV'
+        when 'critter-guard'
+          assign kw_title = 'Critter Guard Solar Panel Bird Protection | Utah'
+        when 'panel-cleaning'
+          assign kw_title = 'Solar Panel Cleaning & Solar Care Utah | Kilowash'
+        when 'city'
+          comment
+            City pages name the city and nothing else ("Lehi"), so the title is built
+            from it rather than hardcoded — one template serves every city page.
+          endcomment
+          assign kw_title = 'Permanent Lighting in ' | append: page.title | append: ', UT | Kilowash'
+      endcase
+    endunless
+  endif
+-%}
+{{- kw_title -}}

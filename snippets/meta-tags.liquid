@@ -18,8 +18,15 @@
   content=""
 >
 
+{%- comment -%}
+  Kilowash keyword title. Returns blank whenever an admin SEO title is set or the
+  page has no mapping, in which case everything below behaves exactly as stock.
+{%- endcomment -%}
+{%- capture kw_seo_title -%}{%- render 'kw-seo-title' -%}{%- endcapture -%}
+{%- assign kw_seo_title = kw_seo_title | strip -%}
+
 {%- liquid
-  assign og_title = page_title | default: shop.name
+  assign og_title = kw_seo_title | default: page_title | default: shop.name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
   assign og_description = page_description | default: shop.description | default: shop.name
@@ -104,10 +111,19 @@
 >
 
 <title>
-  {{ page_title }}
-  {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-  {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-  {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {%- if kw_seo_title != blank -%}
+    {%- comment -%}
+      Emitted whole. The shop-name append is deliberately skipped: these titles already
+      end in the brand, and re-appending would push them past the ~60 characters Google
+      will render.
+    {%- endcomment -%}
+    {{ kw_seo_title | escape }}
+  {%- else -%}
+    {{ page_title }}
+    {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+    {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {%- endif -%}
 </title>
 
 <link
