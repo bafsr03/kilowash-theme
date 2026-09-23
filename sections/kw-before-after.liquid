@@ -1,5 +1,19 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
+{%- comment -%}
+  Alt text was wired to the slider labels, so both images shipped as alt="Before" and
+  alt="After". That describes the UI control, not the photograph -- it tells a screen
+  reader nothing about the roof, and gives Google nothing about the work.
+
+  Dedicated alt fields fix it. The old behaviour stays as the fallback so nothing
+  regresses on a section that has not been filled in, but the labels are a last resort
+  rather than the default.
+{%- endcomment -%}
+{%- liquid
+  assign ba_after_alt = section.settings.after_image_alt | default: section.settings.after_image.alt | default: section.settings.after_label
+  assign ba_before_alt = section.settings.before_image_alt | default: section.settings.before_image.alt | default: section.settings.before_label
+-%}
+
 <section class="kw-scope kw-section" id="kw-ba-{{ section.id }}">
   <div class="kw-wrap">
     {% if section.settings.eyebrow != blank %}
@@ -23,13 +37,13 @@
               src="{{ section.settings.after_image | image_url: width: 1600 }}"
               srcset="{{ section.settings.after_image | image_url: width: 800 }} 800w, {{ section.settings.after_image | image_url: width: 1600 }} 1600w"
               sizes="(max-width: 900px) 100vw, 900px"
-              alt="{{ section.settings.after_label | escape }}"
+              alt="{{ ba_after_alt | escape }}"
               loading="lazy"
               width="{{ section.settings.after_image.width }}"
               height="{{ section.settings.after_image.height }}"
             >
           {% elsif section.settings.after_image_asset != blank %}
-            <img src="{{ section.settings.after_image_asset | asset_url }}" alt="{{ section.settings.after_label | escape }}" loading="lazy">
+            <img src="{{ section.settings.after_image_asset | asset_url }}" alt="{{ ba_after_alt | escape }}" loading="lazy">
           {% endif %}
           <span class="kw-ba__tag kw-ba__tag--after">{{ section.settings.after_label }}</span>
         </div>
@@ -44,13 +58,13 @@
               src="{{ section.settings.before_image | image_url: width: 1600 }}"
               srcset="{{ section.settings.before_image | image_url: width: 800 }} 800w, {{ section.settings.before_image | image_url: width: 1600 }} 1600w"
               sizes="(max-width: 900px) 100vw, 900px"
-              alt="{{ section.settings.before_label | escape }}"
+              alt="{{ ba_before_alt | escape }}"
               loading="lazy"
               width="{{ section.settings.before_image.width }}"
               height="{{ section.settings.before_image.height }}"
             >
           {% elsif section.settings.before_image_asset != blank %}
-            <img src="{{ section.settings.before_image_asset | asset_url }}" alt="{{ section.settings.before_label | escape }}" loading="lazy">
+            <img src="{{ section.settings.before_image_asset | asset_url }}" alt="{{ ba_before_alt | escape }}" loading="lazy">
           {% endif %}
           <span class="kw-ba__tag kw-ba__tag--before">{{ section.settings.before_label }}</span>
         </div>
@@ -266,39 +280,183 @@
   "name": "KW Before & After",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "See the difference" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Before & after." },
-    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "See the difference"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Before & after."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading"
+    },
     {
       "type": "select",
       "id": "frame_ratio",
       "label": "Frame shape",
       "info": "Portrait shapes show more of a phone photo, so the two shots need less cropping to line up.",
       "options": [
-        { "value": "1 / 1", "label": "Square" },
-        { "value": "4 / 5", "label": "Portrait (4:5)" },
-        { "value": "3 / 4", "label": "Tall portrait (3:4)" },
-        { "value": "4 / 3", "label": "Landscape (4:3)" },
-        { "value": "16 / 9", "label": "Wide (16:9)" }
+        {
+          "value": "1 / 1",
+          "label": "Square"
+        },
+        {
+          "value": "4 / 5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "3 / 4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4 / 3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "16 / 9",
+          "label": "Wide (16:9)"
+        }
       ],
       "default": "1 / 1"
     },
-    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 400, "max": 1000, "step": 20, "unit": "px", "default": 900 },
-    { "type": "header", "content": "Before image" },
-    { "type": "image_picker", "id": "before_image", "label": "Before image (overrides asset below)" },
-    { "type": "text", "id": "before_image_asset", "label": "Before image — theme asset filename" },
-    { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
-    { "type": "range", "id": "before_zoom", "label": "Before — zoom", "min": 100, "max": 200, "step": 5, "unit": "%", "default": 100 },
-    { "type": "range", "id": "before_offset_x", "label": "Before — nudge left/right", "min": -40, "max": 40, "step": 1, "unit": "%", "default": 0 },
-    { "type": "range", "id": "before_offset_y", "label": "Before — nudge up/down", "min": -40, "max": 40, "step": 1, "unit": "%", "default": 0 },
-    { "type": "header", "content": "After image" },
-    { "type": "image_picker", "id": "after_image", "label": "After image (overrides asset below)" },
-    { "type": "text", "id": "after_image_asset", "label": "After image — theme asset filename" },
-    { "type": "text", "id": "after_label", "label": "After label", "default": "After" },
-    { "type": "range", "id": "after_zoom", "label": "After — zoom", "min": 100, "max": 200, "step": 5, "unit": "%", "default": 100 },
-    { "type": "range", "id": "after_offset_x", "label": "After — nudge left/right", "min": -40, "max": 40, "step": 1, "unit": "%", "default": 0 },
-    { "type": "range", "id": "after_offset_y", "label": "After — nudge up/down", "min": -40, "max": 40, "step": 1, "unit": "%", "default": 0 },
-    { "type": "range", "id": "start_position", "label": "Start position", "min": 0, "max": 100, "step": 5, "default": 50 }
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 400,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "default": 900
+    },
+    {
+      "type": "header",
+      "content": "Before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image (overrides asset below)"
+    },
+    {
+      "type": "text",
+      "id": "before_image_asset",
+      "label": "Before image — theme asset filename"
+    },
+    {
+      "type": "text",
+      "id": "before_image_alt",
+      "label": "Before image alt text",
+      "info": "Describe what the photo shows before the work."
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "range",
+      "id": "before_zoom",
+      "label": "Before — zoom",
+      "min": 100,
+      "max": 200,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "before_offset_x",
+      "label": "Before — nudge left/right",
+      "min": -40,
+      "max": 40,
+      "step": 1,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "before_offset_y",
+      "label": "Before — nudge up/down",
+      "min": -40,
+      "max": 40,
+      "step": 1,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "After image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image (overrides asset below)"
+    },
+    {
+      "type": "text",
+      "id": "after_image_asset",
+      "label": "After image — theme asset filename"
+    },
+    {
+      "type": "text",
+      "id": "after_image_alt",
+      "label": "After image alt text",
+      "info": "Describe the finished work, e.g. 'New architectural shingles with the original solar array reinstalled'. Falls back to the slider label."
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "range",
+      "id": "after_zoom",
+      "label": "After — zoom",
+      "min": 100,
+      "max": 200,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "after_offset_x",
+      "label": "After — nudge left/right",
+      "min": -40,
+      "max": 40,
+      "step": 1,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "after_offset_y",
+      "label": "After — nudge up/down",
+      "min": -40,
+      "max": 40,
+      "step": 1,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "start_position",
+      "label": "Start position",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50
+    }
   ],
   "presets": [
     {

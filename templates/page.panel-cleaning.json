@@ -1,0 +1,228 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "pc_hero": {
+      "type": "kw-hero-seasonal",
+      "settings": {
+        "image": "shopify://shop_images/IMG_5944.jpg",
+        "image_asset": "kw-solar-black-array.jpg",
+        "min_height": 70,
+        "eyebrow": "Solar Solutions — system care",
+        "heading": "Clean panels. Full output. No new system needed.",
+        "subheading": "Dust, hard-water spotting and Utah inversion film quietly cost you production every month. We clean, service and remove-and-reinstall the array you already own.",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Call / Text 385-439-3362",
+        "secondary_link": "tel:3854393362",
+        "show_marquee": false,
+        "marquee_text": ""
+      }
+    },
+    "pc_panels": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-solar-roof-array.jpg",
+        "badge": "Existing Systems",
+        "image_position": "right",
+        "eyebrow": "Solar Solutions — system care",
+        "heading": "Keep the system you already have running strong.",
+        "body": "Our Solar Solutions are about care, not new installs — we keep the panels already on your roof performing at their best. From routine panel cleaning to system repairs and full removal-and-reinstall for roof work or upgrades, our crew handles it all without disrupting your production.",
+        "list_items": "Panel cleaning to restore peak efficiency\nSystem repairs & troubleshooting\nFull removal & reinstall for roof replacement or upgrades\nCritter Guard installation to prevent nesting damage",
+        "link_label": "Estimate my repair or cleaning",
+        "link_url": "/pages/estimate"
+      }
+    },
+    "pc_before_after": {
+      "type": "kw-before-after",
+      "settings": {
+        "eyebrow": "See the difference",
+        "heading": "New roof, same solar panels.",
+        "subheading": "Drag the slider to see this rooftop before and after — the array came off, the shingles were replaced, and the same panels went right back on.",
+        "frame_ratio": "3 / 4",
+        "max_width": 520,
+        "before_image": "",
+        "before_image_asset": "kw-solar-fan-before-v2.jpg",
+        "before_label": "Before",
+        "before_zoom": 100,
+        "before_offset_x": 0,
+        "before_offset_y": 0,
+        "after_image": "",
+        "after_image_asset": "kw-solar-fan-after-v2.jpg",
+        "after_label": "After",
+        "after_zoom": 100,
+        "after_offset_x": 0,
+        "after_offset_y": 0,
+        "start_position": 50
+      }
+    },
+    "pc_why": {
+      "type": "kw-why-grid",
+      "blocks": {
+        "efficient": {
+          "type": "feature",
+          "settings": {
+            "icon": "☀️",
+            "title": "100% solar powered",
+            "body": "Attic fans run entirely off the sun — no electrician, no added utility bill."
+          }
+        },
+        "protect": {
+          "type": "feature",
+          "settings": {
+            "icon": "🛡️",
+            "title": "Total pest exclusion",
+            "body": "Critter Guard mesh keeps birds, pigeons and rodents out — permanently."
+          }
+        },
+        "warranty": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏆",
+            "title": "10-year warranty",
+            "body": "Every attic fan and Critter Guard install is backed for a decade."
+          }
+        }
+      },
+      "block_order": [
+        "efficient",
+        "protect",
+        "warranty"
+      ],
+      "settings": {
+        "raised": true,
+        "eyebrow": "Why Kilowash solar",
+        "heading": "Built to protect your investment."
+      }
+    },
+    "pc_faq": {
+      "type": "kw-faq",
+      "blocks": {
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "question": "How much production do dirty panels actually cost?",
+            "answer": "It varies with how long it has been and what has settled. Dust film, pollen and hard-water spotting all scatter light before it reaches the cell, and the loss builds quietly because it never shows up as a fault."
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "How often should panels be cleaned in Utah?",
+            "answer": "Once a year suits most homes here. Properties under trees, near fields or close to construction dust usually want twice."
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you use anything that could damage the glass?",
+            "answer": "No harsh chemicals and no abrasive pads. Panel glass carries an anti-reflective coating that aggressive cleaning strips, which costs you more output than the dirt did."
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you take panels off for a roof replacement?",
+            "answer": "Yes. Removal and reinstall is one of our core Solar Solutions. The same panels go back on once the new shingles are down."
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you service systems you did not install?",
+            "answer": "Almost all of them. Our Solar Solutions work is care for existing arrays, whoever put them up."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "raised": false,
+        "eyebrow": "Common questions",
+        "heading": "Solar panel cleaning questions"
+      }
+    },
+    "pc_area": {
+      "type": "kw-service-area",
+      "settings": {
+        "raised": false,
+        "eyebrow": "Where we work",
+        "heading": "Where we service solar systems",
+        "body": "<p>Solar panel cleaning and system care across the Wasatch Front and every market we serve. If your town is not listed, call or text us anyway.</p>",
+        "cities": "",
+        "links_label": "More from Kilowash",
+        "markets": "all"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Permanent architectural lighting",
+            "url": "/pages/lighting"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews &amp; finished projects",
+            "url": "/pages/testimonials"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "Get a free estimate",
+            "url": "/pages/estimate"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "About the Kilowash crew",
+            "url": "/pages/about"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
+    },
+    "pc_cta": {
+      "type": "kw-cta-banner",
+      "settings": {
+        "eyebrow": "Get more from the panels you own",
+        "heading": "Book a solar clean or system check.",
+        "phone_display": "385-439-3362",
+        "phone_link": "3854393362",
+        "primary_label": "Estimate my solar project",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Ask a question",
+        "secondary_link": "/pages/contact#quote-form"
+      }
+    }
+  },
+  "order": [
+    "pc_hero",
+    "pc_panels",
+    "pc_before_after",
+    "pc_why",
+    "pc_faq",
+    "pc_area",
+    "pc_cta"
+  ]
+}

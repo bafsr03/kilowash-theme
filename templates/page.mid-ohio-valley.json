@@ -1,0 +1,238 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "mov_hero": {
+      "type": "kw-hero-seasonal",
+      "settings": {
+        "image": "shopify://shop_images/IMG_4454.jpg",
+        "image_asset": "kw-light-blue-house.jpg",
+        "min_height": 92,
+        "eyebrow": "Mid-Ohio Valley — Ohio & West Virginia",
+        "heading": "Permanent lighting and solar care, either side of the river.",
+        "subheading": "Kilowash runs the Mid-Ohio Valley as one territory: Marietta, Caldwell and McConnelsville in Ohio, and Parkersburg across the river in West Virginia.",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Call / Text 385-439-3362",
+        "secondary_link": "tel:3854393362",
+        "show_marquee": true,
+        "marquee_text": "Licensed & Insured Crews",
+        "marquee_area_text": "Serving Washington, Noble & Morgan County OH and Wood County WV"
+      }
+    },
+    "mov_split": {
+      "type": "kw-services-split",
+      "settings": {
+        "image_a_asset": "kw-light-rgb-track.jpg",
+        "title_a": "Permanent Lighting",
+        "copy_a": "Architectural, holiday & full-color smart lighting built into your roofline — for good. Controlled entirely from your phone.",
+        "cta_a": "Explore lighting",
+        "link_a": "/pages/lighting",
+        "image_b_asset": "kw-solar-black-array.jpg",
+        "title_b": "Solar & Attic Solutions",
+        "copy_b": "Solar system care, solar attic fans, radiant barriers and Critter Guard bird/pest protection — engineered for hard-weather roofs.",
+        "cta_b": "Explore solar",
+        "link_b": "/pages/solar"
+      }
+    },
+    "mov_area": {
+      "type": "kw-service-area",
+      "settings": {
+        "raised": false,
+        "eyebrow": "Where we work",
+        "heading": "Our Ohio & West Virginia service area",
+        "body": "<p>The Mid-Ohio Valley is a single contiguous corridor for us, which is why we run it as one territory rather than scattered towns. Washington and Noble County sit on I-77, the same interstate that links Marietta to Parkersburg, and Morgan County runs up the Muskingum valley from there.</p><p>Looking for our Utah crews instead? <a href=\"/\">See where we work along the Wasatch Front</a>.</p>",
+        "cities": "",
+        "links_label": "More from Kilowash",
+        "markets": "all"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Permanent architectural lighting",
+            "url": "/pages/lighting"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews &amp; finished projects",
+            "url": "/pages/testimonials"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "Get a free estimate",
+            "url": "/pages/estimate"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "About the Kilowash crew",
+            "url": "/pages/about"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
+    },
+    "mov_why": {
+      "type": "kw-why-grid",
+      "blocks": {
+        "value": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏠",
+            "title": "Increase home value",
+            "body": "Boost curb appeal instantly with lighting that makes your home the one everyone notices."
+          }
+        },
+        "smart": {
+          "type": "feature",
+          "settings": {
+            "icon": "⚡",
+            "title": "Full smart control",
+            "body": "Millions of colors, scenes and schedules — controlled from your phone, no ladder required."
+          }
+        },
+        "yearround": {
+          "type": "feature",
+          "settings": {
+            "icon": "🔆",
+            "title": "Year-round lighting",
+            "body": "Holiday, game day, birthdays — every occasion is one tap away, permanently installed."
+          }
+        },
+        "discreet": {
+          "type": "feature",
+          "settings": {
+            "icon": "🛡️",
+            "title": "Custom, discreet install",
+            "body": "Hidden channel design keeps wiring and hardware invisible, day and night."
+          }
+        },
+        "efficient": {
+          "type": "feature",
+          "settings": {
+            "icon": "💰",
+            "title": "Energy efficient LEDs",
+            "body": "Bright, powerful, and low cost to run — engineered to outlast the string lights you're replacing."
+          }
+        },
+        "warranty": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏆",
+            "title": "10-year warranty",
+            "body": "Craftsmanship and lighting both backed for a decade. We stand behind our work."
+          }
+        }
+      },
+      "block_order": [
+        "value",
+        "smart",
+        "yearround",
+        "discreet",
+        "efficient",
+        "warranty"
+      ],
+      "settings": {
+        "raised": false,
+        "eyebrow": "Why Kilowash",
+        "heading": "Built for hard winters. Backed for a decade."
+      }
+    },
+    "mov_faq": {
+      "type": "kw-faq",
+      "blocks": {
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you really cross the state line?",
+            "answer": "Yes. Wood County, West Virginia is part of the same territory as Washington County, Ohio for us. Parkersburg and Marietta are a few minutes apart, and we treat them as one market."
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "There is a Wood County in Ohio too. Which one do you serve?",
+            "answer": "West Virginia. Ohio also has a Wood County, up near Toledo, which is roughly four hours from our Mid-Ohio Valley crews and outside our area."
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "Does permanent lighting hold up to Ohio Valley winters?",
+            "answer": "That is what it is built for. The channel is fitted into the roofline and the LEDs are rated for freeze-thaw cycling, so nothing comes down in October and nothing goes back up in December."
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "Which Ohio counties are in range?",
+            "answer": "Washington, Noble and Morgan. If you are just outside and on a sensible route, call or text us anyway and we will give you a straight answer."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "raised": false,
+        "eyebrow": "Common questions",
+        "heading": "Working in Ohio & West Virginia"
+      }
+    },
+    "mov_quote": {
+      "type": "kw-quote-form",
+      "settings": {
+        "anchor_id": "quote-form",
+        "eyebrow": "Request a quote",
+        "heading": "Tell us about your home.",
+        "subheading": "Send the details and we'll follow up within 24 hours to schedule your free on-site estimate.",
+        "submit_label": "Request a quote",
+        "secondary_label": "Prefer to book directly? Open our scheduling portal",
+        "secondary_link": "https://clienthub.getjobber.com/hubs/3a67011b-064b-4097-8d0e-1459dcafa742/public/requests/1878911/new"
+      }
+    },
+    "mov_cta": {
+      "type": "kw-cta-banner",
+      "settings": {
+        "eyebrow": "Ready when you are",
+        "heading": "If your home is dark or your solar's underperforming, you're missing out.",
+        "phone_display": "385-439-3362",
+        "phone_link": "3854393362",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Email us",
+        "secondary_link": "mailto:KilowashUtah@gmail.com"
+      }
+    }
+  },
+  "order": [
+    "mov_hero",
+    "mov_split",
+    "mov_area",
+    "mov_why",
+    "mov_faq",
+    "mov_quote",
+    "mov_cta"
+  ]
+}

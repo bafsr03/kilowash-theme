@@ -95,71 +95,6 @@
       ],
       "settings": {}
     },
-    "kw_solar_fan_before_after": {
-      "type": "kw-before-after",
-      "settings": {
-        "eyebrow": "See the difference",
-        "heading": "New roof, same solar panels.",
-        "subheading": "Drag the slider to see this rooftop before and after — the array came off, the shingles were replaced, and the same panels went right back on.",
-        "frame_ratio": "3 / 4",
-        "max_width": 520,
-        "before_image": "",
-        "before_image_asset": "kw-solar-fan-before-v2.jpg",
-        "before_label": "Before",
-        "before_zoom": 100,
-        "before_offset_x": 0,
-        "before_offset_y": 0,
-        "after_image": "",
-        "after_image_asset": "kw-solar-fan-after-v2.jpg",
-        "after_label": "After",
-        "after_zoom": 100,
-        "after_offset_x": 0,
-        "after_offset_y": 0,
-        "start_position": 50
-      }
-    },
-    "kw_solar_feature_panels": {
-      "type": "kw-feature-split",
-      "settings": {
-        "image_asset": "kw-solar-roof-array.jpg",
-        "badge": "Existing Systems",
-        "image_position": "right",
-        "eyebrow": "Solar Solutions — system care",
-        "heading": "Keep the system you already have running strong.",
-        "body": "Our Solar Solutions are about care, not new installs — we keep the panels already on your roof performing at their best. From routine panel cleaning to system repairs and full removal-and-reinstall for roof work or upgrades, our crew handles it all without disrupting your production.",
-        "list_items": "Panel cleaning to restore peak efficiency\nSystem repairs & troubleshooting\nFull removal & reinstall for roof replacement or upgrades\nCritter Guard installation to prevent nesting damage",
-        "link_label": "Estimate my repair or cleaning",
-        "link_url": "/pages/estimate"
-      }
-    },
-    "kw_solar_problem": {
-      "type": "kw-feature-split",
-      "settings": {
-        "image_asset": "kw-critter-bird-nest.jpg",
-        "badge": "The Problem",
-        "image_position": "left",
-        "eyebrow": "What's living under your panels?",
-        "heading": "Birds, pigeons & pests love the shade under your panels.",
-        "body": "The gap beneath solar panels is a perfect, sheltered nesting spot — and what moves in causes real damage: droppings that stain and corrode, nesting debris that's a fire risk, and costly repairs to reach.",
-        "list_items": "Droppings damage panels & void warranties\nNesting material is a fire hazard\nPest removal and cleanup gets expensive fast",
-        "link_label": "",
-        "link_url": ""
-      }
-    },
-    "kw_solar_solution": {
-      "type": "kw-feature-split",
-      "settings": {
-        "image_asset": "kw-critter-mesh-install.jpg",
-        "badge": "Critter Guard",
-        "image_position": "right",
-        "eyebrow": "The solution",
-        "heading": "Total exclusion. Zero maintenance.",
-        "body": "Critter Guard is a low-profile, rust-resistant 1/2-inch mesh that clips directly to your panel frame — keeping birds, pigeons and rodents out for good, without being visible from the ground.",
-        "list_items": "1/2\" mesh keeps everything out\nClips to frame, no roof penetration\nDiscreet, low-profile design\n10-year warranty included",
-        "link_label": "Protect my panels",
-        "link_url": "/pages/estimate"
-      }
-    },
     "kw_solar_gallery": {
       "type": "kw-gallery",
       "blocks": {
@@ -410,6 +345,32 @@
         "link_3",
         "link_4"
       ]
+    },
+    "kw_solar_panels_teaser": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-solar-roof-array.jpg",
+        "badge": "Existing Systems",
+        "image_position": "right",
+        "eyebrow": "Solar Solutions — system care",
+        "heading": "Keep the system you already have running strong.",
+        "body": "Cleaning, repairs, and removal-and-reinstall for roof work. Our Solar Solutions are about care for the array already on your roof, whoever installed it.",
+        "link_label": "Solar panel cleaning & system care",
+        "link_url": "/pages/panel-cleaning"
+      }
+    },
+    "kw_solar_critter_teaser": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-critter-bird-nest.jpg",
+        "badge": "The Problem",
+        "image_position": "left",
+        "eyebrow": "Critter Guard",
+        "heading": "Birds and pests love the shade under your panels.",
+        "body": "The gap beneath a solar array is a sheltered, predator-free nesting spot. Critter Guard closes it off permanently, without drilling your roof or touching your panel warranty.",
+        "link_label": "How Critter Guard works",
+        "link_url": "/pages/critter-guard"
+      }
     }
   },
   "order": [
@@ -417,10 +378,8 @@
     "kw_solar_feature_fans",
     "kw_solar_overview",
     "kw_solar_heat_stats",
-    "kw_solar_fan_before_after",
-    "kw_solar_feature_panels",
-    "kw_solar_problem",
-    "kw_solar_solution",
+    "kw_solar_panels_teaser",
+    "kw_solar_critter_teaser",
     "kw_solar_gallery",
     "kw_solar_why",
     "kw_solar_faq",

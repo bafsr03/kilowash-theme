@@ -1,0 +1,259 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "city_hero": {
+      "type": "kw-hero-seasonal",
+      "settings": {
+        "image": "shopify://shop_images/IMG_4454.jpg",
+        "image_asset": "kw-light-blue-house.jpg",
+        "min_height": 92,
+        "eyebrow": "Permanent Lighting — Utah",
+        "heading": "Permanent lighting, installed on homes in your neighbourhood.",
+        "subheading": "Architectural and holiday lighting built into the roofline, controlled from your phone, backed by a 10-year warranty. Free on-site estimates.",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Call / Text 385-439-3362",
+        "secondary_link": "tel:3854393362",
+        "show_marquee": true,
+        "marquee_text": "Licensed & Insured Crews",
+        "marquee_area_text": "Serving Salt Lake City, Utah County & the Wasatch Front"
+      }
+    },
+    "city_split": {
+      "type": "kw-services-split",
+      "settings": {
+        "image_a_asset": "kw-light-rgb-track.jpg",
+        "title_a": "Permanent Lighting",
+        "copy_a": "Architectural, holiday & full-color smart lighting built into your roofline — for good. Controlled entirely from your phone.",
+        "cta_a": "Explore lighting",
+        "link_a": "/pages/lighting",
+        "image_b_asset": "kw-solar-black-array.jpg",
+        "title_b": "Solar & Attic Solutions",
+        "copy_b": "Solar system care, solar attic fans, radiant barriers and Critter Guard bird/pest protection — engineered for hard-weather roofs.",
+        "cta_b": "Explore solar",
+        "link_b": "/pages/solar"
+      }
+    },
+    "city_gallery": {
+      "type": "kw-gallery",
+      "blocks": {
+        "g1": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-warm-white.jpg",
+            "caption": "Warm white roofline, year-round",
+            "wide": true
+          }
+        },
+        "g2": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-red-green.jpg",
+            "caption": "Holiday red & green",
+            "wide": false
+          }
+        },
+        "g3": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-purple-white.jpg",
+            "caption": "Custom color scenes",
+            "wide": false
+          }
+        },
+        "g4": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-patio-white.jpg",
+            "caption": "Patio & entryway accents",
+            "wide": false
+          }
+        },
+        "g5": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-roof-array.jpg",
+            "caption": "Rooftop solar care",
+            "wide": true
+          }
+        },
+        "g6": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-fan-gable-mounted.jpg",
+            "caption": "Solar attic fans",
+            "wide": false
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6"
+      ],
+      "settings": {
+        "eyebrow": "Field work",
+        "heading": "Real installs, real homes."
+      }
+    },
+    "city_why": {
+      "type": "kw-why-grid",
+      "blocks": {
+        "value": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏠",
+            "title": "Increase home value",
+            "body": "Boost curb appeal instantly with lighting that makes your home the one everyone notices."
+          }
+        },
+        "smart": {
+          "type": "feature",
+          "settings": {
+            "icon": "⚡",
+            "title": "Full smart control",
+            "body": "Millions of colors, scenes and schedules — controlled from your phone, no ladder required."
+          }
+        },
+        "yearround": {
+          "type": "feature",
+          "settings": {
+            "icon": "🔆",
+            "title": "Year-round lighting",
+            "body": "Holiday, game day, birthdays — every occasion is one tap away, permanently installed."
+          }
+        },
+        "discreet": {
+          "type": "feature",
+          "settings": {
+            "icon": "🛡️",
+            "title": "Custom, discreet install",
+            "body": "Hidden channel design keeps wiring and hardware invisible, day and night."
+          }
+        },
+        "efficient": {
+          "type": "feature",
+          "settings": {
+            "icon": "💰",
+            "title": "Energy efficient LEDs",
+            "body": "Bright, powerful, and low cost to run — engineered to outlast the string lights you're replacing."
+          }
+        },
+        "warranty": {
+          "type": "feature",
+          "settings": {
+            "icon": "🏆",
+            "title": "10-year warranty",
+            "body": "Craftsmanship and lighting both backed for a decade. We stand behind our work."
+          }
+        }
+      },
+      "block_order": [
+        "value",
+        "smart",
+        "yearround",
+        "discreet",
+        "efficient",
+        "warranty"
+      ],
+      "settings": {
+        "raised": false,
+        "eyebrow": "Why Kilowash",
+        "heading": "Built for hard winters. Backed for a decade."
+      }
+    },
+    "city_area": {
+      "type": "kw-service-area",
+      "settings": {
+        "raised": false,
+        "eyebrow": "Where we work",
+        "heading": "Nearby towns we serve",
+        "body": "<p>We install solar attic fans and service existing panel systems across Utah, Ohio and West Virginia. Not sure if you are in range? Call or text and we will tell you straight.</p>",
+        "cities": "",
+        "links_label": "More from Kilowash",
+        "markets": "first"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Permanent architectural lighting",
+            "url": "/pages/lighting"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews &amp; finished projects",
+            "url": "/pages/testimonials"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "Get a free estimate",
+            "url": "/pages/estimate"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "About the Kilowash crew",
+            "url": "/pages/about"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
+    },
+    "city_quote": {
+      "type": "kw-quote-form",
+      "settings": {
+        "anchor_id": "quote-form",
+        "eyebrow": "Request a quote",
+        "heading": "Tell us about your home.",
+        "subheading": "Send the details and we'll follow up within 24 hours to schedule your free on-site estimate.",
+        "submit_label": "Request a quote",
+        "secondary_label": "Prefer to book directly? Open our scheduling portal",
+        "secondary_link": "https://clienthub.getjobber.com/hubs/3a67011b-064b-4097-8d0e-1459dcafa742/public/requests/1878911/new"
+      }
+    },
+    "city_cta": {
+      "type": "kw-cta-banner",
+      "settings": {
+        "eyebrow": "Ready when you are",
+        "heading": "If your home is dark or your solar's underperforming, you're missing out.",
+        "phone_display": "385-439-3362",
+        "phone_link": "3854393362",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Email us",
+        "secondary_link": "mailto:KilowashUtah@gmail.com"
+      }
+    }
+  },
+  "order": [
+    "city_hero",
+    "city_split",
+    "city_gallery",
+    "city_why",
+    "city_area",
+    "city_quote",
+    "city_cta"
+  ]
+}

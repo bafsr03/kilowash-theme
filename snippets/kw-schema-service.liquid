@@ -1,6 +1,10 @@
 {%- comment -%}
-  Service JSON-LD for the two service pages. Template-gated so it only emits on
-  /pages/lighting and /pages/solar; every other template renders nothing.
+  Service JSON-LD for the service pages. Template-gated, so every other template
+  renders nothing.
+
+  Each service line gets its own node rather than one blurred "solar" entry: Critter
+  Guard and panel cleaning answer completely different searches from attic fans, and
+  they now have their own pages to match.
 
   `provider` points at the @id of the HomeAndConstructionBusiness node emitted by
   kw-schema-business.liquid, so Google resolves one business entity across the
@@ -21,6 +25,18 @@
       assign svc_name = 'Solar Attic Fan Installation and Solar Panel Care'
       assign svc_type = 'Solar attic fan installation, solar panel cleaning and maintenance'
       assign svc_desc = 'Solar attic fan installation to pull trapped heat out of the attic, plus solar panel cleaning and maintenance for existing rooftop systems.'
+    when 'critter-guard'
+      assign svc_name = 'Critter Guard Solar Panel Bird and Pest Exclusion'
+      assign svc_type = 'Solar panel bird guard and pest exclusion installation'
+      assign svc_desc = 'Rigid mesh exclusion barrier clipped to the perimeter of an existing solar array to keep birds, pigeons and rodents from nesting underneath. No roof penetration and no change to the panel warranty.'
+    when 'panel-cleaning'
+      assign svc_name = 'Solar Panel Cleaning and System Care'
+      assign svc_type = 'Solar panel cleaning, maintenance, repair and removal-reinstall'
+      assign svc_desc = 'Cleaning, servicing and removal-and-reinstall for existing rooftop solar arrays, including panel removal for roof replacement. Non-abrasive methods that protect the anti-reflective coating on the panel glass.'
+    when 'city'
+      assign svc_name = 'Permanent Architectural Lighting Installation'
+      assign svc_type = 'Permanent holiday and architectural lighting installation'
+      assign svc_desc = 'Professionally installed, app-controlled permanent architectural lighting for homes, mounted flush to the roofline and rated for freeze-thaw winters.'
   endcase
 
 -%}

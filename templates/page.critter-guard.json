@@ -1,0 +1,179 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "cg_hero": {
+      "type": "kw-hero-seasonal",
+      "settings": {
+        "image": "shopify://shop_images/IMG_5944.jpg",
+        "image_asset": "kw-solar-black-array.jpg",
+        "min_height": 70,
+        "eyebrow": "Critter Guard",
+        "heading": "Nothing nests under your panels again.",
+        "subheading": "Birds, pigeons and rodents treat the gap under a solar array like a sheltered apartment. Critter Guard closes it off for good, without touching your panels or your warranty.",
+        "primary_label": "Get my free estimate",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Call / Text 385-439-3362",
+        "secondary_link": "tel:3854393362",
+        "show_marquee": false,
+        "marquee_text": ""
+      }
+    },
+    "cg_problem": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-critter-bird-nest.jpg",
+        "badge": "The Problem",
+        "image_position": "left",
+        "eyebrow": "What's living under your panels?",
+        "heading": "Birds, pigeons & pests love the shade under your panels.",
+        "body": "The gap beneath solar panels is a perfect, sheltered nesting spot — and what moves in causes real damage: droppings that stain and corrode, nesting debris that's a fire risk, and costly repairs to reach.",
+        "list_items": "Droppings damage panels & void warranties\nNesting material is a fire hazard\nPest removal and cleanup gets expensive fast",
+        "link_label": "",
+        "link_url": ""
+      }
+    },
+    "cg_solution": {
+      "type": "kw-feature-split",
+      "settings": {
+        "image_asset": "kw-critter-mesh-install.jpg",
+        "badge": "Critter Guard",
+        "image_position": "right",
+        "eyebrow": "The solution",
+        "heading": "Total exclusion. Zero maintenance.",
+        "body": "Critter Guard is a low-profile, rust-resistant 1/2-inch mesh that clips directly to your panel frame — keeping birds, pigeons and rodents out for good, without being visible from the ground.",
+        "list_items": "1/2\" mesh keeps everything out\nClips to frame, no roof penetration\nDiscreet, low-profile design\n10-year warranty included",
+        "link_label": "Protect my panels",
+        "link_url": "/pages/estimate"
+      }
+    },
+    "cg_faq": {
+      "type": "kw-faq",
+      "blocks": {
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "question": "What actually gets installed?",
+            "answer": "A rigid mesh barrier is clipped to the perimeter of your array, panel by panel. It fastens to the module frames, not to your roof, so nothing is drilled through the shingles and no roof penetration is created."
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "Will this void my solar warranty?",
+            "answer": "No. The guard attaches to the module frames with clips designed for the purpose. We do not drill panels, disturb wiring, or alter the racking."
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "What if birds are already nesting under there?",
+            "answer": "We clear and sanitise the area first. Sealing a nest in causes a far worse problem than the one you started with, so removal always comes before exclusion."
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it take?",
+            "answer": "Most Utah homes are finished in a single visit. Larger or multi-plane arrays can run longer, and we will tell you which before we start."
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "question": "Does it reduce how much power I produce?",
+            "answer": "No. The mesh sits at the array edge, below the glass. It does not shade the cells."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "raised": false,
+        "eyebrow": "Common questions",
+        "heading": "Critter Guard questions homeowners ask"
+      }
+    },
+    "cg_area": {
+      "type": "kw-service-area",
+      "settings": {
+        "raised": false,
+        "eyebrow": "Where we work",
+        "heading": "Where we install Critter Guard",
+        "body": "<p>Critter Guard installs across the Wasatch Front and every market we serve. Not sure if we reach you? Call or text and we will tell you straight.</p>",
+        "cities": "",
+        "links_label": "More from Kilowash",
+        "markets": "all"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "link",
+          "settings": {
+            "label": "Permanent architectural lighting",
+            "url": "/pages/lighting"
+          }
+        },
+        "link_2": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews &amp; finished projects",
+            "url": "/pages/testimonials"
+          }
+        },
+        "link_3": {
+          "type": "link",
+          "settings": {
+            "label": "Get a free estimate",
+            "url": "/pages/estimate"
+          }
+        },
+        "link_4": {
+          "type": "link",
+          "settings": {
+            "label": "About the Kilowash crew",
+            "url": "/pages/about"
+          }
+        }
+      },
+      "block_order": [
+        "link_1",
+        "link_2",
+        "link_3",
+        "link_4"
+      ]
+    },
+    "cg_cta": {
+      "type": "kw-cta-banner",
+      "settings": {
+        "eyebrow": "Stop the nesting",
+        "heading": "Get Critter Guard priced for your array.",
+        "phone_display": "385-439-3362",
+        "phone_link": "3854393362",
+        "primary_label": "Estimate my solar project",
+        "primary_link": "/pages/estimate",
+        "secondary_label": "Ask a question",
+        "secondary_link": "/pages/contact#quote-form"
+      }
+    }
+  },
+  "order": [
+    "cg_hero",
+    "cg_problem",
+    "cg_solution",
+    "cg_faq",
+    "cg_area",
+    "cg_cta"
+  ]
+}

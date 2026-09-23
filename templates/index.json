@@ -24,7 +24,14 @@
         "secondary_link": "tel:3854393362",
         "show_marquee": true,
         "marquee_text": "Licensed & Insured Crews",
-        "marquee_area_text": "Serving Salt Lake City, Utah County & the Wasatch Front"
+        "marquee_area_text": "Serving Salt Lake City, Utah County & the Wasatch Front",
+        "season_mode": "auto",
+        "eyebrow_lighting": "Permanent Christmas & Holiday Lighting — Utah",
+        "heading_lighting": "Permanent lighting that makes your Utah home stand out.",
+        "subheading_lighting": "Holiday colour in December, warm architectural light the rest of the year. Installed once into the roofline, controlled from your phone, and it never comes down.",
+        "eyebrow_solar": "Solar Attic Fans & Solar Care — Utah",
+        "heading_solar": "A cooler Utah home, powered by your own roof.",
+        "subheading_solar": "Solar attic fans that pull trapped heat out before it reaches your AC, plus panel cleaning, Critter Guard and care for the solar system you already own."
       }
     },
     "kw_home_split": {

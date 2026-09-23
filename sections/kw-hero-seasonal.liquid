@@ -1,22 +1,81 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'kw-spamguard.js' | asset_url }}" defer></script>
 
+{%- comment -%}
+  Seasonal hero.
+
+  Kilowash sells two businesses on one roof and they peak at opposite ends of the
+  year: permanent and holiday lighting searches run hot September to December, solar
+  attic fans and panel care through spring and summer. A hero fixed to one of them is
+  wrong for half the year, and the homepage is the page that has to lead with whatever
+  is actually in demand.
+
+  "Season" is normally left on Automatic, which switches on the calendar month. The
+  manual settings exist because date logic that flips a homepage on its own is easy to
+  be surprised by -- during a campaign, a photo shoot, or an unusually warm November,
+  someone needs to be able to pin it without editing code.
+
+  Every seasonal field is optional. Anything left blank falls back to the normal
+  heading/eyebrow/subheading/image, so a hero that has no seasonal copy filled in
+  behaves exactly as it did before this setting existed. That matters: this section
+  renders on all seven pages, and only the homepage is expected to use it.
+{%- endcomment -%}
+{%- liquid
+  assign season = section.settings.season_mode | default: 'auto'
+  if season == 'auto'
+    assign month_now = 'now' | date: '%m' | plus: 0
+    if month_now >= 9 and month_now <= 12
+      assign season = 'lighting'
+    else
+      assign season = 'solar'
+    endif
+  endif
+
+  assign hero_eyebrow = section.settings.eyebrow
+  assign hero_heading = section.settings.heading
+  assign hero_subheading = section.settings.subheading
+  assign hero_image = section.settings.image
+  assign hero_image_asset = section.settings.image_asset
+
+  if season == 'lighting'
+    assign hero_eyebrow = section.settings.eyebrow_lighting | default: hero_eyebrow
+    assign hero_heading = section.settings.heading_lighting | default: hero_heading
+    assign hero_subheading = section.settings.subheading_lighting | default: hero_subheading
+    if section.settings.image_lighting != blank
+      assign hero_image = section.settings.image_lighting
+    endif
+    if section.settings.image_asset_lighting != blank
+      assign hero_image_asset = section.settings.image_asset_lighting
+    endif
+  elsif season == 'solar'
+    assign hero_eyebrow = section.settings.eyebrow_solar | default: hero_eyebrow
+    assign hero_heading = section.settings.heading_solar | default: hero_heading
+    assign hero_subheading = section.settings.subheading_solar | default: hero_subheading
+    if section.settings.image_solar != blank
+      assign hero_image = section.settings.image_solar
+    endif
+    if section.settings.image_asset_solar != blank
+      assign hero_image_asset = section.settings.image_asset_solar
+    endif
+  endif
+-%}
+
 <section class="kw-scope kw-hero" id="kw-hero-{{ section.id }}">
   <div class="kw-hero__media">
-    {% if section.settings.image != blank %}
+    {% if hero_image != blank %}
       <img
-        src="{{ section.settings.image | image_url: width: 2400 }}"
-        srcset="{{ section.settings.image | image_url: width: 900 }} 900w, {{ section.settings.image | image_url: width: 1600 }} 1600w, {{ section.settings.image | image_url: width: 2400 }} 2400w"
+        src="{{ hero_image | image_url: width: 2400 }}"
+        srcset="{{ hero_image | image_url: width: 900 }} 900w, {{ hero_image | image_url: width: 1600 }} 1600w, {{ hero_image | image_url: width: 2400 }} 2400w"
         sizes="100vw"
-        alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+        alt="{{ hero_image.alt | default: section.settings.heading | escape }}"
         loading="eager"
         fetchpriority="high"
-        width="{{ section.settings.image.width }}"
-        height="{{ section.settings.image.height }}"
+        width="{{ hero_image.width }}"
+        height="{{ hero_image.height }}"
       >
-    {% elsif section.settings.image_asset != blank %}
+    {% elsif hero_image_asset != blank %}
       <img
-        src="{{ section.settings.image_asset | asset_url }}"
+        src="{{ hero_image_asset | asset_url }}"
         alt="{{ section.settings.heading | escape }}"
         loading="eager"
         fetchpriority="high"
@@ -33,11 +92,11 @@
   <div class="kw-wrap kw-hero__inner">
     <div class="kw-hero__plate kw-bracket">
       <div class="kw-scanline"></div>
-      <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow | default: 'Permanent Lighting &amp; Solar' }}</p>
+      <p class="kw-eyebrow kw-reveal">{{ hero_eyebrow | default: 'Permanent Lighting &amp; Solar' }}</p>
 
-      <h1 class="kw-hero__title kw-reveal">{{ section.settings.heading }}</h1>
+      <h1 class="kw-hero__title kw-reveal">{{ hero_heading }}</h1>
 
-      <p class="kw-hero__subcopy kw-reveal">{{ section.settings.subheading }}</p>
+      <p class="kw-hero__subcopy kw-reveal">{{ hero_subheading }}</p>
 
       <div class="kw-hero__actions kw-reveal">
         {% if section.settings.primary_label != blank %}
@@ -181,23 +240,179 @@
 
 {% schema %}
 {
-  "name": "KW Hero",
+  "name": "KW Hero (seasonal)",
   "tag": "section",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Background photo (overrides asset below)" },
-    { "type": "text", "id": "image_asset", "label": "Background photo — theme asset filename", "info": "Used when no photo is picked above, e.g. kw-light-blue-house.jpg" },
-    { "type": "range", "id": "min_height", "label": "Minimum height (svh)", "min": 30, "max": 100, "step": 2, "default": 92 },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Your home should stand out — day & night." },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Permanent architectural lighting and solar solutions, installed by our own crews, never subcontractors." },
-    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "Get a free estimate" },
-    { "type": "url", "id": "primary_link", "label": "Primary button link" },
-    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Call / Text 385-439-3362" },
-    { "type": "text", "id": "secondary_link", "label": "Secondary button link", "default": "tel:3854393362" },
-    { "type": "checkbox", "id": "show_marquee", "label": "Show ticker strip", "default": true },
-    { "type": "text", "id": "marquee_text", "label": "Ticker highlight" },
-    { "type": "text", "id": "marquee_area_text", "label": "Ticker service-area item", "info": "The last item in the scrolling ticker. Keep it in step with the service area in Theme settings > Kilowash SEO.", "default": "Serving Utah, Ohio & West Virginia" }
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background photo (overrides asset below)"
+    },
+    {
+      "type": "text",
+      "id": "image_asset",
+      "label": "Background photo — theme asset filename",
+      "info": "Used when no photo is picked above, e.g. kw-light-blue-house.jpg"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height (svh)",
+      "min": 30,
+      "max": 100,
+      "step": 2,
+      "default": 92
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your home should stand out — day & night."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Permanent architectural lighting and solar solutions, installed by our own crews, never subcontractors."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Get a free estimate"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Call / Text 385-439-3362"
+    },
+    {
+      "type": "text",
+      "id": "secondary_link",
+      "label": "Secondary button link",
+      "default": "tel:3854393362"
+    },
+    {
+      "type": "header",
+      "content": "Seasonal hero"
+    },
+    {
+      "type": "paragraph",
+      "content": "Lighting demand peaks Sept-Dec, solar and attic work in spring and summer. Automatic switches on the calendar month. Every field below is optional: anything left blank uses the normal hero copy above, so only the homepage needs to fill these in."
+    },
+    {
+      "type": "select",
+      "id": "season_mode",
+      "label": "Season",
+      "default": "auto",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Automatic (lighting Sept-Dec, solar Jan-Aug)"
+        },
+        {
+          "value": "lighting",
+          "label": "Always lighting"
+        },
+        {
+          "value": "solar",
+          "label": "Always solar & attic"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Lighting season"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_lighting",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading_lighting",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading_lighting",
+      "label": "Subheading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_lighting",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "image_asset_lighting",
+      "label": "Theme asset filename",
+      "info": "Fallback when no image is picked, e.g. kw-light-blue-house.jpg"
+    },
+    {
+      "type": "header",
+      "content": "Solar season"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_solar",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading_solar",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading_solar",
+      "label": "Subheading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_solar",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "image_asset_solar",
+      "label": "Theme asset filename"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_marquee",
+      "label": "Show ticker strip",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "marquee_text",
+      "label": "Ticker highlight"
+    },
+    {
+      "type": "text",
+      "id": "marquee_area_text",
+      "label": "Ticker service-area item",
+      "info": "The last item in the scrolling ticker. Keep it in step with the service area in Theme settings > Kilowash SEO.",
+      "default": "Serving Utah, Ohio & West Virginia"
+    }
   ],
-  "presets": [{ "name": "KW Hero" }]
+  "presets": [
+    {
+      "name": "KW Hero"
+    }
+  ]
 }
 {% endschema %}
