@@ -1,0 +1,42 @@
+{%- comment -%}
+  Search Console verification + GA4.
+
+  The theme shipped with no analytics of any kind: no GA4, no GTM, no Search Console
+  verification. That is the reason nobody can say which SEO change moved which number,
+  and why there is no baseline to measure this sprint against. Shopify's own reporting
+  does not cover search impressions, queries or the Google Business Profile, so it is
+  not a substitute.
+
+  Both values are optional and live in Theme settings > Kilowash storefront. Nothing is
+  emitted until they are filled in, so this snippet is inert on a store that has not
+  connected the accounts yet.
+
+  Deliberately not gated on request.design_mode: Search Console needs to read the
+  verification tag on the live storefront, and GA4 sessions from the theme editor are a
+  rounding error next to the cost of forgetting why no data arrived.
+
+  Rendered from layout/theme.liquid <head>.
+{%- endcomment -%}
+
+{%- if settings.kw_gsc_verification != blank -%}
+  <meta name="google-site-verification" content="{{ settings.kw_gsc_verification | escape }}">
+{%- endif -%}
+
+{%- if settings.kw_ga4_id != blank -%}
+  {%- comment -%}
+    RemoteAsset is disabled deliberately for this one line. gtag.js must be fetched
+    from Google's own domain to function, so it cannot be served from the Shopify CDN;
+    the check is correct in general and simply does not apply here.
+  {%- endcomment -%}
+  {% # theme-check-disable RemoteAsset %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.kw_ga4_id | escape }}"></script>
+  {% # theme-check-enable RemoteAsset %}
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', {{ settings.kw_ga4_id | json }});
+  </script>
+{%- endif -%}

@@ -4,7 +4,16 @@
   <div class="kw-wrap kw-stats__inner">
     {% for block in section.blocks %}
       <div class="kw-stat kw-reveal" style="transition-delay: {{ forloop.index0 | times: 0.06 }}s" {{ block.shopify_attributes }}>
-        <div class="kw-stat__number" data-count="{{ block.settings.number }}" data-suffix="{{ block.settings.suffix }}" data-decimals="{{ block.settings.decimals }}">0{{ block.settings.suffix }}</div>
+        {%- comment -%}
+          The text node is the REAL number, not 0. kw-theme.js animates from zero on
+          scroll, but the count-up only fires at 60% visibility -- so anything that does
+          not scroll and run JS (Google, social scrapers, no-JS, reduced-motion users)
+          used to read "0+" and "0yr" as the site's actual claims. Rendering the real
+          value server-side costs the animation nothing: the script overwrites it on
+          entry and still animates to data-count.
+        {%- endcomment -%}
+        {%- assign stat_display = block.settings.number | round: block.settings.decimals -%}
+        <div class="kw-stat__number" data-count="{{ block.settings.number }}" data-suffix="{{ block.settings.suffix }}" data-decimals="{{ block.settings.decimals }}">{{ stat_display }}{{ block.settings.suffix }}</div>
         <div class="kw-stat__label">{{ block.settings.label }}</div>
       </div>
     {% endfor %}

@@ -63,7 +63,13 @@
   {% endif %}
   {{- block.shopify_attributes -}}
 >
-  {% if shop.customer_accounts_enabled %}
+  {%- comment -%}
+    Kilowash sells a $4,000-$7,000 installed service, not products. A cart and an
+    account icon make the header read like a web store and undercut the quote flow,
+    so both are off by default via Theme settings > Kilowash storefront. Setting
+    them back to true restores stock Horizon behaviour exactly.
+  {%- endcomment -%}
+  {% if shop.customer_accounts_enabled and settings.kw_show_account %}
     {% liquid
       assign account_actions_style = ''
       if display_style == 'text' and section
@@ -113,6 +119,7 @@
     </div>
   {% endif %}
 
+  {% if settings.kw_show_cart %}
   {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
     <button
       class="header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}"
@@ -135,6 +142,7 @@
     >
       {{ cart_icon }}
     </a>
+  {% endif %}
   {% endif %}
 
   <span

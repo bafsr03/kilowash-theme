@@ -1,5 +1,38 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
+{%- comment -%}
+  The opening state is rendered server-side rather than left to JS.
+
+  The panel used to ship `$0` in the markup and rely on compute() to replace it at
+  parse time. A visitor barely sees it, but view-source does -- and so do Google, the
+  social scrapers that build link previews, and anyone whose JS fails. The first price
+  associated with Kilowash should never be zero.
+
+  All three opening values (slider position, the "120 ft" readout, and the total)
+  derive from est_default_ft and the section's own rate settings here, so they cannot
+  drift apart from each other or from the JS, which recomputes from the same settings.
+  The default reflects a typical Utah home: 120 ft with the Smart App Control box on,
+  which is checked by default below. The power box is not included because it only
+  becomes required past the threshold setting (160 ft).
+{%- endcomment -%}
+{%- liquid
+  assign est_default_ft = 120
+  assign est_rate_ft = section.settings.rate_ft | default: 27
+  assign est_rate_smart = section.settings.rate_smart_addon | default: 500
+  assign est_default_total = est_default_ft | times: est_rate_ft | plus: est_rate_smart
+
+  assign est_str = est_default_total | round: 0 | append: ''
+  assign est_len = est_str | size
+  if est_len > 3
+    assign est_cut = est_len | minus: 3
+    assign est_head = est_str | slice: 0, est_cut
+    assign est_tail = est_str | slice: est_cut, 3
+    assign est_display = est_head | append: ',' | append: est_tail
+  else
+    assign est_display = est_str
+  endif
+-%}
+
 <section class="kw-scope kw-section kw-section--raised" id="kw-est-{{ section.id }}">
   <div class="kw-blueprint"></div>
   <div class="kw-wrap kw-est__inner">
@@ -20,8 +53,8 @@
       <div class="kw-est__pane is-active" data-kw-pane="lighting">
         <label class="kw-est__field">
           <span class="kw-est__field-label">Linear feet of roofline / trim</span>
-          <input type="range" min="20" max="650" step="10" value="120" data-kw-ft>
-          <span class="kw-est__field-value"><span data-kw-ft-out>120</span> ft</span>
+          <input type="range" min="20" max="650" step="10" value="{{ est_default_ft }}" data-kw-ft>
+          <span class="kw-est__field-value"><span data-kw-ft-out>{{ est_default_ft }}</span> ft</span>
         </label>
 
         <div class="kw-est__togglegrid">
@@ -80,7 +113,7 @@
       <div class="kw-est__result">
         <div class="kw-est__result-label">Rough estimate</div>
         <div class="kw-est__result-range">
-          <span data-kw-total>$0</span>
+          <span data-kw-total>${{ est_display }}</span>
         </div>
         <p class="kw-est__disclaimer">{{ section.settings.disclaimer }}</p>
         {% if section.settings.cta_label != blank %}

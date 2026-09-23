@@ -94,6 +94,31 @@
             </label>
           </div>
 
+          {%- comment -%}
+            Lead attribution. The hidden contact[Lead source] field above records that a
+            lead came through this form; it cannot say what sent the customer here. That
+            is the one thing no analytics tool can answer for phone-and-referral trades,
+            and without it there is no way to tell whether the SEO work, the Google
+            Business Profile or word of mouth is producing the calls.
+
+            Left optional on purpose -- it is our question, not the customer's problem,
+            and a required field here would cost more leads than the data is worth.
+          {%- endcomment -%}
+          <label class="kw-qform__field">
+            <span class="kw-qform__label">How did you hear about us? <span class="kw-qform__optional">(optional)</span></span>
+            <select class="kw-qform__input kw-qform__select" name="contact[How did you hear about us]">
+              <option value="">Select one</option>
+              <option value="Google search">Google search</option>
+              <option value="Google Maps">Google Maps</option>
+              <option value="Friend or neighbour referral">Friend or neighbour referral</option>
+              <option value="Saw a Kilowash install">Saw a Kilowash install</option>
+              <option value="Facebook or Instagram">Facebook or Instagram</option>
+              <option value="Nextdoor">Nextdoor</option>
+              <option value="Yelp, Angi or BBB">Yelp, Angi or BBB</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
           <label class="kw-qform__field">
             <span class="kw-qform__label">Project details</span>
             <textarea rows="4" class="kw-qform__input kw-qform__textarea" name="contact[body]" placeholder="Tell us about your home, roofline, or what you're hoping to get done.">{{ form.body }}</textarea>
@@ -180,6 +205,11 @@
     font-size: 0.82rem;
     color: var(--kw-fg-dim);
     margin-bottom: 0.5rem;
+  }
+
+  #{{ section.settings.anchor_id | default: 'quote-form' }} .kw-qform__optional {
+    opacity: 0.62;
+    font-size: 0.94em;
   }
 
   #{{ section.settings.anchor_id | default: 'quote-form' }} .kw-qform__input {

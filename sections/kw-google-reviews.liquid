@@ -1,5 +1,13 @@
 {{ 'kw-theme.css' | asset_url | stylesheet_tag }}
 
+{%- comment -%}
+  The review count links to the Google Business Profile so the rating is checkable
+  rather than a number we assert about ourselves. The section-level URL wins; the
+  sitewide Theme settings > Kilowash SEO value is the fallback, so filling that in
+  once links every instance of this section at the same time.
+{%- endcomment -%}
+{%- assign gr_profile_url = section.settings.profile_url | default: settings.kw_seo_gbp_url -%}
+
 <section class="kw-scope kw-section" id="kw-google-reviews-{{ section.id }}">
   <div class="kw-wrap">
     {% if section.settings.eyebrow != blank %}
@@ -15,8 +23,8 @@
         <span class="kw-google-reviews__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         {% if section.settings.count != blank %}
           <span class="kw-google-reviews__count">
-            {%- if section.settings.profile_url != blank -%}
-              <a href="{{ section.settings.profile_url }}" target="_blank" rel="noopener">{{ section.settings.count }}</a>
+            {%- if gr_profile_url != blank -%}
+              <a href="{{ gr_profile_url }}" target="_blank" rel="noopener">{{ section.settings.count }}</a>
             {%- else -%}
               {{ section.settings.count }}
             {%- endif -%}

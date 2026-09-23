@@ -15,8 +15,8 @@
         "image": "shopify://shop_images/IMG_4454.jpg",
         "image_asset": "kw-light-blue-house.jpg",
         "min_height": 92,
-        "eyebrow": "Permanent Lighting & Solar — Utah, Ohio & West Virginia",
-        "heading": "Your home should stand out — day & night.",
+        "eyebrow": "Permanent Lighting & Solar — Salt Lake City & Utah County",
+        "heading": "Permanent lighting that makes your Utah home stand out.",
         "subheading": "Architectural lighting, holiday lighting, solar system care, attic fans and Critter Guard — installed once, controlled forever from your phone.",
         "primary_label": "Get my free estimate",
         "primary_link": "/pages/estimate",
@@ -24,7 +24,7 @@
         "secondary_link": "tel:3854393362",
         "show_marquee": true,
         "marquee_text": "Licensed & Insured Crews",
-        "marquee_area_text": "Serving Utah, Ohio & West Virginia"
+        "marquee_area_text": "Serving Salt Lake City, Utah County & the Wasatch Front"
       }
     },
     "kw_home_split": {
@@ -306,10 +306,11 @@
       "settings": {
         "raised": true,
         "eyebrow": "Where we work",
-        "heading": "Serving Utah, Ohio & West Virginia",
-        "body": "<p>Kilowash is a licensed and insured team installing permanent architectural lighting and solar attic protection across Utah, Ohio and West Virginia, with our own crews in every market. Our eastern territory runs through the Mid-Ohio Valley, on both sides of the river. If your town is not on the list, call or text — we will tell you straight whether we can get to you.</p>",
+        "heading": "Where we work in Utah",
+        "body": "<p>We run our own crews across the Wasatch Front. If your town is not on this list, call or text us anyway — we will tell you straight whether we can get to you. We also work the Mid-Ohio Valley: <a href=\"/pages/mid-ohio-valley\">see our Ohio &amp; West Virginia service area</a>.</p>",
         "cities": "",
-        "links_label": "More from Kilowash"
+        "links_label": "More from Kilowash",
+        "markets": "first"
       },
       "blocks": {
         "link_1": {
@@ -347,6 +348,66 @@
         "link_3",
         "link_4"
       ]
+    },
+    "kw_home_reviews": {
+      "type": "kw-google-reviews",
+      "settings": {
+        "eyebrow": "Verified on Google",
+        "heading": "5.0 stars from Utah homeowners.",
+        "rating": "5.0",
+        "count": "28 Google reviews",
+        "profile_url": ""
+      }
+    },
+    "kw_home_testimonials": {
+      "type": "kw-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I have been looking for permanent lighting for a little while and I am happy I chose Kilowash. The installation was so quick and the crew was very professional. I have really enjoyed using my lights not only for holiday fun but also for security. Highly recommend.",
+            "rating": 5,
+            "photo_asset": "kw-review-lisa-color.jpg",
+            "photo_alt": "Brick home lit in red, white and blue permanent lighting",
+            "author_name": "Lisa Robertson",
+            "author_location": "Permanent Lighting install",
+            "source": "Google review"
+          }
+        },
+        "t4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Recently had a solar ventilation fan installed on my home by these guys. He was very knowledgeable and made sure I understood how it worked. He even followed up to ensure it was working correctly! Super impressed with the process and results!",
+            "rating": 5,
+            "photo_asset": "kw-review-alyssa.jpg",
+            "photo_alt": "Solar attic ventilation fan installed on a shingle roof",
+            "author_name": "Alyssa Gile",
+            "author_location": "Solar attic fan install",
+            "source": "Google review"
+          }
+        },
+        "t6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Had a really bad bird issue under my solar panels. These guys came and fixed it with Critter Guard and cleaned up some dead birds for a great price. 10/10 would recommend!",
+            "rating": 5,
+            "photo_asset": "kw-review-reese.jpg",
+            "photo_alt": "Solar panel array on a shingle roof against a clear blue sky",
+            "author_name": "Reese Francom",
+            "author_location": "Critter Guard install",
+            "source": "Google review"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t4",
+        "t6"
+      ],
+      "settings": {
+        "eyebrow": "Customer reviews",
+        "heading": "Homes that speak for themselves."
+      }
     }
   },
   "order": [
@@ -357,6 +418,8 @@
     "kw_home_stats",
     "kw_home_crew",
     "kw_home_estimator",
+    "kw_home_reviews",
+    "kw_home_testimonials",
     "kw_home_quote",
     "kw_home_area",
     "kw_home_cta"

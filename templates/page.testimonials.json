@@ -71,18 +71,6 @@
             "source": "Google review"
           }
         },
-        "t3": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I haven't personally had permanent lighting installed on my own home, but a close friend recently used this company and I had the opportunity to see the finished project in person. The lighting looked fantastic.",
-            "rating": 5,
-            "photo_asset": "kw-review-karen.jpg",
-            "photo_alt": "Single-story home lit in pink permanent lighting at dusk",
-            "author_name": "Karen McHerron",
-            "author_location": "Permanent Lighting install",
-            "source": "Google review"
-          }
-        },
         "t4": {
           "type": "testimonial",
           "settings": {
@@ -120,7 +108,13 @@
           }
         }
       },
-      "block_order": ["t1", "t4", "t2", "t5", "t3", "t6"],
+      "block_order": [
+        "t1",
+        "t4",
+        "t2",
+        "t5",
+        "t6"
+      ],
       "settings": {
         "eyebrow": "Customer reviews",
         "heading": "In their words, not ours."

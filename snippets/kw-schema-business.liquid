@@ -43,6 +43,24 @@
   if settings.kw_bbb_profile_url != blank
     assign same_as_list = same_as_list | append: settings.kw_bbb_profile_url | append: ','
   endif
+  comment
+    Directory listings. Prominence is the ranking factor Kilowash is weakest on: every
+    consistent third-party profile is another confirmation to Google that this is one
+    real business at one phone number. Each is optional and appears only once the URL
+    is saved in Theme settings, so this list grows as the listings go live.
+  endcomment
+  if settings.kw_seo_yelp != blank
+    assign same_as_list = same_as_list | append: settings.kw_seo_yelp | append: ','
+  endif
+  if settings.kw_seo_angi != blank
+    assign same_as_list = same_as_list | append: settings.kw_seo_angi | append: ','
+  endif
+  if settings.kw_seo_nextdoor != blank
+    assign same_as_list = same_as_list | append: settings.kw_seo_nextdoor | append: ','
+  endif
+  if settings.kw_seo_apple_maps != blank
+    assign same_as_list = same_as_list | append: settings.kw_seo_apple_maps | append: ','
+  endif
   assign same_as = same_as_list | split: ','
 
   assign hours_raw = settings.kw_seo_hours
@@ -130,7 +148,15 @@
           "itemOffered": {
             "@type": "Service",
             "name": "Solar panel cleaning and maintenance",
-            "url": {{ request.origin | append: '/pages/solar' | json }}
+            "url": {{ request.origin | append: '/pages/panel-cleaning' | json }}
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Critter Guard solar panel bird and pest protection",
+            "url": {{ request.origin | append: '/pages/critter-guard' | json }}
           }
         }
       ]

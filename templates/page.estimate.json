@@ -34,7 +34,7 @@
         "subheading": "This gives a rough low-to-high range for budgeting. Every project is confirmed with a free, no-obligation on-site measurement.",
         "disclaimer": "Rough estimate only, for budgeting purposes. All pricing is subject to adders based on site conditions (roof height, access, material). Final pricing is confirmed after a free on-site measurement.",
         "cta_label": "Send me this estimate",
-        "cta_link": "/pages/contact#quote-form",
+        "cta_link": "#quote-form",
         "rate_ft": 27,
         "rate_smart_addon": 500,
         "rate_power_box": 200,
@@ -96,12 +96,25 @@
         "secondary_label": "Email us",
         "secondary_link": "mailto:KilowashUtah@gmail.com"
       }
+    },
+    "kw_estimate_quote": {
+      "type": "kw-quote-form",
+      "settings": {
+        "anchor_id": "quote-form",
+        "eyebrow": "Request a quote",
+        "heading": "Tell us about your home.",
+        "subheading": "Send the details and we'll follow up within 24 hours to schedule your free on-site estimate.",
+        "submit_label": "Request a quote",
+        "secondary_label": "Prefer to book directly? Open our scheduling portal",
+        "secondary_link": "https://clienthub.getjobber.com/hubs/3a67011b-064b-4097-8d0e-1459dcafa742/public/requests/1878911/new"
+      }
     }
   },
   "order": [
     "kw_est_hero",
     "kw_est_calculator",
     "kw_est_why",
+    "kw_estimate_quote",
     "kw_est_cta"
   ]
 }

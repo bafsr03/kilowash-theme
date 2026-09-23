@@ -2243,6 +2243,34 @@
         "id": "kw_seo_gbp_url",
         "label": "Google Business Profile URL",
         "default": ""
+      },
+      {
+        "type": "header",
+        "content": "Directory listings"
+      },
+      {
+        "type": "paragraph",
+        "content": "Each listing you add here is published in the business's sameAs structured data, which is how Google ties the site, the Google Business Profile and the directories together as one business. Paste the public profile URL once the listing is live and verified."
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_yelp",
+        "label": "Yelp profile URL"
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_angi",
+        "label": "Angi profile URL"
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_nextdoor",
+        "label": "Nextdoor page URL"
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_apple_maps",
+        "label": "Apple Maps place URL"
       }
     ]
   },
@@ -2307,6 +2335,48 @@
         "label": "Light plate behind the seal",
         "info": "On by default. BBB's seal is transparent with dark text, drawn for a light background; the footer is near-black, so without the plate the rating line falls to 2.5:1 contrast and cannot be read. Turn this off only if you swap in a seal built for dark backgrounds.",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "Kilowash storefront",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Kilowash sells an installed service, not products. These switches keep the storefront from reading like a web shop. Turning them on restores stock Horizon behaviour."
+      },
+      {
+        "type": "checkbox",
+        "id": "kw_show_cart",
+        "label": "Show cart icon in header",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "kw_show_account",
+        "label": "Show account icon in header",
+        "default": false,
+        "info": "Also requires customer accounts to be enabled in Shopify admin."
+      },
+      {
+        "type": "header",
+        "content": "Analytics"
+      },
+      {
+        "type": "paragraph",
+        "content": "Without these there is no way to prove which SEO change produced which result. Both are safe to leave blank."
+      },
+      {
+        "type": "text",
+        "id": "kw_ga4_id",
+        "label": "Google Analytics 4 measurement ID",
+        "info": "Looks like G-XXXXXXXXXX."
+      },
+      {
+        "type": "text",
+        "id": "kw_gsc_verification",
+        "label": "Search Console verification token",
+        "info": "The content value of the google-site-verification meta tag only, not the whole tag."
       }
     ]
   }
