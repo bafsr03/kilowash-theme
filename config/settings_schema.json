@@ -2142,7 +2142,7 @@
         "id": "kw_seo_phone",
         "label": "Phone number",
         "info": "Goes into structured data only. The number stays cloaked in the visible page copy, so scrapers still cannot harvest it.",
-        "default": "+1-385-439-3362"
+        "default": "+1-385-406-2335"
       },
       {
         "type": "text",
