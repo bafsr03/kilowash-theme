@@ -109,35 +109,35 @@
           "type": "faq",
           "settings": {
             "question": "How much production do dirty panels actually cost?",
-            "answer": "It varies with how long it has been and what has settled. Dust film, pollen and hard-water spotting all scatter light before it reaches the cell, and the loss builds quietly because it never shows up as a fault."
+            "answer": "<p>It varies with how long it has been and what has settled. Dust film, pollen and hard-water spotting all scatter light before it reaches the cell, and the loss builds quietly because it never shows up as a fault.</p>"
           }
         },
         "q2": {
           "type": "faq",
           "settings": {
             "question": "How often should panels be cleaned in Utah?",
-            "answer": "Once a year suits most homes here. Properties under trees, near fields or close to construction dust usually want twice."
+            "answer": "<p>Once a year suits most homes here. Properties under trees, near fields or close to construction dust usually want twice.</p>"
           }
         },
         "q3": {
           "type": "faq",
           "settings": {
             "question": "Do you use anything that could damage the glass?",
-            "answer": "No harsh chemicals and no abrasive pads. Panel glass carries an anti-reflective coating that aggressive cleaning strips, which costs you more output than the dirt did."
+            "answer": "<p>No harsh chemicals and no abrasive pads. Panel glass carries an anti-reflective coating that aggressive cleaning strips, which costs you more output than the dirt did.</p>"
           }
         },
         "q4": {
           "type": "faq",
           "settings": {
             "question": "Can you take panels off for a roof replacement?",
-            "answer": "Yes. Removal and reinstall is one of our core Solar Solutions. The same panels go back on once the new shingles are down."
+            "answer": "<p>Yes. Removal and reinstall is one of our core Solar Solutions. The same panels go back on once the new shingles are down.</p>"
           }
         },
         "q5": {
           "type": "faq",
           "settings": {
             "question": "Do you service systems you did not install?",
-            "answer": "Almost all of them. Our Solar Solutions work is care for existing arrays, whoever put them up."
+            "answer": "<p>Almost all of them. Our Solar Solutions work is care for existing arrays, whoever put them up.</p>"
           }
         }
       },

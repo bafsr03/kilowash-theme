@@ -163,28 +163,28 @@
           "type": "faq",
           "settings": {
             "question": "Do you really cross the state line?",
-            "answer": "Yes. Wood County, West Virginia is part of the same territory as Washington County, Ohio for us. Parkersburg and Marietta are a few minutes apart, and we treat them as one market."
+            "answer": "<p>Yes. Wood County, West Virginia is part of the same territory as Washington County, Ohio for us. Parkersburg and Marietta are a few minutes apart, and we treat them as one market.</p>"
           }
         },
         "q2": {
           "type": "faq",
           "settings": {
             "question": "There is a Wood County in Ohio too. Which one do you serve?",
-            "answer": "West Virginia. Ohio also has a Wood County, up near Toledo, which is roughly four hours from our Mid-Ohio Valley crews and outside our area."
+            "answer": "<p>West Virginia. Ohio also has a Wood County, up near Toledo, which is roughly four hours from our Mid-Ohio Valley crews and outside our area.</p>"
           }
         },
         "q3": {
           "type": "faq",
           "settings": {
             "question": "Does permanent lighting hold up to Ohio Valley winters?",
-            "answer": "That is what it is built for. The channel is fitted into the roofline and the LEDs are rated for freeze-thaw cycling, so nothing comes down in October and nothing goes back up in December."
+            "answer": "<p>That is what it is built for. The channel is fitted into the roofline and the LEDs are rated for freeze-thaw cycling, so nothing comes down in October and nothing goes back up in December.</p>"
           }
         },
         "q4": {
           "type": "faq",
           "settings": {
             "question": "Which Ohio counties are in range?",
-            "answer": "Washington, Noble and Morgan. If you are just outside and on a sensible route, call or text us anyway and we will give you a straight answer."
+            "answer": "<p>Washington, Noble and Morgan. If you are just outside and on a sensible route, call or text us anyway and we will give you a straight answer.</p>"
           }
         }
       },

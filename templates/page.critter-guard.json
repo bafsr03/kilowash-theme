@@ -61,35 +61,35 @@
           "type": "faq",
           "settings": {
             "question": "What actually gets installed?",
-            "answer": "A rigid mesh barrier is clipped to the perimeter of your array, panel by panel. It fastens to the module frames, not to your roof, so nothing is drilled through the shingles and no roof penetration is created."
+            "answer": "<p>A rigid mesh barrier is clipped to the perimeter of your array, panel by panel. It fastens to the module frames, not to your roof, so nothing is drilled through the shingles and no roof penetration is created.</p>"
           }
         },
         "q2": {
           "type": "faq",
           "settings": {
             "question": "Will this void my solar warranty?",
-            "answer": "No. The guard attaches to the module frames with clips designed for the purpose. We do not drill panels, disturb wiring, or alter the racking."
+            "answer": "<p>No. The guard attaches to the module frames with clips designed for the purpose. We do not drill panels, disturb wiring, or alter the racking.</p>"
           }
         },
         "q3": {
           "type": "faq",
           "settings": {
             "question": "What if birds are already nesting under there?",
-            "answer": "We clear and sanitise the area first. Sealing a nest in causes a far worse problem than the one you started with, so removal always comes before exclusion."
+            "answer": "<p>We clear and sanitise the area first. Sealing a nest in causes a far worse problem than the one you started with, so removal always comes before exclusion.</p>"
           }
         },
         "q4": {
           "type": "faq",
           "settings": {
             "question": "How long does it take?",
-            "answer": "Most Utah homes are finished in a single visit. Larger or multi-plane arrays can run longer, and we will tell you which before we start."
+            "answer": "<p>Most Utah homes are finished in a single visit. Larger or multi-plane arrays can run longer, and we will tell you which before we start.</p>"
           }
         },
         "q5": {
           "type": "faq",
           "settings": {
             "question": "Does it reduce how much power I produce?",
-            "answer": "No. The mesh sits at the array edge, below the glass. It does not shade the cells."
+            "answer": "<p>No. The mesh sits at the array edge, below the glass. It does not shade the cells.</p>"
           }
         }
       },

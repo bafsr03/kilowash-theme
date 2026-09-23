@@ -106,10 +106,19 @@
           </a>
         {% endif %}
         {% if section.settings.secondary_label != blank %}
+          {%- comment -%}
+            A filter cannot be applied to a render argument. Shopify's server-side
+            parser rejects the whole FILE for it, keeps the last good version, and says
+            nothing -- which is why this section silently stopped deploying on Sept 15.
+            Theme Check does not catch it; its parser is more permissive. Resolve the
+            value into a variable first.
+          {%- endcomment -%}
           {% if section.settings.secondary_link contains 'tel:' %}
-            {% render 'kw-phone-link', digits: section.settings.secondary_link | remove: 'tel:', class: 'kw-btn kw-btn--ghost', prefix: 'Call / Text ' %}
+            {% assign secondary_digits = section.settings.secondary_link | remove: 'tel:' %}
+            {% render 'kw-phone-link', digits: secondary_digits, class: 'kw-btn kw-btn--ghost', prefix: 'Call / Text ' %}
           {% elsif section.settings.secondary_link contains 'mailto:' %}
-            {% render 'kw-email-link', email: section.settings.secondary_link | remove: 'mailto:', class: 'kw-btn kw-btn--ghost', show_email: false, static_text: section.settings.secondary_label %}
+            {% assign secondary_email = section.settings.secondary_link | remove: 'mailto:' %}
+            {% render 'kw-email-link', email: secondary_email, class: 'kw-btn kw-btn--ghost', show_email: false, static_text: section.settings.secondary_label %}
           {% else %}
             <a href="{{ section.settings.secondary_link }}" class="kw-btn kw-btn--ghost">
               {{ section.settings.secondary_label }}

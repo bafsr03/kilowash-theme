@@ -2195,22 +2195,19 @@
         "type": "textarea",
         "id": "kw_seo_areas_served_2",
         "label": "Places — market 2",
-        "info": "Comma separated. Published inside the SECOND state listed above. Leave blank until the territory is confirmed — an empty list publishes nothing, which is better than naming places the crew does not reach.",
-        "default": ""
+        "info": "Comma separated. Published inside the SECOND state listed above. Leave blank until the territory is confirmed — an empty list publishes nothing, which is better than naming places the crew does not reach."
       },
       {
         "type": "textarea",
         "id": "kw_seo_areas_served_3",
         "label": "Places — market 3",
-        "info": "Comma separated. Published inside the THIRD state listed above. Same rules as the lists above: no state suffix, and leave blank rather than guess.",
-        "default": ""
+        "info": "Comma separated. Published inside the THIRD state listed above. Same rules as the lists above: no state suffix, and leave blank rather than guess."
       },
       {
         "type": "textarea",
         "id": "kw_seo_hours",
         "label": "Opening hours",
-        "info": "Comma separated, one entry per line as: Day HH:MM HH:MM (24-hour). Example: Monday 08:00 16:00. Leave blank until the real hours are confirmed — wrong hours are worse than none.",
-        "default": ""
+        "info": "Comma separated, one entry per line as: Day HH:MM HH:MM (24-hour). Example: Monday 08:00 16:00. Leave blank until the real hours are confirmed — wrong hours are worse than none."
       },
       {
         "type": "image_picker",
@@ -2235,14 +2232,12 @@
       {
         "type": "text",
         "id": "kw_seo_facebook",
-        "label": "Facebook URL",
-        "default": ""
+        "label": "Facebook URL"
       },
       {
         "type": "text",
         "id": "kw_seo_gbp_url",
-        "label": "Google Business Profile URL",
-        "default": ""
+        "label": "Google Business Profile URL"
       },
       {
         "type": "header",
@@ -2312,22 +2307,19 @@
         "type": "text",
         "id": "kw_bbb_profile_url",
         "label": "BBB profile URL",
-        "info": "Where the seal links to — the Kilowash BBB business profile page. Leave blank to render the seal unlinked.",
-        "default": ""
+        "info": "Where the seal links to — the Kilowash BBB business profile page. Leave blank to render the seal unlinked."
       },
       {
         "type": "text",
         "id": "kw_bbb_alt",
         "label": "Seal alt text",
-        "info": "Leave blank to use \"<business name> — BBB Trust Seal\". Only change this if BBB's terms require exact wording.",
-        "default": ""
+        "info": "Leave blank to use \"<business name> — BBB Trust Seal\". Only change this if BBB's terms require exact wording."
       },
       {
         "type": "textarea",
         "id": "kw_bbb_seal_embed",
         "label": "Seal embed code",
-        "info": "Paste the code from BBB's Trust Seal generator here. For BBB this is the correct path, not a fallback — their hosted seal tracks live accreditation status. Pasted into the page raw and unescaped, so paste ONLY code that came from BBB.",
-        "default": ""
+        "info": "Paste the code from BBB's Trust Seal generator here. For BBB this is the correct path, not a fallback — their hosted seal tracks live accreditation status. Pasted into the page raw and unescaped, so paste ONLY code that came from BBB."
       },
       {
         "type": "checkbox",

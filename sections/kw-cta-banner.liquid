@@ -15,20 +15,30 @@
         {% render 'kw-phone-link', digits: section.settings.phone_link, mode: 'sms', class: 'kw-cta__text-link', show_number: false, static_text: 'or text us' %}
       </p>
       <div class="kw-cta__actions kw-reveal">
+        {%- comment -%}
+          A filter cannot be applied to a render argument. Shopify's server-side parser
+          rejects the whole file for it and keeps the last good version silently, so the
+          section stops deploying with no error anywhere. Theme Check does not catch it.
+          Resolve the value into a variable first.
+        {%- endcomment -%}
         {% if section.settings.primary_label != blank %}
           {% if section.settings.primary_link contains 'mailto:' %}
-            {% render 'kw-email-link', email: section.settings.primary_link | remove: 'mailto:', class: 'kw-btn', show_email: false, static_text: section.settings.primary_label %}
+            {% assign cta_primary_email = section.settings.primary_link | remove: 'mailto:' %}
+            {% render 'kw-email-link', email: cta_primary_email, class: 'kw-btn', show_email: false, static_text: section.settings.primary_label %}
           {% elsif section.settings.primary_link contains 'tel:' %}
-            {% render 'kw-phone-link', digits: section.settings.primary_link | remove: 'tel:', class: 'kw-btn', show_number: false, static_text: section.settings.primary_label %}
+            {% assign cta_primary_digits = section.settings.primary_link | remove: 'tel:' %}
+            {% render 'kw-phone-link', digits: cta_primary_digits, class: 'kw-btn', show_number: false, static_text: section.settings.primary_label %}
           {% else %}
             <a href="{{ section.settings.primary_link }}" class="kw-btn">{{ section.settings.primary_label }}</a>
           {% endif %}
         {% endif %}
         {% if section.settings.secondary_label != blank %}
           {% if section.settings.secondary_link contains 'mailto:' %}
-            {% render 'kw-email-link', email: section.settings.secondary_link | remove: 'mailto:', class: 'kw-btn kw-btn--ghost', show_email: false, static_text: section.settings.secondary_label %}
+            {% assign cta_secondary_email = section.settings.secondary_link | remove: 'mailto:' %}
+            {% render 'kw-email-link', email: cta_secondary_email, class: 'kw-btn kw-btn--ghost', show_email: false, static_text: section.settings.secondary_label %}
           {% elsif section.settings.secondary_link contains 'tel:' %}
-            {% render 'kw-phone-link', digits: section.settings.secondary_link | remove: 'tel:', class: 'kw-btn kw-btn--ghost', show_number: false, static_text: section.settings.secondary_label %}
+            {% assign cta_secondary_digits = section.settings.secondary_link | remove: 'tel:' %}
+            {% render 'kw-phone-link', digits: cta_secondary_digits, class: 'kw-btn kw-btn--ghost', show_number: false, static_text: section.settings.secondary_label %}
           {% else %}
             <a href="{{ section.settings.secondary_link }}" class="kw-btn kw-btn--ghost">{{ section.settings.secondary_label }}</a>
           {% endif %}
