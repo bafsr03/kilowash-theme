@@ -13,7 +13,7 @@
   drift apart from each other or from the JS, which recomputes from the same settings.
   The default reflects a typical Utah home: 120 ft with the Smart App Control box on,
   which is checked by default below. The power box is not included because it only
-  becomes required past the threshold setting (160 ft).
+  becomes required past the threshold setting (200 ft).
 {%- endcomment -%}
 {%- liquid
   assign est_default_ft = 120
@@ -66,7 +66,7 @@
             <input type="checkbox" data-kw-addon="soffit">
             <span>
               Power box
-              <small class="kw-est__toggle-note">Required for installs over {{ section.settings.power_box_threshold_ft | default: 160 }} ft</small>
+              <small class="kw-est__toggle-note">Required for installs over {{ section.settings.power_box_threshold_ft | default: 200 }} ft</small>
             </span>
           </label>
         </div>
@@ -294,8 +294,8 @@
 
     var RATE_FT = {{ section.settings.rate_ft | default: 27 }};
     var SMART_ADDON = {{ section.settings.rate_smart_addon | default: 500 }};
-    var SOFFIT_FLAT = {{ section.settings.rate_power_box | default: 200 }};
-    var POWER_BOX_MIN_FT = {{ section.settings.power_box_threshold_ft | default: 160 }};
+    var SOFFIT_FLAT = {{ section.settings.rate_power_box | default: 500 }};
+    var POWER_BOX_MIN_FT = {{ section.settings.power_box_threshold_ft | default: 200 }};
     var FAN_RATE = {{ section.settings.rate_fan | default: 1200 }};
     var GUARD_FT_RATE = {{ section.settings.rate_guard_ft | default: 14 }};
     var PANEL_CLEAN_RATE = {{ section.settings.rate_clean_panel | default: 5 }};
@@ -406,8 +406,8 @@
     { "type": "header", "content": "Lighting rates" },
     { "type": "number", "id": "rate_ft", "label": "Per linear foot ($)", "default": 27 },
     { "type": "number", "id": "rate_smart_addon", "label": "Smart App Control box ($)", "default": 500 },
-    { "type": "number", "id": "rate_power_box", "label": "Power box, flat ($)", "default": 200 },
-    { "type": "number", "id": "power_box_threshold_ft", "label": "Power box required above (ft)", "default": 160 },
+    { "type": "number", "id": "rate_power_box", "label": "Power box, flat ($)", "default": 500 },
+    { "type": "number", "id": "power_box_threshold_ft", "label": "Power box required above (ft)", "default": 200 },
     { "type": "header", "content": "Solar & attic rates" },
     { "type": "number", "id": "rate_fan", "label": "Solar attic fan, each ($)", "default": 1200 },
     { "type": "number", "id": "rate_guard_ft", "label": "Critter Guard per foot ($)", "default": 14 },
