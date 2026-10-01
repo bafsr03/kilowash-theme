@@ -322,7 +322,7 @@
           "type": "faq",
           "settings": {
             "question": "How much does permanent lighting cost?",
-            "answer": "<p>Permanent architectural lighting runs $27 per linear foot of roofline. A typical home with 150 to 250 feet of roofline lands between $4,000 and $6,750. Add-ons are flat rate: Smart App Control is $500 and a Power box is $200. You can price your own home on our <a href=\"/pages/estimate\">estimate page</a> — real rates, no sales call.</p>"
+            "answer": "<p>Permanent architectural lighting runs $27 per linear foot of roofline. A typical home with 150 to 250 feet of roofline lands between $4,000 and $6,750. Add-ons are flat rate: Smart App Control is $500 and a Power box is $500, required on any roofline over 200 feet. You can price your own home on our <a href=\"/pages/estimate\">estimate page</a> — real rates, no sales call.</p>"
           }
         },
         "faq_2": {
@@ -375,8 +375,8 @@
       "settings": {
         "raised": false,
         "eyebrow": "Where we work",
-        "heading": "Permanent lighting across Utah, Ohio & West Virginia",
-        "body": "<p>We install permanent architectural lighting across Utah, Ohio and West Virginia. If your town is not listed, call or text us anyway — we will tell you straight whether we can get to you.</p>",
+        "heading": "Permanent lighting across Salt Lake & Utah County",
+        "body": "<p>We install permanent Christmas and architectural lighting across the Wasatch Front, from Ogden to Provo. If your town is not listed, call or text us anyway — we will tell you straight whether we can get to you. Outside Utah, we also work the <a href=\"/pages/mid-ohio-valley\">Mid-Ohio Valley</a>.</p>",
         "cities": "",
         "links_label": "More from Kilowash"
       },

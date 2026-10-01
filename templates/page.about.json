@@ -16,7 +16,7 @@
         "min_height": 56,
         "eyebrow": "About Kilowash",
         "heading": "A local crew, obsessed with the details.",
-        "subheading": "Kilowash Lighting and Solar Solutions installs permanent lighting, solar and attic protection across Utah, Ohio and West Virginia — built and backed by the people who show up on your roof.",
+        "subheading": "Kilowash Lighting and Solar Solutions installs permanent lighting, solar and attic protection across Utah and the Mid-Ohio Valley — built and backed by the people who show up on your roof.",
         "primary_label": "Get my free estimate",
         "primary_link": "/pages/estimate",
         "secondary_label": "",
@@ -52,7 +52,7 @@
       "type": "kw-why-grid",
       "blocks": {
         "local": { "type": "feature", "settings": { "icon": "👷", "title": "Our crews, not subcontractors", "body": "Every install is done by a Kilowash crew — the same people from estimate to install to warranty call." } },
-        "own": { "type": "feature", "settings": { "icon": "🔑", "title": "You own everything", "body": "Your Shopify site, your data, your leads. No vendor lock-in, ever." } },
+        "own": { "type": "feature", "settings": { "icon": "🔑", "title": "A warranty you can actually call", "body": "Ten years on every lighting install, handled by the same crew that put it up — not a call centre." } },
         "response": { "type": "feature", "settings": { "icon": "⏱️", "title": "24-hour response", "body": "Every inquiry gets a callback within 24 hours — from a real person, not a script." } }
       },
       "block_order": ["local", "own", "response"],

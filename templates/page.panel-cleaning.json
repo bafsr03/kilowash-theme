@@ -69,25 +69,25 @@
         "efficient": {
           "type": "feature",
           "settings": {
-            "icon": "☀️",
-            "title": "100% solar powered",
-            "body": "Attic fans run entirely off the sun — no electrician, no added utility bill."
+            "icon": "💧",
+            "title": "Safe on the coating",
+            "body": "No harsh chemicals and no abrasive pads. Panel glass carries an anti-reflective coating that aggressive cleaning strips."
           }
         },
         "protect": {
           "type": "feature",
           "settings": {
-            "icon": "🛡️",
-            "title": "Total pest exclusion",
-            "body": "Critter Guard mesh keeps birds, pigeons and rodents out — permanently."
+            "icon": "🔧",
+            "title": "Any array, any installer",
+            "body": "We clean and service almost every residential system, whoever put it on your roof."
           }
         },
         "warranty": {
           "type": "feature",
           "settings": {
-            "icon": "🏆",
-            "title": "10-year warranty",
-            "body": "Every attic fan and Critter Guard install is backed for a decade."
+            "icon": "🏠",
+            "title": "Re-roofing? Panels off and back on",
+            "body": "Full removal and reinstall for roof work, so the same panels go back on once the new shingles are down."
           }
         }
       },
@@ -98,8 +98,8 @@
       ],
       "settings": {
         "raised": true,
-        "eyebrow": "Why Kilowash solar",
-        "heading": "Built to protect your investment."
+        "eyebrow": "Why Kilowash solar care",
+        "heading": "Cleaner panels, done properly."
       }
     },
     "pc_faq": {

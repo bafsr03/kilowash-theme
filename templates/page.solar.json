@@ -286,7 +286,7 @@
           "type": "faq",
           "settings": {
             "question": "What areas do you cover?",
-            "answer": "<p>Utah, Ohio and West Virginia. See the service area below, or check our <a href=\"/pages/testimonials\">recent projects</a>.</p>"
+            "answer": "<p>The Wasatch Front, from Ogden down to Provo — see the full list below, or check our <a href=\"/pages/testimonials\">recent projects</a>. We also serve the <a href=\"/pages/mid-ohio-valley\">Mid-Ohio Valley</a> in Ohio and West Virginia.</p>"
           }
         }
       },
@@ -304,8 +304,8 @@
       "settings": {
         "raised": false,
         "eyebrow": "Where we work",
-        "heading": "Solar service across Utah, Ohio & West Virginia",
-        "body": "<p>We install solar attic fans and service existing panel systems across Utah, Ohio and West Virginia. Not sure if you are in range? Call or text and we will tell you straight.</p>",
+        "heading": "Solar attic fans & panel care across Utah",
+        "body": "<p>We install solar attic fans and service existing panel systems across the Wasatch Front, from Ogden to Provo. Not sure if you are in range? Call or text and we will tell you straight. Outside Utah, we also work the <a href=\"/pages/mid-ohio-valley\">Mid-Ohio Valley</a>.</p>",
         "cities": "",
         "links_label": "More from Kilowash"
       },
