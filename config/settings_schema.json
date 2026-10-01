@@ -2154,7 +2154,15 @@
         "type": "text",
         "id": "kw_seo_locality",
         "label": "Primary city",
-        "default": "Salt Lake City"
+        "info": "Must match the city on the Google Business Profile and BBB listing (Pleasant Grove). A different city here is a NAP mismatch.",
+        "default": "Pleasant Grove"
+      },
+      {
+        "type": "text",
+        "id": "kw_seo_postal_code",
+        "label": "ZIP code",
+        "info": "The ZIP on the Google Business Profile. Structured data only; no street address is published.",
+        "default": "84062"
       },
       {
         "type": "text",
@@ -2238,6 +2246,12 @@
         "type": "text",
         "id": "kw_seo_gbp_url",
         "label": "Google Business Profile URL"
+      },
+      {
+        "type": "text",
+        "id": "kw_review_url",
+        "label": "Google review link",
+        "info": "The 'Ask for reviews' short link from the Google Business Profile (g.page/r/.../review). Shows a 'Leave us a review' button on the review badges once filled in."
       },
       {
         "type": "header",
@@ -2369,6 +2383,12 @@
         "id": "kw_gsc_verification",
         "label": "Search Console verification token",
         "info": "The content value of the google-site-verification meta tag only, not the whole tag."
+      },
+      {
+        "type": "text",
+        "id": "kw_bing_verification",
+        "label": "Bing Webmaster Tools verification token",
+        "info": "The content value of the msvalidate.01 meta tag only. Not needed if the site was imported into Bing from Search Console."
       }
     ]
   }

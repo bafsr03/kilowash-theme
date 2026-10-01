@@ -14,48 +14,36 @@
   Rendered from layout/theme.liquid immediately after 'meta-tags'.
 {%- endcomment -%}
 
+{%- capture fallback_desc -%}{%- render 'kw-seo-desc' -%}{%- endcapture -%}
+{%- assign fallback_desc = fallback_desc | strip -%}
+
+{%- comment -%}
+  Keep the leftover storefront out of the index. Kilowash sells an installed service,
+  but Horizon still serves product, collection, cart and search pages, and Shopify
+  lists an empty blog and its privacy-choices page in the sitemap. None of them can
+  rank for anything a homeowner searches, and every one Google indexes is a thin page
+  diluting the ten that matter. "follow" keeps any links on them counted.
+
+  The blog drops out of the noindex on its own the moment it has a published post.
+{%- endcomment -%}
 {%- liquid
-  assign fallback_desc = ''
-
-  comment
-    Descriptions are Utah-first to match the titles in kw-seo-title. The three-state
-    footprint is not hidden — it keeps its own page (mid-ohio-valley) and stays whole
-    in the JSON-LD areaServed. What changes is which market each page leads with, so
-    the homepage stops splitting its local signal three ways.
-  endcomment
-  if request.page_type == 'index'
-    assign fallback_desc = 'Permanent Christmas, holiday and architectural lighting for Salt Lake City and Utah County homes. App-controlled, 10-year warranty, free estimates.'
-  elsif request.page_type == 'page'
-    case template.suffix
-      when 'lighting'
-        assign fallback_desc = 'Permanent architectural and holiday lighting installed across Salt Lake City and Utah County. App-controlled, freeze-thaw rated, 10-year warranty.'
-      when 'solar'
-        assign fallback_desc = 'Solar attic fan installation and solar panel care across Utah. Pull trapped heat out of your attic and keep your system producing. Free estimates.'
-      when 'estimate'
-        assign fallback_desc = 'Price your permanent lighting or solar attic fan install in about a minute. Real Kilowash rates for Utah homes, no sales call required.'
-      when 'testimonials'
-        assign fallback_desc = 'Real Kilowash installs and reviews from Utah homeowners — permanent lighting, solar attic fan and Critter Guard projects across the Wasatch Front.'
-      when 'about'
-        assign fallback_desc = 'A licensed and insured Utah team installing permanent architectural lighting and solar attic protection, with our own crews on every roof.'
-      when 'contact'
-        assign fallback_desc = 'Call or text the Kilowash crew for a free estimate on permanent lighting or solar attic fans anywhere we work in Utah. Fast response.'
-      when 'mid-ohio-valley'
-        assign fallback_desc = 'Kilowash installs permanent architectural lighting and solar attic fans across Washington, Noble and Morgan County OH and Wood County WV.'
-      when 'critter-guard'
-        assign fallback_desc = 'Pigeon and bird proofing for solar panels. Critter Guard mesh keeps birds and pests out from under your array, installed across Utah by Kilowash.'
-      when 'panel-cleaning'
-        assign fallback_desc = 'Solar panel cleaning and system care across Utah. Keep your array producing at full output. Licensed, insured, free estimates from Kilowash.'
-      when 'city'
-        assign fallback_desc = 'Permanent architectural and holiday lighting installed in ' | append: page.title | append: ', Utah. App-controlled, 10-year warranty, free on-site estimates.'
-      else
-        assign fallback_desc = settings.kw_seo_description
-    endcase
-  endif
-
-  if fallback_desc == blank
-    assign fallback_desc = settings.kw_seo_description
-  endif
+  assign kw_noindex = false
+  case request.page_type
+    when 'product', 'collection', 'list-collections', 'search', 'cart'
+      assign kw_noindex = true
+    when 'blog'
+      if blog.articles_count == 0
+        assign kw_noindex = true
+      endif
+    when 'page'
+      if page.handle == 'data-sharing-opt-out'
+        assign kw_noindex = true
+      endif
+  endcase
 -%}
+{%- if kw_noindex -%}
+  <meta name="robots" content="noindex, follow">
+{%- endif -%}
 
 {%- comment -%}Only fires when the admin SEO description is empty — no duplicates.{%- endcomment -%}
 {%- if page_description == blank and fallback_desc != blank -%}
@@ -80,8 +68,11 @@
     link previews on X/Slack/iMessage currently fall back to nothing.
   {%- endcomment -%}
   {%- unless page_image -%}
-    <meta property="og:image" content="{{ share_image | image_url: width: 1200 | prepend: 'https:' }}">
-    <meta property="og:image:secure_url" content="{{ share_image | image_url: width: 1200 | prepend: 'https:' }}">
+    {%- comment -%}Cropped to 1200x630, the ratio Facebook, iMessage and X all render without trimming.{%- endcomment -%}
+    <meta property="og:image" content="{{ share_image | image_url: width: 1200, height: 630, crop: 'center' | prepend: 'https:' }}">
+    <meta property="og:image:secure_url" content="{{ share_image | image_url: width: 1200, height: 630, crop: 'center' | prepend: 'https:' }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
   {%- endunless -%}
-  <meta name="twitter:image" content="{{ share_image | image_url: width: 1200 | prepend: 'https:' }}">
+  <meta name="twitter:image" content="{{ share_image | image_url: width: 1200, height: 630, crop: 'center' | prepend: 'https:' }}">
 {%- endif -%}

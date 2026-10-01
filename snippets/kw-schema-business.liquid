@@ -99,6 +99,9 @@
       {% if biz_locality != blank -%}
         "addressLocality": {{ biz_locality | json }},
       {%- endif %}
+      {% if settings.kw_seo_postal_code != blank -%}
+        "postalCode": {{ settings.kw_seo_postal_code | json }},
+      {%- endif %}
       "addressRegion": {{ biz_region | json }},
       "addressCountry": "US"
     },

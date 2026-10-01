@@ -22,6 +22,10 @@
   <meta name="google-site-verification" content="{{ settings.kw_gsc_verification | escape }}">
 {%- endif -%}
 
+{%- if settings.kw_bing_verification != blank -%}
+  <meta name="msvalidate.01" content="{{ settings.kw_bing_verification | escape }}">
+{%- endif -%}
+
 {%- if settings.kw_ga4_id != blank -%}
   {%- comment -%}
     RemoteAsset is disabled deliberately for this one line. gtag.js must be fetched

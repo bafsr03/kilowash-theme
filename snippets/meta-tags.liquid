@@ -15,7 +15,7 @@
 >
 <meta
   name="theme-color"
-  content=""
+  content="#0a0d12"
 >
 
 {%- comment -%}
@@ -24,12 +24,14 @@
 {%- endcomment -%}
 {%- capture kw_seo_title -%}{%- render 'kw-seo-title' -%}{%- endcapture -%}
 {%- assign kw_seo_title = kw_seo_title | strip -%}
+{%- capture kw_seo_desc -%}{%- render 'kw-seo-desc' -%}{%- endcapture -%}
+{%- assign kw_seo_desc = kw_seo_desc | strip -%}
 
 {%- liquid
   assign og_title = kw_seo_title | default: page_title | default: shop.name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
-  assign og_description = page_description | default: shop.description | default: shop.name
+  assign og_description = page_description | default: kw_seo_desc | default: shop.description | default: shop.name
 
   if request.page_type == 'product'
     assign og_type = 'product'

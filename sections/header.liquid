@@ -311,17 +311,13 @@
   {% endif %}
 {% endcapture %}
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": {{ shop.name | json }},
-    {% if settings.logo %}
-      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
-    {% endif %}
-    "url": {{ request.origin | json }}
-  }
-</script>
+{%- comment -%}
+  Kilowash: Horizon's stock Organization JSON-LD was removed here. It published a
+  second, unlinked business entity named "Kilowash" (no @id) next to the
+  HomeAndConstructionBusiness "Kilowash Lighting and Solar Solutions" from
+  snippets/kw-schema-business. Two names for one company is the inconsistency local
+  ranking penalises; the kw node already carries logo, url and sameAs.
+{%- endcomment -%}
 
 <header-component
   id="header-component"
@@ -366,9 +362,10 @@
   <div
     class="header__underlay header__underlay-open"
   ></div>
-  {%- if request.page_type == 'index' -%}
-    <h1 class="visually-hidden">{{ shop.name }}</h1>
-  {%- endif -%}
+  {%- comment -%}
+    Kilowash: stock Horizon printed a hidden <h1>{{ shop.name }}</h1> on the homepage,
+    which gave it two H1s. The hero (kw-hero-seasonal) supplies the real, keyworded H1.
+  {%- endcomment -%}
   {% for row in rows %}
     {% liquid
       assign background = 'background_color_' | append: row
