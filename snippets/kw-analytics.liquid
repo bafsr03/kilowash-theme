@@ -44,3 +44,35 @@
     gtag('config', {{ settings.kw_ga4_id | json }});
   </script>
 {%- endif -%}
+
+{%- comment -%}
+  Lead events. A page view proves nobody called. These are the four actions that
+  are actually a lead for an installed-service business, sent to GA4 so each one can
+  be marked as a key event and credited back to the search, map or referral that
+  produced it:
+
+    click_to_call     tap on any tel: link (all phone links, once kw-spamguard decodes them)
+    click_to_text     tap on any sms: link
+    booking_click     the Jobber "book directly" portal link
+    generate_lead     quote form submitted successfully (fired by kw-quote-form)
+    estimator_used    first interaction with the price estimator (fired by kw-estimator)
+
+  window.kwTrack is always defined, so sections can call it unconditionally. Without a
+  GA4 ID it does nothing.
+{%- endcomment -%}
+<script>
+  window.kwTrack = function (name, params) {
+    try {
+      if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+    } catch (e) {}
+  };
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href]');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    var where = { link_location: (link.closest('[id]') || {}).id || '' };
+    if (href.indexOf('tel:') === 0) window.kwTrack('click_to_call', where);
+    else if (href.indexOf('sms:') === 0) window.kwTrack('click_to_text', where);
+    else if (href.indexOf('getjobber.com') !== -1) window.kwTrack('booking_click', where);
+  }, true);
+</script>

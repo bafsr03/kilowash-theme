@@ -45,12 +45,12 @@
     </div>
 
     <div class="kw-est__panel kw-reveal-scale">
-      <div class="kw-est__tabs" role="tablist">
-        <button type="button" class="kw-est__tab is-active" data-kw-tab="lighting">Permanent Lighting</button>
-        <button type="button" class="kw-est__tab" data-kw-tab="solar">Solar &amp; Attic</button>
+      <div class="kw-est__tabs" role="tablist" aria-label="Estimate type">
+        <button type="button" role="tab" aria-selected="true" aria-controls="kw-est-{{ section.id }}-lighting" id="kw-est-{{ section.id }}-tab-lighting" class="kw-est__tab is-active" data-kw-tab="lighting">Permanent Lighting</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="kw-est-{{ section.id }}-solar" id="kw-est-{{ section.id }}-tab-solar" class="kw-est__tab" data-kw-tab="solar">Solar &amp; Attic</button>
       </div>
 
-      <div class="kw-est__pane is-active" data-kw-pane="lighting">
+      <div class="kw-est__pane is-active" data-kw-pane="lighting" role="tabpanel" id="kw-est-{{ section.id }}-lighting" aria-labelledby="kw-est-{{ section.id }}-tab-lighting">
         <label class="kw-est__field">
           <span class="kw-est__field-label">Linear feet of roofline / trim</span>
           <input type="range" min="20" max="650" step="10" value="{{ est_default_ft }}" data-kw-ft>
@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <div class="kw-est__pane" data-kw-pane="solar">
+      <div class="kw-est__pane" data-kw-pane="solar" role="tabpanel" id="kw-est-{{ section.id }}-solar" aria-labelledby="kw-est-{{ section.id }}-tab-solar">
         <label class="kw-est__field">
           <span class="kw-est__field-label">Number of solar panels</span>
           <input type="range" min="0" max="40" step="2" value="16" data-kw-panels>
@@ -117,7 +117,7 @@
         </div>
         <p class="kw-est__disclaimer">{{ section.settings.disclaimer }}</p>
         {% if section.settings.cta_label != blank %}
-          <a href="{{ section.settings.cta_link }}" class="kw-btn">{{ section.settings.cta_label }}</a>
+          <a href="{{ section.settings.cta_link }}" class="kw-btn" data-kw-est-cta>{{ section.settings.cta_label }}</a>
         {% endif %}
       </div>
     </div>
@@ -309,7 +309,10 @@
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
         activeTab = tab.dataset.kwTab;
-        tabs.forEach(function (t) { t.classList.toggle('is-active', t === tab); });
+        tabs.forEach(function (t) {
+          t.classList.toggle('is-active', t === tab);
+          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
         panes.forEach(function (p) { p.classList.toggle('is-active', p.dataset.kwPane === activeTab); });
         compute();
       });
@@ -380,12 +383,64 @@
       }
 
       totalOut.textContent = money(total);
+      remember(total);
+    }
+
+    // Hand the configuration to the quote form (same page or the next one) through
+    // sessionStorage, so the lead arrives with the roofline and price attached.
+    function remember(total) {
+      var summary, service;
+      if (activeTab === 'lighting') {
+        var parts = [ftInput.value + ' ft of roofline'];
+        if (addonSmart.checked) parts.push('Smart App Control box');
+        if (addonSoffit.checked) parts.push('power box');
+        summary = money(total) + ' (lighting: ' + parts.join(', ') + ')';
+        service = 'Permanent Lights';
+      } else {
+        var bits = [];
+        if (+fansInput.value) bits.push(fansInput.value + ' attic fan(s)');
+        if (+guardInput.value) bits.push(guardInput.value + ' ft Critter Guard');
+        if (addonClean.checked) bits.push(panelsInput.value + ' panels cleaned');
+        if (addonRemoval.checked) bits.push(panelsInput.value + ' panels removed & reinstalled');
+        if (addonService.checked) bits.push('service call');
+        summary = money(total) + ' (solar & attic: ' + (bits.join(', ') || 'nothing selected') + ')';
+        service = +fansInput.value ? 'Attic Fan' : (+guardInput.value ? 'Critter Guard' : 'Solar Solutions');
+      }
+      root.dataset.kwSummary = summary;
+      root.dataset.kwService = service;
+    }
+
+    var tracked = false;
+    function used() {
+      if (tracked) return;
+      tracked = true;
+      if (window.kwTrack) window.kwTrack('estimator_used', { estimate_type: activeTab });
+    }
+
+    var cta = root.querySelector('[data-kw-est-cta]');
+    if (cta) {
+      cta.addEventListener('click', function () {
+        try {
+          sessionStorage.setItem('kwEstimate', JSON.stringify({ summary: root.dataset.kwSummary, service: root.dataset.kwService }));
+        } catch (e) {}
+        var field = document.querySelector('[data-kw-estimate-field]');
+        var note = document.querySelector('[data-kw-estimate-note]');
+        if (field) field.value = root.dataset.kwSummary;
+        if (note) {
+          note.textContent = 'Your estimate: ' + root.dataset.kwSummary + '. We will confirm it on a free on-site visit.';
+          note.hidden = false;
+        }
+        var select = document.querySelector('select[name="contact[Service type]"]');
+        if (select && !select.value) select.value = root.dataset.kwService;
+        if (window.kwTrack) window.kwTrack('estimator_quote_click', { estimate_type: activeTab });
+      });
     }
 
     [ftInput, panelsInput, fansInput, guardInput, addonSmart, addonSoffit, addonClean, addonRemoval, addonService].forEach(function (el) {
       if (!el) return;
       el.addEventListener('input', compute);
       el.addEventListener('change', compute);
+      el.addEventListener('input', used);
     });
 
     compute();

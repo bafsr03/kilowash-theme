@@ -33,6 +33,17 @@
       </div>
     {% endif %}
 
+    {%- comment -%}
+      Review count and recency are the strongest map-pack signals Kilowash can move,
+      and the cheapest way to move them is to make asking easy. The button appears
+      once the Google review short link is saved in Theme settings > Kilowash SEO.
+    {%- endcomment -%}
+    {% if settings.kw_review_url != blank %}
+      <p class="kw-google-reviews__cta kw-reveal">
+        <a class="kw-btn kw-btn--ghost" href="{{ settings.kw_review_url }}" target="_blank" rel="noopener">Had an install with us? Leave a Google review</a>
+      </p>
+    {% endif %}
+
     {% if section.settings.embed_code != blank %}
       <div class="kw-google-reviews__embed kw-reveal-scale">
         {{ section.settings.embed_code }}
@@ -44,6 +55,10 @@
 <style>
   #kw-google-reviews-{{ section.id }} {
     padding-block: clamp(56px, 8vw, 108px);
+  }
+
+  #kw-google-reviews-{{ section.id }} .kw-google-reviews__cta {
+    margin: 1.6rem 0 0;
   }
 
   #kw-google-reviews-{{ section.id }} .kw-google-reviews__heading {

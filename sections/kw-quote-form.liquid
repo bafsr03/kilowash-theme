@@ -25,6 +25,12 @@
       {%- form 'contact', id: form_id, class: 'kw-qform__form', data-kw-spamguard: '' -%}
         <input type="hidden" name="contact[id]" value="{{ form_id }}">
         <input type="hidden" name="contact[Lead source]" value="Website quote form">
+        {%- comment -%}
+          Filled from the estimator (kw-estimator stores the visitor's configuration in
+          sessionStorage), so a lead that priced a roofline arrives saying what it
+          priced instead of starting the conversation from zero.
+        {%- endcomment -%}
+        <input type="hidden" name="contact[Estimator result]" value="" data-kw-estimate-field>
 
         <div class="kw-qform__trap" aria-hidden="true">
           <label for="{{ form_id }}-website">Website</label>
@@ -49,6 +55,10 @@
           <div class="kw-qform__success" tabindex="-1" autofocus>
             Thanks — your request is in. We'll call or text within 24 hours to confirm next steps.
           </div>
+          <script>
+            window.kwTrack && window.kwTrack('generate_lead', { form: 'quote' });
+            try { sessionStorage.removeItem('kwEstimate'); } catch (e) {}
+          </script>
         {%- else -%}
           <div class="kw-qform__row">
             <label class="kw-qform__field">
@@ -60,6 +70,8 @@
               <input type="tel" class="kw-qform__input" autocomplete="tel" name="contact[phone]" pattern="[0-9\-\+\(\)\s]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" required>
             </label>
           </div>
+
+          <p class="kw-qform__estimate" data-kw-estimate-note hidden></p>
 
           <label class="kw-qform__field">
             <span class="kw-qform__label">Email</span>
@@ -76,10 +88,12 @@
               <span class="kw-qform__label">What do you need?</span>
               <select class="kw-qform__input kw-qform__select" name="contact[Service type]" required>
                 <option value="" disabled selected>Choose a service</option>
-                <option value="Permanent Lights">Permanent Lights</option>
-                <option value="Solar Solutions">Solar Solutions</option>
-                <option value="Attic Fan">Attic Fan</option>
-                <option value="Critter Guard">Critter Guard</option>
+                <option value="Permanent Lights">Permanent Christmas / architectural lights</option>
+                <option value="Attic Fan">Solar attic fan</option>
+                <option value="Solar panel cleaning">Solar panel cleaning</option>
+                <option value="Solar removal & reinstall">Solar panel removal &amp; reinstall</option>
+                <option value="Critter Guard">Critter Guard / pigeon proofing</option>
+                <option value="Solar Solutions">Other solar service</option>
                 <option value="Not sure / other">Not sure / other</option>
               </select>
             </label>
@@ -207,8 +221,16 @@
     margin-bottom: 0.5rem;
   }
 
+  #{{ section.settings.anchor_id | default: 'quote-form' }} .kw-qform__estimate {
+    margin: 0 0 1rem;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--kw-gold);
+    border-radius: 6px;
+    font-size: 0.92rem;
+  }
+
   #{{ section.settings.anchor_id | default: 'quote-form' }} .kw-qform__optional {
-    opacity: 0.62;
+    opacity: 0.85;
     font-size: 0.94em;
   }
 
@@ -279,6 +301,25 @@
     }
   }
 </style>
+
+<script>
+  (function () {
+    var root = document.getElementById({{ section.settings.anchor_id | default: 'quote-form' | json }});
+    if (!root) return;
+    var saved;
+    try { saved = JSON.parse(sessionStorage.getItem('kwEstimate') || 'null'); } catch (e) { saved = null; }
+    if (!saved || !saved.summary) return;
+    var field = root.querySelector('[data-kw-estimate-field]');
+    var note = root.querySelector('[data-kw-estimate-note]');
+    if (field) field.value = saved.summary;
+    if (note) {
+      note.textContent = 'Your estimate: ' + saved.summary + '. We will confirm it on a free on-site visit.';
+      note.hidden = false;
+    }
+    var select = root.querySelector('select[name="contact[Service type]"]');
+    if (select && !select.value && saved.service) select.value = saved.service;
+  })();
+</script>
 
 {% schema %}
 {
