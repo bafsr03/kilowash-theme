@@ -59,11 +59,23 @@
 {%- endif -%}
 
 {%- liquid
+  comment
+    Same rule as meta-tags: a page's own image (product, article, collection) wins;
+    everywhere else the Kilowash share image beats the store-wide Preferences image.
+  endcomment
   assign share_image = null
+  assign own_image = false
   if page_image
+    if request.page_type == 'product' or request.page_type == 'article' or request.page_type == 'collection'
+      assign own_image = true
+    endif
+  endif
+  if own_image
     assign share_image = page_image
   elsif settings.kw_seo_share_image != blank
     assign share_image = settings.kw_seo_share_image
+  elsif page_image
+    assign share_image = page_image
   elsif settings.logo != blank
     assign share_image = settings.logo
   endif
@@ -71,11 +83,11 @@
 
 {%- if share_image -%}
   {%- comment -%}
-    og:image is only backfilled when the stock snippet skipped it (no page_image).
+    og:image is emitted here exactly when meta-tags did not emit the stock one.
     twitter:image is always emitted — meta-tags.liquid never emits one at all, so
     link previews on X/Slack/iMessage currently fall back to nothing.
   {%- endcomment -%}
-  {%- unless page_image -%}
+  {%- unless own_image or settings.kw_seo_share_image == blank and page_image -%}
     {%- comment -%}Cropped to 1200x630, the ratio Facebook, iMessage and X all render without trimming.{%- endcomment -%}
     <meta property="og:image" content="{{ share_image | image_url: width: 1200, height: 630, crop: 'center' | prepend: 'https:' }}">
     <meta property="og:image:secure_url" content="{{ share_image | image_url: width: 1200, height: 630, crop: 'center' | prepend: 'https:' }}">
