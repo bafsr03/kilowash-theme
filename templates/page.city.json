@@ -15,9 +15,9 @@
         "image": "shopify://shop_images/IMG_4454.jpg",
         "image_asset": "kw-light-blue-house.jpg",
         "min_height": 92,
-        "eyebrow": "Permanent Lighting — Utah",
-        "heading": "Permanent lighting, installed on homes in your neighbourhood.",
-        "subheading": "Architectural and holiday lighting built into the roofline, controlled from your phone, backed by a 10-year warranty. Free on-site estimates.",
+        "eyebrow": "Permanent Christmas Lighting — [city], Utah",
+        "heading": "Permanent Christmas lights in [city], Utah.",
+        "subheading": "Holiday colour at Christmas, warm architectural light the rest of the year — built into your roofline by a Kilowash crew, controlled from your phone, backed for 10 years.",
         "primary_label": "Get my free estimate",
         "primary_link": "/pages/estimate",
         "secondary_label": "Call / Text 385-406-2335",
@@ -179,7 +179,7 @@
         "raised": false,
         "eyebrow": "Where we work",
         "heading": "Nearby towns we serve",
-        "body": "<p>We install solar attic fans and service existing panel systems across Utah, Ohio and West Virginia. Not sure if you are in range? Call or text and we will tell you straight.</p>",
+        "body": "<p>We install permanent Christmas and architectural lighting across the Wasatch Front, from Ogden to Provo. If your town is not listed, call or text us anyway — we will tell you straight whether we can get to you.</p>",
         "cities": "",
         "links_label": "More from Kilowash",
         "markets": "first"
@@ -245,10 +245,18 @@
         "secondary_label": "Email us",
         "secondary_link": "mailto:KilowashUtah@gmail.com"
       }
+    },
+    "city_intro": {
+      "type": "kw-city-intro",
+      "settings": {
+        "eyebrow": "Local to [city]",
+        "heading": "Permanent lighting in [city]"
+      }
     }
   },
   "order": [
     "city_hero",
+    "city_intro",
     "city_split",
     "city_gallery",
     "city_why",

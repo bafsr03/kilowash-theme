@@ -39,6 +39,14 @@
       if page.handle == 'data-sharing-opt-out'
         assign kw_noindex = true
       endif
+      comment
+        A city page with no body of its own is the same page as every other city with
+        the name swapped: a doorway page. It stays out of the index until someone
+        writes its local copy (see sections/kw-city-intro).
+      endcomment
+      if template.suffix == 'city' and page.content == blank
+        assign kw_noindex = true
+      endif
   endcase
 -%}
 {%- if kw_noindex -%}

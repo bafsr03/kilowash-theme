@@ -39,6 +39,13 @@
 
   The section-level "Places" box still overrides everything with a flat,
   ungrouped list, for a page that needs a one-off territory.
+
+  A place becomes a link when a published page exists whose handle is the place
+  name handleized ("Pleasant Grove" -> /pages/pleasant-grove) and which uses the
+  city template. Until then it stays plain text, so no pill ever points at a 404,
+  and publishing a city page in the admin links it from every service-area block
+  with no code change. This is the only internal link city pages get, which is
+  what stops them being orphans.
 {%- endcomment -%}
 
 {%- liquid
@@ -130,7 +137,12 @@
                 {% for place in places %}
                   {% assign place_name = place | strip %}
                   {% if place_name != blank %}
-                    <li>{{ place_name }}</li>
+                    {%- assign place_page = pages[place_name | handleize] -%}
+                    {%- if place_page != blank and place_page.template_suffix == 'city' and place_page.handle != page.handle -%}
+                      <li class="kw-area__city--linked"><a href="{{ place_page.url }}">{{ place_name }}</a></li>
+                    {%- else -%}
+                      <li>{{ place_name }}</li>
+                    {%- endif -%}
                   {% endif %}
                 {% endfor %}
               </ul>
@@ -208,6 +220,18 @@
     font-size: 0.84rem;
     color: var(--kw-fg-dim);
     letter-spacing: 0.01em;
+  }
+
+  #kw-area-{{ section.id }} .kw-area__cities li.kw-area__city--linked {
+    padding: 0;
+    border-color: var(--kw-gold);
+  }
+
+  #kw-area-{{ section.id }} .kw-area__cities li.kw-area__city--linked a {
+    display: block;
+    padding: 0.38rem 0.85rem;
+    color: var(--kw-fg);
+    text-decoration: none;
   }
 
   #kw-area-{{ section.id }} .kw-area__links {

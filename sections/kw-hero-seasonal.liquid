@@ -58,6 +58,17 @@
       assign hero_image_asset = section.settings.image_asset_solar
     endif
   endif
+
+  comment
+    [city] in the eyebrow, heading or subheading is replaced with the page title, so
+    one city template gives every city page its own H1 ("Permanent Christmas lights
+    in Lehi, Utah") instead of the same sentence on every page.
+  endcomment
+  if page
+    assign hero_eyebrow = hero_eyebrow | replace: '[city]', page.title
+    assign hero_heading = hero_heading | replace: '[city]', page.title
+    assign hero_subheading = hero_subheading | replace: '[city]', page.title
+  endif
 -%}
 
 <section class="kw-scope kw-hero" id="kw-hero-{{ section.id }}">
@@ -281,6 +292,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
+      "info": "On a page, [city] is replaced with the page title.",
       "default": "Your home should stand out — day & night."
     },
     {
