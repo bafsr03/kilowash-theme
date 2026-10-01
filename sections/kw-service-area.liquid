@@ -137,7 +137,8 @@
                 {% for place in places %}
                   {% assign place_name = place | strip %}
                   {% if place_name != blank %}
-                    {%- assign place_page = pages[place_name | handleize] -%}
+                    {%- assign place_handle = place_name | handleize -%}
+                    {%- assign place_page = pages[place_handle] -%}
                     {%- if place_page != blank and place_page.template_suffix == 'city' and place_page.handle != page.handle -%}
                       <li class="kw-area__city--linked"><a href="{{ place_page.url }}">{{ place_name }}</a></li>
                     {%- else -%}
