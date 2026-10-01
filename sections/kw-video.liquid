@@ -33,22 +33,27 @@
               section.settings.video
               | video_tag:
                 image_size: '1080x',
-                autoplay: true,
+                autoplay: false,
                 loop: true,
                 muted: true,
                 controls: false,
-                preload: 'metadata',
+                preload: 'none',
                 playsinline: true,
                 class: 'kw-vid__el'
             }}
           {% else %}
+            {%- comment -%}
+              No autoplay attribute and preload="none": autoplay makes the browser fetch
+              the whole file on page load, even far below the fold, which put 5 MB of
+              video on the lighting page's critical path. The observer in the script
+              below starts playback when the video scrolls into view instead.
+            {%- endcomment -%}
             <video
               class="kw-vid__el"
-              autoplay
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="none"
               {% if poster_src != blank %}
                 poster="{{ poster_src }}"
               {% endif %}
@@ -310,6 +315,8 @@
           },
           { threshold: 0.25 }
         ).observe(root);
+      } else if (!userPaused) {
+        play();
       }
     })();
   </script>

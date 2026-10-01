@@ -76,9 +76,9 @@
     {% if hero_image != blank %}
       <img
         src="{{ hero_image | image_url: width: 2400 }}"
-        srcset="{{ hero_image | image_url: width: 900 }} 900w, {{ hero_image | image_url: width: 1600 }} 1600w, {{ hero_image | image_url: width: 2400 }} 2400w"
+        srcset="{{ hero_image | image_url: width: 600 }} 600w, {{ hero_image | image_url: width: 900 }} 900w, {{ hero_image | image_url: width: 1600 }} 1600w, {{ hero_image | image_url: width: 2400 }} 2400w"
         sizes="100vw"
-        alt="{{ hero_image.alt | default: section.settings.heading | escape }}"
+        alt="{{ hero_image.alt | default: hero_heading | escape }}"
         loading="eager"
         fetchpriority="high"
         width="{{ hero_image.width }}"
@@ -87,7 +87,7 @@
     {% elsif hero_image_asset != blank %}
       <img
         src="{{ hero_image_asset | asset_url }}"
-        alt="{{ section.settings.heading | escape }}"
+        alt="{{ hero_heading | escape }}"
         loading="eager"
         fetchpriority="high"
         {%- comment -%}Ratio hint only — a theme asset has no dimensions in Liquid and the
@@ -105,9 +105,14 @@
       <div class="kw-scanline"></div>
       <p class="kw-eyebrow kw-reveal">{{ hero_eyebrow | default: 'Permanent Lighting &amp; Solar' }}</p>
 
-      <h1 class="kw-hero__title kw-reveal">{{ hero_heading }}</h1>
+      {%- comment -%}
+        No kw-reveal on the H1 or subcopy: the reveal starts at opacity 0 and waits for
+        a deferred script, which held the page's largest text ~2.4s behind first paint
+        on mobile and hid the H1 entirely from anything that does not run JS.
+      {%- endcomment -%}
+      <h1 class="kw-hero__title">{{ hero_heading }}</h1>
 
-      <p class="kw-hero__subcopy kw-reveal">{{ hero_subheading }}</p>
+      <p class="kw-hero__subcopy">{{ hero_subheading }}</p>
 
       <div class="kw-hero__actions kw-reveal">
         {% if section.settings.primary_label != blank %}

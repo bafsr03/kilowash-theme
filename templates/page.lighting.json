@@ -82,7 +82,7 @@
     "kw_light_video_2": {
       "type": "kw-video",
       "settings": {
-        "video_asset": "kw-light-warm-craftsman-video.mov",
+        "video_asset": "kw-light-warm-craftsman-video.mp4",
         "poster_asset": "kw-light-warm-craftsman-front.jpeg",
         "badge": "Real install",
         "video_position": "right",

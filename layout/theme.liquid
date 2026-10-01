@@ -171,7 +171,15 @@
 
     {% render 'kw-light-switch' %}
 
-    {% render 'cart-drawer', render_wrapper: true %}
+    {%- comment -%}
+      Kilowash sells an installed service and hides the cart (Theme settings >
+      kw_show_cart). The drawer still rendered on every page, putting an empty cart,
+      a "check out faster" login prompt, two "Your cart is empty" headings and a link
+      to /collections/all into every page's HTML. Rendered only when the cart is on.
+    {%- endcomment -%}
+    {% if settings.kw_show_cart %}
+      {% render 'cart-drawer', render_wrapper: true %}
+    {% endif %}
     {% render 'theme-drawer' %}
 
     {% render 'search-modal' %}
