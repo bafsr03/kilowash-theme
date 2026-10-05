@@ -97,6 +97,22 @@
     gap: 1.1rem;
   }
 
+  /* Four across is narrow: give the name its own line, badge underneath. */
+  @media (min-width: 1201px) {
+    #kw-testi-{{ section.id }} .kw-testi__grid--four .kw-testi__author {
+      flex-wrap: wrap;
+      row-gap: 0.7rem;
+    }
+
+    #kw-testi-{{ section.id }} .kw-testi__grid--four .kw-testi__author > div {
+      flex: 1 0 100%;
+    }
+
+    #kw-testi-{{ section.id }} .kw-testi__grid--four .kw-testi__source {
+      margin-left: 0;
+    }
+  }
+
   @media (max-width: 1200px) {
     #kw-testi-{{ section.id }} .kw-testi__grid--four {
       grid-template-columns: repeat(2, 1fr);
