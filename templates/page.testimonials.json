@@ -47,6 +47,16 @@
     "kw_testi_reviews": {
       "type": "kw-testimonials",
       "blocks": {
+        "t7": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Devin is an Amazing Installer. He took over from a major competitor and he is always willing to come out and help me even though he doesn\u2019t work for them anymore. I would highly recommend him he does an awesome job and he is very good with customer service. If I could give him 19 stars I would. You won\u2019t be sorry if you go through his company.",
+            "rating": 5,
+            "author_name": "Pam Campbell",
+            "author_location": "Permanent Lighting install",
+            "source": "Google review"
+          }
+        },
         "t1": {
           "type": "testimonial",
           "settings": {
@@ -109,6 +119,7 @@
         }
       },
       "block_order": [
+        "t7",
         "t1",
         "t4",
         "t2",
