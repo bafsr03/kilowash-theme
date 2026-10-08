@@ -55,6 +55,13 @@
             "label": "Contact",
             "url": "/pages/contact"
           }
+        },
+        "link_ohio": {
+          "type": "footer_link",
+          "settings": {
+            "label": "Ohio & West Virginia",
+            "url": "/pages/mid-ohio-valley"
+          }
         }
       },
       "block_order": [
@@ -63,7 +70,8 @@
         "link_solar",
         "link_estimate",
         "link_about",
-        "link_contact"
+        "link_contact",
+        "link_ohio"
       ],
       "name": "KW Footer",
       "settings": {
