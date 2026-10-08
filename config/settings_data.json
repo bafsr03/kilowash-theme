@@ -135,6 +135,8 @@
     "kw_bbb_seal_plate": true,
     "kw_show_cart": false,
     "kw_show_account": false,
+    "kw_nav_area_label": "Ohio",
+    "kw_nav_area_page": "mid-ohio-valley",
     "kw_seo_yelp": "",
     "kw_seo_angi": "",
     "kw_seo_nextdoor": "",

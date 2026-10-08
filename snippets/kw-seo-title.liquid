@@ -59,7 +59,16 @@
         when 'contact'
           assign kw_title = 'Contact Kilowash — Permanent Lighting Utah'
         when 'mid-ohio-valley'
-          assign kw_title = 'Permanent Lighting — Marietta OH & Parkersburg WV'
+          comment
+            Same Sept-Dec window as kw-hero-seasonal: "permanent christmas lights" is
+            what Ohio Valley homeowners search in peak season.
+          endcomment
+          assign kw_month = 'now' | date: '%m' | plus: 0
+          if kw_month >= 9
+            assign kw_title = 'Permanent Christmas Lights Marietta OH & Parkersburg WV'
+          else
+            assign kw_title = 'Permanent Lighting — Marietta OH & Parkersburg WV'
+          endif
         when 'critter-guard'
           assign kw_title = 'Pigeon & Bird Proofing for Solar Panels | Utah'
         when 'panel-cleaning'

@@ -255,6 +255,23 @@
                 {% endif %}
               </li>
             {%- endfor -%}
+            {% comment %} Kilowash: Theme settings > Kilowash storefront > Header area link {% endcomment %}
+            {% if settings.kw_nav_area_page != blank and settings.kw_nav_area_label != blank %}
+              <li
+                style="--menu-drawer-animation-index: {{ animation_index | plus: 1 }};"
+                class="{%- if block_settings.drawer_accordion -%}menu-drawer__list-item--deep{%- else -%}menu-drawer__list-item--flat{%- endif -%}{% if block_settings.drawer_dividers %} menu-drawer__list-item--divider{% endif %}"
+              >
+                <a
+                  href="{{ settings.kw_nav_area_page.url }}"
+                  class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset kw-drawer-area-link"
+                  {% if request.page_type == 'page' and page.handle == settings.kw_nav_area_page.handle %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  <span class="menu-drawer__menu-item-text wrap-text">{{ settings.kw_nav_area_label | escape }}</span>
+                </a>
+              </li>
+            {% endif %}
           {% else %}
             {%- comment -%}
               Handle menus with 3 levels of links

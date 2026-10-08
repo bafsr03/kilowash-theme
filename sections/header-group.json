@@ -24,10 +24,23 @@
             "case": "none"
           },
           "blocks": {}
+        },
+        "announcement_kwOhio": {
+          "type": "_announcement",
+          "settings": {
+            "text": "Now serving Ohio & West Virginia — see our area →",
+            "link": "shopify://pages/mid-ohio-valley",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "announcement_BxgCk9"
+        "announcement_BxgCk9",
+        "announcement_kwOhio"
       ],
       "name": "t:names.announcement_bar",
       "settings": {

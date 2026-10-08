@@ -471,6 +471,18 @@
                       </a>
                     </li>
                   {% endfor %}
+                  {% comment %} Theme settings > Kilowash storefront > Header area link {% endcomment %}
+                  {% if settings.kw_nav_area_page != blank and settings.kw_nav_area_label != blank %}
+                    {% assign kw_area_current = false %}
+                    {% if request.page_type == 'page' and page.handle == settings.kw_nav_area_page.handle %}
+                      {% assign kw_area_current = true %}
+                    {% endif %}
+                    <li>
+                      <a href="{{ settings.kw_nav_area_page.url }}" class="kw-navsplit__link kw-navsplit__link--area"{% if kw_area_current %} aria-current="page"{% endif %}>
+                        {{- settings.kw_nav_area_label | escape -}}
+                      </a>
+                    </li>
+                  {% endif %}
                 </ul>
               </nav>
             </div>

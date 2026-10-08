@@ -2366,6 +2366,25 @@
       },
       {
         "type": "header",
+        "content": "Header area link"
+      },
+      {
+        "type": "paragraph",
+        "content": "A highlighted link in the header and mobile menu that points to one service-area page, so visitors from that market find it at a glance. Leave the page blank to hide it."
+      },
+      {
+        "type": "text",
+        "id": "kw_nav_area_label",
+        "label": "Link label",
+        "info": "Keep it short, e.g. Ohio. The header has little room on laptops."
+      },
+      {
+        "type": "page",
+        "id": "kw_nav_area_page",
+        "label": "Page"
+      },
+      {
+        "type": "header",
         "content": "Analytics"
       },
       {

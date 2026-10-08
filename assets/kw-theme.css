@@ -82,6 +82,49 @@
   #header-component .kw-navsplit__link--active {
     opacity: 0.7;
   }
+
+  /* Header area link (Theme settings > Kilowash storefront): a service-area page
+     the owner wants found at a glance, so it reads as a marker, not a menu item. */
+  #header-component .kw-navsplit__link--area {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    padding: 0.3em 0.75em;
+    border: 1px solid var(--kw-gold);
+    border-radius: 999px;
+    color: var(--kw-gold);
+  }
+
+  #header-component .kw-navsplit__link--area::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  #header-component .kw-navsplit__link--area:hover,
+  #header-component .kw-navsplit__link--area[aria-current='page'] {
+    opacity: 1;
+    background: var(--kw-gold);
+    color: var(--kw-bg);
+  }
+}
+
+/* Laptop widths: seven links plus a centred logo do not fit at full size. */
+@media screen and (min-width: 750px) and (max-width: 1279px) {
+  #header-component .kw-navsplit__list {
+    gap: 14px;
+  }
+
+  #header-component .kw-navsplit__link {
+    font-size: 0.95rem;
+  }
+}
+
+.menu-drawer .kw-drawer-area-link {
+  color: var(--kw-gold);
 }
 
 @media screen and (max-width: 749px) {
