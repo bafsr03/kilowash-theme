@@ -112,8 +112,21 @@
   }
 }
 
+/* Tablet widths: the split nav cannot clear a centred logo below ~1000px, so
+   fall back to the hamburger drawer the phone layout already uses. */
+@media screen and (min-width: 750px) and (max-width: 1023px) {
+  #header-component .kw-navsplit {
+    display: none;
+  }
+
+  #header-component[data-menu-style='menu'] .header__drawer {
+    display: flex;
+    min-height: var(--header-drawer-min-height);
+  }
+}
+
 /* Laptop widths: seven links plus a centred logo do not fit at full size. */
-@media screen and (min-width: 750px) and (max-width: 1279px) {
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
   #header-component .kw-navsplit__list {
     gap: 14px;
   }
