@@ -320,6 +320,42 @@
       }
     })();
   </script>
+
+  {%- comment -%}
+    VideoObject JSON-LD, opt-in per section: it only fires when "Search upload date" is
+    filled in. Google needs a name, thumbnail and upload date before it will index a
+    video at all, and a direct file URL (asset or .mp4 link) to fetch it, so a picked
+    Shopify video or a missing poster skips it rather than emitting a half-valid node.
+  {%- endcomment -%}
+  {%- if section.settings.seo_upload_date != blank and video_src != blank and poster_src != blank -%}
+    {%- liquid
+      comment
+        asset_url and image_url return protocol-relative URLs; schema needs absolute ones.
+      endcomment
+      assign vo_content = video_src
+      assign vo_prefix = vo_content | slice: 0, 2
+      if vo_prefix == '//'
+        assign vo_content = vo_content | prepend: 'https:'
+      endif
+      assign vo_thumb = poster_src
+      assign vo_prefix = vo_thumb | slice: 0, 2
+      if vo_prefix == '//'
+        assign vo_thumb = vo_thumb | prepend: 'https:'
+      endif
+      assign vo_desc = section.settings.seo_description | default: section.settings.body | default: section.settings.heading | strip_html | strip
+    -%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": {{ section.settings.heading | strip_html | json }},
+        "description": {{ vo_desc | json }},
+        "thumbnailUrl": [{{ vo_thumb | json }}],
+        "contentUrl": {{ vo_content | json }},
+        "uploadDate": {{ section.settings.seo_upload_date | strip | json }}
+      }
+    </script>
+  {%- endif -%}
 {% endif %}
 
 {% schema %}
@@ -340,7 +376,10 @@
     { "type": "textarea", "id": "body", "label": "Body copy" },
     { "type": "textarea", "id": "list_items", "label": "Bullet list (one per line)" },
     { "type": "text", "id": "link_label", "label": "Link label" },
-    { "type": "url", "id": "link_url", "label": "Link URL" }
+    { "type": "url", "id": "link_url", "label": "Link URL" },
+    { "type": "header", "content": "Google video search" },
+    { "type": "text", "id": "seo_upload_date", "label": "Search upload date", "info": "YYYY-MM-DD. Filling this in tells Google about the video (VideoObject). Needs a poster image and a theme asset or .mp4 link." },
+    { "type": "textarea", "id": "seo_description", "label": "Search description", "info": "Optional. Falls back to the body copy." }
   ],
   "presets": [{ "name": "KW Video" }]
 }

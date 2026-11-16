@@ -69,6 +69,18 @@
           else
             assign kw_title = 'Permanent Lighting — Marietta OH & Parkersburg WV'
           endif
+        when 'commercial-lighting'
+          comment
+            The commercial case study. Same Sept-Dec swap as the Ohio page: businesses
+            shop for "commercial christmas lights" in peak season, "permanent lighting"
+            the rest of the year.
+          endcomment
+          assign kw_month = 'now' | date: '%m' | plus: 0
+          if kw_month >= 9
+            assign kw_title = 'Commercial Permanent Christmas Lights Utah | Kilowash'
+          else
+            assign kw_title = 'Commercial Permanent Lighting in Utah | Kilowash'
+          endif
         when 'critter-guard'
           assign kw_title = 'Pigeon & Bird Proofing for Solar Panels | Utah'
         when 'panel-cleaning'

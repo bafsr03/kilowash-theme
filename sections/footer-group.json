@@ -28,6 +28,13 @@
             "url": "/pages/lighting"
           }
         },
+        "link_commercial": {
+          "type": "footer_link",
+          "settings": {
+            "label": "Commercial lighting",
+            "url": "/pages/commercial-permanent-lighting"
+          }
+        },
         "link_solar": {
           "type": "footer_link",
           "settings": {
@@ -67,6 +74,7 @@
       "block_order": [
         "link_home",
         "link_lighting",
+        "link_commercial",
         "link_solar",
         "link_estimate",
         "link_about",

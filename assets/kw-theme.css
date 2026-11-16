@@ -729,6 +729,48 @@
   letter-spacing: 0.06em;
 }
 
+/* ---------- spec readout: a project's facts as panel labels ----------
+   Label/value pairs on hairline-ruled cells, the same nameplate language as the
+   eyebrow. Flex rather than grid so a short last row stretches to the edge
+   instead of leaving a hole in the plate. Used by kw-project-spotlight and
+   kw-project-story. */
+
+.kw-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  background: var(--kw-line-bright);
+  border: 1px solid var(--kw-line-bright);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.kw-specs__item {
+  flex: 1 1 var(--kw-specs-min, 160px);
+  margin: 0;
+  padding: 0.85rem 1rem 0.9rem;
+  background: var(--kw-bg-raised);
+}
+
+.kw-specs__item dt {
+  font-family: var(--kw-display);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--kw-gold);
+  margin-bottom: 0.4em;
+}
+
+.kw-specs__item dd {
+  margin: 0;
+  font-family: var(--kw-display);
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--kw-fg);
+}
+
 /* ---------- precision reticle cursor (desktop only, subtle) ---------- */
 
 #kw-reticle {

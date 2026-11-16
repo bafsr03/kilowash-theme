@@ -1,0 +1,250 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "cl_hero": {
+      "type": "kw-hero-seasonal",
+      "settings": {
+        "image_asset": "kw-commercial-lighting-sunset-panorama.jpg",
+        "min_height": 84,
+        "eyebrow": "Commercial permanent lighting — Syracuse, Utah",
+        "heading": "Our biggest permanent lighting install yet.",
+        "subheading": "A three-story commercial building in Syracuse, lit from the stone gables to the turret on one app-controlled system. Installed by our own crew in the middle of a Utah January.",
+        "primary_label": "Quote my building",
+        "primary_link": "/pages/commercial-permanent-lighting#quote-form",
+        "secondary_label": "Call / Text 385-406-2335",
+        "secondary_link": "tel:3854062335",
+        "show_marquee": false,
+        "marquee_text": ""
+      }
+    },
+    "cl_story": {
+      "type": "kw-project-story",
+      "blocks": {
+        "spec_building": { "type": "spec", "settings": { "label": "Building", "value": "Three-story commercial" } },
+        "spec_location": { "type": "spec", "settings": { "label": "Location", "value": "Syracuse, Utah" } },
+        "spec_installed": { "type": "spec", "settings": { "label": "Installed", "value": "January 2026" } },
+        "spec_access": { "type": "spec", "settings": { "label": "Access", "value": "Two boom lifts" } },
+        "spec_lit": { "type": "spec", "settings": { "label": "Lit", "value": "Gables, eaves & turret" } },
+        "spec_control": { "type": "spec", "settings": { "label": "Control", "value": "App, any color" } },
+        "step_lift": {
+          "type": "step",
+          "settings": {
+            "image_asset": "kw-commercial-lighting-boom-lift-gable.jpg",
+            "image_alt": "Boom lift raised to the top gable of a three-story commercial building during a permanent lighting install in Syracuse, Utah",
+            "tag": "Jan 2026",
+            "title": "Three stories up",
+            "body": "No ladder reaches a third-story gable. A boom lift put the crew level with the peak, so every light sits right on the roof edge, all the way up."
+          }
+        },
+        "step_winter": {
+          "type": "step",
+          "settings": {
+            "image_asset": "kw-commercial-lighting-boom-lifts-winter.jpg",
+            "image_alt": "Two boom lifts by the entrance of a commercial building in Syracuse, Utah, with snow on the lift deck during a January permanent lighting install",
+            "tag": "Two lifts",
+            "title": "Two lifts, in the snow",
+            "body": "Two boom lifts worked the building at once, through a Utah January with snow on the decks. Permanent lighting goes up in any season, not just the fall rush."
+          }
+        },
+        "step_turret": {
+          "type": "step",
+          "settings": {
+            "image_asset": "kw-commercial-lighting-turret-sunset.jpg",
+            "image_alt": "Permanent lights ringing the cone roof of a brick turret and lining the stone gables of a commercial building in Syracuse, Utah, at sunset",
+            "tag": "The turret",
+            "title": "Even the turret",
+            "body": "The round brick turret is the building's signature, so it got its own ring of light at the base of the cone roof, on the same system as every straight eave."
+          }
+        },
+        "step_night": {
+          "type": "step",
+          "settings": {
+            "image_asset": "kw-commercial-lighting-night-color.jpg",
+            "image_alt": "Commercial building in Syracuse, Utah, at night with blue and green permanent lighting on the turret and eaves and warm white lights along the stone gable",
+            "tag": "After dark",
+            "title": "Any color, from a phone",
+            "body": "Warm white on a regular night, full color for a holiday or an event. Every color in these photos was set from the app. No ladder, no bulbs to swap."
+          }
+        }
+      },
+      "block_order": [
+        "spec_building",
+        "spec_location",
+        "spec_installed",
+        "spec_access",
+        "spec_lit",
+        "spec_control",
+        "step_lift",
+        "step_winter",
+        "step_turret",
+        "step_night"
+      ],
+      "settings": {
+        "raised": false,
+        "eyebrow": "Project file",
+        "heading": "Three stories, two boom lifts, one Utah January.",
+        "body": "<p>This is the biggest roofline Kilowash has lit so far: a three-story commercial building with steep stone gables, long runs of eave and a round brick turret under a cone roof.</p><p>We measured every roofline from aerial imagery before the first lift arrived. Then our own crew installed the same permanent, app-controlled lighting we put on homes, just a lot more of it and a lot higher up.</p>"
+      }
+    },
+    "cl_panorama": {
+      "type": "kw-panorama",
+      "blocks": {
+        "pano_sky": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-commercial-lighting-panorama-sunset-sky.jpg",
+            "caption": "Sunset from across the street",
+            "image_alt": "Panorama of a commercial building in Syracuse, Utah, with permanent lighting along its rooflines under a pink sunset sky"
+          }
+        },
+        "pano_walkway": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-commercial-lighting-panorama-walkway.jpg",
+            "caption": "The walkway side",
+            "image_alt": "Covered walkway side of a commercial building in Syracuse, Utah, with color permanent lighting along the gables and eaves at dusk"
+          }
+        },
+        "pano_street": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-commercial-lighting-panorama-street.jpg",
+            "caption": "The full frontage",
+            "image_alt": "Wide street view of the full frontage of a commercial building with permanent roofline lighting in Syracuse, Utah"
+          }
+        }
+      },
+      "block_order": [
+        "pano_sky",
+        "pano_walkway",
+        "pano_street"
+      ],
+      "settings": {
+        "raised": true,
+        "eyebrow": "The finished building",
+        "heading": "Gable to turret, end to end."
+      }
+    },
+    "cl_video": {
+      "type": "kw-video",
+      "settings": {
+        "video_url": "",
+        "video_asset": "kw-commercial-lighting-walkaround.mp4",
+        "poster_asset": "kw-commercial-lighting-walkaround-poster.jpg",
+        "badge": "Real install",
+        "video_position": "left",
+        "raised": false,
+        "eyebrow": "Walk-around at dusk",
+        "heading": "Walk the building with us.",
+        "body": "Unedited phone video, shot on site at dusk in January 2026. The gables, the eaves and the turret, all running on one app-controlled system.",
+        "list_items": "Filmed on the finished Kilowash install\nWarm white and full color from the same lights\nScenes and schedules set from a phone\n10-year warranty on the lights and the workmanship",
+        "link_label": "Quote my building",
+        "link_url": "/pages/commercial-permanent-lighting#quote-form",
+        "seo_upload_date": "2026-11-16",
+        "seo_description": "Dusk walk-around of a three-story commercial building in Syracuse, Utah, after Kilowash installed permanent app-controlled lighting on its gables, eaves and turret."
+      }
+    },
+    "cl_faq": {
+      "type": "kw-faq",
+      "blocks": {
+        "faq_commercial": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you install permanent lighting on commercial buildings?",
+            "answer": "<p>Yes. This three-story building in Syracuse, Utah is our biggest install so far, and it runs on the same permanent, app-controlled lighting we install on homes. Commercial jobs are quoted after a site visit, because building height, lift access and the length of roofline all change the job.</p>"
+          }
+        },
+        "faq_height": {
+          "type": "faq",
+          "settings": {
+            "question": "How do you reach a three-story roofline?",
+            "answer": "<p>With boom lifts. On this building we ran two at once, which put the crew level with the top gables and the turret instead of working off ladders. Lift access is part of the plan we put together before install day.</p>"
+          }
+        },
+        "faq_winter": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you install in winter?",
+            "answer": "<p>Yes. This building was installed in January, with snow on the lift decks. The track and lights are rated for freeze-thaw cycles and snow load, and both the lighting and our workmanship carry a 10-year warranty.</p>"
+          }
+        },
+        "faq_colors": {
+          "type": "faq",
+          "settings": {
+            "question": "Can a business change colors for holidays and events?",
+            "answer": "<p>Yes. The lights are individually addressable and run from an app, so warm white every night and a holiday, team or brand color on the days you want one all come from the same install. Scenes and schedules are set from a phone, with no ladder involved.</p>"
+          }
+        },
+        "faq_cost": {
+          "type": "faq",
+          "settings": {
+            "question": "How much does commercial permanent lighting cost?",
+            "answer": "<p>Homes are priced at $27 per linear foot of roofline. Commercial buildings are quoted individually after a free site visit, since lift time, height and roofline length vary from building to building. Call or text 385-406-2335, or send the form below.</p>"
+          }
+        },
+        "faq_area": {
+          "type": "faq",
+          "settings": {
+            "question": "Where do you install commercial lighting?",
+            "answer": "<p>Anywhere we work in Utah, from Utah County and Salt Lake City north through Davis County (this building is in Syracuse) to Ogden, plus the Mid-Ohio Valley in Ohio and West Virginia. Not sure you are in range? Call or text and we will tell you straight.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_commercial",
+        "faq_height",
+        "faq_winter",
+        "faq_colors",
+        "faq_cost",
+        "faq_area"
+      ],
+      "settings": {
+        "raised": true,
+        "eyebrow": "Commercial questions",
+        "heading": "Lighting a commercial building, answered straight"
+      }
+    },
+    "cl_quote": {
+      "type": "kw-quote-form",
+      "settings": {
+        "anchor_id": "quote-form",
+        "eyebrow": "Request a quote",
+        "heading": "Tell us about your building.",
+        "subheading": "Send the address and what you'd like lit. We'll follow up within 24 hours to set up a free site visit.",
+        "submit_label": "Request a quote",
+        "secondary_label": "Prefer to book directly? Open our scheduling portal",
+        "secondary_link": "https://clienthub.getjobber.com/hubs/3a67011b-064b-4097-8d0e-1459dcafa742/public/requests/1878911/new"
+      }
+    },
+    "cl_cta": {
+      "type": "kw-cta-banner",
+      "settings": {
+        "eyebrow": "Ready when you are",
+        "heading": "Got a building that should stand out after dark? Let's light it.",
+        "phone_display": "385-406-2335",
+        "phone_link": "3854062335",
+        "primary_label": "Send the details",
+        "primary_link": "/pages/commercial-permanent-lighting#quote-form",
+        "secondary_label": "Email us",
+        "secondary_link": "mailto:KilowashUtah@gmail.com"
+      }
+    }
+  },
+  "order": [
+    "cl_hero",
+    "cl_story",
+    "cl_panorama",
+    "cl_video",
+    "cl_faq",
+    "cl_quote",
+    "cl_cta"
+  ]
+}

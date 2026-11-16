@@ -118,6 +118,15 @@
     "kw_home_gallery": {
       "type": "kw-gallery",
       "blocks": {
+        "g0": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-warm-white-rambler-dusk.jpg",
+            "caption": "Brick & stone rambler at dusk",
+            "image_alt": "Warm white permanent lighting tracing every gable of a brick and stone rambler at dusk in northern Utah, with a Kilowash yard sign out front",
+            "wide": true
+          }
+        },
         "g1": {
           "type": "photo",
           "settings": {
@@ -168,16 +177,48 @@
         }
       },
       "block_order": [
+        "g0",
         "g1",
         "g2",
         "g3",
         "g4",
-        "g5",
-        "g6"
+        "g6",
+        "g5"
       ],
       "settings": {
         "eyebrow": "Field work",
         "heading": "Real installs, real homes."
+      }
+    },
+    "kw_home_project": {
+      "type": "kw-project-spotlight",
+      "blocks": {
+        "spec_building": { "type": "spec", "settings": { "label": "Building", "value": "Three-story commercial" } },
+        "spec_access": { "type": "spec", "settings": { "label": "Access", "value": "Two boom lifts" } },
+        "spec_lit": { "type": "spec", "settings": { "label": "Lit", "value": "Gables, eaves & turret" } },
+        "spec_installed": { "type": "spec", "settings": { "label": "Installed", "value": "January 2026" } }
+      },
+      "block_order": [
+        "spec_building",
+        "spec_access",
+        "spec_lit",
+        "spec_installed"
+      ],
+      "settings": {
+        "image_asset": "kw-commercial-lighting-sunset-panorama.jpg",
+        "image_alt": "Three-story commercial building in Syracuse, Utah, with permanent lighting on its gables, eaves and turret at sunset",
+        "focus_x": 65,
+        "inset_image_asset": "kw-commercial-lighting-boom-lift-gable.jpg",
+        "inset_caption": "Three stories up",
+        "inset_alt": "Boom lift raised to the top gable of the building during the install",
+        "inset_rotation": 4,
+        "eyebrow": "Featured project — Syracuse, Utah",
+        "heading": "Our biggest install yet.",
+        "body": "A three-story commercial building, lit from the stone gables to the turret. Two boom lifts, a Utah January, and the same app-controlled lighting we put on homes.",
+        "primary_label": "See the project",
+        "primary_link": "/pages/commercial-permanent-lighting",
+        "secondary_label": "Light my building",
+        "secondary_link": "/pages/commercial-permanent-lighting#quote-form"
       }
     },
     "kw_home_stats": {
@@ -434,6 +475,7 @@
     "kw_home_split",
     "kw_home_why",
     "kw_home_gallery",
+    "kw_home_project",
     "kw_home_stats",
     "kw_home_crew",
     "kw_home_estimator",

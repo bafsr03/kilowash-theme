@@ -79,9 +79,28 @@
   elsif settings.logo != blank
     assign share_image = settings.logo
   endif
+
+  comment
+    A case-study page previews its own building, not the store-wide house photo. Stored
+    as a theme asset already cut to 1200x630, because image_url cannot resize assets.
+  endcomment
+  assign share_asset = ''
+  if request.page_type == 'page' and template.suffix == 'commercial-lighting'
+    assign share_asset = 'kw-commercial-lighting-share.jpg'
+  endif
 -%}
 
-{%- if share_image -%}
+{%- if share_asset != blank -%}
+  {%- assign share_asset_url = share_asset | asset_url | prepend: 'https:' -%}
+  {%- comment -%}Same guard as below: skipped only when meta-tags already emitted the stock og:image.{%- endcomment -%}
+  {%- unless settings.kw_seo_share_image == blank and page_image -%}
+    <meta property="og:image" content="{{ share_asset_url }}">
+    <meta property="og:image:secure_url" content="{{ share_asset_url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+  {%- endunless -%}
+  <meta name="twitter:image" content="{{ share_asset_url }}">
+{%- elsif share_image -%}
   {%- comment -%}
     og:image is emitted here exactly when meta-tags did not emit the stock one.
     twitter:image is always emitted — meta-tags.liquid never emits one at all, so

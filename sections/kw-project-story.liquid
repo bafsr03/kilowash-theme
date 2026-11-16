@@ -1,0 +1,273 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Project story: how one install was done, for a project's own page. An intro and a
+  spec readout up top, then numbered steps, each a portrait job photo with a short
+  caption. Steps run four across on desktop and become a swipe row on phones, so a
+  long job doesn't turn into four screens of scrolling.
+
+  Photos are portrait 3:4 like the crew cards, so phone-shot job photos drop in
+  without cropping the lift or the roofline off.
+{%- endcomment -%}
+
+{%- liquid
+  assign step_total = 0
+  for block in section.blocks
+    if block.type == 'step'
+      assign step_total = step_total | plus: 1
+    endif
+  endfor
+-%}
+
+<section class="kw-scope kw-section{% if section.settings.raised %} kw-section--raised{% endif %} kw-pstory" id="kw-pstory-{{ section.id }}">
+  <div class="kw-wrap">
+    <div class="kw-pstory__head">
+      <div class="kw-pstory__intro">
+        {% if section.settings.eyebrow != blank %}
+          <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="kw-pstory__title kw-reveal">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.body != blank %}
+          <div class="kw-pstory__body kw-reveal">{{ section.settings.body }}</div>
+        {% endif %}
+      </div>
+
+      <dl class="kw-specs kw-pstory__specs kw-reveal">
+        {% for block in section.blocks %}
+          {% if block.type == 'spec' and block.settings.label != blank and block.settings.value != blank %}
+            <div class="kw-specs__item" {{ block.shopify_attributes }}>
+              <dt>{{ block.settings.label }}</dt>
+              <dd>{{ block.settings.value }}</dd>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </dl>
+    </div>
+
+    {% if step_total > 0 %}
+      <ol class="kw-pstory__steps" role="list">
+        {%- assign step_n = 0 -%}
+        {% for block in section.blocks %}
+          {% if block.type == 'step' %}
+            {%- liquid
+              assign step_n = step_n | plus: 1
+              assign step_alt = block.settings.image_alt | default: block.settings.title
+            -%}
+            <li class="kw-pstory__step kw-reveal" style="transition-delay: {{ step_n | minus: 1 | times: 0.08 }}s" {{ block.shopify_attributes }}>
+              <div class="kw-pstory__frame">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 800 }}"
+                    srcset="{{ block.settings.image | image_url: width: 400 }} 400w, {{ block.settings.image | image_url: width: 800 }} 800w"
+                    sizes="(max-width: 800px) 80vw, (max-width: 1100px) 45vw, 25vw"
+                    alt="{{ step_alt | escape }}"
+                    loading="lazy"
+                    width="{{ block.settings.image.width }}"
+                    height="{{ block.settings.image.height }}"
+                  >
+                {% elsif block.settings.image_asset != blank %}
+                  <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ step_alt | escape }}" loading="lazy" width="1200" height="1600">
+                {% endif %}
+                {% if block.settings.tag != blank %}
+                  <span class="kw-pstory__tag">{{ block.settings.tag }}</span>
+                {% endif %}
+              </div>
+              <p class="kw-pstory__index">{% if step_n < 10 %}0{% endif %}{{ step_n }} <span>/ {% if step_total < 10 %}0{% endif %}{{ step_total }}</span></p>
+              <h3 class="kw-pstory__step-title">{{ block.settings.title }}</h3>
+              {% if block.settings.body != blank %}
+                <p class="kw-pstory__step-body">{{ block.settings.body }}</p>
+              {% endif %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  #kw-pstory-{{ section.id }} {
+    padding-block: clamp(56px, 8vw, 108px);
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__head {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(28px, 5vw, 72px);
+    align-items: end;
+    margin-bottom: clamp(36px, 5vw, 64px);
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__title {
+    font-size: clamp(1.9rem, 3.6vw, 3rem);
+    max-width: 20ch;
+    margin-block: 0.4em 0.6em;
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__body {
+    color: var(--kw-fg-dim);
+    line-height: 1.7;
+    max-width: 52ch;
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__body p {
+    margin: 0 0 1em;
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__specs {
+    --kw-specs-min: 170px;
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(14px, 2vw, 24px);
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--kw-line);
+    background: var(--kw-bg-raised);
+    transition: border-color 0.35s ease;
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__step:hover .kw-pstory__frame {
+    border-color: var(--kw-gold);
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    transition: transform 0.6s var(--kw-ease);
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__step:hover .kw-pstory__frame img {
+    transform: scale(1.04);
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-family: var(--kw-display);
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--kw-bg);
+    background: var(--kw-gold);
+    padding: 0.45em 0.75em;
+    border-radius: 3px;
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__index {
+    font-family: var(--kw-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--kw-gold);
+    margin: 1.1rem 0 0.5rem;
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__index span {
+    color: var(--kw-fg-dim);
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__step-title {
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    line-height: 1.2;
+    margin-bottom: 0.55em;
+  }
+
+  #kw-pstory-{{ section.id }} .kw-pstory__step-body {
+    color: var(--kw-fg-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 1100px) {
+    #kw-pstory-{{ section.id }} .kw-pstory__steps {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 40px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    #kw-pstory-{{ section.id }} .kw-pstory__head {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    /* Swipe row, bleeding past the wrap's gutter so cards slide off the screen
+       edge instead of being cut at the padding. */
+    #kw-pstory-{{ section.id }} .kw-pstory__steps {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      margin-inline: calc(-1 * clamp(20px, 5vw, 64px));
+      padding-inline: clamp(20px, 5vw, 64px);
+      scroll-padding-inline: clamp(20px, 5vw, 64px);
+      padding-bottom: 4px;
+    }
+
+    #kw-pstory-{{ section.id }} .kw-pstory__steps::-webkit-scrollbar {
+      display: none;
+    }
+
+    #kw-pstory-{{ section.id }} .kw-pstory__step {
+      flex: 0 0 78%;
+      scroll-snap-align: start;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Project story",
+  "tag": "section",
+  "settings": [
+    { "type": "checkbox", "id": "raised", "label": "Raised background", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Project file" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How the job came together." },
+    { "type": "richtext", "id": "body", "label": "Intro" }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Spec",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Installed" },
+        { "type": "text", "id": "value", "label": "Value", "default": "January 2026" }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo (overrides asset below)" },
+        { "type": "text", "id": "image_asset", "label": "Photo — theme asset filename" },
+        { "type": "text", "id": "image_alt", "label": "Photo alt text", "info": "Describe the photo for screen readers and search. Falls back to the step title." },
+        { "type": "text", "id": "tag", "label": "Photo tag", "info": "Short label on the photo, e.g. a date." },
+        { "type": "text", "id": "title", "label": "Title", "default": "Step title" },
+        { "type": "textarea", "id": "body", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "KW Project story" }]
+}
+{% endschema %}

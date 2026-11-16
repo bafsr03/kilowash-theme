@@ -1,0 +1,308 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Project spotlight: one standout install, full-bleed, with its facts as a spec
+  readout and a link through to the project's own page. Built for the homepage,
+  where it points at the commercial case study.
+
+  Desktop lays the copy on a plate over the photo's darker left side, so pick a wide
+  shot whose subject sits right of centre. Phones stack the photo above the copy, and
+  "Focal point" decides which part of a wide shot survives that crop.
+
+  The inset is the behind-the-scenes photo (lifts, crew, ladders): small, tilted,
+  pinned to the bottom-right corner of the main photo at every width.
+{%- endcomment -%}
+
+{%- liquid
+  assign img_alt = section.settings.image_alt | default: section.settings.heading
+  assign inset_alt = section.settings.inset_alt | default: section.settings.inset_caption
+-%}
+
+<section class="kw-scope kw-section kw-spot" id="kw-spot-{{ section.id }}" style="--kw-spot-focus: {{ section.settings.focus_x }}% 50%">
+  <div class="kw-spot__media">
+    {% if section.settings.image != blank %}
+      <img
+        class="kw-spot__photo"
+        src="{{ section.settings.image | image_url: width: 2400 }}"
+        srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1600 }} 1600w, {{ section.settings.image | image_url: width: 2400 }} 2400w"
+        sizes="100vw"
+        alt="{{ img_alt | escape }}"
+        loading="lazy"
+        width="{{ section.settings.image.width }}"
+        height="{{ section.settings.image.height }}"
+      >
+    {% elsif section.settings.image_asset != blank %}
+      {%- comment -%}Ratio hint only: a theme asset has no dimensions in Liquid, and the
+        CSS box already reserves the space.{%- endcomment -%}
+      <img
+        class="kw-spot__photo"
+        src="{{ section.settings.image_asset | asset_url }}"
+        alt="{{ img_alt | escape }}"
+        loading="lazy"
+        width="2400"
+        height="1200"
+      >
+    {% endif %}
+    <div class="kw-spot__scrim"></div>
+
+    {% if section.settings.inset_image != blank or section.settings.inset_image_asset != blank %}
+      <figure class="kw-spot__inset kw-reveal-scale" style="--r: {{ section.settings.inset_rotation }}deg">
+        {% if section.settings.inset_image != blank %}
+          <img
+            src="{{ section.settings.inset_image | image_url: width: 600 }}"
+            alt="{{ inset_alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.inset_image.width }}"
+            height="{{ section.settings.inset_image.height }}"
+          >
+        {% else %}
+          <img src="{{ section.settings.inset_image_asset | asset_url }}" alt="{{ inset_alt | escape }}" loading="lazy" width="1200" height="1600">
+        {% endif %}
+        {% if section.settings.inset_caption != blank %}
+          <figcaption>{{ section.settings.inset_caption }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endif %}
+  </div>
+
+  <div class="kw-wrap kw-spot__inner">
+    <div class="kw-spot__plate kw-bracket">
+      <div class="kw-scanline"></div>
+      {% if section.settings.eyebrow != blank %}
+        <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      <h2 class="kw-spot__title kw-reveal">{{ section.settings.heading }}</h2>
+      {% if section.settings.body != blank %}
+        <p class="kw-spot__body kw-reveal">{{ section.settings.body }}</p>
+      {% endif %}
+
+      {% if section.blocks.size > 0 %}
+        <dl class="kw-specs kw-spot__specs kw-reveal">
+          {% for block in section.blocks %}
+            {% if block.settings.label != blank and block.settings.value != blank %}
+              <div class="kw-specs__item" {{ block.shopify_attributes }}>
+                <dt>{{ block.settings.label }}</dt>
+                <dd>{{ block.settings.value }}</dd>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </dl>
+      {% endif %}
+
+      <div class="kw-spot__actions kw-reveal">
+        {% if section.settings.primary_label != blank %}
+          <a href="{{ section.settings.primary_link }}" class="kw-btn">
+            {{ section.settings.primary_label }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        {% endif %}
+        {% if section.settings.secondary_label != blank %}
+          {%- comment -%}
+            Resolve the digits into a variable first: a filter on a render argument makes
+            Shopify reject the whole file silently (see kw-hero-seasonal).
+          {%- endcomment -%}
+          {% if section.settings.secondary_link contains 'tel:' %}
+            {% assign spot_digits = section.settings.secondary_link | remove: 'tel:' %}
+            {% render 'kw-phone-link', digits: spot_digits, class: 'kw-btn kw-btn--ghost', show_number: false, static_text: section.settings.secondary_label %}
+          {% else %}
+            <a href="{{ section.settings.secondary_link }}" class="kw-btn kw-btn--ghost">{{ section.settings.secondary_label }}</a>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #kw-spot-{{ section.id }} {
+    min-height: clamp(600px, 88svh, 860px);
+    display: flex;
+    align-items: center;
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--kw-spot-focus);
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, #0a0d12f2 0%, #0a0d12c4 30%, #0a0d1233 58%, transparent 75%),
+      linear-gradient(180deg, #0a0d12 0%, transparent 16%, transparent 80%, #0a0d12 100%);
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__inner {
+    position: relative;
+    z-index: 2;
+    padding-block: clamp(64px, 9vw, 120px);
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__plate {
+    max-width: 34rem;
+    padding: clamp(20px, 3vw, 34px) clamp(20px, 3vw, 36px) clamp(24px, 3.4vw, 38px);
+    border: 1px solid transparent;
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__title {
+    font-size: clamp(2rem, 4.2vw, 3.4rem);
+    margin-block: 0.45em 0.5em;
+    max-width: 16ch;
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__body {
+    color: var(--kw-fg-dim);
+    line-height: 1.65;
+    max-width: 44ch;
+    margin: 0 0 1.6rem;
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__specs {
+    --kw-specs-min: 190px;
+    margin-bottom: 1.8rem;
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__specs .kw-specs__item {
+    background: #12161ee0;
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* Pinned inside the content column's right edge, not the viewport's, so it lines
+     up with .kw-wrap on screens wider than 1320px. */
+  #kw-spot-{{ section.id }} .kw-spot__inset {
+    position: absolute;
+    z-index: 3;
+    bottom: clamp(36px, 6vw, 72px);
+    right: max(clamp(20px, 5vw, 64px), calc((100% - 1320px) / 2 + 64px));
+    width: clamp(150px, 15vw, 230px);
+    margin: 0;
+    padding: 8px 8px 30px;
+    background: var(--kw-bg-raised);
+    border: 1px solid var(--kw-line);
+    border-radius: 10px;
+    transform: rotate(var(--r));
+    box-shadow: 0 22px 44px -20px #000000d9;
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__inset img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  #kw-spot-{{ section.id }} .kw-spot__inset figcaption {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 8px;
+    font-family: var(--kw-display);
+    font-size: 0.66rem;
+    letter-spacing: 0.04em;
+    color: var(--kw-fg-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Phones and small tablets: the photo becomes a 4:3 band above the copy. */
+  @media (max-width: 800px) {
+    #kw-spot-{{ section.id }} {
+      display: block;
+      min-height: 0;
+    }
+
+    #kw-spot-{{ section.id }} .kw-spot__media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+    }
+
+    #kw-spot-{{ section.id }} .kw-spot__scrim {
+      background: linear-gradient(180deg, #0a0d12 0%, transparent 18%, transparent 62%, #0a0d12 100%);
+    }
+
+    #kw-spot-{{ section.id }} .kw-spot__inset {
+      width: 30%;
+      bottom: -18px;
+      right: 16px;
+      padding: 5px 5px 20px;
+    }
+
+    #kw-spot-{{ section.id }} .kw-spot__inset figcaption {
+      font-size: 0.56rem;
+      bottom: 5px;
+      left: 7px;
+      right: 7px;
+    }
+
+    #kw-spot-{{ section.id }} .kw-spot__inner {
+      padding-block: 8px 56px;
+    }
+
+    #kw-spot-{{ section.id }} .kw-spot__plate {
+      padding-inline: 0;
+    }
+
+    /* Two specs per row instead of a one-column stack. */
+    #kw-spot-{{ section.id }} .kw-spot__specs {
+      --kw-specs-min: 140px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Project spotlight",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Main photo" },
+    { "type": "image_picker", "id": "image", "label": "Photo (overrides asset below)" },
+    { "type": "text", "id": "image_asset", "label": "Photo — theme asset filename" },
+    { "type": "text", "id": "image_alt", "label": "Photo alt text", "info": "Describe the install for screen readers and search. Falls back to the heading." },
+    { "type": "range", "id": "focus_x", "label": "Focal point (left to right)", "info": "Which part of a wide photo stays in frame when the screen is narrower than the photo.", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 60 },
+    { "type": "header", "content": "Inset photo" },
+    { "type": "image_picker", "id": "inset_image", "label": "Inset photo (overrides asset below)" },
+    { "type": "text", "id": "inset_image_asset", "label": "Inset photo — theme asset filename" },
+    { "type": "text", "id": "inset_caption", "label": "Inset caption" },
+    { "type": "text", "id": "inset_alt", "label": "Inset alt text", "info": "Falls back to the caption." },
+    { "type": "range", "id": "inset_rotation", "label": "Inset rotation", "min": -10, "max": 10, "step": 1, "unit": "°", "default": 4 },
+    { "type": "header", "content": "Copy" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Featured project" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our biggest install yet." },
+    { "type": "textarea", "id": "body", "label": "Body copy" },
+    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "See the project" },
+    { "type": "url", "id": "primary_link", "label": "Primary button link" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button label" },
+    { "type": "text", "id": "secondary_link", "label": "Secondary button link", "info": "A page URL, or tel:3854062335 for a tracked call link." }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Spec",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Installed" },
+        { "type": "text", "id": "value", "label": "Value", "default": "January 2026" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "KW Project spotlight" }]
+}
+{% endschema %}
