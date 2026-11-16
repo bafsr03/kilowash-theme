@@ -35,6 +35,12 @@
         </div>
       {% endfor %}
     </div>
+
+    {% if section.settings.link_label != blank %}
+      <p class="kw-gallery__more kw-reveal">
+        <a href="{{ section.settings.link_url }}" class="kw-btn kw-btn--ghost">{{ section.settings.link_label }}</a>
+      </p>
+    {% endif %}
   </div>
 </section>
 
@@ -47,6 +53,10 @@
     font-size: clamp(1.9rem, 3.6vw, 3rem);
     max-width: 20ch;
     margin-block: 0.4em 2.4rem;
+  }
+
+  #kw-gallery-{{ section.id }} .kw-gallery__more {
+    margin: clamp(24px, 3vw, 36px) 0 0;
   }
 </style>
 
@@ -66,6 +76,17 @@
       "id": "heading",
       "label": "Heading",
       "default": "Real installs, real homes."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "info": "Optional button under the photos, e.g. 'See all photos'."
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
     }
   ],
   "blocks": [

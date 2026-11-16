@@ -255,7 +255,9 @@
       ],
       "settings": {
         "eyebrow": "Recent installs",
-        "heading": "See what permanent lighting looks like."
+        "heading": "See what permanent lighting looks like.",
+        "link_label": "See all photos",
+        "link_url": "/pages/gallery"
       }
     },
     "kw_light_why": {

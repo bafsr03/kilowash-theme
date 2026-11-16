@@ -35,6 +35,13 @@
             "url": "/pages/commercial-permanent-lighting"
           }
         },
+        "link_gallery": {
+          "type": "footer_link",
+          "settings": {
+            "label": "Photo gallery",
+            "url": "/pages/gallery"
+          }
+        },
         "link_solar": {
           "type": "footer_link",
           "settings": {
@@ -76,6 +83,7 @@
         "link_lighting",
         "link_commercial",
         "link_solar",
+        "link_gallery",
         "link_estimate",
         "link_about",
         "link_contact",

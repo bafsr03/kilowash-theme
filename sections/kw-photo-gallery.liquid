@@ -1,0 +1,342 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Photo gallery: a full set of install photos for the gallery page, as opposed to
+  kw-gallery's six-tile teaser. Every tile is the same 4:5 box (object-fit: cover) so
+  mixed portrait and landscape phone photos line up and theme assets, which have no
+  dimensions in Liquid, can't shift the grid while they load. Tapping a tile opens the
+  whole uncropped photo in a lightbox with previous/next and arrow-key support.
+
+  "Anchor ID" lets other pages link straight to one gallery, e.g. /pages/gallery#solar-photos.
+{%- endcomment -%}
+
+{%- assign anchor = section.settings.anchor_id | default: section.id | handleize -%}
+
+<section class="kw-scope kw-section{% if section.settings.raised %} kw-section--raised{% endif %} kw-pgal" id="{{ anchor }}" data-kw-pgal>
+  <div class="kw-wrap">
+    <div class="kw-pgal__head">
+      {% if section.settings.eyebrow != blank %}
+        <p class="kw-eyebrow kw-reveal">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="kw-pgal__title kw-reveal">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.body != blank %}
+        <p class="kw-pgal__body kw-reveal">{{ section.settings.body }}</p>
+      {% endif %}
+    </div>
+
+    <ul class="kw-pgal__grid" role="list">
+      {% for block in section.blocks %}
+        {%- liquid
+          assign tile_alt = block.settings.image_alt | default: block.settings.caption
+          if block.settings.image != blank
+            assign tile_src = block.settings.image | image_url: width: 700
+            assign tile_full = block.settings.image | image_url: width: 1800
+          else
+            comment
+              Shopify's CDN resizes theme assets too: asset_url already carries ?v=, so a
+              width parameter cuts a 240 KB tile to about 75 KB.
+            endcomment
+            assign tile_full = block.settings.image_asset | asset_url
+            assign tile_src = tile_full | append: '&width=700'
+          endif
+        -%}
+        {% if block.settings.image != blank or block.settings.image_asset != blank %}
+          <li class="kw-pgal__item" {{ block.shopify_attributes }}>
+            <button type="button" class="kw-pgal__tile" data-kw-pgal-open="{{ forloop.index0 }}" data-full="{{ tile_full }}" data-caption="{{ block.settings.caption | escape }}" aria-label="Enlarge photo: {{ tile_alt | escape }}">
+              <img src="{{ tile_src }}" alt="{{ tile_alt | escape }}" loading="lazy" width="800" height="1000">
+              {% if block.settings.caption != blank %}
+                <span class="kw-pgal__caption">{{ block.settings.caption }}</span>
+              {% endif %}
+            </button>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% if section.settings.link_label != blank %}
+      <p class="kw-pgal__more kw-reveal">
+        <a href="{{ section.settings.link_url }}" class="kw-btn kw-btn--ghost">{{ section.settings.link_label }}</a>
+      </p>
+    {% endif %}
+  </div>
+
+  <dialog class="kw-pgal__box" aria-label="{{ section.settings.heading | default: 'Photo' | escape }}">
+    <figure class="kw-pgal__figure">
+      {%- comment -%}src is set by the script when a tile opens; the size is a ratio hint only.{%- endcomment -%}
+      <img class="kw-pgal__full" alt="" width="1350" height="1800">
+      <figcaption class="kw-pgal__boxcap"></figcaption>
+    </figure>
+    <button type="button" class="kw-pgal__ctl kw-pgal__ctl--close" data-kw-pgal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <button type="button" class="kw-pgal__ctl kw-pgal__ctl--prev" data-kw-pgal-step="-1" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button type="button" class="kw-pgal__ctl kw-pgal__ctl--next" data-kw-pgal-step="1" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </dialog>
+</section>
+
+<style>
+  #{{ anchor }} {
+    padding-block: clamp(56px, 8vw, 108px);
+    scroll-margin-top: 80px;
+  }
+
+  #{{ anchor }} .kw-pgal__head {
+    margin-bottom: clamp(24px, 3vw, 40px);
+  }
+
+  #{{ anchor }} .kw-pgal__title {
+    font-size: clamp(1.9rem, 3.6vw, 3rem);
+    max-width: 22ch;
+    margin-block: 0.4em 0.5em;
+  }
+
+  #{{ anchor }} .kw-pgal__body {
+    color: var(--kw-fg-dim);
+    line-height: 1.65;
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  #{{ anchor }} .kw-pgal__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  #{{ anchor }} .kw-pgal__tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 1px solid var(--kw-line);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--kw-bg-raised);
+    cursor: zoom-in;
+    transition: border-color 0.35s ease;
+  }
+
+  #{{ anchor }} .kw-pgal__tile:hover,
+  #{{ anchor }} .kw-pgal__tile:focus-visible {
+    border-color: var(--kw-gold);
+    outline: none;
+  }
+
+  #{{ anchor }} .kw-pgal__tile img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 0.6s var(--kw-ease);
+  }
+
+  #{{ anchor }} .kw-pgal__tile:hover img {
+    transform: scale(1.04);
+  }
+
+  #{{ anchor }} .kw-pgal__caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem 0.8rem 0.7rem;
+    font-family: var(--kw-display);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: left;
+    color: var(--kw-fg);
+    background: linear-gradient(0deg, #0a0d12e6, transparent);
+  }
+
+  #{{ anchor }} .kw-pgal__more {
+    margin: clamp(24px, 3vw, 36px) 0 0;
+  }
+
+  #{{ anchor }} .kw-pgal__box {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #05070aef;
+    color: var(--kw-fg);
+  }
+
+  #{{ anchor }} .kw-pgal__box::backdrop {
+    background: #05070acc;
+  }
+
+  #{{ anchor }} .kw-pgal__figure {
+    height: 100%;
+    margin: 0;
+    padding: 64px 72px 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  #{{ anchor }} .kw-pgal__full {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100% - 40px);
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  #{{ anchor }} .kw-pgal__boxcap {
+    font-family: var(--kw-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--kw-fg-dim);
+    text-align: center;
+  }
+
+  #{{ anchor }} .kw-pgal__ctl {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--kw-line-bright);
+    border-radius: 3px;
+    background: #0a0d12b3;
+    color: var(--kw-fg);
+    cursor: pointer;
+  }
+
+  #{{ anchor }} .kw-pgal__ctl:hover,
+  #{{ anchor }} .kw-pgal__ctl:focus-visible {
+    border-color: var(--kw-gold);
+    color: var(--kw-gold);
+    outline: none;
+  }
+
+  #{{ anchor }} .kw-pgal__ctl--close { top: 14px; right: 14px; }
+  #{{ anchor }} .kw-pgal__ctl--prev { left: 14px; top: 50%; transform: translateY(-50%); }
+  #{{ anchor }} .kw-pgal__ctl--next { right: 14px; top: 50%; transform: translateY(-50%); }
+
+  @media (max-width: 1000px) {
+    #{{ anchor }} .kw-pgal__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    #{{ anchor }} .kw-pgal__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    #{{ anchor }} .kw-pgal__caption {
+      font-size: 0.6rem;
+      padding: 1.6rem 0.6rem 0.55rem;
+    }
+
+    /* Arrows move to the bottom corners so they never sit on top of the photo. */
+    #{{ anchor }} .kw-pgal__figure {
+      padding: 64px 12px 84px;
+    }
+
+    #{{ anchor }} .kw-pgal__ctl--prev,
+    #{{ anchor }} .kw-pgal__ctl--next {
+      top: auto;
+      bottom: 18px;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById({{ anchor | json }});
+    if (!root) return;
+    var box = root.querySelector('.kw-pgal__box');
+    var tiles = Array.prototype.slice.call(root.querySelectorAll('[data-kw-pgal-open]'));
+    if (!box || !tiles.length || typeof box.showModal !== 'function') return;
+    var full = box.querySelector('.kw-pgal__full');
+    var cap = box.querySelector('.kw-pgal__boxcap');
+    var current = 0;
+    var opener = null;
+
+    function show(i) {
+      current = (i + tiles.length) % tiles.length;
+      var tile = tiles[current];
+      var img = tile.querySelector('img');
+      full.src = tile.getAttribute('data-full');
+      full.alt = img ? img.alt : '';
+      cap.textContent = tile.getAttribute('data-caption') || '';
+    }
+
+    tiles.forEach(function (tile, i) {
+      tile.addEventListener('click', function () {
+        opener = tile;
+        show(i);
+        box.showModal();
+      });
+    });
+
+    box.querySelector('[data-kw-pgal-close]').addEventListener('click', function () { box.close(); });
+    box.querySelectorAll('[data-kw-pgal-step]').forEach(function (btn) {
+      btn.addEventListener('click', function () { show(current + Number(btn.getAttribute('data-kw-pgal-step'))); });
+    });
+    // A click on the dark area around the photo closes, like every other lightbox.
+    box.addEventListener('click', function (e) {
+      if (e.target === box || e.target.classList.contains('kw-pgal__figure')) box.close();
+    });
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') show(current + 1);
+      if (e.key === 'ArrowLeft') show(current - 1);
+    });
+    box.addEventListener('close', function () {
+      full.removeAttribute('src');
+      if (opener) opener.focus();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "KW Photo gallery",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "info": "Lets other pages link straight here, e.g. solar-photos for /pages/gallery#solar-photos." },
+    { "type": "checkbox", "id": "raised", "label": "Raised background", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Photo gallery" },
+    { "type": "textarea", "id": "body", "label": "Intro" },
+    { "type": "text", "id": "link_label", "label": "Link label" },
+    { "type": "url", "id": "link_url", "label": "Link URL" }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo (overrides asset below)" },
+        { "type": "text", "id": "image_asset", "label": "Photo — theme asset filename" },
+        { "type": "text", "id": "caption", "label": "Caption" },
+        { "type": "text", "id": "image_alt", "label": "Alt text", "info": "Describe the photo for screen readers and search. Falls back to the caption." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "KW Photo gallery" }]
+}
+{% endschema %}

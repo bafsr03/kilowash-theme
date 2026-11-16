@@ -26,7 +26,7 @@
         "marquee_text": "Licensed & Insured Crews",
         "marquee_area_text": "Serving Salt Lake City, Utah County & the Wasatch Front",
         "season_mode": "auto",
-        "eyebrow_lighting": "Permanent Christmas & Holiday Lighting — Utah",
+        "eyebrow_lighting": "Permanent Christmas & Architectural Lighting — Utah",
         "heading_lighting": "Permanent Christmas lights that make your Utah home stand out.",
         "subheading_lighting": "Now booking Christmas installs. Holiday colour in December, orange for Halloween, warm architectural light the rest of the year — installed once into the roofline, controlled from your phone, and it never comes down.",
         "eyebrow_solar": "Solar Attic Fans & Solar Care — Utah",
@@ -187,7 +187,9 @@
       ],
       "settings": {
         "eyebrow": "Field work",
-        "heading": "Real installs, real homes."
+        "heading": "Real installs, real homes.",
+        "link_label": "See all photos",
+        "link_url": "/pages/gallery"
       }
     },
     "kw_home_project": {
