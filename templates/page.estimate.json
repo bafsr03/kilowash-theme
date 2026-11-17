@@ -102,10 +102,10 @@
       "type": "kw-quote-form",
       "settings": {
         "anchor_id": "quote-form",
-        "eyebrow": "Request a quote",
+        "eyebrow": "Book a demo",
         "heading": "Tell us about your home.",
         "subheading": "Send the details and we'll follow up within 24 hours to schedule your free on-site estimate.",
-        "submit_label": "Request a quote",
+        "submit_label": "Book a demo",
         "secondary_label": "Prefer to book directly? Open our scheduling portal",
         "secondary_link": "https://clienthub.getjobber.com/hubs/3a67011b-064b-4097-8d0e-1459dcafa742/public/requests/1878911/new"
       }

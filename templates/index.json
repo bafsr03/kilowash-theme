@@ -276,9 +276,9 @@
       "settings": {
         "eyebrow": "Rough price estimator",
         "heading": "See your ballpark, instantly.",
-        "subheading": "Slide to your roofline or panel size for a rough range. Every quote is confirmed with a free on-site visit.",
+        "subheading": "Slide to your roofline or panel size for a rough range. Every estimate is confirmed with a free on-site visit.",
         "disclaimer": "Rough estimate only, for budgeting purposes. All pricing is subject to adders based on site conditions (roof height, access, material). Final pricing is confirmed after a free on-site measurement.",
-        "cta_label": "Request this quote",
+        "cta_label": "Book a demo",
         "cta_link": "#quote-form",
         "rate_ft": 27,
         "rate_smart_addon": 500,
@@ -295,10 +295,10 @@
       "type": "kw-quote-form",
       "settings": {
         "anchor_id": "quote-form",
-        "eyebrow": "Request a quote",
+        "eyebrow": "Book a demo",
         "heading": "Tell us about your home.",
         "subheading": "Send the details and we'll follow up within 24 hours to schedule your free on-site estimate.",
-        "submit_label": "Request a quote",
+        "submit_label": "Book a demo",
         "secondary_label": "Prefer to book directly? Open our scheduling portal",
         "secondary_link": "https://clienthub.getjobber.com/hubs/3a67011b-064b-4097-8d0e-1459dcafa742/public/requests/1878911/new"
       }

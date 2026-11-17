@@ -140,7 +140,7 @@
           </label>
 
           <button type="submit" class="kw-btn kw-qform__submit">
-            {{ section.settings.submit_label | default: 'Request a quote' }}
+            {{ section.settings.submit_label | default: 'Book a demo' }}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </button>
         {%- endif -%}
@@ -328,10 +328,10 @@
   "tag": "section",
   "settings": [
     { "type": "text", "id": "anchor_id", "label": "Section anchor ID (for linking, e.g. #quote-form)", "default": "quote-form" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Request a quote" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Book a demo" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Tell us about your home." },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Send the details and we'll follow up within 24 hours to schedule your free on-site estimate." },
-    { "type": "text", "id": "submit_label", "label": "Submit button label", "default": "Request a quote" },
+    { "type": "text", "id": "submit_label", "label": "Submit button label", "default": "Book a demo" },
     { "type": "header", "content": "Alternate booking link" },
     { "type": "text", "id": "secondary_label", "label": "Secondary link label", "default": "Prefer to book directly? Open our scheduling portal" },
     { "type": "url", "id": "secondary_link", "label": "Secondary link URL", "info": "e.g. your Jobber Client Hub request link" }

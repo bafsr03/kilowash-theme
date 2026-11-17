@@ -17,7 +17,7 @@
         "eyebrow": "Commercial permanent lighting — Syracuse, Utah",
         "heading": "Our biggest permanent lighting install yet.",
         "subheading": "A three-story commercial building in Syracuse, lit from the stone gables to the turret on one app-controlled system. Installed by our own crew in the middle of a Utah January.",
-        "primary_label": "Quote my building",
+        "primary_label": "Book a demo",
         "primary_link": "/pages/commercial-permanent-lighting#quote-form",
         "secondary_label": "Call / Text 385-406-2335",
         "secondary_link": "tel:3854062335",
@@ -146,7 +146,7 @@
         "heading": "Walk the building with us.",
         "body": "Unedited phone video, shot on site at dusk in January 2026. The gables, the eaves and the turret, all running on one app-controlled system.",
         "list_items": "Filmed on the finished Kilowash install\nWarm white and full color from the same lights\nScenes and schedules set from a phone\n10-year warranty on the lights and the workmanship",
-        "link_label": "Quote my building",
+        "link_label": "Book a demo",
         "link_url": "/pages/commercial-permanent-lighting#quote-form",
         "seo_upload_date": "2026-11-16",
         "seo_description": "Dusk walk-around of a three-story commercial building in Syracuse, Utah, after Kilowash installed permanent app-controlled lighting on its gables, eaves and turret."
@@ -216,10 +216,10 @@
       "type": "kw-quote-form",
       "settings": {
         "anchor_id": "quote-form",
-        "eyebrow": "Request a quote",
+        "eyebrow": "Book a demo",
         "heading": "Tell us about your building.",
         "subheading": "Send the address and what you'd like lit. We'll follow up within 24 hours to set up a free site visit.",
-        "submit_label": "Request a quote",
+        "submit_label": "Book a demo",
         "secondary_label": "Prefer to book directly? Open our scheduling portal",
         "secondary_link": "https://clienthub.getjobber.com/hubs/3a67011b-064b-4097-8d0e-1459dcafa742/public/requests/1878911/new"
       }
