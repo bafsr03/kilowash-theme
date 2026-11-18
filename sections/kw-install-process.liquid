@@ -1,0 +1,224 @@
+{{ 'kw-theme.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-scope kw-section{% if section.settings.raised %} kw-section--raised{% endif %}" id="kw-process-{{ section.id }}">
+  <div class="kw-blueprint"></div>
+  <div class="kw-wrap kwp__inner">
+    <div class="kwp__intro kw-reveal">
+      {% if section.settings.eyebrow != blank %}
+        <p class="kw-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="kwp__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="kwp__lede">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="kwp__steps" style="--step-count: {{ section.blocks.size }};">
+        {%- for block in section.blocks -%}
+          <div class="kwp__step kw-reveal" {{ block.shopify_attributes }} style="--delay: {{ forloop.index0 | times: 120 }}ms;">
+            <div class="kwp__marker">
+              <span class="kwp__num">{{ forloop.index }}</span>
+              {% unless forloop.last %}
+                <span class="kwp__connector" aria-hidden="true"></span>
+              {% endunless %}
+            </div>
+            <div class="kwp__content">
+              {% if block.settings.title != blank %}
+                <h3 class="kwp__title">{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.body != blank %}
+                <p class="kwp__body">{{ block.settings.body }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {% endif %}
+
+    {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
+      <div class="kwp__cta kw-reveal">
+        <a href="{{ section.settings.cta_link }}" class="kw-btn">
+          {{ section.settings.cta_label }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  #kw-process-{{ section.id }} {
+    padding-block: clamp(56px, 8vw, 108px);
+  }
+
+  #kw-process-{{ section.id }} .kwp__intro {
+    max-width: 54ch;
+    margin-bottom: clamp(36px, 6vw, 64px);
+  }
+
+  #kw-process-{{ section.id }} .kwp__heading {
+    font-size: clamp(1.9rem, 3.6vw, 3rem);
+    max-width: 24ch;
+    margin-block: 0.4em 0.5em;
+  }
+
+  #kw-process-{{ section.id }} .kwp__lede {
+    color: var(--kw-fg-dim);
+    max-width: 48ch;
+    line-height: 1.6;
+  }
+
+  #kw-process-{{ section.id }} .kwp__steps {
+    display: grid;
+    grid-template-columns: repeat(var(--step-count, 4), 1fr);
+    gap: 0;
+  }
+
+  #kw-process-{{ section.id }} .kwp__step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline-end: clamp(12px, 2vw, 24px);
+  }
+
+  #kw-process-{{ section.id }} .kwp__marker {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.2rem;
+  }
+
+  #kw-process-{{ section.id }} .kwp__num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--kw-gold);
+    background: var(--kw-bg);
+    color: var(--kw-gold);
+    font-family: var(--kw-display);
+    font-size: 1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 20px -4px rgba(245, 185, 66, 0.25);
+  }
+
+  #kw-process-{{ section.id }} .kwp__connector {
+    display: block;
+    flex: 1;
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--kw-line-bright) 0 6px,
+      transparent 6px 12px
+    );
+    margin-left: 8px;
+  }
+
+  #kw-process-{{ section.id }} .kwp__title {
+    font-family: var(--kw-display);
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    margin: 0 0 0.5rem;
+  }
+
+  #kw-process-{{ section.id }} .kwp__body {
+    font-size: 0.9rem;
+    color: var(--kw-fg-dim);
+    line-height: 1.6;
+    max-width: 28ch;
+  }
+
+  #kw-process-{{ section.id }} .kwp__cta {
+    margin-top: clamp(36px, 5vw, 56px);
+  }
+
+  @media (max-width: 800px) {
+    #kw-process-{{ section.id }} .kwp__steps {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    #kw-process-{{ section.id }} .kwp__step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 0 1rem;
+      padding-inline-end: 0;
+      padding-bottom: 2rem;
+    }
+
+    #kw-process-{{ section.id }} .kwp__marker {
+      grid-row: 1 / 3;
+      flex-direction: column;
+      width: 44px;
+      margin-bottom: 0;
+    }
+
+    #kw-process-{{ section.id }} .kwp__connector {
+      width: 2px;
+      height: 100%;
+      flex: 1;
+      margin-left: 0;
+      margin-top: 8px;
+      background: repeating-linear-gradient(
+        180deg,
+        var(--kw-line-bright) 0 6px,
+        transparent 6px 12px
+      );
+    }
+
+    #kw-process-{{ section.id }} .kwp__content {
+      padding-top: 0.5rem;
+    }
+
+    #kw-process-{{ section.id }} .kwp__body {
+      max-width: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "KW Install process",
+  "tag": "section",
+  "settings": [
+    { "type": "checkbox", "id": "raised", "label": "Raised background", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How it works" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "From demo to done in four steps." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "No surprises, no subcontractors. The same crew walks you through the app, measures your roofline, and installs the lights." },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "cta_label", "label": "CTA label" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "body", "label": "Description" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "KW Install process",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Book a demo", "body": "See the app live. We walk you through colors, scenes and schedules on a quick call or at your door." } },
+        { "type": "step", "settings": { "title": "Free site visit", "body": "Our crew measures your roofline and locks in an exact price — same day, no guesswork." } },
+        { "type": "step", "settings": { "title": "Install day", "body": "Hidden channel, invisible wiring, every roofline traced. Most homes finished in a single day." } },
+        { "type": "step", "settings": { "title": "Open the app", "body": "Pick your first scene and watch your roofline light up. You're in control from here." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -109,6 +109,48 @@
         "link_url": ""
       }
     },
+    "kw_light_process": {
+      "type": "kw-install-process",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Book a demo",
+            "body": "See the app live. We walk you through colors, scenes and schedules on a quick call or right at your door."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Free site visit",
+            "body": "Our crew measures your roofline and locks in an exact price — same day, no guesswork."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Install day",
+            "body": "Hidden channel, invisible wiring, every roofline traced. Most homes finished in a single day."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Open the app",
+            "body": "Pick your first scene and watch your roofline light up. 16 million colors, controlled from your phone."
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": {
+        "raised": true,
+        "eyebrow": "How it works",
+        "heading": "From demo to done in four steps.",
+        "subheading": "No surprises, no subcontractors. The same crew walks you through the app, measures your roofline, and installs the lights.",
+        "cta_label": "Book a demo",
+        "cta_link": "/pages/contact#quote-form"
+      }
+    },
     "kw_light_occasions": {
       "type": "kw-why-grid",
       "blocks": {
@@ -428,6 +470,7 @@
     "kw_light_feature_2",
     "kw_light_video_2",
     "kw_light_feature_3",
+    "kw_light_process",
     "kw_light_occasions",
     "kw_light_gallery",
     "kw_light_why",
