@@ -12,7 +12,7 @@
     "gal_hero": {
       "type": "kw-hero-seasonal",
       "settings": {
-        "image_asset": "kw-light-warm-white-rambler-dusk.jpg",
+        "image_asset": "kw-light-warm-stone-estate.jpg",
         "min_height": 64,
         "eyebrow": "Photo gallery — Kilowash installs across Utah",
         "heading": "Real installs. Real roofs. No stock photos.",
@@ -31,9 +31,9 @@
         "l01": {
           "type": "photo",
           "settings": {
-            "image_asset": "kw-light-warm-white-rambler-dusk.jpg",
-            "caption": "Warm white, brick & stone rambler",
-            "image_alt": "Warm white permanent lighting on every gable of a brick and stone rambler at dusk in northern Utah"
+            "image_asset": "kw-light-warm-stone-estate.jpg",
+            "caption": "Warm white stone estate",
+            "image_alt": "Warm white permanent lighting across every roofline of a stone estate home at night in Utah"
           }
         },
         "l02": {
@@ -44,7 +44,39 @@
             "image_alt": "Permanent lighting on the turret and stone gables of a three-story commercial building in Syracuse, Utah, at sunset"
           }
         },
+        "l03": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-warm-white-rambler-dusk.jpg",
+            "caption": "Warm white, brick & stone rambler",
+            "image_alt": "Warm white permanent lighting on every gable of a brick and stone rambler at dusk in northern Utah"
+          }
+        },
         "l04": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-christmas-stone-craftsman.jpg",
+            "caption": "Christmas on craftsman",
+            "image_alt": "Red and green permanent Christmas lighting on a stone-and-siding craftsman home in Utah"
+          }
+        },
+        "l05": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-purple-stone-craftsman.jpg",
+            "caption": "Purple scene, same home",
+            "image_alt": "Purple and pink permanent lighting scene on a stone-and-siding craftsman home in Utah"
+          }
+        },
+        "l06": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-amber-modern.jpg",
+            "caption": "Amber architectural lighting",
+            "image_alt": "Warm amber permanent lighting accenting the angles of a modern home at night in Utah"
+          }
+        },
+        "l07": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-purple-white.jpg",
@@ -52,7 +84,31 @@
             "image_alt": "Purple and white permanent lighting scene on a two-story Utah home at night"
           }
         },
-        "l05": {
+        "l08": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-patriotic-redblue.jpg",
+            "caption": "Patriotic red, white & blue",
+            "image_alt": "Patriotic red white and blue permanent lighting on a two-story home at night in Utah"
+          }
+        },
+        "l09": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-multicolor-christmas.jpg",
+            "caption": "Multi-color Christmas",
+            "image_alt": "Multi-color permanent Christmas lighting across every gable of a large Utah home"
+          }
+        },
+        "l10": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-purple-multi-gables.jpg",
+            "caption": "Purple glow, full house",
+            "image_alt": "Purple and multi-color permanent lighting scene covering every roofline of a Utah home at night"
+          }
+        },
+        "l11": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-red-green.jpg",
@@ -60,7 +116,15 @@
             "image_alt": "Red and green permanent Christmas lights along the gables of a Utah home"
           }
         },
-        "l06": {
+        "l12": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-christmas-colonial.jpg",
+            "caption": "Christmas colonial",
+            "image_alt": "Red and green permanent Christmas lighting on a large colonial-style Utah home at night"
+          }
+        },
+        "l13": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-green-white.jpg",
@@ -68,7 +132,15 @@
             "image_alt": "Green and white permanent lighting on the rooflines of a Utah home at night"
           }
         },
-        "l07": {
+        "l14": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-green-house.jpg",
+            "caption": "Green & white gables",
+            "image_alt": "Green and white permanent lighting on a Utah home with multiple gables at night"
+          }
+        },
+        "l15": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-red-white.jpg",
@@ -76,7 +148,39 @@
             "image_alt": "Red and white permanent holiday lighting on a Utah home with a three-car garage"
           }
         },
-        "l08": {
+        "l16": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-redwhite-multicolor.jpg",
+            "caption": "Red & white candy cane",
+            "image_alt": "Red and white permanent Christmas lighting on a large gabled Utah home at night"
+          }
+        },
+        "l17": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-pink-dusk.jpg",
+            "caption": "Pink at twilight",
+            "image_alt": "Pink permanent lighting on a home silhouetted against a twilight sky in Utah"
+          }
+        },
+        "l18": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-pink-kilowash-sign.jpg",
+            "caption": "Pink & purple with yard sign",
+            "image_alt": "Pink and yellow permanent lighting on a Utah home with a Kilowash yard sign visible on the lawn"
+          }
+        },
+        "l19": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-warm-white-winter.jpg",
+            "caption": "Warm white in winter",
+            "image_alt": "Warm white permanent lighting on a large Utah home with bare winter trees at night"
+          }
+        },
+        "l20": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-garage-purple-white.jpg",
@@ -84,7 +188,23 @@
             "image_alt": "Purple and white permanent lighting on a garage gable at night"
           }
         },
-        "l09": {
+        "l21": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-multicolor-brick.jpg",
+            "caption": "Multicolor on brick & stone",
+            "image_alt": "Multicolor permanent lighting on a brick and stone Utah home at night"
+          }
+        },
+        "l22": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-blue-flood.jpg",
+            "caption": "Blue flood, commercial",
+            "image_alt": "Blue permanent flood lighting on a commercial building and deck at night"
+          }
+        },
+        "l23": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-shop-blue.jpg",
@@ -92,23 +212,7 @@
             "image_alt": "Blue permanent lighting on a detached shop gable at night"
           }
         },
-        "l10": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-project-featured-01.jpg",
-            "caption": "Pink rambler",
-            "image_alt": "Pink permanent lighting along the full roofline of a single-story Utah home"
-          }
-        },
-        "l11": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-brick-accent.jpg",
-            "caption": "Brick split-level",
-            "image_alt": "Color permanent lighting on a brick split-level home in Utah"
-          }
-        },
-        "l12": {
+        "l24": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-orange-glow.jpg",
@@ -116,7 +220,7 @@
             "image_alt": "Orange permanent lighting scene on stacked gables for Halloween"
           }
         },
-        "l13": {
+        "l25": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-warm-white.jpg",
@@ -124,7 +228,55 @@
             "image_alt": "Everyday warm white permanent lighting on a two-story Utah home"
           }
         },
-        "l14": {
+        "l26": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-white-blue-trim.jpg",
+            "caption": "White & blue trim",
+            "image_alt": "White and blue permanent lighting accenting the trim of a Utah home at night"
+          }
+        },
+        "l27": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-patio-moonlit.jpg",
+            "caption": "Patio lights under the moon",
+            "image_alt": "White permanent lighting along a patio cover at night with the moon overhead"
+          }
+        },
+        "l28": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-rgb-soffit-install.jpg",
+            "caption": "RGB soffit install in progress",
+            "image_alt": "Multi-color RGB permanent lights being installed along a patio soffit"
+          }
+        },
+        "l29": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-project-featured-01.jpg",
+            "caption": "Pink rambler",
+            "image_alt": "Pink permanent lighting along the full roofline of a single-story Utah home"
+          }
+        },
+        "l30": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-brick-accent.jpg",
+            "caption": "Brick split-level",
+            "image_alt": "Color permanent lighting on a brick split-level home in Utah"
+          }
+        },
+        "l31": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-rainbow-daytime.jpg",
+            "caption": "Rainbow colors, broad daylight",
+            "image_alt": "Rainbow-colored permanent lighting visible on a Utah home during the day showing the lights are hidden when off"
+          }
+        },
+        "l32": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-rainbow-day.jpg",
@@ -132,7 +284,7 @@
             "image_alt": "Multicolor permanent lighting scene on a Utah home at dusk"
           }
         },
-        "l15": {
+        "l33": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-commercial-lighting-night-color.jpg",
@@ -140,7 +292,7 @@
             "image_alt": "Blue and green permanent lighting on a commercial building in Syracuse, Utah, at night"
           }
         },
-        "l16": {
+        "l34": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-patio-white.jpg",
@@ -148,7 +300,7 @@
             "image_alt": "Warm white permanent lighting along a covered patio roof"
           }
         },
-        "l17": {
+        "l35": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-rgb-track.jpg",
@@ -160,6 +312,7 @@
       "block_order": [
         "l01",
         "l02",
+        "l03",
         "l04",
         "l05",
         "l06",
@@ -173,7 +326,25 @@
         "l14",
         "l15",
         "l16",
-        "l17"
+        "l17",
+        "l18",
+        "l19",
+        "l20",
+        "l21",
+        "l22",
+        "l23",
+        "l24",
+        "l25",
+        "l26",
+        "l27",
+        "l28",
+        "l29",
+        "l30",
+        "l31",
+        "l32",
+        "l33",
+        "l34",
+        "l35"
       ],
       "settings": {
         "anchor_id": "lighting-photos",
@@ -199,12 +370,36 @@
         "s02": {
           "type": "photo",
           "settings": {
+            "image_asset": "kw-solar-mountain-panels.jpg",
+            "caption": "Rooftop panels, mountain view",
+            "image_alt": "Rooftop solar panels on a Utah home with mountains in the background"
+          }
+        },
+        "s03": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-installer-ladder.jpg",
+            "caption": "Our crew at work",
+            "image_alt": "Kilowash installer on a ladder during a residential permanent lighting install in Utah"
+          }
+        },
+        "s04": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-installer-rooftop.jpg",
+            "caption": "On the roof, solar install",
+            "image_alt": "Kilowash installer on a roof next to solar panels during an install"
+          }
+        },
+        "s05": {
+          "type": "photo",
+          "settings": {
             "image_asset": "kw-fan-mountain-roof.jpg",
             "caption": "Attic fan with a view",
             "image_alt": "Solar attic fan installed on a Utah roof with the mountains behind"
           }
         },
-        "s03": {
+        "s06": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-fan-roof-install.jpg",
@@ -212,7 +407,7 @@
             "image_alt": "New solar attic fan installed beside an old roof vent on a Utah home"
           }
         },
-        "s04": {
+        "s07": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-fan-gable-mounted.jpg",
@@ -220,7 +415,7 @@
             "image_alt": "Solar attic fan mounted at the gable of a shingle roof"
           }
         },
-        "s05": {
+        "s08": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-fan-roof-single.jpg",
@@ -228,7 +423,15 @@
             "image_alt": "Low-profile solar attic fan on an asphalt shingle roof"
           }
         },
-        "s07": {
+        "s09": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-drone-rooftop.jpg",
+            "caption": "Panels from above",
+            "image_alt": "Aerial view of rooftop solar panels on a residential home in Utah"
+          }
+        },
+        "s10": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-crew-fan-ridge-view.jpg",
@@ -236,7 +439,7 @@
             "image_alt": "Solar attic fan installed near the ridge of a Utah roof under a blue sky"
           }
         },
-        "s08": {
+        "s11": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-fan-before-after.jpg",
@@ -244,7 +447,7 @@
             "image_alt": "Before and after a solar attic fan install on a Utah roof"
           }
         },
-        "s10": {
+        "s12": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-solar-roof-array.jpg",
@@ -252,7 +455,7 @@
             "image_alt": "Rooftop solar array after a Kilowash panel cleaning"
           }
         },
-        "s11": {
+        "s13": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-solar-cow-field-array.jpg",
@@ -260,7 +463,7 @@
             "image_alt": "Rooftop solar panels on a rural Utah home beside a pasture"
           }
         },
-        "s12": {
+        "s14": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-solar-low-profile.jpg",
@@ -268,7 +471,7 @@
             "image_alt": "Low-profile rooftop solar array on a Utah home"
           }
         },
-        "s14": {
+        "s15": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-critter-mesh-install.jpg",
@@ -279,8 +482,32 @@
         "s16": {
           "type": "photo",
           "settings": {
-            "image_asset": "kw-critter-bird-nest.jpg",
+            "image_asset": "kw-critter-mesh-corner.jpg",
+            "caption": "Critter Guard mesh detail",
+            "image_alt": "Close-up of Critter Guard mesh installed around the corner of a solar panel on a tile roof"
+          }
+        },
+        "s17": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-critter-commercial-mesh.jpg",
+            "caption": "Commercial Critter Guard",
+            "image_alt": "Critter Guard mesh installed across a large commercial solar array on a metal roof"
+          }
+        },
+        "s18": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-critter-nest-under-panel.jpg",
             "caption": "Why it matters",
+            "image_alt": "Bird nest with eggs found under rooftop solar panels before Critter Guard installation"
+          }
+        },
+        "s19": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-critter-bird-nest.jpg",
+            "caption": "Nesting under panels",
             "image_alt": "Bird nest found under rooftop solar panels before a Critter Guard install"
           }
         }
@@ -291,13 +518,20 @@
         "s03",
         "s04",
         "s05",
+        "s06",
         "s07",
         "s08",
+        "s09",
         "s10",
         "s11",
         "s12",
+        "s13",
         "s14",
-        "s16"
+        "s15",
+        "s16",
+        "s17",
+        "s18",
+        "s19"
       ],
       "settings": {
         "anchor_id": "solar-photos",
