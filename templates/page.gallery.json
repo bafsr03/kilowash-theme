@@ -60,28 +60,12 @@
             "image_alt": "Red and green permanent Christmas lighting on a stone-and-siding craftsman home in Utah"
           }
         },
-        "l05": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-purple-stone-craftsman.jpg",
-            "caption": "Purple scene, same home",
-            "image_alt": "Purple and pink permanent lighting scene on a stone-and-siding craftsman home in Utah"
-          }
-        },
         "l06": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-amber-modern.jpg",
             "caption": "Amber architectural lighting",
             "image_alt": "Warm amber permanent lighting accenting the angles of a modern home at night in Utah"
-          }
-        },
-        "l07": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-purple-white.jpg",
-            "caption": "Purple & white scene",
-            "image_alt": "Purple and white permanent lighting scene on a two-story Utah home at night"
           }
         },
         "l08": {
@@ -100,14 +84,6 @@
             "image_alt": "Multi-color permanent Christmas lighting across every gable of a large Utah home"
           }
         },
-        "l10": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-purple-multi-gables.jpg",
-            "caption": "Purple glow, full house",
-            "image_alt": "Purple and multi-color permanent lighting scene covering every roofline of a Utah home at night"
-          }
-        },
         "l11": {
           "type": "photo",
           "settings": {
@@ -116,28 +92,12 @@
             "image_alt": "Red and green permanent Christmas lights along the gables of a Utah home"
           }
         },
-        "l12": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-christmas-colonial.jpg",
-            "caption": "Christmas colonial",
-            "image_alt": "Red and green permanent Christmas lighting on a large colonial-style Utah home at night"
-          }
-        },
         "l13": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-green-white.jpg",
             "caption": "Green & white scene",
             "image_alt": "Green and white permanent lighting on the rooflines of a Utah home at night"
-          }
-        },
-        "l15": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-red-white.jpg",
-            "caption": "Holiday red & white",
-            "image_alt": "Red and white permanent holiday lighting on a Utah home with a three-car garage"
           }
         },
         "l17": {
@@ -202,14 +162,6 @@
             "image_asset": "kw-light-orange-glow.jpg",
             "caption": "Orange for Halloween",
             "image_alt": "Orange permanent lighting scene on stacked gables for Halloween"
-          }
-        },
-        "l25": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-warm-white.jpg",
-            "caption": "Everyday warm white",
-            "image_alt": "Everyday warm white permanent lighting on a two-story Utah home"
           }
         },
         "l26": {
@@ -330,16 +282,11 @@
         "l02",
         "l03",
         "l04",
-        "l05",
         "l06",
-        "l07",
         "l08",
         "l09",
-        "l10",
         "l11",
-        "l12",
         "l13",
-        "l15",
         "l17",
         "l18",
         "l19",
@@ -348,7 +295,6 @@
         "l22",
         "l23",
         "l24",
-        "l25",
         "l26",
         "l28",
         "l29",
