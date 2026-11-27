@@ -307,6 +307,54 @@
             "caption": "Pergola in color",
             "image_alt": "Color permanent lighting on a backyard pergola and patio posts"
           }
+        },
+        "l36": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-pink-warm-rambler-dusk.jpg",
+            "caption": "Pink & warm white at dusk",
+            "image_alt": "Pink and warm white permanent lighting on a stone rambler at dusk with mountains behind in Utah"
+          }
+        },
+        "l37": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-christmas-garage-glow.jpg",
+            "caption": "Christmas glow on garage",
+            "image_alt": "Red and green permanent Christmas lighting reflecting off the siding of a Utah garage at night"
+          }
+        },
+        "l38": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-rainbow-brick-closeup.jpg",
+            "caption": "Rainbow gable close-up",
+            "image_alt": "Close-up of rainbow-colored permanent lighting along a brick gable at dusk in Utah"
+          }
+        },
+        "l39": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-rainbow-barn.jpg",
+            "caption": "Rainbow on barn garage",
+            "image_alt": "Rainbow-colored permanent lighting on a barn-style garage at night in Utah"
+          }
+        },
+        "l40": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-patriotic-cyan-red.jpg",
+            "caption": "Patriotic cyan & red",
+            "image_alt": "Cyan and red permanent lighting on a two-story Utah home at night"
+          }
+        },
+        "l41": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-light-purple-cottage.jpg",
+            "caption": "Purple cottage glow",
+            "image_alt": "Purple permanent lighting washing over a small cottage-style Utah home at night"
+          }
         }
       },
       "block_order": [
@@ -344,7 +392,13 @@
         "l32",
         "l33",
         "l34",
-        "l35"
+        "l35",
+        "l36",
+        "l37",
+        "l38",
+        "l39",
+        "l40",
+        "l41"
       ],
       "settings": {
         "anchor_id": "lighting-photos",
@@ -510,6 +564,70 @@
             "caption": "Nesting under panels",
             "image_alt": "Bird nest found under rooftop solar panels before a Critter Guard install"
           }
+        },
+        "s20": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-autumn-array.jpg",
+            "caption": "Panel close-up, autumn",
+            "image_alt": "Close-up of rooftop solar panels on a Utah home with autumn foliage in the background"
+          }
+        },
+        "s21": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-critterguard-mountains.jpg",
+            "caption": "Critter Guard with mountain view",
+            "image_alt": "Solar panels with Critter Guard mesh installed on a Utah rooftop with mountains in the background"
+          }
+        },
+        "s22": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-critter-debris-under-panels.jpg",
+            "caption": "Debris under unprotected panels",
+            "image_alt": "Bird debris and nesting material found under unprotected rooftop solar panels before Critter Guard installation"
+          }
+        },
+        "s23": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-critter-mess-between-panels.jpg",
+            "caption": "Mess between panel rows",
+            "image_alt": "Droppings and debris between rows of rooftop solar panels showing why Critter Guard protection is needed"
+          }
+        },
+        "s24": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-critter-mesh-diagram.jpg",
+            "caption": "How Critter Guard mesh works",
+            "image_alt": "Diagram showing how critter guard mesh clips to solar panel frames and keeps birds and pests out"
+          }
+        },
+        "s25": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-house-preinstall.jpg",
+            "caption": "Home before install",
+            "image_alt": "Utah home exterior before a Kilowash solar and lighting installation"
+          }
+        },
+        "s26": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-panels-staged.jpg",
+            "caption": "Panels staged for install",
+            "image_alt": "Solar panels staged on the ground next to a Utah home ready for rooftop installation"
+          }
+        },
+        "s27": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "kw-solar-installer-rooftop-work.jpg",
+            "caption": "Installer on the roof",
+            "image_alt": "Kilowash installer working on a residential rooftop during a solar panel installation"
+          }
         }
       },
       "block_order": [
@@ -531,7 +649,15 @@
         "s16",
         "s17",
         "s18",
-        "s19"
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s23",
+        "s24",
+        "s25",
+        "s26",
+        "s27"
       ],
       "settings": {
         "anchor_id": "solar-photos",
