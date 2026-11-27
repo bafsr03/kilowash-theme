@@ -148,28 +148,12 @@
             "image_alt": "Blue permanent flood lighting on a commercial building and deck at night"
           }
         },
-        "l23": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-shop-blue.jpg",
-            "caption": "Shop gable in blue",
-            "image_alt": "Blue permanent lighting on a detached shop gable at night"
-          }
-        },
         "l24": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-orange-glow.jpg",
             "caption": "Orange for Halloween",
             "image_alt": "Orange permanent lighting scene on stacked gables for Halloween"
-          }
-        },
-        "l26": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-white-blue-trim.jpg",
-            "caption": "White & blue trim",
-            "image_alt": "White and blue permanent lighting accenting the trim of a Utah home at night"
           }
         },
         "l28": {
@@ -186,14 +170,6 @@
             "image_asset": "kw-project-featured-01.jpg",
             "caption": "Pink rambler",
             "image_alt": "Pink permanent lighting along the full roofline of a single-story Utah home"
-          }
-        },
-        "l30": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-brick-accent.jpg",
-            "caption": "Brick split-level",
-            "image_alt": "Color permanent lighting on a brick split-level home in Utah"
           }
         },
         "l32": {
@@ -220,28 +196,12 @@
             "image_alt": "Warm white permanent lighting along a covered patio roof"
           }
         },
-        "l35": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-rgb-track.jpg",
-            "caption": "Pergola in color",
-            "image_alt": "Color permanent lighting on a backyard pergola and patio posts"
-          }
-        },
         "l36": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-pink-warm-rambler-dusk.jpg",
             "caption": "Pink & warm white at dusk",
             "image_alt": "Pink and warm white permanent lighting on a stone rambler at dusk with mountains behind in Utah"
-          }
-        },
-        "l37": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-christmas-garage-glow.jpg",
-            "caption": "Christmas glow on garage",
-            "image_alt": "Red and green permanent Christmas lighting reflecting off the siding of a Utah garage at night"
           }
         },
         "l38": {
@@ -293,18 +253,13 @@
         "l20",
         "l21",
         "l22",
-        "l23",
         "l24",
-        "l26",
         "l28",
         "l29",
-        "l30",
         "l32",
         "l33",
         "l34",
-        "l35",
         "l36",
-        "l37",
         "l38",
         "l39",
         "l40",
