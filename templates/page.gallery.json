@@ -132,28 +132,12 @@
             "image_alt": "Green and white permanent lighting on the rooflines of a Utah home at night"
           }
         },
-        "l14": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-green-house.jpg",
-            "caption": "Green & white gables",
-            "image_alt": "Green and white permanent lighting on a Utah home with multiple gables at night"
-          }
-        },
         "l15": {
           "type": "photo",
           "settings": {
             "image_asset": "kw-light-red-white.jpg",
             "caption": "Holiday red & white",
             "image_alt": "Red and white permanent holiday lighting on a Utah home with a three-car garage"
-          }
-        },
-        "l16": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-redwhite-multicolor.jpg",
-            "caption": "Red & white candy cane",
-            "image_alt": "Red and white permanent Christmas lighting on a large gabled Utah home at night"
           }
         },
         "l17": {
@@ -236,14 +220,6 @@
             "image_alt": "White and blue permanent lighting accenting the trim of a Utah home at night"
           }
         },
-        "l27": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-patio-moonlit.jpg",
-            "caption": "Patio lights under the moon",
-            "image_alt": "White permanent lighting along a patio cover at night with the moon overhead"
-          }
-        },
         "l28": {
           "type": "photo",
           "settings": {
@@ -266,14 +242,6 @@
             "image_asset": "kw-light-brick-accent.jpg",
             "caption": "Brick split-level",
             "image_alt": "Color permanent lighting on a brick split-level home in Utah"
-          }
-        },
-        "l31": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-light-rainbow-daytime.jpg",
-            "caption": "Rainbow colors, broad daylight",
-            "image_alt": "Rainbow-colored permanent lighting visible on a Utah home during the day showing the lights are hidden when off"
           }
         },
         "l32": {
@@ -371,9 +339,7 @@
         "l11",
         "l12",
         "l13",
-        "l14",
         "l15",
-        "l16",
         "l17",
         "l18",
         "l19",
@@ -384,11 +350,9 @@
         "l24",
         "l25",
         "l26",
-        "l27",
         "l28",
         "l29",
         "l30",
-        "l31",
         "l32",
         "l33",
         "l34",
@@ -557,14 +521,6 @@
             "image_alt": "Bird nest with eggs found under rooftop solar panels before Critter Guard installation"
           }
         },
-        "s19": {
-          "type": "photo",
-          "settings": {
-            "image_asset": "kw-critter-bird-nest.jpg",
-            "caption": "Nesting under panels",
-            "image_alt": "Bird nest found under rooftop solar panels before a Critter Guard install"
-          }
-        },
         "s20": {
           "type": "photo",
           "settings": {
@@ -649,7 +605,6 @@
         "s16",
         "s17",
         "s18",
-        "s19",
         "s20",
         "s21",
         "s22",
